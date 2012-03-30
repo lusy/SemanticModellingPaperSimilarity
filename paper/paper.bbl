@@ -1,0 +1,50 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{HKP{\etalchar{+}}09}
+
+\bibitem[BC90]{Bench-Capon:1990:KR}
+T.J.M. Bench-Capon.
+\newblock {\em Semantic networks}, chapter 6.1., pages 79--86.
+\newblock The Apic Series. Academic Press, 1990.
+
+\bibitem[Gru93]{Gruber:1993:TPDOUKS}
+Thomas~R. Gruber.
+\newblock Toward Principles for the Design of Ontologies Used for Knowledge
+  Sharing.
+\newblock In {\em Formal Ontology in Conceptual Analysis and Knowledge
+  Representation}. Kluwer Academic Publishers, 1993.
+
+\bibitem[Hav09]{frank2009einfuehrung}
+Frank Havemann.
+\newblock {\em Einf\"{u}hrung in die Bibliometrie}.
+\newblock Gesellschaft fur Wissenschaftsforschung Berlin, 2009.
+
+\bibitem[HKP{\etalchar{+}}09]{owl2primer}
+Pascal Hitzler, Markus Kr{\"o}tzsch, Bijan Parsia, Peter~F. Patel-Schneider,
+  and Sebastian Rudolph.
+\newblock {OWL} 2 Web Ontology Language --- Primer.
+\newblock World Wide Web Consortium, Working Draft WD-owl2-primer-20090421,
+  April 2009.
+
+\bibitem[HKRS07]{Hitzler:2007:SW}
+Pascal Hitzler, Markus Kr\"{o}tzsch, Sebastian Rudolph, and York Sure.
+\newblock {\em Semantic Web}.
+\newblock Springer, 2007.
+
+\bibitem[KB08]{DBLP:conf/amcis/KimB08}
+Hyunjung Kim and George~A. Barnett.
+\newblock Social Network Analysis Using Author Co-Citation Data.
+\newblock In {\em AMCIS}, page 172, 2008.
+
+\bibitem[Sch00]{DBLP:conf/isiwi/Schlogl00}
+Christian Schl{\"o}gl.
+\newblock Informationskompetenz am Beispiel einer szientometrischen
+  Untersuchung zum Informationsmanagement.
+\newblock In {\em ISI}, pages 89--112, 2000.
+
+\bibitem[Sto98]{stock1998publikation}
+W.G. Stock.
+\newblock Was ist eine Publikation? Zum Problem der Einheitenbildung in der
+  Wissenschaftsforschung.
+\newblock {\em Laitko, Hubert (Hrsg.)}, pages 239--282, 1998.
+
+\end{thebibliography}
