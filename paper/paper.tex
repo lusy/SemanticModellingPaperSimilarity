@@ -1,0 +1,69 @@
+\documentclass{lni}
+
+
+%\IfFileExists{latin1.sty}{\usepackage{latin1}}{\usepackage{isolatin1}}
+\usepackage[latin1]{inputenc}
+% Verwenden von T1 Fonts
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+%\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{float}
+
+\floatstyle{ruled}
+\newfloat{program}{H}{lop}
+\floatname{program}{Listing}
+\include{syntax}
+\usepackage{lastpage}
+\thispagestyle{plain}
+\pagenumbering{arabic}
+
+
+\author{
+	Lusy \\
+	\\
+	%Abteilung \\
+	Freie Universität Berlin \\
+	%Anschrift \\
+	%Postleitzahl Ort \\
+	emaiaddresse@autor1 
+}
+\title{Semantische Modellierung von mathematischen Publikationen und Definition eines geeigneten Ähnlichkeitsmaßes}
+
+\newtheorem{mdef}{Definition}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+lala
+\end{abstract}
+
+\tableofcontents
+\newpage
+%-------------------------------------------------------
+%----Hauptteil------------------------------------------
+%-------------------------------------------------------
+
+%\input{1-Einleitung}
+%\input{2-Grundlagen}
+%\input{3-Entwurf und Implementierung}
+%\input{4-Evaluation}
+%\input{5-Zusammenfassung}
+
+\nocite{*}
+%\nocite{HasChe11}
+%\nocite{DBLP:journals/jmlr/HahslerCHB11}
+%\nocite{HahGruHorBuc11}
+\newpage
+
+\bibliographystyle{lni}
+\bibliography{vorl-literatur}
+
+\end{document}
