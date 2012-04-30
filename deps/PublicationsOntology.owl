@@ -16,16 +16,11 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      ontologyIRI="http://www.semanticweb.org/ontologies/2012/3/PublicationsOntology.owl">
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Declaration>
-        <Class IRI="#Abstract"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#An"/>
-    </Declaration>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
         <Class IRI="#Author"/>
     </Declaration>
@@ -37,9 +32,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#EnglishKeyword"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Id"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Language"/>
@@ -66,12 +58,6 @@
         <ObjectProperty IRI="#classHasPublication"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasAbstract"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasAn"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasAuthor"/>
     </Declaration>
     <Declaration>
@@ -81,9 +67,6 @@
         <ObjectProperty IRI="#hasEditor"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasId"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasKeyword"/>
     </Declaration>
     <Declaration>
@@ -91,12 +74,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasTitle"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isAbstractOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isAnOf"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isAuthorOf"/>
@@ -111,9 +88,6 @@
         <ObjectProperty IRI="#isEditorOf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isIdOf"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#isKeywordOf"/>
     </Declaration>
     <Declaration>
@@ -131,17 +105,22 @@
     <Declaration>
         <ObjectProperty IRI="#wasPublishedInYear"/>
     </Declaration>
-    <SubClassOf>
-        <Class IRI="#An"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </SubClassOf>
+    <Declaration>
+        <DataProperty IRI="#hasAbstract"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasAccessionNumber"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasId"/>
+    </Declaration>
     <SubClassOf>
         <Class IRI="#Author"/>
         <Class IRI="#Contributor"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Contributor"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Editor"/>
@@ -149,74 +128,47 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#EnglishKeyword"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Id"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Language"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#MSC_Class"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#PublicationYear"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Source"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Title"/>
-        <Class abbreviatedIRI="owl:Thing"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
-    <DisjointClasses>
-        <Class IRI="#An"/>
-        <Class IRI="#Contributor"/>
-        <Class IRI="#EnglishKeyword"/>
-        <Class IRI="#Id"/>
-        <Class IRI="#Language"/>
-        <Class IRI="#MSC_Class"/>
-        <Class IRI="#PublicationYear"/>
-        <Class IRI="#Source"/>
-        <Class IRI="#Title"/>
-    </DisjointClasses>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isCitedBy"/>
         <ObjectProperty IRI="#cites"/>
+        <ObjectProperty IRI="#isCitedBy"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#classHasPublication"/>
         <ObjectProperty IRI="#hasClassificationCode"/>
+        <ObjectProperty IRI="#classHasPublication"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isAbstractOf"/>
-        <ObjectProperty IRI="#hasAbstract"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#isAnOf"/>
-        <ObjectProperty IRI="#hasAn"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#isAuthorOf"/>
         <ObjectProperty IRI="#hasAuthor"/>
+        <ObjectProperty IRI="#isAuthorOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isEditorOf"/>
         <ObjectProperty IRI="#hasEditor"/>
+        <ObjectProperty IRI="#isEditorOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isIdOf"/>
-        <ObjectProperty IRI="#hasId"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#isKeywordOf"/>
         <ObjectProperty IRI="#hasKeyword"/>
+        <ObjectProperty IRI="#isKeywordOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasPublications"/>
@@ -231,29 +183,11 @@
         <ObjectProperty IRI="#isWrittenInLanguage"/>
     </InverseObjectProperties>
     <FunctionalObjectProperty>
-        <ObjectProperty IRI="#hasAbstract"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#hasAn"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#hasId"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
         <ObjectProperty IRI="#hasTitle"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#wasPublishedInYear"/>
     </FunctionalObjectProperty>
-    <InverseFunctionalObjectProperty>
-        <ObjectProperty IRI="#isAbstractOf"/>
-    </InverseFunctionalObjectProperty>
-    <InverseFunctionalObjectProperty>
-        <ObjectProperty IRI="#isAnOf"/>
-    </InverseFunctionalObjectProperty>
-    <InverseFunctionalObjectProperty>
-        <ObjectProperty IRI="#isIdOf"/>
-    </InverseFunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="#isTitleOf"/>
     </InverseFunctionalObjectProperty>
@@ -269,14 +203,6 @@
         <Class IRI="#MSC_Class"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasAbstract"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasAn"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAuthor"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
@@ -289,24 +215,12 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasId"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPublications"/>
         <Class IRI="#Source"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasTitle"/>
         <Class IRI="#Publication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isAbstractOf"/>
-        <Class IRI="#Abstract"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isAnOf"/>
-        <Class IRI="#An"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isAuthorOf"/>
@@ -323,10 +237,6 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isEditorOf"/>
         <Class IRI="#Editor"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isIdOf"/>
-        <Class IRI="#Id"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isKeywordOf"/>
@@ -361,14 +271,6 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasAbstract"/>
-        <Class IRI="#Abstract"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasAn"/>
-        <Class IRI="#An"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasAuthor"/>
         <Class IRI="#Author"/>
     </ObjectPropertyRange>
@@ -381,24 +283,12 @@
         <Class IRI="#Editor"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasId"/>
-        <Class IRI="#Id"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasPublications"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasTitle"/>
         <Class IRI="#Title"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isAbstractOf"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isAnOf"/>
-        <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isAuthorOf"/>
@@ -414,10 +304,6 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isEditorOf"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isIdOf"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -444,16 +330,44 @@
         <ObjectProperty IRI="#wasPublishedInYear"/>
         <Class IRI="#PublicationYear"/>
     </ObjectPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#An</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Corresponds to the field :an: in the data base,  One example for the usage is :an:	1202.01020
-</Literal>
-    </AnnotationAssertion>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasAbstract"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasAccessionNumber"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasId"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasAbstract"/>
+        <Class IRI="#Publication"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasAccessionNumber"/>
+        <Class IRI="#Publication"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasId"/>
+        <Class IRI="#Publication"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasAbstract"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasId"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Author</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Authors and Editors are not necessarily disjoint, since the same person could be an author of one publication, but the editor of another.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Author</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">to identify them unambiguous, the :ai: (author identifier) field of the data set should be used; it is a unique string representation of author names, that guarantees that for example M. Gardner and Martin Gardner are the same person.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -462,9 +376,13 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Id</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Has the format :id: 5832225
-</Literal>
+        <IRI>#EnglishKeyword</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">stays a class for now - idea: later use semantic relations to model similarity measures</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Language</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">should it be a dataTypeProperty instead?</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -475,6 +393,34 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Title</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Is the title of a scientific publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Title</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">idea: could be modelled as a bag of words and used as a class, so that we can later use semantic relations in our evaluation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAbstract</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Later on we could parse the abstract and extract a bag of key words from it as well and use them to build some kind of semantic relationships</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAccessionNumber</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Corresponds to the field :an: in the data base,  One example for the usage is :an:	1202.01020
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAccessionNumber</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Does &quot;functional&quot; mean that there is exactly one such property or at most one?
+An fields are not always filled in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasId</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Has the format :id: 5832225
+</Literal>
     </AnnotationAssertion>
 </Ontology>
 
