@@ -215,6 +215,10 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasKeyword"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPublications"/>
         <Class IRI="#Source"/>
     </ObjectPropertyDomain>
@@ -281,6 +285,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasEditor"/>
         <Class IRI="#Editor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasKeyword"/>
+        <Class IRI="#EnglishKeyword"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasPublications"/>
