@@ -25,6 +25,12 @@
         <Class IRI="#Author"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Book"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conference"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Contributor"/>
     </Declaration>
     <Declaration>
@@ -32,6 +38,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#EnglishKeyword"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Journal"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Language"/>
@@ -55,9 +64,6 @@
         <ObjectProperty IRI="#cites"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#classHasPublication"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasAuthor"/>
     </Declaration>
     <Declaration>
@@ -70,6 +76,9 @@
         <ObjectProperty IRI="#hasKeyword"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasLanguage"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasPublications"/>
     </Declaration>
     <Declaration>
@@ -80,6 +89,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isCitedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isCoAuthorWith"/>
@@ -114,9 +126,68 @@
     <Declaration>
         <DataProperty IRI="#hasId"/>
     </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasTitleString"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#01A50"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#01A75"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#12E12"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#1796"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#2009"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Berlin:_Nauk"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Cambridge_Library_Collection_-_Mathematics._Cambridge:_Cambridge_University_Press"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DE"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EN"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Euler"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lagrange"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Publication_1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Publication_2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#algebra"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#elementary_algebra__advanced_algebra"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#euler.leonhard"/>
+    </Declaration>
     <SubClassOf>
         <Class IRI="#Author"/>
         <Class IRI="#Contributor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Book"/>
+        <Class IRI="#Source"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conference"/>
+        <Class IRI="#Source"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Contributor"/>
@@ -129,6 +200,10 @@
     <SubClassOf>
         <Class IRI="#EnglishKeyword"/>
         <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Journal"/>
+        <Class IRI="#Source"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Language"/>
@@ -150,17 +225,241 @@
         <Class IRI="#Title"/>
         <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Book"/>
+        <Class IRI="#Conference"/>
+        <Class IRI="#Journal"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#MSC_Class"/>
+        <NamedIndividual IRI="#01A50"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MSC_Class"/>
+        <NamedIndividual IRI="#01A75"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MSC_Class"/>
+        <NamedIndividual IRI="#12E12"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PublicationYear"/>
+        <NamedIndividual IRI="#1796"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#PublicationYear"/>
+        <NamedIndividual IRI="#2009"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Journal"/>
+        <NamedIndividual IRI="#Berlin:_Nauk"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Book"/>
+        <NamedIndividual IRI="#Cambridge_Library_Collection_-_Mathematics._Cambridge:_Cambridge_University_Press"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Language"/>
+        <NamedIndividual IRI="#DE"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Language"/>
+        <NamedIndividual IRI="#EN"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EnglishKeyword"/>
+        <NamedIndividual IRI="#Euler"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EnglishKeyword"/>
+        <NamedIndividual IRI="#Lagrange"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Publication"/>
+        <NamedIndividual IRI="#Publication_1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Publication"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#EnglishKeyword"/>
+        <NamedIndividual IRI="#algebra"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Title"/>
+        <NamedIndividual IRI="#elementary_algebra__advanced_algebra"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Author"/>
+        <NamedIndividual IRI="#euler.leonhard"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
+        <NamedIndividual IRI="#01A50"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
+        <NamedIndividual IRI="#01A75"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
+        <NamedIndividual IRI="#12E12"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">:so:	Berlin: Nauk. v, 312~p./v.1; iv, 403~p./v.2. (1796/1797).
+</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#hasPublications"/>
+        <NamedIndividual IRI="#Berlin:_Nauk"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isKeywordOf"/>
+        <NamedIndividual IRI="#Euler"/>
+        <NamedIndividual IRI="#Publication_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isKeywordOf"/>
+        <NamedIndividual IRI="#Lagrange"/>
+        <NamedIndividual IRI="#Publication_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cites"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAuthor"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#euler.leonhard"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasClassificationCode"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#01A50"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasClassificationCode"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#12E12"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasClassificationCode"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#01A75"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasLanguage"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#DE"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasTitle"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#elementary_algebra__advanced_algebra"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">:so:	Cambridge Library Collection - Mathematics. Cambridge: Cambridge University Press (ISBN 978-1-108-00193-9/v.1; 978-1-108-00194-6/v.2; 978-1-108-00211-0/v.3; 978-1-108-00195-3/pbk-set). 312~p./v.1; xiv, 404~p./v.2; xvi, 327~p./v.3. \sterling~56.00; \$~87.00 (2009).
+</Literal>
+        </Annotation>
+        <ObjectProperty IRI="#isPublishedIn"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#Cambridge_Library_Collection_-_Mathematics._Cambridge:_Cambridge_University_Press"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wasPublishedInYear"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#2009"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAuthor"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <NamedIndividual IRI="#euler.leonhard"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasLanguage"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <NamedIndividual IRI="#DE"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#wasPublishedInYear"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <NamedIndividual IRI="#1796"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isKeywordOf"/>
+        <NamedIndividual IRI="#algebra"/>
+        <NamedIndividual IRI="#Publication_1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isTitleOf"/>
+        <NamedIndividual IRI="#elementary_algebra__advanced_algebra"/>
+        <NamedIndividual IRI="#Publication_2"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAbstract"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">This paperback edition in three volumes is a useful reprint of Gr\&quot;uson&apos;s edition of Euler&apos;s famous algebra textbook for students ``Vollst\&quot;andige Anleitung zur Niederen und H\&quot;oheren Algebra&quot; (Complete instruction to elementary and advanced algebra) in German. It appeared in 1796/97  [G. C. Nauk Verlag (1797; Zbl 1207.01039)], including also a German translation of Lagrange&apos;s French additions by Kau{\ss}ler. The bibliography of Euler&apos;s ``Vollst\&quot;andige Anleitung zur Algebra&quot; (Elements of Algebra, E 387/88 -- E refers to the Enestroem Index) is a little bit confusing. The ``Elements&quot; appeared first in 1768/69, published by the St. Petersburg Academy, but in a Russian translation by P. Inokhodtsov and I. Iudin, then the same Academy published a German edition in 1770. In 1774 Euler&apos;s successor in Berlin, Joseph-Louis Lagrange, initiated a French edition of the ``Elements&quot; with his own additions (about 100 pages); so Euler&apos;s German text was translated into French by Johann III Bernoulli who also lived in Berlin. This French edition was the starting point for the English edition, which was begun by Francis Horner. He died before he had completed the work, and left it to John Hewlett who finally edited an English translation in 1797. There were further translations into other European languages, for example into Dutch in 1773, into Russian in a second translation by V. Viskovatov in 1812, or even Latin in 1790; also selections of the ``Elements&quot; appeared (in German by J. Ebert in 1789, in English by J. Farrar in 1818). In 1972 C. Truesdell and in 2007 C. Sangwin edited the English issue, the former with an introduction ``Euler, supreme geometer&quot;, the latter with a modernized text and shortened annotations of Part I of Hewlett&apos;s edition. Finally, the Cambridge Library Collection contains not only the books under review but also a reprint of Hewlett&apos;s translation (2009). \par The Russian Academy published a second and third German edition in 1771 and 1802; later editions are due to the Reclam publisher, starting in 1883 (ed. L. Natani) up to 1942, with more than 100.000 copies sold. In 1959 a revised edition by J. E. Hofmann and J. Niessner was published, finally in 1911 the ``Opera omnia Euleri&quot; opened with Euler&apos;s ``Elements&quot; edited by H. Weber (series I, volume 1). The edition under review is a revised one. Gr\&quot;uson (1768-1857), also Gruson, was a German mathematician, from 1794 in Berlin and from 1798 a member of Berlin&apos;s Academy. He wrote in his Preface that he dressed the wordy and lengthy presentation (wortreichen und weitl\&quot;aufigen Vortrag) by Euler in a more attractive robe (in ein den Geschmack weniger beleidigendes Gewand) but finally he himself also added some long-winded notes (at least from our viewpoint). So did the translator of Lagrange&apos;s additions (vol. 3) by supplying an appendix of 79 pages. Gr\&quot;uson announced in his Preface (Vorbericht) that the third volume would contain also the elements of the calculus; but the actual volume does not. The editors of the German issue of the ``Elements&quot; (1770) inserted a Preface in which they report that the almost blind Euler dictated the ``Elements&quot; to an uneducated German servant. \par The translator of the French edition Johann III Bernoulli remarked: ``I have endeavored to translate this algebra in the style best suited to works of the kind. My chief anxiety was to enter into the sense of the original, and to render it with the greatest perspicuity. Perhaps I may presume to give my translation some superiority over the original, because that work having been dictated, and admitting of no revision from the [almost blind] author himself, it is easy to conceive that in many passages it would stand in need of correction. If I have not submitted to translate literally, I have not failed to follow my author step by step. \dots Nor shall I take any more notice of the notes which I have added to the first part. They are not so numerous as to make me fear the reproach of having unnecessarily increased the volume.&quot; \par Gr\&quot;uson improved some numerical calculations made by Euler (for example in vol. 2: part II, \S\S 109, 111 (table), 140) but did not notice further mistakes (for example vol. 2: part I, \S 198, $x =-3$ and $x = -4$ are not solutions; \S 227, case III 1126819/894348 is correct; part II, \S 175 negative $q$ omitted). Moreover, he made also some confusing remarks such as this one: ``Positive quantities are less than nothing.&quot; (I, \S 18, Zus\&quot;atze 3 and 4) \par Euler left Berlin on June 1, 1766 and arrived in St.~Petersburg in July 1766. Already in 1769 the first part of the Russian translation was printed. Probably Euler began the writing of the ``Elements&quot; in Berlin, at least he made a draft for the book in Berlin which must have been finished in 1768 at latest. Four small matters support this conjecture: in two examples Euler embedded the numbers 1765 and 1766 (\S\S 243, 421) also in his ``Letters&quot; (part II, E 344), he liked to play with dates by speaking of an 1761-hon (Letter written February 7, 1761) or asking for the invention of gunpowder (1734-354) in his ``Rechenkunst&quot;, ch. 3 (E 17). \par Euler was the leading mathematician in the 18th century. His ``Elements&quot; were intended to introduce students to the field. What was Algebra for Euler? \par We read (Part I, \S\S 5-7): ``\dots\ all magnitudes may be expressed by numbers; \dots\ the foundation of all the Mathematical Sciences must be laid in a complete treatise on the science of Numbers, and in an accurate examination of the different possible methods of calculation. This fundamental part of mathematics is called Analysis, or Algebra. In Algebra then we consider only numbers which represent quantities, without regarding the different kinds of quantity. These are the subjects of other branches of the mathematics. \dots\ Algebra, on the contrary, comprehends in general all the cases which can exist in the doctrine and calculation of numbers.&quot; (Hewlett 31822) \par Part II opens with a more specified determination of Algebra: ``The principal object of Algebra, as well as of all the other branches of the Mathematics, is to determine the value of quantities which were before unknown; and this is obtained by considering attentively the conditions given, which are always expressed in known numbers: for which reason Algebra has been defined, The science which teaches how to determine unknown quantities by means of those that are known.&quot; (Hewlett 31822) \par Before Euler&apos;s ``Elements&quot; another algebra textbook was published by Maclaurin in 1748, ``A Treatise of Algebra&quot; which went through six editions. Maclaurin declared: Algebra is ``a general method of computation by certain signs and symbols \dots\ [and] it is called an Universal Arithmetic and proceeds by operations and rules similar to those in common arithmetic.&quot; For him algebra is more or less generalized arithmetic. \par Euler divided his subject in this way: \par Part I. Analysis of Determinate Quantities (vol.1) 1. Different methods of calculating simple quantities 2. Methods of calculating compound quantities 3. Ratios and proportions \par Part II. Analysis of Indeterminate Quantities (vol. 2) 4. Algebraic equations, resolution of those equations 5. Analysis of Indeterminate quantities \par [Additions M. de la Grange, vol. 3] \par Euler starts with the introduction and discussion of positive and negative quantities (justifying the rule $(-a)(-b) = ab$; \S\S 33f., 54) and continues with various kinds of numbers, also imaginary numbers. For the justification of irrational numbers it ``is sufficient to give us an idea of the number, since it is in our power to approximate towards its value continually.&quot; (I, \S 129). \par Let us look at his introduction of imaginary numbers (I, \S\S 140-145): ``When it is required \dots\ to extract the root of a negative number, a great difficulty arises [motivation in \S 151 using a problem posed by Cardano in 1545: $ab = 40, a + b = 40$] \dots\ We must \dots\ conclude, that the square root of a negative number cannot be either a positive number or a negative number; \dots\  consequently the root in question must belong to an entirely distinct species of numbers. \dots\ It is evident that we cannot rank the square root of a negative number amongst possible numbers, and we must therefore say that it is an impossible quantity. In this manner we are led to the idea of numbers which from their nature are impossible, which numbers are usually called Imaginary quantities, because they exist merely in the imagination. \dots\ But notwithstanding this, these numbers present themselves to the mind; they exist in our imagination, and we still have a sufficient idea of them; since we know that by $\sqrt{-4}$ is meant a number which, multiplied by itself, produces $-4$; for this reason also, nothing prevents us from making use of these imaginary numbers, and employing them in calculation.&quot; (Hewlett 31822). \par Remarkably, Euler dared to introduce imaginary number after only 40 pages! \par This is the manner in which these various kinds of numbers are introduced, motivated and explained; the construction of the different algebraic areas (module, ring, field) was a task of the next century [see the reviewer, ``Der Weg zur modernen Algebra,&apos;&apos; in: Emil Artin (1898--1962). Contributions to life, work and personality. Algorismus 61. Augsburg: ERV Dr. Erwin Rauner Verlag.  (2007; Zbl 1200.01039), sec. 7.3]. However, proceeding in this way Euler overlooks problems of extensions. In I, \S 135 he explained $\sqrt{-4}\times\sqrt{-4} = -4$, but somewhat later he made a blunder: $\sqrt{-2} \times\sqrt{-3} = \sqrt{(-2)(-3)} = \sqrt{6}$ (I, \S 148), similarly in \S 149; Gr\&quot;uson improves Euler here. The symbol $i =\sqrt{-1}$ was introduced by Euler later, in 1777 (E 671, published in 1794). Incidentally, Part I was already partly covered in Euler&apos;s elementary text book ``Rechenkunst&quot; (1738-40, E 17, 35) in which imaginary numbers were excluded. Euler introduces logarithms, infinite series, and the binomial theorem. Logarithms are understood as a further converse operation of raising a to power $c$\,: $a = b^c$ with the conversions $b = \root \uproot 2 \leftroot 3 c \of a$ and $c = a\log b$. Furthermore we find arithmetical and geometrical series as well as polygonal (figurate) numbers. The geometrical series is introduced in terms of division (I, \S 289) without any discussion of convergence. But Euler is convinced that the value of the series $1 + a + a^2 + a^3 + \dots$ is equal to that one of the fraction $1/(1-a)$ representing the sum (also for $a = 1$, that is, $1/0 = \infty$ (I, \S\S 292f., 299; II, \S 246). Furthermore, the ``Elements&quot; contain Euler&apos;s proofs of Fermat&apos;s Last Theorem for the special cases $n = 3$ and 4 (II, \S\S 155, 205, see also E 98). \par The second part is devoted to the solution of algebraic equations and the analysis of indeterminate quantities: Of course, Euler treated algebraic equations up to the fourth degree only, for higher degrees he gave approximations. The final part of Diophantine equations is the part which was extended by Lagrange (vol. 3). In the Preface we are informed: ``Those who are fond of Diophantine problems, will be pleased to find \dots\ all these problems reduced to a system, and all the processes of calculation, which are necessary for the solution of them, fully explained.&quot; Euler indeed described methods for finding solutions in rational or integer numbers, in particular Pell&apos;s equation is dealt with (the solution of which Euler falsely attributed to Pell). In the additions Lagrange included his complete solution (found in 1766). \par We have about 120 examples in the ``Elements&quot;. Euler was familiar with the typical and attractive examples of algebra already taught to him by his father who used Stifel&apos;s Coss (1553) ``with beautiful examples&quot;, and later Euler selected such examples for his ``Elements&quot;; in Part I there are about 40 examples which directly refer to Stifel&apos;s book (A. Heefer). For example, the problem of the nails for a horseshoe (I, \S 419) is due to Rudolff&apos;s ``Coss&quot; (1525) which Euler knew in Stifel&apos;s version. Finally, Euler&apos;s examples are an essential part of the very clear and pleasing style of the composition, and surely they do their bit for its success. In his Preface Gr\&quot;uson repeats the nice story already told by the editors of the 1770 issue and repeated by many others later (for example N. Fuss in his ``\&apos;Eloge&quot;, 1783) that the young man who wrote it down was by profession a tailor; he received no instructions but in a short time was able to perform the most difficult algebraic calculations, and to resolve with readiness whatever analytical questions were proposed to him. So we can recommend the book to teachers and of course to ``lovers of Algebra&quot; (eds. of 1760 issue) and, moreover, all Eulerians. \par References. L. Euler: Vollst\&quot;andige Anleitung zur Algebra. 2 parts. St. Petersburg 1770/71, 1771 and 1802; Leipzig [1883] -1942, 1954; in Opera omnia Euleri I/1 Leipzig 1911. L. Euler: Universalnaia algebra (Russian transl.) 2 parts. St. Petersburg 1768/69 and 1787/88; new translation in 1812. L. Euler, \&apos;El\&apos;ements d&apos;alg\`ebre avec des notes et des additions. Lyon et Paris 1774, 1782, 1801, 1807; 1793 \`a Paris et \`a P\&apos;etersbourg. L. Euler: Elements of algebra with critical and historical notes and with additions of Lagrange. London 1797, 1810, 1822, 1828, 1840, 1848; New York 1972, 1984, St. Albans, UK, 2006 (only Part I), Cambridge 2009. L. Euler: Auszug aus Eulers vollst\&quot;andiger Anleitung zur Algebra, ed. J. Ebert. Frankfurt/M. 1789, 1801, 1821. L. Euler: An introduction to the elements of algebra. Selected by J. Farrar. Cambridge 1818, 1821, 1828, 1836, 2010.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAccessionNumber"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">1214.01005</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasId"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">5818607</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasTitleString"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Complete instruction to elementary and advanced algebra. 3 vol. set. Edited by Johann Philipp Gr\&quot;uson. (Vollst\&quot;andige Anleitung zur Niedern und H\&quot;ohern Algebra.) Reprint of the 1796/1797 original.
+</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAbstract"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">See the review of the 3-volume paperback reprint (2011) in Zbl 1214.01005.</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasAccessionNumber"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">1207.01039</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasId"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">5862049</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasTitleString"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Complete instruction to elementary and advanced algebra. Vol. 1, 2. Edited by Johann Philipp Gr\&quot;uson. With a German translation of Lagrange&apos;s French additions by Kau{\ss}ler. (Vollst\&quot;andige Anleitung zur Niedern und H\&quot;ohern Algebra. Band 1, 2.)</Literal>
+    </DataPropertyAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#cites"/>
         <ObjectProperty IRI="#isCitedBy"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasClassificationCode"/>
-        <ObjectProperty IRI="#classHasPublication"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
         <ObjectProperty IRI="#hasAuthor"/>
         <ObjectProperty IRI="#isAuthorOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasClassificationCode"/>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasEditor"/>
@@ -169,6 +468,10 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasKeyword"/>
         <ObjectProperty IRI="#isKeywordOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isLanguageOf"/>
+        <ObjectProperty IRI="#hasLanguage"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasPublications"/>
@@ -199,10 +502,6 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#classHasPublication"/>
-        <Class IRI="#MSC_Class"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAuthor"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
@@ -216,6 +515,10 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasKeyword"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasLanguage"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -233,6 +536,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isCitedBy"/>
         <Class IRI="#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
+        <Class IRI="#MSC_Class"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isCoAuthorWith"/>
@@ -271,10 +578,6 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#classHasPublication"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasAuthor"/>
         <Class IRI="#Author"/>
     </ObjectPropertyRange>
@@ -291,6 +594,10 @@
         <Class IRI="#EnglishKeyword"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasLanguage"/>
+        <Class IRI="#Language"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasPublications"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
@@ -304,6 +611,10 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isCitedBy"/>
+        <Class IRI="#Publication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -347,6 +658,9 @@
     <FunctionalDataProperty>
         <DataProperty IRI="#hasId"/>
     </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasTitleString"/>
+    </FunctionalDataProperty>
     <DataPropertyDomain>
         <DataProperty IRI="#hasAbstract"/>
         <Class IRI="#Publication"/>
@@ -359,6 +673,10 @@
         <DataProperty IRI="#hasId"/>
         <Class IRI="#Publication"/>
     </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasTitleString"/>
+        <Class IRI="#Publication"/>
+    </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="#hasAbstract"/>
         <Datatype abbreviatedIRI="xsd:string"/>
@@ -367,10 +685,41 @@
         <DataProperty IRI="#hasId"/>
         <Datatype abbreviatedIRI="xsd:positiveInteger"/>
     </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasTitleString"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#01A50</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">00-XX  GENERAL
+01Axx  History of mathematics and mathematicians
+01A50 18th century</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#01A75</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">00-XX  GENERAL
+01Axx  History of mathematics and mathematicians
+01A75 Collected or selected works; reprintings or translations of classics [See also 00B60]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#12E12</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">12-XX  Field theory and polynomials
+12Exx  General field theory
+12E12  Equations
+</Literal>
+    </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Author</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Authors and Editors are not necessarily disjoint, since the same person could be an author of one publication, but the editor of another.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Author</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">individuals of the class author will get the :ai: field as name</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -409,6 +758,11 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#euler.leonhard</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">:au:	Euler, Leonhard</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasAbstract</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Later on we could parse the abstract and extract a bag of key words from it as well and use them to build some kind of semantic relationships</Literal>
     </AnnotationAssertion>
@@ -429,6 +783,11 @@ An fields are not always filled in</Literal>
         <IRI>#hasId</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Has the format :id: 5832225
 </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isCoAuthorWith</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Could be modelled implicitly. How?</Literal>
     </AnnotationAssertion>
 </Ontology>
 
