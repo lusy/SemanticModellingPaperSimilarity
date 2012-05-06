@@ -230,6 +230,16 @@
         <Class IRI="#Conference"/>
         <Class IRI="#Journal"/>
     </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Contributor"/>
+        <Class IRI="#EnglishKeyword"/>
+        <Class IRI="#Language"/>
+        <Class IRI="#MSC_Class"/>
+        <Class IRI="#Publication"/>
+        <Class IRI="#PublicationYear"/>
+        <Class IRI="#Source"/>
+        <Class IRI="#Title"/>
+    </DisjointClasses>
     <ClassAssertion>
         <Class IRI="#MSC_Class"/>
         <NamedIndividual IRI="#01A50"/>
@@ -294,6 +304,24 @@
         <Class IRI="#Author"/>
         <NamedIndividual IRI="#euler.leonhard"/>
     </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#01A50"/>
+        <NamedIndividual IRI="#01A75"/>
+        <NamedIndividual IRI="#12E12"/>
+        <NamedIndividual IRI="#1796"/>
+        <NamedIndividual IRI="#2009"/>
+        <NamedIndividual IRI="#Berlin:_Nauk"/>
+        <NamedIndividual IRI="#Cambridge_Library_Collection_-_Mathematics._Cambridge:_Cambridge_University_Press"/>
+        <NamedIndividual IRI="#DE"/>
+        <NamedIndividual IRI="#EN"/>
+        <NamedIndividual IRI="#Euler"/>
+        <NamedIndividual IRI="#Lagrange"/>
+        <NamedIndividual IRI="#Publication_1"/>
+        <NamedIndividual IRI="#Publication_2"/>
+        <NamedIndividual IRI="#algebra"/>
+        <NamedIndividual IRI="#elementary_algebra__advanced_algebra"/>
+        <NamedIndividual IRI="#euler.leonhard"/>
+    </DifferentIndividuals>
     <DifferentIndividuals>
         <NamedIndividual IRI="#Publication_1"/>
         <NamedIndividual IRI="#Publication_2"/>
@@ -458,8 +486,8 @@
         <ObjectProperty IRI="#isAuthorOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasClassificationCode"/>
         <ObjectProperty IRI="#isClassificationCodeOf"/>
+        <ObjectProperty IRI="#hasClassificationCode"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasEditor"/>
