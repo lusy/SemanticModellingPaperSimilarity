@@ -31,12 +31,6 @@
         <Class IRI="#Conference"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Contributor"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Editor"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#EnglishKeyword"/>
     </Declaration>
     <Declaration>
@@ -70,9 +64,6 @@
         <ObjectProperty IRI="#hasClassificationCode"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasEditor"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasKeyword"/>
     </Declaration>
     <Declaration>
@@ -97,9 +88,6 @@
         <ObjectProperty IRI="#isCoAuthorWith"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isEditorOf"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#isKeywordOf"/>
     </Declaration>
     <Declaration>
@@ -110,9 +98,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isTitleOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isWrittenInLanguage"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#wasPublishedInYear"/>
@@ -178,24 +163,12 @@
         <NamedIndividual IRI="#euler.leonhard"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="#Author"/>
-        <Class IRI="#Contributor"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Book"/>
         <Class IRI="#Source"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Conference"/>
         <Class IRI="#Source"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Contributor"/>
-        <Class abbreviatedIRI=":Thing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Editor"/>
-        <Class IRI="#Contributor"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#EnglishKeyword"/>
@@ -229,16 +202,6 @@
         <Class IRI="#Book"/>
         <Class IRI="#Conference"/>
         <Class IRI="#Journal"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Contributor"/>
-        <Class IRI="#EnglishKeyword"/>
-        <Class IRI="#Language"/>
-        <Class IRI="#MSC_Class"/>
-        <Class IRI="#Publication"/>
-        <Class IRI="#PublicationYear"/>
-        <Class IRI="#Source"/>
-        <Class IRI="#Title"/>
     </DisjointClasses>
     <ClassAssertion>
         <Class IRI="#MSC_Class"/>
@@ -490,10 +453,6 @@
         <ObjectProperty IRI="#hasClassificationCode"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasEditor"/>
-        <ObjectProperty IRI="#isEditorOf"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
         <ObjectProperty IRI="#hasKeyword"/>
         <ObjectProperty IRI="#isKeywordOf"/>
     </InverseObjectProperties>
@@ -508,10 +467,6 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#isTitleOf"/>
         <ObjectProperty IRI="#hasTitle"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#isLanguageOf"/>
-        <ObjectProperty IRI="#isWrittenInLanguage"/>
     </InverseObjectProperties>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#hasTitle"/>
@@ -538,10 +493,6 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasEditor"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasKeyword"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
@@ -570,14 +521,6 @@
         <Class IRI="#MSC_Class"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isCoAuthorWith"/>
-        <Class IRI="#Contributor"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isEditorOf"/>
-        <Class IRI="#Editor"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isKeywordOf"/>
         <Class IRI="#EnglishKeyword"/>
     </ObjectPropertyDomain>
@@ -592,10 +535,6 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isTitleOf"/>
         <Class IRI="#Title"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isWrittenInLanguage"/>
-        <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#wasPublishedInYear"/>
@@ -614,10 +553,6 @@
         <Class IRI="#MSC_Class"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasEditor"/>
-        <Class IRI="#Editor"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasKeyword"/>
         <Class IRI="#EnglishKeyword"/>
     </ObjectPropertyRange>
@@ -646,14 +581,6 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#isCoAuthorWith"/>
-        <Class IRI="#Contributor"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isEditorOf"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#isKeywordOf"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
@@ -668,10 +595,6 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isTitleOf"/>
         <Class IRI="#Publication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#isWrittenInLanguage"/>
-        <Class IRI="#Language"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#wasPublishedInYear"/>
@@ -753,11 +676,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Author</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">to identify them unambiguous, the :ai: (author identifier) field of the data set should be used; it is a unique string representation of author names, that guarantees that for example M. Gardner and Martin Gardner are the same person.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Editor</IRI>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Authors and Editors are not necessarily disjoint, since the same person could be an author of one publication, but the editor of another.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
