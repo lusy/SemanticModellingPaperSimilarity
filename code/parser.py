@@ -4,6 +4,7 @@ import sys
 import os
 import timeit
 import re
+import fileinput
 
 # class publication
 # (class parser)
@@ -25,6 +26,7 @@ class Publication(object):
     source = "" #TODO how to represent it; parse book/journal/conference
     language = []
     englishKeywords = []
+    citations = []
 
     def get_id(self):
         '''Returns the id of a publication'''
@@ -68,6 +70,10 @@ class Publication(object):
         '''Returns all the english keywords of a publication'''
         return self.englishKeywords
 
+    def get_citations(self):
+        '''Returns all the papers which the current publication cites'''
+        return self.citations
+
     def info(self):
         '''Display all metadata of a publication'''
         print 'id: ', self.get_id()
@@ -81,12 +87,15 @@ class Publication(object):
         print 'source: ', self.get_source()
         print 'language: ', self.get_language()
         print 'english key words: ', self.get_keywords()
-
+        print 'citations: ', self.get_citations()
 
 
 class Parser(object):
     '''Class parses line by line an input file and creates publication objects out of it'''
     # TODO: decide class or function?
+    # if class : init(inputFile)
+    # if function (inputFile, handleMethod)
+
 
     # global variables to be kept track of:
     languages = []
@@ -96,17 +105,68 @@ class Parser(object):
     # keyWords = []
 
     def __init__(self, inputFile):
-        #lalala
-        pass
+        self.inputFile = inputFile
 
     def iterate_publications(self, handleMethod):
-        #lala
-        pass
+
+        #used for capturing tuple tag-content, content can be empty
+        pattern = ':([a-z/:]{2,5}):\t(.*)'
+
+        for line in fileinput.input(self.inputFile):
+            pline = re.findall(pattern, line)
+            tag = pline[0][0]
+            content = pline[0][1]
+
+            if tag == 'id':
+                #objekt erzeugen, parsen anfangen
+                currentPub = Publication()
+                currentPub.id = int(content)
+
+            elif tag == 'an':
+                currentPub.an = content
+
+            elif tag == 'py':
+                currentPub.publicationYear = content
+
+            elif tag == 'au':
+                pass
+
+            elif tag == 'ai':
+
+            elif tag == 'ti':
+                currentPub.titleString = content
+                #TODO extract title somehow
+
+            elif tag == 'so':
+                currentPub.source = content
+                #TODO: parse source so that it makes sense
+
+            elif tag == 'cc':
+
+            elif tag == 'ut':
+
+            elif tag == 'la':
+                # look up if it's already in languages, if not, add it
+
+            elif tag == 'ci':
+
+            elif tag == 'li':
+                pass
+
+            elif tag == 'ab/en':
+                currentPub.abstract = content
+
+            elif tag == 'rv/en':
+                pass
+
+            elif tag == '::::':
+                #mach was mit dem erzeugten objekt
+                #zerstoere das objekt am ende
+
+            else:
+                print "An unexpected line occured in the input file."
 
 
-
-    # if class : init(inputFile)
-    # if function (inputFile, handleMethod)
 
     # gets input file
     # while !eof
