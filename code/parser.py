@@ -108,7 +108,7 @@ class Parser(object):
         self.inputFile = inputFile
 
     def iterate_publications(self, handleMethod):
-
+        result = list()
         #used for capturing tuple tag-content, content can be empty
         pattern = ':([a-z/:]{2,5}):\t(.*)'
 
@@ -150,6 +150,10 @@ class Parser(object):
 
             elif tag == 'la' and content != '':
                 # look up if it's already in languages, if not, add it
+                currentPub.language = content.split()
+                for l in content:
+                    if l not in languages:
+                        languages.append(l)
 
             elif tag == 'ci' and content != '':
                 currentPub.citations = content.split("; ")
@@ -164,11 +168,15 @@ class Parser(object):
                 pass
 
             elif tag == '::::':
+                result.append(handleMethod(currentPub))
+                del currentPub
                 #mach was mit dem erzeugten objekt
                 #zerstoere das objekt am ende
 
             else:
                 print "An unexpected line occured in the input file."
+
+        return result
 
 
 
@@ -190,7 +198,7 @@ def publications_to_owl(publication):
     pass
 
 def testing_handler_method(publication):
-    return publication.info()
+    result.append(publication.info())
 
 ##########################################################################################
 
@@ -200,6 +208,9 @@ def main(args):
         exit()
 
     # lala parser starten halt
+    p = Parser(args[0])
+    Parser.iterate_publications(testing_handler_method)
+
 
 if __name__ == "__main__":
     #main(sys.argv[1:])
