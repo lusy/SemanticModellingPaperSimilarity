@@ -122,38 +122,38 @@ class Parser(object):
                 currentPub = Publication()
                 currentPub.id = int(content)
 
-            elif tag == 'an':
+            elif tag == 'an' and content != '':
                 currentPub.an = content
 
-            elif tag == 'py':
+            elif tag == 'py' and content != '':
                 currentPub.publicationYear = content
 
             elif tag == 'au':
                 pass
 
-            elif tag == 'ai':
+            elif tag == 'ai' and content != '':
 
-            elif tag == 'ti':
+            elif tag == 'ti' and content != '':
                 currentPub.titleString = content
                 #TODO extract title somehow
 
-            elif tag == 'so':
+            elif tag == 'so' and content != '':
                 currentPub.source = content
                 #TODO: parse source so that it makes sense
 
-            elif tag == 'cc':
+            elif tag == 'cc' and content != '':
 
-            elif tag == 'ut':
+            elif tag == 'ut' and content != '':
 
-            elif tag == 'la':
+            elif tag == 'la' and content != '':
                 # look up if it's already in languages, if not, add it
 
-            elif tag == 'ci':
+            elif tag == 'ci' and content != '':
 
             elif tag == 'li':
                 pass
 
-            elif tag == 'ab/en':
+            elif tag == 'ab/en' and content != '':
                 currentPub.abstract = content
 
             elif tag == 'rv/en':
