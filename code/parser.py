@@ -132,6 +132,7 @@ class Parser(object):
                 pass
 
             elif tag == 'ai' and content != '':
+                currentPub.authors = content.split("; ")
 
             elif tag == 'ti' and content != '':
                 currentPub.titleString = content
@@ -142,13 +143,16 @@ class Parser(object):
                 #TODO: parse source so that it makes sense
 
             elif tag == 'cc' and content != '':
+                currentPub.mscClasses = content.split()
 
             elif tag == 'ut' and content != '':
+                currentPub.englishKeywords = content.split("; ")
 
             elif tag == 'la' and content != '':
                 # look up if it's already in languages, if not, add it
 
             elif tag == 'ci' and content != '':
+                currentPub.citations = content.split("; ")
 
             elif tag == 'li':
                 pass
@@ -182,6 +186,7 @@ class Parser(object):
 def publications_to_owl(publication):
     '''Takes a publication object and converts it to its representation in xml/owl syntax'''
     # TODO modify method so that it can appends publications to existing owl file
+    # Achtung! In Feldern, die Listen enthalten, koenen auch leere Elemente drin sein (autoren, etc), check before apending
     pass
 
 def testing_handler_method(publication):
