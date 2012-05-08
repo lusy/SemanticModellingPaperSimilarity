@@ -152,8 +152,8 @@ class Parser(object):
                 # look up if it's already in languages, if not, add it
                 currentPub.language = content.split()
                 for l in content:
-                    if l not in languages:
-                        languages.append(l)
+                    if l not in self.languages:
+                        self.languages.append(l)
 
             elif tag == 'ci' and content != '':
                 currentPub.citations = content.split("; ")
@@ -209,7 +209,7 @@ def main(args):
 
     # lala parser starten halt
     p = Parser(args[0])
-    Parser.iterate_publications(testing_handler_method)
+    p.iterate_publications(testing_handler_method)
 
 
 if __name__ == "__main__":
