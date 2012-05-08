@@ -114,8 +114,15 @@ class Parser(object):
 
         for line in fileinput.input(self.inputFile):
             pline = re.findall(pattern, line)
-            tag = pline[0][0]
-            content = pline[0][1]
+            # If tag has no content (end of record), than a single value is written to list, not a tuple
+            if pline[0][0] != None:
+                tag = pline[0][0]
+                content = pline[0][1]
+            else:
+                tag = pline[0]
+
+#Debug
+            print ("This is the regex i parsed: %s, %s" % (tag, content))
 
             if tag == 'id':
                 #objekt erzeugen, parsen anfangen
@@ -167,14 +174,15 @@ class Parser(object):
             elif tag == 'rv/en':
                 pass
 
-            elif tag == '::::':
+            elif tag == '::':
                 result.append(handleMethod(currentPub))
                 del currentPub
                 #mach was mit dem erzeugten objekt
                 #zerstoere das objekt am ende
 
             else:
-                print "An unexpected line occured in the input file."
+                print "An unexpected line occured in the input file or content of tag was empty."
+
 
         return result
 
