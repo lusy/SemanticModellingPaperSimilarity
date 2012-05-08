@@ -184,6 +184,9 @@ def publications_to_owl(publication):
     # TODO modify method so that it can appends publications to existing owl file
     pass
 
+def testing_handler_method(publication):
+    return publication.info()
+
 ##########################################################################################
 
 def main(args):
