@@ -110,16 +110,17 @@ class Parser(object):
     def iterate_publications(self, handleMethod):
         result = list()
         #used for capturing tuple tag-content, content can be empty
-        pattern = ':([a-z/:]{2,5}):\t(.*)'
+        pattern = ':([a-z/:]{2,5}):\t?(.*)'
 
         for line in fileinput.input(self.inputFile):
             pline = re.findall(pattern, line)
             # If tag has no content (end of record), than a single value is written to list, not a tuple
-            if pline[0][0] != None:
+            if type(pline[0]) == 'tuple':
                 tag = pline[0][0]
                 content = pline[0][1]
             else:
                 tag = pline[0]
+                content = ''
 
 #Debug
             print ("This is the regex i parsed: %s, %s" % (tag, content))
