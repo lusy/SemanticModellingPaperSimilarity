@@ -115,76 +115,97 @@ class Parser(object):
         for line in fileinput.input(self.inputFile):
             pline = re.findall(pattern, line)
             # If tag has no content (end of record), than a single value is written to list, not a tuple
-            if type(pline[0]) == 'tuple':
+            if type(pline[0]) == tuple:
                 tag = pline[0][0]
                 content = pline[0][1]
             else:
                 tag = pline[0]
                 content = ''
 
-#Debug
-            print ("This is the regex i parsed: %s, %s" % (tag, content))
+            #Debug
+            #print ("This is the regex i parsed: %s, %s" % (tag, content))
+            #print("Debugging", tag)
 
             if tag == 'id':
                 #objekt erzeugen, parsen anfangen
                 currentPub = Publication()
                 currentPub.id = int(content)
+                #print ("id: ", currentPub.id)
 
             elif tag == 'an' and content != '':
                 currentPub.an = content
+                #print ("an: ", currentPub.an)
 
             elif tag == 'py' and content != '':
                 currentPub.publicationYear = content
+                #print ("py: ", currentPub.publicationYear)
 
             elif tag == 'au':
                 pass
 
             elif tag == 'ai' and content != '':
                 currentPub.authors = content.split("; ")
+                #print ("authors: ", currentPub.authors)
 
             elif tag == 'ti' and content != '':
                 currentPub.titleString = content
                 #TODO extract title somehow
+                #print ("title: ", currentPub.titleString)
 
             elif tag == 'so' and content != '':
                 currentPub.source = content
                 #TODO: parse source so that it makes sense
+                #print ("source: ", currentPub.source)
 
             elif tag == 'cc' and content != '':
                 currentPub.mscClasses = content.split()
+                #print ("classes: ", currentPub.mscClasses)
 
             elif tag == 'ut' and content != '':
                 currentPub.englishKeywords = content.split("; ")
+                #print ("keywords: ", currentPub.englishKeywords)
 
             elif tag == 'la' and content != '':
                 # look up if it's already in languages, if not, add it
-                currentPub.language = content.split()
-                for l in content:
-                    if l not in self.languages:
-                        self.languages.append(l)
+                currentPub.language = content.split(' ')
+                #handles cases of one/more languages
+                if ' ' in content:
+                    for l in currentPub.language:
+                        if l not in self.languages:
+                            self.languages.append(l)
+                else:
+                    if content not in self.languages:
+                        self.languages.append(content)
+
 
             elif tag == 'ci' and content != '':
                 currentPub.citations = content.split("; ")
+                #print ("citations: ", currentPub.citations)
 
             elif tag == 'li':
                 pass
 
             elif tag == 'ab/en' and content != '':
                 currentPub.abstract = content
+                #print ("abstract: ", currentPub.abstract)
 
             elif tag == 'rv/en':
                 pass
 
             elif tag == '::':
                 result.append(handleMethod(currentPub))
+                #print "Debug output: is currentPub created successfully"
+                #currentPub.info()
                 del currentPub
                 #mach was mit dem erzeugten objekt
                 #zerstoere das objekt am ende
 
             else:
-                print "An unexpected line occured in the input file or content of tag was empty."
+                #print "An unexpected line occured in the input file or content of tag was empty."
+                pass
 
-
+        #print result
+        print ("self.languages contains", self.languages)
         return result
 
 
@@ -207,7 +228,7 @@ def publications_to_owl(publication):
     pass
 
 def testing_handler_method(publication):
-    result.append(publication.info())
+    return publication.info()
 
 ##########################################################################################
 
