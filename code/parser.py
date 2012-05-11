@@ -141,11 +141,26 @@ class Parser(object):
                 #print ("py: ", currentPub.publicationYear)
 
             elif tag == 'au':
-                pass
+                # save authors temporarily and simulate ai out of it if ai field empty
+                tempAuthor =  content.split("; ")
 
             elif tag == 'ai' and content != '':
                 currentPub.authors = content.split("; ")
                 #print ("authors: ", currentPub.authors)
+
+            elif tag =='ai' and content == '':
+                # Check if one author or list of authors
+                if type(tempAuthor) == str:
+                    (lastName, firstName) = tempAuthor.lower().split(", ")
+                    firstName = firstName.replace(".","-").replace(" ","-").rstrip("-")
+                    currentPub.authors.append("%s.%s" % (lastName, firstName))
+
+                else:
+                    for auth in tempAuthor:
+                        (lastName, firstName) = auth.lower().split(", ")
+                        firstName = firstName.replace(".","-").replace(" ","-").rstrip("-")
+                        currentPub.authors.append("%s.%s" % (lastName, firstName))
+
 
             elif tag == 'ti' and content != '':
                 currentPub.titleString = content
