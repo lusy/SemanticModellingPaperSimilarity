@@ -245,42 +245,47 @@ def publications_to_owl(publication):
     # Achtung! In Feldern, die Listen enthalten, koenen auch leere Elemente drin sein (autoren, etc), check before apending
 
     #Publication Individual
-    pub = "#Publication_%d" % publication.id
+    pub = "Publication_%d" % publication.id
     decPub = owl_declaration(pub)
-    classAsserPub = owl_class_assertion(pub, "#Publication")
+    classAsserPub = owl_class_assertion(pub, "Publication")
 
     #ID
-    dataPropAsserId = owl_data_property_assertion(pub, "#hasId", "&xsd;positiveInteger", publication.id)
+    dataPropAsserId = owl_data_property_assertion(pub, "hasId", "&xsd;positiveInteger", publication.id)
 
     #an
-    dataPropAsserAn = owl_data_property_assertion(pub, "#hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
+    dataPropAsserAn = owl_data_property_assertion(pub, "hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
 
-    return decPub, classAsserPub, dataPropAsserId, dataPropAsserAn
+    #publication year
+    decPy = owl_declaration(str(publication.publicationYear))
+    classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
+    objPropAsserPy = owl_object_property_assertion("wasPublishedInYear", pub, str(publication.publicationYear))
+
+    return decPub, classAsserPub, dataPropAsserId, dataPropAsserAn, decPy, classAsserPy, objPropAsserPy
 
 def testing_handler_method(publication):
     return publication.info()
 
 ##########################################################################################
 
-################## Helper Methods ########################################################
+################## OWl Helper Methods ########################################################
 def owl_declaration(elem):
     dec = etree.Element("Declaration")
-    namedInd = etree.Element("NamedIndividual", IRI="%s" % elem)
+    namedInd = etree.Element("NamedIndividual", IRI="#%s" % elem)
     dec.append(namedInd)
     return dec
 
 def owl_class_assertion(elem, owlClass):
     classAsser = etree.Element("ClassAssertion")
-    classTag = etree.Element("Class", IRI="%s" % owlClass)
-    namedInd = etree.Element("NamedIndividual", IRI="%s" % elem)
+    classTag = etree.Element("Class", IRI="#%s" % owlClass)
+    namedInd = etree.Element("NamedIndividual", IRI="#%s" % elem)
     classAsser.append(classTag)
     classAsser.append(namedInd)
     return classAsser
 
 def owl_data_property_assertion(elem, dataProp, dataType, value):
     dataPropAsser = etree.Element("DataPropertyAssertion")
-    dataProp1 = etree.Element("DataProperty", IRI="%s" % dataProp)
-    namedInd = etree.Element("NamedIndividual", IRI="%s" % elem)
+    dataProp1 = etree.Element("DataProperty", IRI="#%s" % dataProp)
+    namedInd = etree.Element("NamedIndividual", IRI="#%s" % elem)
     literal = etree.Element("Literal", datatypeIRI="%s" % dataType)
     literal.text = "%s" % str(value)
     dataPropAsser.append(dataProp1)
@@ -290,12 +295,12 @@ def owl_data_property_assertion(elem, dataProp, dataType, value):
 
 def owl_object_property_assertion(objProp, elem1, elem2):
     objPropAsser = etree.Element("ObjectPropertyAssertion")
-    objProp1 = etree.Element("ObjectProperty", IRI="%s" % objProp)
-    namedInd1 = etree.Element("NamedIndividual", IRI="%s" % elem1)
-    namedInd2 = etree.Element("NamedIndividual", IRI="%s" % elem2)
+    objProp1 = etree.Element("ObjectProperty", IRI="#%s" % objProp)
+    namedInd1 = etree.Element("NamedIndividual", IRI="#%s" % elem1)
+    namedInd2 = etree.Element("NamedIndividual", IRI="#%s" % elem2)
     objPropAsser.append(objProp1)
     objPropAsser.append(namedInd1)
-    objPropAsser.append(NamedInd2)
+    objPropAsser.append(namedInd2)
     return objPropAsser
 
 
@@ -314,7 +319,6 @@ def main(args):
     # i contains all the nodes belonging to one publication
     # j are the individual nodes for one publication
     for i in p.iterate_publications(publications_to_owl):
-        print("Debugging...... i is", i)
         for j in i:
             root.append(j)
     #TODO append children to root
