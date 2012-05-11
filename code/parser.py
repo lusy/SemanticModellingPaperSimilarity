@@ -5,6 +5,7 @@ import os
 import timeit
 import re
 import fileinput
+from lxml import etree
 
 # class publication
 # (class parser)
@@ -241,7 +242,11 @@ def publications_to_owl(publication):
     '''Takes a publication object and converts it to its representation in xml/owl syntax'''
     # TODO modify method so that it can appends publications to existing owl file
     # Achtung! In Feldern, die Listen enthalten, koenen auch leere Elemente drin sein (autoren, etc), check before apending
-    pass
+    dec1 = etree.Element("Declaration")
+    pub = "#Publication_%d" % publication.id
+    namedInd1 = etree.Element("NamedIndividual", IRI="%s" % pub)
+    dec1.append(namedInd1)
+    return dec1
 
 def testing_handler_method(publication):
     return publication.info()
@@ -255,8 +260,15 @@ def main(args):
 
     # lala parser starten halt
     p = Parser(args[0])
-    p.iterate_publications(testing_handler_method)
+    #p.iterate_publications(testing_handler_method)
 
+    root = etree.Element("Ontology")
+    for i in p.iterate_publications(publications_to_owl):
+        print("Debugging...... i is", i)
+        root.append(i)
+    #TODO append children to root
+
+    print(etree.tostring(root, pretty_print=True))
 
 if __name__ == "__main__":
     #main(sys.argv[1:])
