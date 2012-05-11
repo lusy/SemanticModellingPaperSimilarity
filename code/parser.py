@@ -240,16 +240,64 @@ class Parser(object):
 
 def publications_to_owl(publication):
     '''Takes a publication object and converts it to its representation in xml/owl syntax'''
-    # TODO modify method so that it can appends publications to existing owl file
+    # TODO modify method so that it can append publications to existing owl file
+    # or consider merging the headers to this one
     # Achtung! In Feldern, die Listen enthalten, koenen auch leere Elemente drin sein (autoren, etc), check before apending
-    dec1 = etree.Element("Declaration")
+
+    #Publication Individual
     pub = "#Publication_%d" % publication.id
-    namedInd1 = etree.Element("NamedIndividual", IRI="%s" % pub)
-    dec1.append(namedInd1)
-    return dec1
+    decPub = owl_declaration(pub)
+    classAsserPub = owl_class_assertion(pub, "#Publication")
+
+    #ID
+    dataPropAsserId = owl_data_property_assertion(pub, "#hasId", "&xsd;positiveInteger", publication.id)
+
+    #an
+    dataPropAsserAn = owl_data_property_assertion(pub, "#hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
+
+    return decPub, classAsserPub, dataPropAsserId, dataPropAsserAn
 
 def testing_handler_method(publication):
     return publication.info()
+
+##########################################################################################
+
+################## Helper Methods ########################################################
+def owl_declaration(elem):
+    dec = etree.Element("Declaration")
+    namedInd = etree.Element("NamedIndividual", IRI="%s" % elem)
+    dec.append(namedInd)
+    return dec
+
+def owl_class_assertion(elem, owlClass):
+    classAsser = etree.Element("ClassAssertion")
+    classTag = etree.Element("Class", IRI="%s" % owlClass)
+    namedInd = etree.Element("NamedIndividual", IRI="%s" % elem)
+    classAsser.append(classTag)
+    classAsser.append(namedInd)
+    return classAsser
+
+def owl_data_property_assertion(elem, dataProp, dataType, value):
+    dataPropAsser = etree.Element("DataPropertyAssertion")
+    dataProp1 = etree.Element("DataProperty", IRI="%s" % dataProp)
+    namedInd = etree.Element("NamedIndividual", IRI="%s" % elem)
+    literal = etree.Element("Literal", datatypeIRI="%s" % dataType)
+    literal.text = "%s" % str(value)
+    dataPropAsser.append(dataProp1)
+    dataPropAsser.append(namedInd)
+    dataPropAsser.append(literal)
+    return dataPropAsser
+
+def owl_object_property_assertion(objProp, elem1, elem2):
+    objPropAsser = etree.Element("ObjectPropertyAssertion")
+    objProp1 = etree.Element("ObjectProperty", IRI="%s" % objProp)
+    namedInd1 = etree.Element("NamedIndividual", IRI="%s" % elem1)
+    namedInd2 = etree.Element("NamedIndividual", IRI="%s" % elem2)
+    objPropAsser.append(objProp1)
+    objPropAsser.append(namedInd1)
+    objPropAsser.append(NamedInd2)
+    return objPropAsser
+
 
 ##########################################################################################
 
@@ -263,9 +311,12 @@ def main(args):
     #p.iterate_publications(testing_handler_method)
 
     root = etree.Element("Ontology")
+    # i contains all the nodes belonging to one publication
+    # j are the individual nodes for one publication
     for i in p.iterate_publications(publications_to_owl):
         print("Debugging...... i is", i)
-        root.append(i)
+        for j in i:
+            root.append(j)
     #TODO append children to root
 
     print(etree.tostring(root, pretty_print=True))
