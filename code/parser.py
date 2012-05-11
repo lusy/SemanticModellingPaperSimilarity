@@ -148,7 +148,8 @@ class Parser(object):
                 currentPub.authors = content.split("; ")
                 #print ("authors: ", currentPub.authors)
 
-            elif tag =='ai' and content == '':
+            # Simulate :ai: out of :au: if :ai: empty or containing just ";"s
+            elif tag =='ai' and (content == '' or content == "; " or ("; ;") in content):
                 # Check if one author or list of authors
                 if type(tempAuthor) == str:
                     (lastName, firstName) = tempAuthor.lower().split(", ")
