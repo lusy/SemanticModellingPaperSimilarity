@@ -244,23 +244,119 @@ def publications_to_owl(publication):
     # or consider merging the headers to this one
     # Achtung! In Feldern, die Listen enthalten, koenen auch leere Elemente drin sein (autoren, etc), check before apending
 
+    result = []
+
     #Publication Individual
     pub = "Publication_%d" % publication.id
     decPub = owl_declaration(pub)
     classAsserPub = owl_class_assertion(pub, "Publication")
+    result.append(decPub)
+    result.append(classAsserPub)
 
     #ID
     dataPropAsserId = owl_data_property_assertion(pub, "hasId", "&xsd;positiveInteger", publication.id)
+    result.append(dataPropAsserId)
 
     #an
     dataPropAsserAn = owl_data_property_assertion(pub, "hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
+    result.append(dataPropAsserAn)
+
+    #abstract
+    dataPropAsserAb = owl_data_property_assertion(pub, "hasAbstract", "&rdf;PlainLiteral", publication.abstract)
+    result.append(dataPropAsserAb)
+
+    #titleString
+    dataPropAsserTi = owl_data_property_assertion(pub, "hasTitleString", "&rdf;PlainLiteral", publication.titleString)
+    result.append(dataPropAsserTi)
+
+    #title
+    #TODO extracting title from title string
+
+    #source
+    #TODO extracting source
 
     #publication year
     decPy = owl_declaration(str(publication.publicationYear))
     classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
     objPropAsserPy = owl_object_property_assertion("wasPublishedInYear", pub, str(publication.publicationYear))
+    result.append(decPy)
+    result.append(classAsserPy)
+    result.append(objPropAsserPy)
 
-    return decPub, classAsserPub, dataPropAsserId, dataPropAsserAn, decPy, classAsserPy, objPropAsserPy
+    #authors
+    for auth in publication.authors:
+        if auth !='':
+            decAuth = owl_declaration(auth)
+            classAsserAuth = owl_class_assertion(auth, "Author")
+            objPropAsserAuth = owl_object_property_assertion("isAuthorOf", auth, pub)
+            result.append(decAuth)
+            result.append(classAsserAuth)
+            result.append(objPropAsserAuth)
+
+    #msc classes
+    for cl in publication.mscClasses:
+        decClass = owl_declaration(cl)
+        classAsserCl = owl_class_assertion(cl, "MSC_Class")
+        objPropAsserCl = owl_object_property_assertion("hasClassificationCode", pub, cl)
+        result.append(decClass)
+        result.append(classAsserCl)
+        result.append(objPropAsserCl)
+
+    #languages
+    #TODO consider striking out duplicates (how?)
+    if type(publication.language) == str:
+        decLan = owl_declaration(publication.language)
+        classAsserLan = owl_class_assertion(publication.language, "Language")
+        objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, publication.language)
+        result.append(decLan)
+        result.append(classAsserLan)
+        result.append(objPropAsserLan)
+
+    #if more than one languages
+    else:
+        for lan in publication.language:
+            decLan = owl_declaration(lan)
+            classAsserLan = owl_class_assertion(lan, "Language")
+            objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, lan)
+            result.append(decLan)
+            result.append(classAsserLan)
+            result.append(objPropAsserLan)
+
+    #english keywords
+    if publication.englishKeywords != []:
+        for k in publication.englishKeywords:
+            decKey = owl_declaration(k)
+            classAsserKey = owl_class_assertion(k, "EnglishKeywod")
+            objPropAsserKey = owl_object_property_assertion("hasKeyword", pub, k)
+            result.append(decKey)
+            result.append(classAsserKey)
+            result.append(objPropAsserKey)
+
+    #citations
+    # do we create new publications here for every citation?
+    #if publication.citations != []:
+        #if only one citation
+        #if type(publication.citations) == str:
+            #decCit = owl_declaration(publication.citations)
+            #classAsserCit = owl_class_assertion(publication.citations, "EnglishKeywod")
+            #objPropAsserKey = owl_object_property_assertion("hasKeyword", pub, k)
+            #result.append(decKey)
+            #result.append(classAsserKey)
+            #result.append(objPropAsserKey)
+
+        #else:
+            #for ci in publication.citations:
+             #decKey = owl_declaration(k)
+            #classAsserKey = owl_class_assertion(k, "EnglishKeywod")
+            #objPropAsserKey = owl_object_property_assertion("hasKeyword", pub, k)
+            #result.append(decKey)
+            #result.append(classAsserKey)
+            #result.append(objPropAsserKey)
+
+
+
+    return result
+    #return decPub, classAsserPub, dataPropAsserId, dataPropAsserAn, dataPropAsserAb, dataPropAsserTi, decPy, classAsserPy, objPropAsserPy
 
 def testing_handler_method(publication):
     return publication.info()
