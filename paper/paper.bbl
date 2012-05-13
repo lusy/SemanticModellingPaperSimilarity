@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{HKP{\etalchar{+}}09}
+\begin{thebibliography}{YYM{\etalchar{+}}09}
 
 \bibitem[BC90]{Bench-Capon:1990:KR}
 T.J.M. Bench-Capon.
@@ -46,5 +46,11 @@ W.G. Stock.
 \newblock Was ist eine Publikation? Zum Problem der Einheitenbildung in der
   Wissenschaftsforschung.
 \newblock {\em Laitko, Hubert (Hrsg.)}, pages 239--282, 1998.
+
+\bibitem[YYM{\etalchar{+}}09]{Yang:2009:TRSN}
+Yang Yang, Au~Yeung, Ching Man, Mark~J Weal, and Hugh Davis.
+\newblock The Researcher Social Network: A Social Network Based on Metadata of
+  Scientific Publications.
+\newblock {\em Analysis}, 2009.
 
 \end{thebibliography}
