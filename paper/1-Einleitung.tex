@@ -1,18 +1,38 @@
 \section{Einleitung}
 
 \subsection{Motivation}
-lala
+Titel, Thema, Autor, Erscheinungsjahr, Journal und Literaturverweise sind nur einige für eine wissenschaftliche Publikation relevante Metadaten.
+Diese stehen in bestimmten Relationen zueinander.
+Es gibt schon länger mehrere Repräsentationen von wissenschaftlichen Arbeiten: Zitations- oder Koautorgraphen berücksichtigen aber beispielsweise nur Referenzen oder Autoren.
+Zusätzliche Metadaten können jedoch für eine Analyse ebenfalls bedeutende und interessante Einsichten bringen.
+Durch Aufbau eines semantischen Netzes, das alle zu einer Publikation relevanten Informationen enthält, soll ein allgemeineres Modell für wissenschaftliche Publikationen entwickelt werden.
+Durch die Berücksichtigung der in diesem Modell erfassten semantischen Relationen wird dann versucht ein möglichts präzises Ähnlichkeitsmaß für wissenschaftliche Publikationen zu entwerfen. %vlt beispiele (A ist Autor von Paper P, P ist Journal C erschienen, hat X,Y,Z als Keywords usw)
+Ein gutes Ähnlichkeitsmaß findet mehrere Gebräuche: es kann unterm anderen bei automatischer Klassifizierung von Arbeiten in einer wissenschaftlichen Datenbank oder als Ausgangspunkt für das Vorschlagen verwandten/relevanten Dokumente eingesetzt werden.
+Frühere Entwürfe von Ähnlichkeitsmaßen beziehen nur bibliometrische Kategorien wie Zitationsanalysen (von direkten Zitaten, Kozitationen oder bibliographischen Kopplungen) oder Koautorenschaften ein.
+Indem alle Metadaten zu einer Publikation und ihre semantische Erfassung in eine neue Definition integriert werden, sollen genauere Ergebnisse erzielt werden.
 
-% themabeschreibung
+
+% themabeschreibung (vlt mit beispiel)
+% und wir wollen das machen, weil... (warum ist die frage wichtig/interessant)
 % forschungszusammenhang: was gibts schon zum thema, was ist das neue
-% und wir wollen das machen, weil...
+
 
 \subsection{Zielsetzung}
 % define keywords/schlüsselkonzepte
+% Was will ich damit erreichen/ Welche Ergebnisse strebe ich an?
 % Datensatz
 % Verfahren
 % benutzte Werkzeuge
-% Was will ich damit erreichen/ Welche Ergebnisse strebe ich an?
+
+Ziel dieser Arbeit ist es ein semantisches Netz zu modellieren, das alle zu einer mathematischen Publikation relevanten Metadaten berücksichtigt und mathematische Publikationen zueinander in Relation stellt.
+Im zweiten Teil der Arbeit wird dieses Netzwerk für die Definition eines Ähnlichkeitsmaßes und Ähnlichkeitsanalysen verwendet.
+Der der Ausarbeitung zugrundeliegende Datensatz ist am Konrad Zuse Zentrum für Forschungszwecke vorhanden.
+Es handelt sich um ca. 750 000 Publikationen mit Metadaten und MSC-Klassifikationen vom Zentralblatt Mathematik, FIZ Karlsruhe.
+
+Im Verlauf der Arbeit wird auf Basis des Datensatzes mit Hilfe von Ontology-Engineering-Tools ein semantisches Netz modelliert.
+Die vorhandenen relationalen Daten werden dann in das erzeugte semantische Schema überführt.
+Dem schließt sich die Entwicklung und Evaluation eines ontologiebasierten Ähnlichkeitsmaßes für mathematische Publikationen an.
+Die Qualität des definierten Ähnlichkeitsmaßes wird ermittelt, indem die Ergebnisse, die es liefert, mit der schon im Datensatz durch Fachexperten vergebenen MSC-Klassifizierung verglichen werden.
 
 \subsection{Aufbau der Arbeit}
 
