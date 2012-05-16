@@ -6,6 +6,20 @@ T.J.M. Bench-Capon.
 \newblock {\em Semantic networks}, chapter 6.1., pages 79--86.
 \newblock The Apic Series. Academic Press, 1990.
 
+\bibitem[BT05]{bibliogrundw2005}
+Rafael Ball and Dirk Tunger.
+\newblock {\em Bibliometrische Analysen - Daten, Fakten und Methoden -
+  Grundwissen Bibliometrie f{\"u}r Wissenschaftler, Wissenschaftsmanager,
+  Forschungseinrichtungen und Hochschulen}, volume Schriften des
+  Forschungszentrum J{\"u}lich, Reihe Bibliothek / Library, 12.
+\newblock Forschungszentrum J{\"u}lich, 2005.
+\newblock ISBN 3-89336-383-1.
+
+\bibitem[Erb02]{abbildungXML2002}
+Matthias Erbarth.
+\newblock Abbildung einer Publikation als semantisches Netz unter Verwendung
+  von XML-Technologien, 2002.
+
 \bibitem[Gru93]{Gruber:1993:TPDOUKS}
 Thomas~R. Gruber.
 \newblock Toward Principles for the Design of Ontologies Used for Knowledge
@@ -46,6 +60,10 @@ W.G. Stock.
 \newblock Was ist eine Publikation? Zum Problem der Einheitenbildung in der
   Wissenschaftsforschung.
 \newblock {\em Laitko, Hubert (Hrsg.)}, pages 239--282, 1998.
+
+\bibitem[WV04]{NAB2004}
+Marc Wu and Christopher Vogt.
+\newblock Netzwerkanalyse: Bibliometrie, 2004.
 
 \bibitem[YYM{\etalchar{+}}09]{Yang:2009:TRSN}
 Yang Yang, Au~Yeung, Ching Man, Mark~J Weal, and Hugh Davis.
