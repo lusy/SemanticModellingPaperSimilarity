@@ -137,24 +137,27 @@ class Parser(object):
                 currentPub.an = content
                 #print ("an: ", currentPub.an)
 
-            elif tag == 'py' and content != '':
+            elif tag == 'py':
+                # publication year is never empty
                 currentPub.publicationYear = content
                 #print ("py: ", currentPub.publicationYear)
 
             elif tag == 'au':
-                # save authors temporarily and simulate ai out of it if ai field empty
+                # save authors temporarily and simulate ai out of it if :ai: field empty
+                # case of :au: empty is handled below
                 tempAuthor =  content.split("; ")
+                print("Debuggging....... tempAuthor is", tempAuthor)
 
             elif tag == 'ai' and content != '':
                 currentPub.authors = content.split("; ")
                 #print ("authors: ", currentPub.authors)
 
-            # Simulate :ai: out of :au: if :ai: empty or containing just ";"s
-            elif tag =='ai' and (content == '' or content == "; " or ("; ;") in content):
+            # Simulate :ai: out of :au: if :ai: empty or containing just ";"s (only if :au: was not empty)
+            elif tag =='ai' and (content == '' or content == "; " or ("; ;") in content) and tempAuthor != '':
                 # Check if one author or list of authors
-                if type(tempAuthor) == str:
+                if type(tempAuthor) == str :
                     (lastName, firstName) = tempAuthor.lower().split(", ")
-                    firstName = firstName.replace(".","-").replace(" ","-").rstrip("-")
+                    firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
                     currentPub.authors.append("%s.%s" % (lastName, firstName))
 
                 else:
@@ -169,7 +172,8 @@ class Parser(object):
                 #TODO extract title somehow
                 #print ("title: ", currentPub.titleString)
 
-            elif tag == 'so' and content != '':
+            elif tag == 'so':
+                # source is never empty
                 currentPub.source = content
                 #TODO: parse source so that it makes sense
                 #print ("source: ", currentPub.source)
@@ -258,16 +262,19 @@ def publications_to_owl(publication):
     result.append(dataPropAsserId)
 
     #an
-    dataPropAsserAn = owl_data_property_assertion(pub, "hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
-    result.append(dataPropAsserAn)
+    if publication.an != '':
+        dataPropAsserAn = owl_data_property_assertion(pub, "hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
+        result.append(dataPropAsserAn)
 
     #abstract
-    dataPropAsserAb = owl_data_property_assertion(pub, "hasAbstract", "&rdf;PlainLiteral", publication.abstract)
-    result.append(dataPropAsserAb)
+    if publication.abstract != '':
+        dataPropAsserAb = owl_data_property_assertion(pub, "hasAbstract", "&rdf;PlainLiteral", publication.abstract)
+        result.append(dataPropAsserAb)
 
     #titleString
-    dataPropAsserTi = owl_data_property_assertion(pub, "hasTitleString", "&rdf;PlainLiteral", publication.titleString)
-    result.append(dataPropAsserTi)
+    if publication.titleString !='':
+        dataPropAsserTi = owl_data_property_assertion(pub, "hasTitleString", "&rdf;PlainLiteral", publication.titleString)
+        result.append(dataPropAsserTi)
 
     #title
     #TODO extracting title from title string
@@ -284,6 +291,7 @@ def publications_to_owl(publication):
     result.append(objPropAsserPy)
 
     #authors
+    print("Debuggging.....authors are", publication.authors)
     for auth in publication.authors:
         if auth !='':
             decAuth = owl_declaration(auth)
