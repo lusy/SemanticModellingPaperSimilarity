@@ -148,7 +148,7 @@ class Parser(object):
                 tempAuthor =  content.split("; ")
                 print("Debuggging....... tempAuthor is", tempAuthor)
 
-            elif tag == 'ai' and content != '':
+            elif tag == 'ai' and content != '' and content != "; " and not(("; ;") in content):
                 currentPub.authors = content.split("; ")
                 #print ("authors: ", currentPub.authors)
 
@@ -291,6 +291,7 @@ def publications_to_owl(publication):
     result.append(objPropAsserPy)
 
     #authors
+    print("Debugging.... tempAutor")
     print("Debuggging.....authors are", publication.authors)
     for auth in publication.authors:
         if auth !='':
