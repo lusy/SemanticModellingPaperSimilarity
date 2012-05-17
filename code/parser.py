@@ -148,9 +148,8 @@ class Parser(object):
                     lasttag = 'ab/en'
 
                 else:
-                    print("Omitting a line, it doesn't match the regex pattern.")
-                    print("The line is", line)
-                    print("Last tag is", tag)
+                    self.logger.warning("Omitting a line, it doesn't match the regex pattern. Last tag is %s" % tag)
+                    #print("The line is", line)
 
             #Debug
             #print ("This is the regex i parsed: %s, %s" % (tag, content))
@@ -183,6 +182,7 @@ class Parser(object):
 
             # Simulate :ai: out of :au: if :ai: empty or containing just ";"s (only if :au: was not empty)
             elif tag =='ai' and (content == '' or content == "; " or ("; ;") in content) and tempAuthor != ['']:
+                self.logger.info("For publication %d we generate :ai: out of :au:" % currentPub.id)
                 # Check if one author or list of authors
                 if type(tempAuthor) == str :
                     try:
@@ -191,7 +191,8 @@ class Parser(object):
                         firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
                         currentPub.authors.append("%s.%s" % (lastName, firstName))
                     except:
-                        print("unpacking does not work, we've got %s in tempAuthor" % tempAuthor)
+                       self.logger.warning("For publication %d authors have funny format, no :ai: generated" % currentPub.id)
+                       self.logger.warning("For publication %d we've got %s in tempAuthor" % (currentPub.id, tempAuthor))
 
                 else:
                     for auth in tempAuthor:
@@ -201,17 +202,7 @@ class Parser(object):
                             firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
                             currentPub.authors.append("%s.%s" % (lastName, firstName))
                         except:
-                            print("Autors have a funny format, I'm not parsing anything, sorry")
-                            #handling one crazy case with missing ;
-                            #print("What tempAuthor did we get this time", tempAuthor)
-                            #realAuth = auth.split(" (ed.) ")
-                            #for r in realAuth:
-                                #(lastName, firstName) = r.lower().split(", ")
-                                #lastName = lastName.replace(" ", "-")
-                                #firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
-                                #currentPub.authors.append("%s.%s" % (lastName, firstName))
-
-
+                            self.logger.warning("For publication %d authors have funny format, no :ai: generated" % currentPub.id)
 
             elif tag == 'ti' and content != '':
                 currentPub.titleString = content
@@ -250,15 +241,14 @@ class Parser(object):
                 pass
 
             elif tag == '::':
-                self.logger.info('Giving the publication over to the handling routine')
                 result.append(handleMethod(currentPub))
-                #print "Debug output: is currentPub created successfully"
-                #currentPub.info()
                 del currentPub
                 #mach was mit dem erzeugten objekt
                 #zerstoere das objekt am ende
 
             else:
+                # question: when do we actually come to this case?
+                #self.logger.info("No of the expected tags seen at the beginning")
                 #print "An unexpected line occured in the input file or content of tag was empty."
                 pass
 
@@ -347,6 +337,7 @@ def publications_to_owl(publication):
         result.append(objPropAsserCl)
 
     #languages
+
     #TODO consider striking out duplicates (how?)
     #create language variable for the handler method
     #append new languages , return it
