@@ -146,7 +146,7 @@ class Parser(object):
                 # save authors temporarily and simulate ai out of it if :ai: field empty
                 # case of :au: empty is handled below
                 tempAuthor =  content.split("; ")
-                print("Debuggging....... tempAuthor is", tempAuthor)
+                #print("Debuggging....... tempAuthor is", tempAuthor)
 
             elif tag == 'ai' and content != '' and content != "; " and not(("; ;") in content):
                 currentPub.authors = content.split("; ")
@@ -218,7 +218,7 @@ class Parser(object):
                 pass
 
         #print result
-        print ("self.languages contains", self.languages)
+        #print ("self.languages contains", self.languages)
         return result
 
 
@@ -318,12 +318,14 @@ def publications_to_owl(publication):
 
 
     if type(publication.language) == str:
-        decLan = owl_declaration(publication.language)
-        classAsserLan = owl_class_assertion(publication.language, "Language")
-        objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, publication.language)
-        result.append(decLan)
-        result.append(classAsserLan)
-        result.append(objPropAsserLan)
+        if publication.language not in Parser.languages:
+            Parser.languages.append(publication.language)
+            decLan = owl_declaration(publication.language)
+            classAsserLan = owl_class_assertion(publication.language, "Language")
+            objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, publication.language)
+            result.append(decLan)
+            result.append(classAsserLan)
+            result.append(objPropAsserLan)
 
     #if more than one languages
     else:
@@ -363,6 +365,11 @@ def publications_to_owl(publication):
 
 def testing_handler_method(publication):
     return publication.info()
+
+def extract_authors(publication):
+    for auth in publication.authors:
+        if auth !='':
+            print("%s" % auth)
 
 ##########################################################################################
 
@@ -413,15 +420,20 @@ def main(args):
     p = Parser(args[0])
     #p.iterate_publications(testing_handler_method)
 
-    root = etree.Element("Ontology")
-    # i contains all the nodes belonging to one publication
-    # j are the individual nodes for one publication
-    for i in p.iterate_publications(publications_to_owl):
-        for j in i:
-            root.append(j)
+    p.iterate_publications(extract_authors)
+
+##### parsing to xml/owl##################################
+    #root = etree.Element("Ontology")
+    ## i contains all the nodes belonging to one publication
+    ## j are the individual nodes for one publication
+    #for i in p.iterate_publications(publications_to_owl):
+        #for j in i:
+            #root.append(j)
     #TODO append children to root
 
-    print(etree.tostring(root, pretty_print=True))
+    #print(etree.tostring(root, pretty_print=True))
+
+#############################################################
 
 if __name__ == "__main__":
     #main(sys.argv[1:])
