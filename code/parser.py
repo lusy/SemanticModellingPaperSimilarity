@@ -379,6 +379,13 @@ def extract_citations(publication):
     for ci in publication.citations:
         print("%s" % ci)
 
+def extract_mscClasses(publication):
+    for cc in publication.mscClasses:
+        print("%s" % cc)
+
+def extract_languages(publication):
+    for l in publication.language:
+        print("%s" % l)
 ##########################################################################################
 
 ################## OWl Helper Methods ########################################################
@@ -430,7 +437,9 @@ def main(args):
 
     #p.iterate_publications(extract_authors)
     #p.iterate_publications(extract_keywords)
-    p.iterate_publications(extract_citations)
+    #p.iterate_publications(extract_citations)
+    #p.iterate_publications(extract_mscClasses)
+    p.iterate_publications(extract_languages)
 
 ##### parsing to xml/owl##################################
     #root = etree.Element("Ontology")
