@@ -3,6 +3,7 @@
 import sys
 import os
 import timeit
+import logging
 import re
 import fileinput
 from lxml import etree
@@ -104,6 +105,14 @@ class Parser(object):
     # authors = []
     # mscClasses = []
     # keyWords = []
+
+    logger = logging.getLogger("parse")
+    # overwrite log file everytime we parse
+    hdlr = logging.FileHandler('parse.log', mode='w')
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    hdlr.setFormatter(formatter)
+    logger.addHandler(hdlr)
+    logger.setLevel(logging.INFO)
 
     def __init__(self, inputFile):
         self.inputFile = inputFile
@@ -241,6 +250,7 @@ class Parser(object):
                 pass
 
             elif tag == '::':
+                self.logger.info('Giving the publication over to the handling routine')
                 result.append(handleMethod(currentPub))
                 #print "Debug output: is currentPub created successfully"
                 #currentPub.info()
