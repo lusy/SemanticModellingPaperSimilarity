@@ -113,10 +113,13 @@ class Parser(object):
         #used for capturing tuple tag-content, content can be empty
         pattern = ':([a-z/:]{2,5}):\t?(.*)'
 
+        # we define these here, so that we can look up what the last
+        # valid tag was in case new line has no tag
+        tag = ''
+        content = ''
+
         for line in fileinput.input(self.inputFile):
             pline = re.findall(pattern, line)
-            #print("Debugging, pline is", pline)
-            #print("And the corresponding line is", line)
             # If tag has no content (end of record), than a single value is written to list, not a tuple
             try:
                 if type(pline[0]) == tuple:
@@ -125,9 +128,18 @@ class Parser(object):
                 else:
                     tag = pline[0]
                     content = ''
+            # exceptions due to nothing matches the regex pattern, no valid tag is there
             except:
-                print("Omitting a line, it doesn't match the regex pattern.")
-                print("The line is", line)
+                # for now only handle case, new line is part of an abstract
+                # if last tag was abstract
+                if tag == 'ab/en':
+                    currentPub.abstract = currentPub.abstract + "\n" + line.rstrip("\n")
+                    tag = ''
+
+                else:
+                    print("Omitting a line, it doesn't match the regex pattern.")
+                    print("The line is", line)
+                    print("Last tag is", tag)
 
             #Debug
             #print ("This is the regex i parsed: %s, %s" % (tag, content))
@@ -180,7 +192,7 @@ class Parser(object):
                         except:
                             print("Autors have a funny format, I'm not parsing anything, sorry")
                             #handling one crazy case with missing ;
-                            #print("What tempAuthor did we get this time", tempAuthor) 
+                            #print("What tempAuthor did we get this time", tempAuthor)
                             #realAuth = auth.split(" (ed.) ")
                             #for r in realAuth:
                                 #(lastName, firstName) = r.lower().split(", ")
@@ -454,13 +466,13 @@ def main(args):
 
     # lala parser starten halt
     p = Parser(args[0])
-    #p.iterate_publications(testing_handler_method)
+    p.iterate_publications(testing_handler_method)
 
     #p.iterate_publications(extract_authors)
     #p.iterate_publications(extract_keywords)
     #p.iterate_publications(extract_citations)
     #p.iterate_publications(extract_mscClasses)
-    p.iterate_publications(extract_languages)
+    #p.iterate_publications(extract_languages)
 
 ##### parsing to xml/owl##################################
     #root = etree.Element("Ontology")
