@@ -163,6 +163,7 @@ class Parser(object):
                 else:
                     for auth in tempAuthor:
                         (lastName, firstName) = auth.lower().split(", ")
+                        lastName = lastName.replace(" ", "-")
                         firstName = firstName.replace(".","-").replace(" ","-").rstrip("-")
                         currentPub.authors.append("%s.%s" % (lastName, firstName))
 
@@ -291,7 +292,6 @@ def publications_to_owl(publication):
     result.append(objPropAsserPy)
 
     #authors
-    print("Debugging.... tempAutor")
     print("Debuggging.....authors are", publication.authors)
     for auth in publication.authors:
         if auth !='':
