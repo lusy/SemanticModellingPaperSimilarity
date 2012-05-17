@@ -117,6 +117,7 @@ class Parser(object):
         # valid tag was in case new line has no tag
         tag = ''
         content = ''
+        lasttag = ''
 
         for line in fileinput.input(self.inputFile):
             pline = re.findall(pattern, line)
@@ -132,9 +133,10 @@ class Parser(object):
             except:
                 # for now only handle case, new line is part of an abstract
                 # if last tag was abstract
-                if tag == 'ab/en':
+                if tag == 'ab/en' or lasttag == 'ab/en':
                     currentPub.abstract = currentPub.abstract + "\n" + line.rstrip("\n")
                     tag = ''
+                    lasttag = 'ab/en'
 
                 else:
                     print("Omitting a line, it doesn't match the regex pattern.")
@@ -466,13 +468,13 @@ def main(args):
 
     # lala parser starten halt
     p = Parser(args[0])
-    p.iterate_publications(testing_handler_method)
+    #p.iterate_publications(testing_handler_method)
 
     #p.iterate_publications(extract_authors)
     #p.iterate_publications(extract_keywords)
     #p.iterate_publications(extract_citations)
     #p.iterate_publications(extract_mscClasses)
-    #p.iterate_publications(extract_languages)
+    p.iterate_publications(extract_languages)
 
 ##### parsing to xml/owl##################################
     #root = etree.Element("Ontology")
