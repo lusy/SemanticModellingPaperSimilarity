@@ -157,6 +157,7 @@ class Parser(object):
                 # Check if one author or list of authors
                 if type(tempAuthor) == str :
                     (lastName, firstName) = tempAuthor.lower().split(", ")
+                    lastName = lastName.replace(" ", "-")
                     firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
                     currentPub.authors.append("%s.%s" % (lastName, firstName))
 
@@ -164,7 +165,7 @@ class Parser(object):
                     for auth in tempAuthor:
                         (lastName, firstName) = auth.lower().split(", ")
                         lastName = lastName.replace(" ", "-")
-                        firstName = firstName.replace(".","-").replace(" ","-").rstrip("-")
+                        firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
                         currentPub.authors.append("%s.%s" % (lastName, firstName))
 
 
