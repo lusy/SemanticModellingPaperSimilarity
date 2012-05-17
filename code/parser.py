@@ -282,7 +282,7 @@ def publications_to_owl(publication):
     result.append(objPropAsserPy)
 
     #authors
-    print("Debuggging.....authors are", publication.authors)
+    #print("Debuggging.....authors are", publication.authors)
     for auth in publication.authors:
         if auth !='':
             decAuth = owl_declaration(auth)
@@ -371,6 +371,10 @@ def extract_authors(publication):
         if auth !='':
             print("%s" % auth)
 
+def extract_keywords(publication):
+    for k in publication.englishKeywords:
+        print("%s" % k)
+
 ##########################################################################################
 
 ################## OWl Helper Methods ########################################################
@@ -420,7 +424,8 @@ def main(args):
     p = Parser(args[0])
     #p.iterate_publications(testing_handler_method)
 
-    p.iterate_publications(extract_authors)
+    #p.iterate_publications(extract_authors)
+    p.iterate_publications(extract_keywords)
 
 ##### parsing to xml/owl##################################
     #root = etree.Element("Ontology")
