@@ -115,13 +115,19 @@ class Parser(object):
 
         for line in fileinput.input(self.inputFile):
             pline = re.findall(pattern, line)
+            #print("Debugging, pline is", pline)
+            #print("And the corresponding line is", line)
             # If tag has no content (end of record), than a single value is written to list, not a tuple
-            if type(pline[0]) == tuple:
-                tag = pline[0][0]
-                content = pline[0][1]
-            else:
-                tag = pline[0]
-                content = ''
+            try:
+                if type(pline[0]) == tuple:
+                    tag = pline[0][0]
+                    content = pline[0][1]
+                else:
+                    tag = pline[0]
+                    content = ''
+            except:
+                print("Omitting a line, it doesn't match the regex pattern.")
+                print("The line is", line)
 
             #Debug
             #print ("This is the regex i parsed: %s, %s" % (tag, content))
@@ -156,17 +162,32 @@ class Parser(object):
             elif tag =='ai' and (content == '' or content == "; " or ("; ;") in content) and tempAuthor != ['']:
                 # Check if one author or list of authors
                 if type(tempAuthor) == str :
-                    (lastName, firstName) = tempAuthor.lower().split(", ")
-                    lastName = lastName.replace(" ", "-")
-                    firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
-                    currentPub.authors.append("%s.%s" % (lastName, firstName))
-
-                else:
-                    for auth in tempAuthor:
-                        (lastName, firstName) = auth.lower().split(", ")
+                    try:
+                        (lastName, firstName) = tempAuthor.lower().split(", ")
                         lastName = lastName.replace(" ", "-")
                         firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
                         currentPub.authors.append("%s.%s" % (lastName, firstName))
+                    except:
+                        print("unpacking does not work, we've got %s in tempAuthor" % tempAuthor)
+
+                else:
+                    for auth in tempAuthor:
+                        try:
+                            (lastName, firstName) = auth.lower().split(", ")
+                            lastName = lastName.replace(" ", "-")
+                            firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
+                            currentPub.authors.append("%s.%s" % (lastName, firstName))
+                        except:
+                            print("Autors have a funny format, I'm not parsing anything, sorry")
+                            #handling one crazy case with missing ;
+                            #print("What tempAuthor did we get this time", tempAuthor) 
+                            #realAuth = auth.split(" (ed.) ")
+                            #for r in realAuth:
+                                #(lastName, firstName) = r.lower().split(", ")
+                                #lastName = lastName.replace(" ", "-")
+                                #firstName = firstName.rstrip(" (ed.)").replace(".","-").replace(" ","-").rstrip("-")
+                                #currentPub.authors.append("%s.%s" % (lastName, firstName))
+
 
 
             elif tag == 'ti' and content != '':
