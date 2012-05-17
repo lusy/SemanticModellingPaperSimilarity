@@ -343,8 +343,9 @@ def publications_to_owl(publication):
             result.append(objPropAsserKey)
 
     #citations
-    # do we create new publications here for every citation?
-    #if publication.citations != []:
+    # do we create new publications here for every citation? at first, no
+    # for now the citations are put into new class: Reference
+    if publication.citations != []:
         #if only one citation
         #if type(publication.citations) == str:
             #decCit = owl_declaration(publication.citations)
@@ -355,13 +356,13 @@ def publications_to_owl(publication):
             #result.append(objPropAsserKey)
 
         #else:
-            #for ci in publication.citations:
-             #decKey = owl_declaration(k)
-            #classAsserKey = owl_class_assertion(k, "EnglishKeywod")
-            #objPropAsserKey = owl_object_property_assertion("hasKeyword", pub, k)
-            #result.append(decKey)
-            #result.append(classAsserKey)
-            #result.append(objPropAsserKey)
+            for ci in publication.citations:
+                decCit = owl_declaration(ci)
+                classAsserCit = owl_class_assertion(ci, "Reference")
+                objPropAsserCit = owl_object_property_assertion("cites", pub, ci)
+                result.append(decCit)
+                result.append(classAsserCit)
+                result.append(objPropAsserCit)
 
 
 
