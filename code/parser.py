@@ -189,17 +189,7 @@ class Parser(object):
                 #print ("keywords: ", currentPub.englishKeywords)
 
             elif tag == 'la' and content != '':
-                # look up if it's already in languages, if not, add it
                 currentPub.language = content.split(' ')
-                #handles cases of one/more languages
-                if ' ' in content:
-                    for l in currentPub.language:
-                        if l not in self.languages:
-                            self.languages.append(l)
-                else:
-                    if content not in self.languages:
-                        self.languages.append(content)
-
 
             elif tag == 'ci' and content != '':
                 currentPub.citations = content.split("; ")
@@ -248,7 +238,6 @@ def publications_to_owl(publication):
     '''Takes a publication object and converts it to its representation in xml/owl syntax'''
     # TODO modify method so that it can append publications to existing owl file
     # or consider merging the headers to this one
-    # Achtung! In Feldern, die Listen enthalten, koenen auch leere Elemente drin sein (autoren, etc), check before apending
 
     result = []
 
@@ -314,6 +303,20 @@ def publications_to_owl(publication):
 
     #languages
     #TODO consider striking out duplicates (how?)
+    #create language variable for the handler method
+    #append new languages , return it
+    # problem: how do we look up whats already there?
+        #look up if it's already in languages, if not, add it
+                #handles cases of one/more languages
+                #if ' ' in content:
+                    #for l in currentPub.language:
+                        #if l not in self.languages:
+                            #self.languages.append(l)
+                #else:
+                    #if content not in self.languages:
+                        #self.languages.append(content)
+
+
     if type(publication.language) == str:
         decLan = owl_declaration(publication.language)
         classAsserLan = owl_class_assertion(publication.language, "Language")
@@ -398,7 +401,6 @@ def owl_object_property_assertion(objProp, elem1, elem2):
     objPropAsser.append(namedInd1)
     objPropAsser.append(namedInd2)
     return objPropAsser
-
 
 ##########################################################################################
 
