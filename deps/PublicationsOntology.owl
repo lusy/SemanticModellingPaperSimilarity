@@ -28,13 +28,13 @@
         <Class IRI="#Book"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Conference"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#EnglishKeyword"/>
+        <Class IRI="#Editor"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Journal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Keyword"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Language"/>
@@ -43,10 +43,16 @@
         <Class IRI="#MSC_Class"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Proceedings"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Publication"/>
     </Declaration>
     <Declaration>
         <Class IRI="#PublicationYear"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reviewer"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Source"/>
@@ -64,6 +70,9 @@
         <ObjectProperty IRI="#hasClassificationCode"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasEditor"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasKeyword"/>
     </Declaration>
     <Declaration>
@@ -71,6 +80,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasPublications"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasReviewer"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasTitle"/>
@@ -88,6 +100,9 @@
         <ObjectProperty IRI="#isCoAuthorWith"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#isEditorOf"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#isKeywordOf"/>
     </Declaration>
     <Declaration>
@@ -95,6 +110,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isPublishedIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isReviewerOf"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isTitleOf"/>
@@ -167,16 +185,12 @@
         <Class IRI="#Source"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Conference"/>
-        <Class IRI="#Source"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#EnglishKeyword"/>
-        <Class abbreviatedIRI=":Thing"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Journal"/>
         <Class IRI="#Source"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Keyword"/>
+        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Language"/>
@@ -185,6 +199,10 @@
     <SubClassOf>
         <Class IRI="#MSC_Class"/>
         <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Proceedings"/>
+        <Class IRI="#Source"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#PublicationYear"/>
@@ -199,9 +217,42 @@
         <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <DisjointClasses>
+        <Class IRI="#Author"/>
+        <Class IRI="#Editor"/>
+        <Class IRI="#Keyword"/>
+        <Class IRI="#Language"/>
+        <Class IRI="#MSC_Class"/>
+        <Class IRI="#Publication"/>
+        <Class IRI="#PublicationYear"/>
+        <Class IRI="#Reviewer"/>
+        <Class IRI="#Source"/>
+        <Class IRI="#Title"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Author"/>
+        <Class IRI="#Editor"/>
+        <Class IRI="#Keyword"/>
+        <Class IRI="#Language"/>
+        <Class IRI="#MSC_Class"/>
+        <Class IRI="#Publication"/>
+        <Class IRI="#PublicationYear"/>
+        <Class IRI="#Source"/>
+        <Class IRI="#Title"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Author"/>
+        <Class IRI="#Keyword"/>
+        <Class IRI="#Language"/>
+        <Class IRI="#MSC_Class"/>
+        <Class IRI="#Publication"/>
+        <Class IRI="#PublicationYear"/>
+        <Class IRI="#Source"/>
+        <Class IRI="#Title"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#Book"/>
-        <Class IRI="#Conference"/>
         <Class IRI="#Journal"/>
+        <Class IRI="#Proceedings"/>
     </DisjointClasses>
     <ClassAssertion>
         <Class IRI="#MSC_Class"/>
@@ -240,11 +291,11 @@
         <NamedIndividual IRI="#EN"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#EnglishKeyword"/>
+        <Class IRI="#Keyword"/>
         <NamedIndividual IRI="#Euler"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#EnglishKeyword"/>
+        <Class IRI="#Keyword"/>
         <NamedIndividual IRI="#Lagrange"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -256,7 +307,7 @@
         <NamedIndividual IRI="#Publication_2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#EnglishKeyword"/>
+        <Class IRI="#Keyword"/>
         <NamedIndividual IRI="#algebra"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -449,8 +500,12 @@
         <ObjectProperty IRI="#isAuthorOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isClassificationCodeOf"/>
         <ObjectProperty IRI="#hasClassificationCode"/>
+        <ObjectProperty IRI="#isClassificationCodeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isEditorOf"/>
+        <ObjectProperty IRI="#hasEditor"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasKeyword"/>
@@ -463,6 +518,10 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasPublications"/>
         <ObjectProperty IRI="#isPublishedIn"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isReviewerOf"/>
+        <ObjectProperty IRI="#hasReviewer"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#isTitleOf"/>
@@ -497,16 +556,8 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasLanguage"/>
-        <Class IRI="#Publication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasPublications"/>
         <Class IRI="#Source"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasTitle"/>
-        <Class IRI="#Publication"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isAuthorOf"/>
@@ -521,8 +572,12 @@
         <Class IRI="#MSC_Class"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isEditorOf"/>
+        <Class IRI="#Editor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isKeywordOf"/>
-        <Class IRI="#EnglishKeyword"/>
+        <Class IRI="#Keyword"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isLanguageOf"/>
@@ -531,6 +586,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isPublishedIn"/>
         <Class IRI="#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isReviewerOf"/>
+        <Class IRI="#Reviewer"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isTitleOf"/>
@@ -554,7 +613,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasKeyword"/>
-        <Class IRI="#EnglishKeyword"/>
+        <Class IRI="#Keyword"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasLanguage"/>
@@ -581,11 +640,11 @@
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#isKeywordOf"/>
-        <Class IRI="#Publication"/>
+        <ObjectProperty IRI="#isEditorOf"/>
+        <Class IRI="#Source"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#isLanguageOf"/>
+        <ObjectProperty IRI="#isKeywordOf"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -593,7 +652,7 @@
         <Class IRI="#Source"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#isTitleOf"/>
+        <ObjectProperty IRI="#isReviewerOf"/>
         <Class IRI="#Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -679,13 +738,23 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#EnglishKeyword</IRI>
+        <IRI>#Editor</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Editor is the Editor of a Source</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Keyword</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">stays a class for now - idea: later use semantic relations to model similarity measures</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Language</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">should it be a dataTypeProperty instead?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Reviewer</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Reviewer of a publication</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -732,8 +801,28 @@ An fields are not always filled in</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasLanguage</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The intention is modelling the Object Properties hasLanguage and isLanguageOf as holding between individuals of the classes (Publication, Title and Keyword) and Language. Since Domain and Range do not act as contstraints and only defining intersections is possible there, we do not define them at all if the property holds for more than one class.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasTitle</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The intention is modelling the Object Properties hasTitle and isTitleOf as holding between individuals of the classes (Publication or Source) and Title. Since Domain and Range do not act as contstraints and only defining intersections is possible there, we do not define them at all if the property holds for more than one class.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isCoAuthorWith</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">Could be modelled implicitly. How?</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isLanguageOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The intention is modelling the Object Properties hasLanguage and isLanguageOf as holding between individuals of the classes (Publication, Title and Keyword) and Language. Since Domain and Range do not act as contstraints and only defining intersections is possible there, we do not define them at all if the property holds for more than one class.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isTitleOf</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The intention is modelling the Object Properties hasTitle and isTitleOf as holding between individuals of the classes (Publication or Source) and Title. Since Domain and Range do not act as contstraints and only defining intersections is possible there, we do not define them at all if the property holds for more than one class.</Literal>
     </AnnotationAssertion>
 </Ontology>
 
