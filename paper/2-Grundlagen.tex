@@ -11,38 +11,32 @@ Frank Havemann beschreibt Bibliometrie als die Disziplin, die nachweisbare und a
 Ferner wird Bibliometrie als ein Versuch, ``Ordnung im heutigen Informationsflut zu schaffen'' \cite{NAB2004} bezeichnet.
 Rafael Ball und Dirk Tunger schlagen folgende Definition vor: ``Anwendung mathematischer und statistischer Methoden zur Erklärung der Prozesse von schriftlichen Mitteilungen'' \cite{bibliogrundw2005}.
 \\
-Der Begriff $Bibliometrie$ existiert seit 1969 und ist auf A. Pritchard zurückzuführen, auch wenn die ersten bibliometrischen Analysen schon bereits am Anfang des 20. Jahrhunderts durchgeführt worden sind.
+\\
+Der Begriff $Bibliometrie$ existiert seit 1969 und ist auf A. Pritchard zurückzuführen, auch wenn die ersten bibliometrischen Analysen schon bereits am Anfang des 20. Jahrhunderts durchgeführt wurden.
 Diese zeigen die Wahrnehmung von Facharbeiten, den Einfluss einzelner Autoren (oder Publikationen), ihre Integration in der entsprechenden Forschungsgemeinschaft und ihre internationale Präsenz auf.
 Es werden, unterm anderen, folgende Gegenstände quantitativ untersucht: die Trendentwicklung der Forschungsschwerpunkte einer bestimmten wissenschaftlichen Disziplin, die Produktivität, die Resonanz oder den Einfluss eines Autors, einer Forschergruppe oder eines Forschungsinstituts, die Internationalität und die Kooperationsbereitschaft auf einem bestimmten Forschungsfeld.
 Die mit den bibliometrischen Methoden gewonnenen Erkenntnisse werden oft als Ausschlag gebend bei neuen Literaturbeschaffungen in Bibliotheken, oder als Ausgangspunkt für eine leistungsorientierte Mittelvergabe in Wissenschaft und Forschung eingesetzt.
-
-% Was ist Bibliometrie?:
-% Problemstellung/Methoden oder Kombination von beiden müssen bei einer wissenschaftlichen Arbeit neu sein (damit sie einen Wert hat)
-% Die Bibliometrie bietet nachweisbare adäquate Methoden, um diese Problemstellung zu beantworten \cite{frank2009einfuehrung}
-
-% guck weiter im anderen Bibliometriepaper (88 seiten)
-% Der Begriff existiert seit 1969 und ist auf A. Pritchard zurückzuführen auch wenn die ersten bibliometrischen Analysen schon bereits am Anfang vom 20.Jh. durchgeführt worden sind.
-% definiert als "Anwendung mathematischer und statistischer Methoden zur Erklärung der Prozesse von schriftlichen Mitteilungen" \cite{bibliogrundw2005}
-% Bibliometrische Analysen zeigen die Wahrnehmung von Facharbeiten, den Einfluss einzelner Autoren(oder Publikationen), ihre Integration in der entsprechenden Forschungsgemeinschaft, und ihre internationale Präsenz auf
-% Es werden, unterm anderen, folgende Gegenstände untersucht: Trendentwicklung der Forschungsschwerpunkte einer bestimmten wissenschaftlichen Disziplin, die Produktivität oder Resonanz eines Autors/Forschergruppe/Forschungsinstituts
-% Auch: Ausgangspunkt für die Leistungsorientierte Mittelvergabe in Wissenschaft und Forschung
-% die Bibliometrie ist ein Versuch Ordnung im heutigen Informationsflut zu schaffen\cite{NAB2004}
-% die Bibliometrie ist quantitativ (geht nicht inhaltlich auf die Dokumente ein)
-
-
-% Zitatenanalyse ist ein der Kerngebiete der Bibliometrie - Untersucht die Beziehungen zwischen wissenschaftlichen Arbeiten aufgrund der Zählung von Zitaten
-% gerichtete Kanten in Zitationsnetzwerke stehen auch für eine zeitliche Richtung (das zitierte Dokument muss ja älter sein als das Dokument, von dem es zitiert wird)
-
-
-% mit Bildern
+\\
+\\
+Die Zitatenanalyse ist ein der Kerngebiete der Bibliometrie.
+Sie untersucht die Beziehungen zwischen wissenschaftlichen Arbeiten aufgrund der Zählung von im Literaturverzeichnis angegebenen Quellen.
+% Bilder!!!
+\\
+\\
+Eine Ausprägung der Zitatenanalyse ist die bibliographische Kopplung.
+Zwei Publikationen werden als bibliographisch gekoppelt bezeichnet, wenn sie ein gemeinsames früheres Werk zitieren.
+Die bibliographische Kopplung ist ein nützlicher Indikator, um Beziehungen zwischen frisch publizierten Arbeiten herzustellen, bzw. zwischen Artikeln, die in einem geringen zeitlichen Abstand publiziert worden sind.
+Mehrere Werke kennzeichnen zwei Publikationen desto ähnlicher, je stärker bibliographisch gekoppelt diese sind (d.h. je mehrere gemeinsamen Quellen diese zitieren).
+\\
+\\
 % Bibliographische Kopplung:
 % Def: 2 Publikationen zitieren ein gemeinsames früheres Werk
 % dadurch werden Beziehungen zwischen frisch publizierten Arbeiten her-/festgestellt; oder von Artikeln, die in einem geringen zeitlichen Abstand von einander publiziert worden sind
+
 % Problem für Ähnlichkeit: 2 Arbeiten, die eine 3. zitieren, können sich womöglich auf komplementäre Aspekte davon beziehen
 % Problem Nr 2: Standardwerke und frühere Werke werden öfter zitiert
 % Problem Nr 3: Es gibt viele Selbstzitationen, die bestimmte Parameter (Rankings auf Grund von Zitationszahlen/etc) hochpuschen wollen
 % Problem Nr 4: Artikel mit langen Referenzlisten sind tendenziell stärker bibliographisch gekoppelt als solche mit kurzen Listen, wenn man nur die Anzahl der zusammen zitierten Arbeiten zählt - Ansatz zur Normalisierung relative bibliographische Kopplung (Jaccard- und Salton-Index), messen die Kopplung bezogen auf die Länge der Referenzlisten
-
 
 % Kozitation:
 % Def: 2 Publikationen werden gemeinsam in einer dritten zitiert
@@ -50,11 +44,10 @@ Die mit den bibliometrischen Methoden gewonnenen Erkenntnisse werden oft als Aus
 
 % Direktes Zitat
 % Problem: Dankbarkeitszitate, Selbstzitate, Leute, die sich (persönlich) kennen, tendieren dazu sich auch öfters zu zitieren gegenseitig
-
-% -> Auf Grund von den 3 Begriffen kann man Zitationsnetzwerke von Artikeln bauen (de Solla Price, 1965) und Ähnlichkeit über Abstände in so einem Netzwerk definieren.
-
-% Pearsons Korrelationskoeffizient (wird auch oft für Ähnlichkeitsmessungen verwendet)
-% für jetzt lasse ichs erstmal
+Aufgrund dieser Ausprägungen der Zitatenanalyse werden Zitationsnetzwerke aufgebaut - Graphen, deren Knoten für Publikationen stehen und wo jede Kante eine Zitation veranschaulicht.
+Auf der Basis von Zitationsnetzwerken können Cluster von eng zusammenhängenden Dokumenten ermittelt werden.
+Die gerichteten Kanten eines solchen Graphen stehen auch für eine zeitliche Richtung - das zitierte Paper ist stets älter als die Arbeit, von der es zitiert wird.
+Viele Experten schlagen Ähnlichkeitsmaße vor, die über die Abstände in einem Zitationsnetzwerk definiert sind.
 
 % Probleme von bibliometrischen Verfahren als Ähnlichkeitsindikatore, zusammengefasst:
 % Selbstzitate (Leute pushen ihre Parameter hoch/ Druck von Herausgebern von Journalen, dass Zitate auf dem Journal gemacht werden)
@@ -75,6 +68,9 @@ Die mit den bibliometrischen Methoden gewonnenen Erkenntnisse werden oft als Aus
 % Der selbe Autor(in) taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James); einfaches Stringmatching scheitert
 % Ein oft vorkommende Name, der sich auf verschiedene Personen bezieht, kann versehntlich aggregiert werden (Smith)
 % -> Lösung für die letzten 2: Benutzen eines eindeutigen Identifiers für jeden Autor (unser Datensatz hat das)
+
+% Pearsons Korrelationskoeffizient (wird auch oft für Ähnlichkeitsmessungen verwendet)
+% für jetzt lasse ichs erstmal
 
 
 \subsection{Semantische Netzwerke}
