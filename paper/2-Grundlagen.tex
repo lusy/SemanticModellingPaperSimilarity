@@ -6,7 +6,7 @@
 % Was sind wichtige Parameter/Kenngrößen, die für uns relevant sind/wir verwenden
 % was sind die Kritikpunkte dran/ Warum glaube ich, dass diese Kenngrößen alleine nicht genug sind, um Ähnlichkeit zu definieren
 
-Die untersuchte Problemstellung, die angewandten Methoden oder die Kombination von beiden müssen bei einer wissenschaftlichen Arbeit neu sein, damit sie in ihrem Forschungsfeld einen Mehrwert hat.
+Die untersuchte Problemstellung, die angewandten Methoden oder die Kombination von beiden müssen bei einer wissenschaftlichen Arbeit neu sein, damit diese in ihrem Forschungsfeld einen Mehrwert hat.
 Frank Havemann beschreibt Bibliometrie als die Disziplin, die nachweisbare und adäquate Methoden anbietet, um diese Aufgabe zu lösen \cite{frank2009einfuehrung}.
 Ferner wird Bibliometrie als ein Versuch, ``Ordnung im heutigen Informationsflut zu schaffen'' \cite{NAB2004} bezeichnet.
 Rafael Ball und Dirk Tunger schlagen folgende Definition vor: ``Anwendung mathematischer und statistischer Methoden zur Erklärung der Prozesse von schriftlichen Mitteilungen'' \cite{bibliogrundw2005}.
@@ -26,38 +26,39 @@ Sie untersucht die Beziehungen zwischen wissenschaftlichen Arbeiten aufgrund der
 Eine Ausprägung der Zitatenanalyse ist die bibliographische Kopplung.
 Zwei Publikationen werden als bibliographisch gekoppelt bezeichnet, wenn sie ein gemeinsames früheres Werk zitieren.
 Die bibliographische Kopplung ist ein nützlicher Indikator, um Beziehungen zwischen frisch publizierten Arbeiten herzustellen, bzw. zwischen Artikeln, die in einem geringen zeitlichen Abstand publiziert worden sind.
-Mehrere Werke kennzeichnen zwei Publikationen desto ähnlicher, je stärker bibliographisch gekoppelt diese sind (d.h. je mehrere gemeinsamen Quellen diese zitieren).
+Mehrere Studien kennzeichnen zwei Publikationen desto ähnlicher, je stärker bibliographisch gekoppelt diese sind (d.h. je mehrere gemeinsamen Quellen diese zitieren).
 \\
 \\
-% Bibliographische Kopplung:
-% Def: 2 Publikationen zitieren ein gemeinsames früheres Werk
-% dadurch werden Beziehungen zwischen frisch publizierten Arbeiten her-/festgestellt; oder von Artikeln, die in einem geringen zeitlichen Abstand von einander publiziert worden sind
-
-% Problem für Ähnlichkeit: 2 Arbeiten, die eine 3. zitieren, können sich womöglich auf komplementäre Aspekte davon beziehen
-% Problem Nr 2: Standardwerke und frühere Werke werden öfter zitiert
-% Problem Nr 3: Es gibt viele Selbstzitationen, die bestimmte Parameter (Rankings auf Grund von Zitationszahlen/etc) hochpuschen wollen
-% Problem Nr 4: Artikel mit langen Referenzlisten sind tendenziell stärker bibliographisch gekoppelt als solche mit kurzen Listen, wenn man nur die Anzahl der zusammen zitierten Arbeiten zählt - Ansatz zur Normalisierung relative bibliographische Kopplung (Jaccard- und Salton-Index), messen die Kopplung bezogen auf die Länge der Referenzlisten
-
-% Kozitation:
-% Def: 2 Publikationen werden gemeinsam in einer dritten zitiert
+Eine andere Variante von Zitatenanalyse ist die Kozitation.
+Eine Kozitation von zwei oder mehreren Arbeiten liegt vor, wenn alle diese von einer dritten gemeinsam zitiert werden.
+Laut Kim und Barnett \cite{DBLP:conf/amcis/KimB08} werden Cluster von häufig kozitierten Dokumenten als stark zusammenhängend betrachtet.
 % "Clusters of highly co-cited documents are considered to have high mutual dependance"\cite{DBLP:conf/amcis/KimB08}
-
-% Direktes Zitat
-% Problem: Dankbarkeitszitate, Selbstzitate, Leute, die sich (persönlich) kennen, tendieren dazu sich auch öfters zu zitieren gegenseitig
-Aufgrund dieser Ausprägungen der Zitatenanalyse werden Zitationsnetzwerke aufgebaut - Graphen, deren Knoten für Publikationen stehen und wo jede Kante eine Zitation veranschaulicht.
+\\
+\\
+Aufgrund dieser beiden Ausprägungen der Zitatenanalyse und auch noch der einfachsten und nageliegendsten: dem direkten Zitat, werden Zitationsnetzwerke aufgebaut.
+Das sind Graphen, deren Knoten für Publikationen stehen und wo jede Kante eine Zitation veranschaulicht.
 Auf der Basis von Zitationsnetzwerken können Cluster von eng zusammenhängenden Dokumenten ermittelt werden.
 Die gerichteten Kanten eines solchen Graphen stehen auch für eine zeitliche Richtung - das zitierte Paper ist stets älter als die Arbeit, von der es zitiert wird.
 Viele Experten schlagen Ähnlichkeitsmaße vor, die über die Abstände in einem Zitationsnetzwerk definiert sind.
+\\
+\\
+Auch wenn diese Herangehensweise als ein sinnvoller erster Ansatz erscheint, die Ähnlichkeit zwischen zwei wissenschaftlihen Arbeiten zu ermitteln, werden bei näherer Betrachtung mehrere Probleme/Kritikpunkte aufgedeckt:
 
 % Probleme von bibliometrischen Verfahren als Ähnlichkeitsindikatore, zusammengefasst:
 % Selbstzitate (Leute pushen ihre Parameter hoch/ Druck von Herausgebern von Journalen, dass Zitate auf dem Journal gemacht werden)
 % "Dankbarkeitszitate"
+%Leute, die sich (persönlich) kennen, tendieren dazu sich auch öfters zu zitieren gegenseitig
 % Zitate, die andere Arbeiten referenzieren ohne Konsultieren des Originalwerks (z.b. bei Quellen von meinen Quellen übernommen)
 % Rechtschreibfehler in Zitate - das zitierte Werk kann nicht eindeutig bestimmt/wiedergefundnen werden
 % Zitate von Standardwerken(Authorities)/Reviewartikel(haben auch selber lange Referenzlisten) sind oft
 % Frühere Werke werden öfters zitiert/ aber auch Literatur tut veralten (Anzahl von Zitationen nimmt im zeitlichen Verlauf ab)
 % Manchmal werden die Zitate weggelassen
 % Es dauert, bis sich eine Arbeit etabliert hat, und es angefangen wird, dass sie zitiert wird - Ähnlichkeit kann nicht nur auf Grund von Zitationen festgestellt werden
+% Problem für Ähnlichkeit: 2 Arbeiten, die eine 3. zitieren, können sich womöglich auf komplementäre Aspekte davon beziehen
+% Problem Nr 2: Standardwerke und frühere Werke werden öfter zitiert
+% Problem Nr 3: Es gibt viele Selbstzitationen, die bestimmte Parameter (Rankings auf Grund von Zitationszahlen/etc) hochpuschen wollen
+% Problem Nr 4: Artikel mit langen Referenzlisten sind tendenziell stärker bibliographisch gekoppelt als solche mit kurzen Listen, wenn man nur die Anzahl der zusammen zitierten Arbeiten zählt - Ansatz zur Normalisierung relative bibliographische Kopplung (Jaccard- und Salton-Index), messen die Kopplung bezogen auf die Länge der Referenzlisten
+
 
 % Koautorenschaft:
 % Def:
