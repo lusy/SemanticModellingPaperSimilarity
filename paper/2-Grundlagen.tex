@@ -17,7 +17,9 @@ Diese zeigen die Wahrnehmung von Facharbeiten, den Einfluss einzelner Autoren (o
 Es werden, unterm anderen, folgende Gegenstände quantitativ untersucht: die Trendentwicklung der Forschungsschwerpunkte einer bestimmten wissenschaftlichen Disziplin, die Produktivität, die Resonanz oder den Einfluss eines Autors, einer Forschergruppe oder eines Forschungsinstituts, die Internationalität und die Kooperationsbereitschaft auf einem bestimmten Forschungsfeld.
 Die mit den bibliometrischen Methoden gewonnenen Erkenntnisse werden oft als Ausschlag gebend bei neuen Literaturbeschaffungen in Bibliotheken, oder als Ausgangspunkt für eine leistungsorientierte Mittelvergabe in Wissenschaft und Forschung eingesetzt.
 \\
-\\
+
+\subsubsection{Zitatenanalyse}
+
 Die Zitatenanalyse ist ein der Kerngebiete der Bibliometrie.
 Sie untersucht die Beziehungen zwischen wissenschaftlichen Arbeiten aufgrund der Zählung von im Literaturverzeichnis angegebenen Quellen.
 % Bilder!!!
@@ -42,33 +44,39 @@ Die gerichteten Kanten eines solchen Graphen stehen auch für eine zeitliche Rich
 Viele Experten schlagen Ähnlichkeitsmaße vor, die über die Abstände in einem Zitationsnetzwerk definiert sind.
 \\
 \\
-Auch wenn diese Herangehensweise als ein sinnvoller erster Ansatz erscheint, die Ähnlichkeit zwischen zwei wissenschaftlihen Arbeiten zu ermitteln, werden bei näherer Betrachtung mehrere Probleme/Kritikpunkte aufgedeckt:
+Auch wenn diese Herangehensweise als ein sinnvoller erster Ansatz erscheint, um die Ähnlichkeit zwischen zwei wissenschaftlichen Arbeiten zu ermitteln, werden bei näherer Betrachtung mehrere Probleme/Kritikpunkte aufgedeckt, weswegen auf jeden Fall auch andere Ähnlichkeitsindikatoren gesucht werden müssten:\\
+\begin{itemize}
+\item Selbstzitate: die Menschen tendieren dazu sich selbst oder andere, die sie kennen und mit denen sie zusammen gearbeitet haben, öfters zu zitieren.
+Dadurch versuchen sie einerseits ihre eigenen Parameter, wie z.B. Rankings aufgrund von Zitationszahlen, andererseits auch diese von Kollegen, Bekannten, etc. zu verbessern (die so genannten ``Dankbarkeitszitate'').
+Dazu kommt auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, die in einem bestimmten Journal publiziert werden, möglichst häufig andere Veröffentlichungen von diesem Journal zitieren (wieder aufgrund von Verbesserungen von bestimmten bibliometrischen Parametern).
+\item Zitate, die anderen Arbeiten referenzieren ohne das Originalwerk zu konsultieren: es werden in Bibliographien öfters Arbeiten aus dem Literatursverzeichnis eines zitierten Dokuments entnommen.
+\item Rechtschreibfehler in Zitaten: aufgrund deren kann das zitierte Werk nicht eindeutig bestimmt/wiedergefundnen werden, was das Zitat wertlos macht.
+\item Zitate von Standardwerken (sogenannten ``Authorities'') oder Reviewartikeln kommen vergleichsweise öfter vor und müssen mit Vorsicht genossen werden.
+\item Es dauert, bis sich eine Arbeit etabliert hat, deshalb werden frühere Werke öfters zitiert.
+\item Manchmal werden Zitate einfach weggelassen.
+\item Zwei Arbeiten, die eine Dritte zitieren, können sich womöglich auf komplementäre Aspekte davon beziehen.
+\item Artikel mit langen Referenzlisten sind tendenziell stärker bibliographisch gekoppelt als solche mit kurzen Listen, wenn man nur die Anzahl der zusammen zitierten Arbeiten zählt.
+% Ansatz zur Normalisierung relative bibliographische Kopplung (Jaccard- und Salton-Index), messen die Kopplung bezogen auf die Länge der Referenzlisten
+\end{itemize}
 
-% Probleme von bibliometrischen Verfahren als Ähnlichkeitsindikatore, zusammengefasst:
-% Selbstzitate (Leute pushen ihre Parameter hoch/ Druck von Herausgebern von Journalen, dass Zitate auf dem Journal gemacht werden)
-% "Dankbarkeitszitate"
-%Leute, die sich (persönlich) kennen, tendieren dazu sich auch öfters zu zitieren gegenseitig
-% Zitate, die andere Arbeiten referenzieren ohne Konsultieren des Originalwerks (z.b. bei Quellen von meinen Quellen übernommen)
-% Rechtschreibfehler in Zitate - das zitierte Werk kann nicht eindeutig bestimmt/wiedergefundnen werden
-% Zitate von Standardwerken(Authorities)/Reviewartikel(haben auch selber lange Referenzlisten) sind oft
-% Frühere Werke werden öfters zitiert/ aber auch Literatur tut veralten (Anzahl von Zitationen nimmt im zeitlichen Verlauf ab)
-% Manchmal werden die Zitate weggelassen
-% Es dauert, bis sich eine Arbeit etabliert hat, und es angefangen wird, dass sie zitiert wird - Ähnlichkeit kann nicht nur auf Grund von Zitationen festgestellt werden
-% Problem für Ähnlichkeit: 2 Arbeiten, die eine 3. zitieren, können sich womöglich auf komplementäre Aspekte davon beziehen
-% Problem Nr 2: Standardwerke und frühere Werke werden öfter zitiert
-% Problem Nr 3: Es gibt viele Selbstzitationen, die bestimmte Parameter (Rankings auf Grund von Zitationszahlen/etc) hochpuschen wollen
-% Problem Nr 4: Artikel mit langen Referenzlisten sind tendenziell stärker bibliographisch gekoppelt als solche mit kurzen Listen, wenn man nur die Anzahl der zusammen zitierten Arbeiten zählt - Ansatz zur Normalisierung relative bibliographische Kopplung (Jaccard- und Salton-Index), messen die Kopplung bezogen auf die Länge der Referenzlisten
+\subsubsection{Weitere Aspekte bibliometrischer Untersuchungen}
 
-
-% Koautorenschaft:
-% Def:
-
-% Probleme wenn (Ko-)Autoren als Ähnlichkeitskenngröße genutzt werden:
-% Es wird oftmals nur der 1. Autor pro Paper berücksichtigt - verzerrtes Bild, manche erhalten mehr Anerkennung, etc (wobei neuere Analysen den Beitragsanteil eines Autors zu einem Paper bestimmen, in dem sie durch die Anzahl der Koautoren teilen)
-% Bei langen Autorenlisten sind manche Autorinnen nur teilweise im Thema involviert
-% Der selbe Autor(in) taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James); einfaches Stringmatching scheitert
-% Ein oft vorkommende Name, der sich auf verschiedene Personen bezieht, kann versehntlich aggregiert werden (Smith)
+Neben der Zitatenanalyse existieren in der Bibliometrie auch weitere Forschungsschwerpunkte.
+Ich werde hier kurz noch auf die Koautorenschaft eingehen.
+Als Koautoren werden zwei oder mehrere Wissenschaftler oder Wissenschaftlerinnen bezeichnet, die gemeinsam eine Arbeit veröffentlicht haben.
+Koautorenschaft wird auch oftmals als ein Ähnlichkeitskennzeichen gewertet.
+Allerdings ist die Definition eines Ähnlichkeitsmaßes, das auf Koautorenschaft alleine beruht, auch problematisch:\\
+\begin{itemize}
+\item Bei langen Autorenlisten sind manche Autorinnen nur teilweise im Thema involviert.
+\item Der selbe Autor taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James).
+Deswegen ist es oft schwierig eindeutig einzuordnen, welche Person an der konkreten Publikation mitgearbeitet hat.
+\item Es existiert auch das umgekehrte Problem:
+Ein oft vorkommender Name, der sich auf verschiedene Personen bezieht, kann versehntlich aggregiert werden.
 % -> Lösung für die letzten 2: Benutzen eines eindeutigen Identifiers für jeden Autor (unser Datensatz hat das)
+\end{itemize}
+
+% Schlussfolgerung in die Richtung: deshalb brauchen wir andere Ansätze, Ähnlichkeit zu bestimmen
+
 
 % Pearsons Korrelationskoeffizient (wird auch oft für Ähnlichkeitsmessungen verwendet)
 % für jetzt lasse ichs erstmal
