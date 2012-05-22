@@ -13,15 +13,24 @@ Rafael Ball und Dirk Tunger schlagen folgende Definition vor: ``Anwendung mathem
 \\
 \\
 Der Begriff $Bibliometrie$ existiert seit 1969 und ist auf A. Pritchard zurückzuführen, auch wenn die ersten bibliometrischen Analysen schon bereits am Anfang des 20. Jahrhunderts durchgeführt wurden.
-Diese zeigen die Wahrnehmung von Facharbeiten, den Einfluss einzelner Autoren (oder Publikationen), ihre Integration in der entsprechenden Forschungsgemeinschaft und ihre internationale Präsenz auf.
+Diese versuchen die Wahrnehmung von Facharbeiten, den Einfluss einzelner Autoren (oder Publikationen), ihre Integration in der entsprechenden Forschungsgemeinschaft und ihre internationale Präsenz aufzuzeigen.
 Es werden, unterm anderen, folgende Gegenstände quantitativ untersucht: die Trendentwicklung der Forschungsschwerpunkte einer bestimmten wissenschaftlichen Disziplin, die Produktivität, die Resonanz oder den Einfluss eines Autors, einer Forschergruppe oder eines Forschungsinstituts, die Internationalität und die Kooperationsbereitschaft auf einem bestimmten Forschungsfeld.
 Die mit den bibliometrischen Methoden gewonnenen Erkenntnisse werden oft als Ausschlag gebend bei neuen Literaturbeschaffungen in Bibliotheken, oder als Ausgangspunkt für eine leistungsorientierte Mittelvergabe in Wissenschaft und Forschung eingesetzt.
+\\
+\\
+Die gegenwärtige Tendenz diese statistischen Verfahren alleine für das Treffen dieser Entscheidungen zu benutzen, wird allerdings von diversen Experten stark kritisiert.
+Sie vertreten der Meinung, dass Forschung viel zu wichtig ist, um nur mit Hilfe von einem einzigen, zudem so vagen, Werkzeug, bewertet wird \cite{citationstats2008}.
+Sie argumentieren, dass obwohl statistische Daten objektiver und unabhängiger als manche anderen Praxen, wie z.B. Peer-Reviews, erscheinen und es sicherlich verlockend ist, eine einfache und einfach meßbare Vergleichsbasis für verschiedene Publikationen, Journalen, Wissenschaftlerinnen, etc. zu haben, Zahlen nicht immer einer nüchternen Beurteilung überlegener sind, leicht falsch interpretiert werden können und mit Vorsicht zu genießen sind.
+Dennoch tun diese Mathematiker und Statistiker die Bibliometrie nicht als komplett falsch oder nutzlos ab, sondern raten dazu, für etliche Auswertungen, die bibliometrischen Methoden mit anderen Verfahren zu kombinieren.
+Ich werde an der Stelle zwei von den Unterthemen der Bibliometrie kurz angehen, die auch in meine Definition von Ähnlichkeitsmaß in gewisser Hinsicht einfließen werden.
+%warum
 \\
 
 \subsubsection{Zitatenanalyse}
 
 Die Zitatenanalyse ist ein der Kerngebiete der Bibliometrie.
 Sie untersucht die Beziehungen zwischen wissenschaftlichen Arbeiten aufgrund der Zählung von im Literaturverzeichnis angegebenen Quellen.
+% Kritik
 % Bilder!!!
 \\
 \\
@@ -37,7 +46,7 @@ Laut Kim und Barnett \cite{DBLP:conf/amcis/KimB08} werden Cluster von häufig koz
 % "Clusters of highly co-cited documents are considered to have high mutual dependance"\cite{DBLP:conf/amcis/KimB08}
 \\
 \\
-Aufgrund dieser beiden Ausprägungen der Zitatenanalyse und auch noch der einfachsten und nageliegendsten: dem direkten Zitat, werden Zitationsnetzwerke aufgebaut.
+Aufgrund dieser beiden Ausprägungen der Zitatenanalyse und auch noch der einfachsten und naheliegendsten: dem direkten Zitat, werden Zitationsnetzwerke aufgebaut.
 Das sind Graphen, deren Knoten für Publikationen stehen und wo jede Kante eine Zitation veranschaulicht.
 Auf der Basis von Zitationsnetzwerken können Cluster von eng zusammenhängenden Dokumenten ermittelt werden.
 Die gerichteten Kanten eines solchen Graphen stehen auch für eine zeitliche Richtung - das zitierte Paper ist stets älter als die Arbeit, von der es zitiert wird.
@@ -49,10 +58,11 @@ Auch wenn diese Herangehensweise als ein sinnvoller erster Ansatz erscheint, um 
 \item Selbstzitate: die Menschen tendieren dazu sich selbst oder andere, die sie kennen und mit denen sie zusammen gearbeitet haben, öfters zu zitieren.
 Dadurch versuchen sie einerseits ihre eigenen Parameter, wie z.B. Rankings aufgrund von Zitationszahlen, andererseits auch diese von Kollegen, Bekannten, etc. zu verbessern (die so genannten ``Dankbarkeitszitate'').
 Dazu kommt auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, die in einem bestimmten Journal publiziert werden, möglichst häufig andere Veröffentlichungen von diesem Journal zitieren (wieder aufgrund von Verbesserungen von bestimmten bibliometrischen Parametern).
-\item Zitate, die anderen Arbeiten referenzieren ohne das Originalwerk zu konsultieren: es werden in Bibliographien öfters Arbeiten aus dem Literatursverzeichnis eines zitierten Dokuments entnommen.
+\item Zitate, die anderen Arbeiten referenzieren ohne das Originalwerk zu konsultieren: es werden in Bibliographien öfters Arbeiten aus dem Literaturverzeichnis eines zitierten Dokuments entnommen.
 \item Rechtschreibfehler in Zitaten: aufgrund deren kann das zitierte Werk nicht eindeutig bestimmt/wiedergefundnen werden, was das Zitat wertlos macht.
 \item Zitate von Standardwerken (sogenannten ``Authorities'') oder Reviewartikeln kommen vergleichsweise öfter vor und müssen mit Vorsicht genossen werden.
 \item Es dauert, bis sich eine Arbeit etabliert hat, deshalb werden frühere Werke öfters zitiert.
+\item Papers, die auf anderen Sprachen als Englisch veröffentlicht werden, werden tendenziell seltener gelesen und weniger zitiert.
 \item Manchmal werden Zitate einfach weggelassen.
 \item Zwei Arbeiten, die eine Dritte zitieren, können sich womöglich auf komplementäre Aspekte davon beziehen.
 \item Artikel mit langen Referenzlisten sind tendenziell stärker bibliographisch gekoppelt als solche mit kurzen Listen, wenn man nur die Anzahl der zusammen zitierten Arbeiten zählt.
@@ -61,8 +71,7 @@ Dazu kommt auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, di
 
 \subsubsection{Weitere Aspekte bibliometrischer Untersuchungen}
 
-Neben der Zitatenanalyse existieren in der Bibliometrie auch weitere Forschungsschwerpunkte.
-Ich werde hier kurz noch auf die Koautorenschaft eingehen.
+Der zweite Schwerpunkt, den ich noch umreißen werde, ist die Koautorenschaft.
 Als Koautoren werden zwei oder mehrere Wissenschaftler oder Wissenschaftlerinnen bezeichnet, die gemeinsam eine Arbeit veröffentlicht haben.
 Koautorenschaft wird auch oftmals als ein Ähnlichkeitskennzeichen gewertet.
 Allerdings ist die Definition eines Ähnlichkeitsmaßes, das auf Koautorenschaft alleine beruht, auch problematisch:\\
@@ -77,6 +86,9 @@ Ein oft vorkommender Name, der sich auf verschiedene Personen bezieht, kann vers
 
 % Schlussfolgerung in die Richtung: deshalb brauchen wir andere Ansätze, Ähnlichkeit zu bestimmen
 
+Zussammenfassend lässt sich sagen, dass obwohl bibliometrische Analysen sich als einen ersten Ansatz für Ähnlichkeitsdefinition nutzen lassen, diese allein auf keinen Fall erschöpfend sind und manchmal sogar zu falschen oder unbegründeten Schlussfolgerungen führen können.
+Zudem sind sie in manchen Fällen schwer anzuwenden.
+Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedenen Forschungsfeldern haben, nur aufgrund von Bibliometrie den Ähnlichkeitsgrad zu bestimmen: unterschiedliche Disziplinen haben verschiedene Zitierungsgewohnheiten (in manchen wird viel zitiert, in manchen weniger), 
 
 % Pearsons Korrelationskoeffizient (wird auch oft für Ähnlichkeitsmessungen verwendet)
 % für jetzt lasse ichs erstmal
