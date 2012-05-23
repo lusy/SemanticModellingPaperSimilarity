@@ -65,8 +65,14 @@ Laut Kim und Barnett \cite{DBLP:conf/amcis/KimB08} werden Cluster von häufig koz
 % "Clusters of highly co-cited documents are considered to have high mutual dependance"\cite{DBLP:conf/amcis/KimB08}
 \\
 \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{./diagrams/citation_network.png}
+    \caption{Beispiel für ein Zitationsnetzwerk}
+    \label{fig:citenetwork}
+\end{figure}
 Aufgrund dieser beiden Ausprägungen der Zitatenanalyse und auch noch der einfachsten und naheliegendsten: dem direkten Zitat, werden Zitationsnetzwerke aufgebaut.
-Das sind Graphen, deren Knoten für Publikationen stehen und wo jede Kante eine Zitation veranschaulicht.
+Das sind Graphen, deren Knoten für Publikationen stehen und wo jede Kante eine Zitation veranschaulicht (Abbildung \ref{fig:citenetwork}).
 Auf der Basis von Zitationsnetzwerken können Cluster von eng zusammenhängenden Dokumenten ermittelt werden.
 Die gerichteten Kanten eines solchen Graphen stehen auch für eine zeitliche Richtung - das zitierte Paper ist stets älter als die Arbeit, von der es zitiert wird.
 Viele Experten schlagen Ähnlichkeitsmaße vor, die über die Abstände in einem Zitationsnetzwerk definiert sind.
