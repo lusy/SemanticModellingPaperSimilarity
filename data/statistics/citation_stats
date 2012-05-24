@@ -1,0 +1,33 @@
+> data <- read.transactions('all_citations_list_stripped', sep=',', rm.duplicates=TRUE)
+> summary(data)
+transactions as itemMatrix in sparse format with
+ 2907086 rows (elements/itemsets/transactions) and
+ 464932 columns (items) and a density of 5.773384e-07 
+
+most frequent items:
+'Zbl 0707.68001' 'Zbl 0425.00034' 'Zbl 0741.68016' 'Zbl 0657.00005' 
+             257              212              183              159 
+'Zbl 0624.00010'          (Other) 
+             156           779362 
+
+element (itemset/transaction) length distribution:
+sizes
+      0       1       2       3       4       5       6       7       8       9 
+2402376  344999   97859   35810   14026    5883    2850    1305     733     431 
+     10      11      12      13      14      15      16      17      18      19 
+    248     159     116      64      41      33      39      25      18       8 
+     20      21      22      23      24      25      26      27      28      29 
+      6       7       3      14       5       1       1       2       6       2 
+     30      31      32      33      34      35      36      37      38 
+      3       3       2       1       1       1       3       1       1 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.0000  0.0000  0.2684  0.0000 38.0000 
+
+includes extended item information - examples:
+                 labels
+1  '    Zbl 0865.65078'
+2    '  Zbl 0258.65070'
+3    '  Zbl 0408.46024'
+> 
+
