@@ -1,0 +1,99 @@
+> data <- read.transactions('all_languages_list_stripped', sep=' ', rm.duplicates=TRUE)
+> summary(data)
+transactions as itemMatrix in sparse format with
+ 2907086 rows (elements/itemsets/transactions) and
+ 107 columns (items) and a density of 0.009378293 
+
+most frequent items:
+   'EN'    'RU'    'FR'    'DE'    'ZH' (Other) 
+2370288  180335  100575   91510   77924   96563 
+
+element (itemset/transaction) length distribution:
+sizes
+      0       1       2       3       4       5       6       7 
+      5 2897259    9588     191      33       6       3       1 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   1.000   1.000   1.003   1.000   7.000 
+
+includes extended item information - examples:
+  labels
+1    '',
+2   'AF'
+3   'AL'
+
+
+
+//unique languages with freq counts
+tr -sc 'A-Za-z' '\n' < all_languages_list_stripped |sort | uniq -c
+   1 
+  54 AF
+   2 AL
+   3 AM
+  69 AR
+  42 AZ
+  25 BE
+3132 BG
+   2 BN
+ 135 CA
+2394 CS
+   1 CY
+   1 CZ
+ 425 DA
+91745 DE
+   1 EB
+ 278 EL
+   1 EM
+2372343 EN
+  49 EO
+10077 ES
+  69 ET
+  28 FA
+ 149 FI
+  29 FL
+100807 FR
+   2 GA
+   4 GL
+ 835 HI
+ 150 HR
+2217 HU
+   2 HY
+  11 IN
+   1 IR
+27162 IT
+  24 IW
+5491 JA
+   2 JP
+ 180 KA
+ 381 KO
+   3 KS
+ 102 LA
+ 207 LT
+  27 LV
+   1 MA
+ 244 MK
+   1 MN
+  30 MO
+  41 MS
+1415 NL
+ 476 NO
+6073 PL
+1893 PT
+7822 RO
+186663 RU
+   5 SA
+  92 SB
+ 977 SH
+ 443 SK
+ 430 SL
+ 491 SR
+ 324 SV
+   6 TH
+   1 TK
+ 180 TR
+12857 UK
+   1 UU
+   9 UZ
+ 103 VI
+77953 ZH
+
