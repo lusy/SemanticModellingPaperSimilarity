@@ -34,3 +34,27 @@ includes extended item information - examples:
 3  '00-02'
 > 
 
+//68U99
+--------
+68-XX Computer Science
+68Uxx Computing methodologies and applications
+68U99 None of the above, but in this section
+
+//80A20
+-------
+80-XX Classical thermodynamics, heat transfer
+80Axx Thermodynamics and heat transfer
+80A20 Heat and mass transfer, heat flow
+
+//93C05
+-------
+93-XX Systems theory; control
+93Cxx Control systems
+93C05 Linear systems
+
+//68Q25 and 68Q45
+-----------------
+68-XX Computer Science
+68Qxx Theory of computing
+68Q25 Analysis of algorithms and problem complexity
+68Q45 Formal languages and automata
