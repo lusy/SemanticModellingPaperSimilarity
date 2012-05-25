@@ -1,0 +1,626 @@
+<Ontology>
+  <Declaration>
+    <NamedIndividual IRI="#1796"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1796"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1879"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1879"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1914"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1914"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1924"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1924"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1930"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1930"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1931"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1931"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1932"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1932"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1933"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1933"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1934"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1934"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1935"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1935"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1936"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1936"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1937"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1937"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1938"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1938"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1939"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1939"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1940"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1940"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1941"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1941"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1942"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1942"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1943"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1943"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1944"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1944"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1945"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1945"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1946"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1946"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1947"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1947"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1948"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1948"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1949"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1949"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1950"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1950"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1951"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1951"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1952"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1952"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1953"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1953"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1954"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1954"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1955"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1955"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1956"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1956"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1957"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1957"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1958"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1958"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1959"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1959"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1960"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1960"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1961"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1961"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1962"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1962"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1963"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1963"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1964"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1964"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1965"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1965"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1966"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1966"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1967"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1967"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1968"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1968"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1969"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1969"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1970"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1970"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1971"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1971"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1972"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1972"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1973"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1973"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1974"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1974"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1975"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1975"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1976"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1976"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1977"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1977"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1978"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1978"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1979"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1979"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1980"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1980"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1981"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1981"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1982"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1982"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1983"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1983"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1984"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1984"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1985"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1985"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1986"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1986"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1987"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1987"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1988"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1988"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1989"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1989"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1990"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1990"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1991"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1991"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1992"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1992"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1993"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1993"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1994"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1994"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1995"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1995"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1996"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1996"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1997"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1997"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1998"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1998"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#1999"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#1999"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2000"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2000"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2001"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2001"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2002"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2002"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2003"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2003"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2004"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2004"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2005"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2005"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2006"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2006"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2007"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2007"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2008"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2008"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2009"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2009"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2010"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2010"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2011"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2011"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2012"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2012"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2013"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2013"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#2014"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#PublicationYear"/>
+    <NamedIndividual IRI="#2014"/>
+  </ClassAssertion>
+</Ontology>
+
