@@ -99,13 +99,6 @@ class Parser(object):
     # if function (inputFile, handleMethod)
 
 
-    # global variables to be kept track of:
-    languages = []
-    # years = []
-    # authors = []
-    # mscClasses = []
-    # keyWords = []
-
     logger = logging.getLogger("parse")
     # overwrite log file everytime we parse
     hdlr = logging.FileHandler('parse.log', mode='w')
@@ -253,7 +246,6 @@ class Parser(object):
                 pass
 
         #print result
-        #print ("self.languages contains", self.languages)
         return result
 
 
@@ -337,40 +329,20 @@ def publications_to_owl(publication):
         result.append(objPropAsserCl)
 
     #languages
-
-    #TODO consider striking out duplicates (how?)
-    #create language variable for the handler method
-    #append new languages , return it
-    # problem: how do we look up whats already there?
-        #look up if it's already in languages, if not, add it
-                #handles cases of one/more languages
-                #if ' ' in content:
-                    #for l in currentPub.language:
-                        #if l not in self.languages:
-                            #self.languages.append(l)
-                #else:
-                    #if content not in self.languages:
-                        #self.languages.append(content)
-
-
     if type(publication.language) == str:
-        if publication.language not in Parser.languages:
-            Parser.languages.append(publication.language)
-            decLan = owl_declaration(publication.language)
-            classAsserLan = owl_class_assertion(publication.language, "Language")
-            objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, publication.language)
-            result.append(decLan)
-            result.append(classAsserLan)
-            result.append(objPropAsserLan)
+        #Language is not extra added as individual of Class Language,
+        #since all languages are precomputed
+        #decLan = owl_declaration(publication.language)
+        #classAsserLan = owl_class_assertion(publication.language, "Language")
+        objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, publication.language)
+        result.append(objPropAsserLan)
 
     #if more than one languages
     else:
         for lan in publication.language:
-            decLan = owl_declaration(lan)
-            classAsserLan = owl_class_assertion(lan, "Language")
+            #decLan = owl_declaration(lan)
+            #classAsserLan = owl_class_assertion(lan, "Language")
             objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, lan)
-            result.append(decLan)
-            result.append(classAsserLan)
             result.append(objPropAsserLan)
 
     #english keywords
