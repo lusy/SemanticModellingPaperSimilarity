@@ -654,6 +654,10 @@
     <Declaration>
         <NamedIndividual IRI="#euler.leonhard"/>
     </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#PublicationYear"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Book"/>
         <Class IRI="#Source"/>
@@ -677,10 +681,6 @@
     <SubClassOf>
         <Class IRI="#Proceedings"/>
         <Class IRI="#Source"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PublicationYear"/>
-        <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Source"/>
