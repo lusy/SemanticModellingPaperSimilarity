@@ -300,12 +300,10 @@ def publications_to_owl(publication):
     #source
     #TODO extracting source
 
-    #publication year
-    decPy = owl_declaration(str(publication.publicationYear))
-    classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
+    #publication year - precomputed
+    #decPy = owl_declaration(str(publication.publicationYear))
+    #classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
     objPropAsserPy = owl_object_property_assertion("wasPublishedInYear", pub, str(publication.publicationYear))
-    result.append(decPy)
-    result.append(classAsserPy)
     result.append(objPropAsserPy)
 
     #authors
