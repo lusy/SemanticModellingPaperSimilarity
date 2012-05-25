@@ -427,6 +427,9 @@ def extract_languages(publication):
     print(publication.language)
     #for l in publication.language:
         #print("%s" % l)
+
+def extract_years(publication):
+    print(publication.publicationYear)
 ##########################################################################################
 
 ################## OWl Helper Methods ########################################################
@@ -477,10 +480,11 @@ def main(args):
     #p.iterate_publications(testing_handler_method)
 
     #p.iterate_publications(extract_authors)
-    p.iterate_publications(extract_keywords)
+    #p.iterate_publications(extract_keywords)
     #p.iterate_publications(extract_citations)
     #p.iterate_publications(extract_mscClasses)
     #p.iterate_publications(extract_languages)
+    p.iterate_publications(extract_years)
 
 ##### parsing to xml/owl##################################
     #root = etree.Element("Ontology")
