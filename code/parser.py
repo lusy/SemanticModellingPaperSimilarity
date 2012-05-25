@@ -268,8 +268,15 @@ def publications_to_owl(publication):
 
     result = []
 
+    #If :an: not empty, use it as publication identifier, so that citations can
+    #reference directly other papers without extra class
+
     #Publication Individual
-    pub = "Publication_%d" % publication.id
+    if publication.an != '':
+        pub = "Publication_%s" % publication.an
+    else:
+        pub = "Publication_%d" % publication.id
+
     decPub = owl_declaration(pub)
     classAsserPub = owl_class_assertion(pub, "Publication")
     result.append(decPub)
@@ -354,17 +361,16 @@ def publications_to_owl(publication):
             result.append(objPropAsserKey)
 
     #citations
-    # do we create new publications here for every citation? at first, no
-    # for now the citations are put into new class: Reference
+    #we reference directly other publications using the an number
+    #only if they are from the ZMath
+    pattern_cites = 'Zbl ([0-9\.]*)'
     if publication.citations != []:
         for ci in publication.citations:
-            decCit = owl_declaration(ci)
-            classAsserCit = owl_class_assertion(ci, "Reference")
-            objPropAsserCit = owl_object_property_assertion("cites", pub, ci)
-            result.append(decCit)
-            result.append(classAsserCit)
-            result.append(objPropAsserCit)
-
+            ci_stripped = re.findall(pattern_cites, ci)
+            for c in ci_stripped:
+                print ("Debugging................. ci_stripped is ", c)
+                objPropAsserCit = owl_object_property_assertion("cites", pub, "Publication_%s" % c)
+                result.append(objPropAsserCit)
 
 
     return result
@@ -454,18 +460,17 @@ def main(args):
     #p.iterate_publications(extract_citations)
     #p.iterate_publications(extract_mscClasses)
     #p.iterate_publications(extract_languages)
-    p.iterate_publications(extract_years)
+    #p.iterate_publications(extract_years)
 
 ##### parsing to xml/owl##################################
-    #root = etree.Element("Ontology")
+    root = etree.Element("Ontology")
     ## i contains all the nodes belonging to one publication
     ## j are the individual nodes for one publication
-    #for i in p.iterate_publications(publications_to_owl):
-        #for j in i:
-            #root.append(j)
-    #TODO append children to root
+    for i in p.iterate_publications(publications_to_owl):
+        for j in i:
+            root.append(j)
 
-    #print(etree.tostring(root, pretty_print=True))
+    print(etree.tostring(root, pretty_print=True))
 
 #############################################################
 
