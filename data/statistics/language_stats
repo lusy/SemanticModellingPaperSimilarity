@@ -1,3 +1,5 @@
+# 69 unique languages
+
 > data <- read.transactions('all_languages_list_stripped', sep=' ', rm.duplicates=TRUE)
 > summary(data)
 transactions as itemMatrix in sparse format with
