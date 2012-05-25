@@ -1,0 +1,486 @@
+<Ontology>
+  <Declaration>
+    <NamedIndividual IRI="#AF"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#AF"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#AL"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#AL"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#AM"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#AM"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#AR"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#AR"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#AZ"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#AZ"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#BE"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#BE"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#BG"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#BG"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#BN"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#BN"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#CA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#CA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#CS"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#CS"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#CY"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#CY"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#CZ"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#CZ"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#DA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#DA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#DE"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#DE"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#EB"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#EB"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#EL"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#EL"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#EM"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#EM"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#EN"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#EN"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#EO"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#EO"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#ES"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#ES"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#ET"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#ET"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#FA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#FA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#FI"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#FI"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#FL"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#FL"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#FR"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#FR"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#GA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#GA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#GL"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#GL"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#HI"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#HI"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#HR"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#HR"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#HU"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#HU"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#HY"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#HY"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#IN"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#IN"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#IR"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#IR"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#IT"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#IT"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#IW"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#IW"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#JA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#JA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#JP"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#JP"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#KA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#KA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#KO"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#KO"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#KS"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#KS"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#LA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#LA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#LT"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#LT"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#LV"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#LV"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#MA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#MA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#MK"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#MK"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#MN"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#MN"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#MO"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#MO"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#MS"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#MS"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#NL"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#NL"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#NO"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#NO"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#PL"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#PL"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#PT"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#PT"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#RO"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#RO"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#RU"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#RU"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#SA"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#SA"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#SB"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#SB"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#SH"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#SH"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#SK"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#SK"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#SL"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#SL"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#SR"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#SR"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#SV"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#SV"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#TH"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#TH"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#TK"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#TK"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#TR"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#TR"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#UK"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#UK"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#UU"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#UU"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#UZ"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#UZ"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#VI"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#VI"/>
+  </ClassAssertion>
+  <Declaration>
+    <NamedIndividual IRI="#ZH"/>
+  </Declaration>
+  <ClassAssertion>
+    <Class IRI="#Language"/>
+    <NamedIndividual IRI="#ZH"/>
+  </ClassAssertion>
+</Ontology>
+
