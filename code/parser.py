@@ -368,7 +368,6 @@ def publications_to_owl(publication):
         for ci in publication.citations:
             ci_stripped = re.findall(pattern_cites, ci)
             for c in ci_stripped:
-                print ("Debugging................. ci_stripped is ", c)
                 objPropAsserCit = owl_object_property_assertion("cites", pub, "Publication_%s" % c)
                 result.append(objPropAsserCit)
 
