@@ -20,7 +20,7 @@ Die mit den bibliometrischen Methoden gewonnenen Erkenntnisse sind oft Ausschlag
 \\
 Die gegenwärtige Tendenz, diese statistischen Verfahren alleine für das Treffen dieser Entscheidungen zu benutzen, wird allerdings von diversen Experten stark kritisiert.
 Sie vertreten die Meinung, dass Forschung viel zu wichtig ist, um nur mit Hilfe von einem einzigen, zudem so vagen, Werkzeug, bewertet wird.
-Statistische Daten erscheinen objektiver und unabhängiger als manche anderen Praxen, wie z.B. Peer-Reviews.
+Statistische Daten erscheinen objektiver und unabhängiger als manche anderen Praxen, wie z.B. Peer-Reviews \cite{citationstats2008}.
 Die Experten geben zu, dass es verlockend ist, eine einfache und einfach meßbare Vergleichsbasis für verschiedene Publikationen, Journalen, Wissenschaftlerinnen, etc. zu haben.
 Sie warnen aber vor, dass Zahlen nicht immer einer nüchternen Beurteilung überlegener sind, leicht falsch interpretiert werden können und mit Vorsicht zu genießen sind \cite{citationstats2008}.
 Dennoch werten diese Mathematiker und Statistiker die Bibliometrie nicht als komplett falsch oder nutzlos, sondern raten dazu, für etliche Auswertungen, die bibliometrischen Methoden mit anderen Verfahren zu kombinieren.
@@ -87,7 +87,7 @@ Dadurch versuchen sie einerseits ihre eigenen Parameter, wie z.B. Rankings aufgr
 Dazu kommt auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, die in einem bestimmten Journal publiziert werden, möglichst häufig andere Veröffentlichungen von diesem Journal zitieren (wieder aufgrund von Verbesserungen von bestimmten bibliometrischen Parametern) \cite{frank2009einfuehrung}.
 \item Zitate, die andere Arbeiten referenzieren ohne das Originalwerk zu konsultieren: es werden in Bibliographien öfters Arbeiten aus dem Literaturverzeichnis eines zitierten Dokuments entnommen \cite{DBLP:conf/isiwi/Schlogl00}.
 \item Rechtschreibfehler in Zitaten: aufgrund deren kann das zitierte Werk nicht eindeutig bestimmt/wiedergefundnen werden, was das Zitat wertlos macht.
-\item Zitate von Standardwerken (sogenannten ``Authorities'') oder Übersichtsartikeln kommen vergleichsweise öfter vor und müssen mit Vorsicht genossen werden\cite{DBLP:conf/isiwi/Schlogl00}.
+\item Zitate von Standardwerken (sogenannten ``Authorities'') oder Übersichtsartikeln kommen vergleichsweise öfter vor und müssen mit Vorsicht genossen werden\cite{DBLP:conf/isiwi/Schlogl00}, \cite{evalpubsim2005}.
 \item Es dauert, bis sich eine Arbeit etabliert hat, deshalb werden frühere Werke öfters zitiert \cite{DBLP:conf/isiwi/Schlogl00}.
 \item Papers, die auf anderen Sprachen als Englisch veröffentlicht werden, werden tendenziell seltener gelesen und weniger zitiert.
 \item Manchmal werden Zitate einfach weggelassen \cite{DBLP:conf/isiwi/Schlogl00}.
@@ -161,8 +161,23 @@ Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedene
 % Aber NUR auf Grund von Zitationen
 
 % Allgemein strukturelle Ähnlichkeit zwischen 2 Objekte: Simrank \cite{simrank2002}
-% Anhand von (gerichteten) Links/Referenzen
+% 2 Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind
+% Anhand von (gerichteten) Links/Referenzen/Kanten
+% anwendbar für Publikationen: dann auf grund von Referenzen/Zitationen
+% Sagen auch selber, dass ihr Algorithmus als eine Generalisierung von Kozitationsbasierten Maßen betrachtet werden kann, wo die Ähnlichkeit der zitierenden Dokumente auch rekursiv berechnet wird.
 % wird iterativ berechnet
+% letzteres ist sinnvoll für Dokumente, die selten zitiert werden
+% oder eben alle Mögliche Relationen, der Unterschied zu dem hier erstrebten Maß ist: SimRank ist strukturell, guckt sich nur Links an, unabhängig davon, was sie bedeuten; Mein Maß guckt sich die Semantik der Relationen an.
+
+
+% Evaluating Publication Similarity Measures \cite{evalpubsim2005}
+% Es gibt 2 Arten von Ähnlichkeitsmaßen für Publikationen: textbasiert(Information Retrieval) und zitationsbasiert(Bibliometrie), die beiden Ansätze liefern meistens auch ziemlich unterschiedliche Ergebnisse
+
+
+% Textbasierte Ähnlichkeitsmaße \cite?????
+% Nutzen TF-IDF (Term Frequency- Inversed Document Frequency) und Vektorraummodelle aus der Information Retrieval
+% Mit diesen Maßen werden Titel, Inhaltsverzeichnis, Abstract und Text von wissenschaftlichen Arbeiten ausgewertet
+% Problematisch: bei Riesenumfangen, evtl unpraktisch
 
 % A Link-based Similarity Measure for Scientific Literature - lies die lange Variante!
 
