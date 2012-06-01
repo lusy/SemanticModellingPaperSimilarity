@@ -194,7 +194,7 @@ Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedene
 % similarity computation between entities of information networks
 % jointly encoding both in- and out-link relationships into structural similarity computation
 % CoCitation, Coupling, Amsler and SimRank, are just its special cases.
-% ¿two entities are similar if (1) they are referenced by similar entities; and (2) they reference similar entities.¿
+% two entities are similar if (1) they are referenced by similar entities; and (2) they reference similar entities.
 % structural similarity measure which solely explores the link structure of the underlying INs for similarity computation. not the semantics/meaning of a link
 % similarity beliefs of entity pairs are propagated beyond local neighborhood scope to the entire IN, whose global structure is fully utilized in order to reinforce similarity beliefs of entites in a recursive fashion.
 % guckt sich sowohl homogene als auch heterogene netze an, misst aber ählichkeit nur zwischen entitäten, die zur selben kategorie gehören
@@ -215,8 +215,15 @@ Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedene
 
 %  A Link-based Similarity Measure for Scientific Literature
 % Zählen die Probleme, die beim nutzen von den oben genannten Maßen auftreten, auf (e.g. für welche Situationen sind diese ungeeignet)
-% Machen keinen Unterschied zwischen eingehenden und ausgehenden Kanten
-% und berechnen auch strukturelle Ähnlichkeit im Endeffekt
+% Textbasierte Ähnlichkeitsmaße sind nicht geeignet, da diese 2 Paper auch dann als ähnlich bezeichnen würden, wenn sie dem selben Feld angehören, auch wenn sie sich mit unterschiedlichen Problemen beschäftigen.
+% all existing link-based similarity measures to fail in at least one of the following three cases: (1) measuring the similarity between old papers, (2) measuring the similarity between recent papers, and (3) measuring the similarity between an old paper and a recent one.
+% coupling cannot measure similarity between old but similar papers
+% co-citation cannot measure similarity between new but similar papers
+% Third, both Coupling and Co-citation may compute the score between two similar papers, one old and the other recent,as near 0, because the old paper tends to have few papers that are referenced by it and the recent one tends to have few papers that reference it.
+% SimRank fails to compute the similarity when a paper has no in-link, and rvs-SimRank fails when a paper has no out-link. Although being able to compute the similarity scores for more pairs than any other measures, P-Rank measures similarity for less number of pairs than C-Rank. This is because P-Rank fails to compute the similarity between an old paper and a recent one. In experiments, we show that the number of pairs of papers computed by C-Rank is more than that of any other measures.
+% wobei The existing measures can be used in (C1) and (C2) cases. The existing measures, however, cannot correctly measure the similarity in (C3).
+% Machen keinen Unterschied zwischen eingehenden und ausgehenden Kanten (Unterschied zu P-Rank: sie beziehen beides mit ein in die Berechnung, machen aber den Unterschied)
+% und berechnen auch strukturelle Ähnlichkeit im Endeffekt (wobei die beziehen sich schon konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen und nicht auf Informationsnetzwerke überhaupt)
 
 
 
