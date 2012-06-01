@@ -34,13 +34,13 @@ wird das folgende rekursive Ähnlichkeitsmaß, das semantische Relationen zwischen
 \]
 \newline
 \newline
-wo $K$ alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation darstellen
+wobei $K$ alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation darstellen
 \newline
 \newline
-$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen
+$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
 \newline
 \newline
-$c$ ist ein Dämfungsfaktor $c\in (0,1)$
+$c$ ist ein Dämfungsfaktor, $c\in [0..1]$; c wird in Anlehnung an \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} bestimmt, die verschiedenen Werte ausprobieren und eine optimale Konstante in dem jeweiligen Fall vorschlagen.
 \newline
 \end{mydef}
 Das vorgeschlagene Maß grenzt sich folgendermaßen von früheren Arbeiten ab:
