@@ -87,12 +87,12 @@ Dadurch versuchen sie einerseits ihre eigenen Parameter, wie z.B. Rankings aufgr
 Dazu kommt auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, die in einem bestimmten Journal publiziert werden, möglichst häufig andere Veröffentlichungen von diesem Journal zitieren (wieder aufgrund von Verbesserungen von bestimmten bibliometrischen Parametern) \cite{frank2009einfuehrung}.
 \item Zitate von Standardwerken (sogenannten ``Authorities'') oder Übersichtsartikeln kommen vergleichsweise öfter vor und müssen mit Vorsicht genossen werden \cite{DBLP:conf/isiwi/Schlogl00} \cite{evalpubsim2005}.
 \item Es dauert, bis sich eine Arbeit etabliert hat, deshalb werden frühere Werke öfters zitiert \cite{DBLP:conf/isiwi/Schlogl00}.
-\item Papers, die auf anderen Sprachen als Englisch veröffentlicht werden, werden tendenziell seltener gelesen und weniger zitiert.
+\item Papers, die auf anderen Sprachen als Englisch veröffentlicht werden, werden tendenziell seltener gelesen und weniger zitiert \cite{Bornmann08}.
 \item Manchmal werden Zitate einfach weggelassen \cite{DBLP:conf/isiwi/Schlogl00}.
 \item Zwei Arbeiten, die eine Dritte zitieren, können sich womöglich auf komplementäre Aspekte davon beziehen.
 \item Artikel mit langen Referenzlisten sind tendenziell stärker bibliographisch gekoppelt als solche mit kurzen Listen, wenn man nur die Anzahl der zusammen zitierten Arbeiten zählt \cite{frank2009einfuehrung}.
 \item Zitate, die andere Arbeiten referenzieren, ohne das Originalwerk zu konsultieren: es werden in Bibliographien öfters Arbeiten aus dem Literaturverzeichnis eines zitierten Dokuments entnommen \cite{DBLP:conf/isiwi/Schlogl00}.
-\item Rechtschreibfehler in Zitaten: aufgrund deren kann das zitierte Werk nicht eindeutig bestimmt/wiedergefundnen werden, was das Zitat wertlos macht.
+\item Rechtschreibfehler in Zitaten: aufgrund deren kann das zitierte Werk nicht eindeutig bestimmt/wiedergefundnen werden, was das Zitat wertlos macht \cite{Bornmann08}.
 % Ansatz zur Normalisierung relative bibliographische Kopplung (Jaccard- und Salton-Index), messen die Kopplung bezogen auf die Länge der Referenzlisten
 \end{itemize}
 
@@ -104,11 +104,11 @@ Koautorenschaft wird auch oftmals als ein Ähnlichkeitskennzeichen gewertet. %Que
 Allerdings ist die Definition eines Ähnlichkeitsmaßes, das auf Koautorenschaft alleine beruht, auch problematisch:\\
 \begin{itemize}
 \item Bei langen Autorenlisten sind manche Autorinnen nur teilweise im Thema involviert.
-\item Der selbe Autor taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James) \cite{DBLP:conf/isiwi/Schlogl00}.
+\item Der selbe Autor taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James) \cite{DBLP:conf/isiwi/Schlogl00} \cite{Bornmann08}.
 Deswegen ist es oft schwierig eindeutig einzuordnen, welche Person an der konkreten Publikation mitgearbeitet hat \cite{Yang:2009:TRSN}.
 Dieses Problem ist noch stärker ausgeprägt, wenn die Namen der Autoren ursprünglich im kyrilischen oder einem anderen Alphabet geschrieben werden und ins lateinische Alphabet überführt werden müssen.
 \item Es existiert auch das umgekehrte Problem:
-Ein oft vorkommender Name, der sich auf verschiedene Personen bezieht, kann versehntlich aggregiert werden \cite{DBLP:conf/isiwi/Schlogl00}.
+Ein oft vorkommender Name, der sich auf verschiedene Personen bezieht, kann versehntlich aggregiert werden \cite{DBLP:conf/isiwi/Schlogl00} \cite{Bornmann08}.
 % -> Lösung für die letzten 2: Benutzen eines eindeutigen Identifiers für jeden Autor (unser Datensatz hat das)
 \end{itemize}
 
@@ -116,7 +116,7 @@ Ein oft vorkommender Name, der sich auf verschiedene Personen bezieht, kann vers
 
 Zussammenfassend lässt sich sagen, dass obwohl bibliometrische Analysen sich als einen ersten Ansatz für Ähnlichkeitsdefinition nutzen lassen, diese allein auf keinen Fall erschöpfend sind und manchmal sogar zu falschen oder unbegründeten Schlussfolgerungen führen können.
 Zudem sind sie in manchen Fällen schwer anzuwenden.
-Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedenen Forschungsfeldern haben, nur aufgrund von Bibliometrie den Ähnlichkeitsgrad zu bestimmen: unterschiedliche Disziplinen haben verschiedene Zitierungsgewohnheiten (in manchen wird viel zitiert, in manchen weniger), was die Arbeiten schwer vergleichbar macht.
+Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedenen Forschungsfeldern haben, nur aufgrund von Bibliometrie den Ähnlichkeitsgrad zu bestimmen: unterschiedliche Disziplinen haben verschiedene Zitierungsgewohnheiten (in manchen wird viel zitiert, in manchen weniger) \cite{Bornmann08}, was die Arbeiten schwer vergleichbar macht.
 % Pearsons Korrelationskoeffizient (wird auch oft für Ähnlichkeitsmessungen verwendet)
 % für jetzt lasse ichs erstmal
 
