@@ -8,7 +8,7 @@ Zusätzliche Metadaten können jedoch für eine Analyse ebenfalls bedeutende und in
 Durch den Aufbau eines semantischen Netzes, das alle zu einer Publikation relevanten Informationen enthält, soll ein allgemeineres Modell für wissenschaftliche Publikationen entwickelt werden.
 Durch die Berücksichtigung der in diesem Modell erfassten semantischen Relationen wird dann versucht, ein möglichts präzises Ähnlichkeitsmaß für wissenschaftliche Publikationen zu entwerfen. %vlt beispiele (A ist Autor von Paper P, P ist Journal C erschienen, hat X,Y,Z als Keywords usw)
 Ein gutes Ähnlichkeitsmaß findet mehrere Gebräuche: es kann bei automatischer Klassifizierung von Arbeiten in einer wissenschaftlichen Datenbank oder als Ausgangspunkt für das Vorschlagen verwandter/relevanter Dokumente eingesetzt werden.
-Frühere Entwürfe von Ähnlichkeitsmaßen beziehen nur bibliometrische Kategorien wie Zitationsanalysen (von direkten Zitaten, Kozitationen oder bibliographischen Kopplungen) oder Koautorenschaften ein.%referenz!
+Frühere Entwürfe von Ähnlichkeitsmaßen beziehen nur bibliometrische Kategorien wie Zitationsanalysen (von direkten Zitaten, Kozitationen oder bibliographischen Kopplungen) oder Koautorenschaften ein \cite{Kessler:1963} \cite{Small_1973} \cite{DBLP:journals/corr/abs-1109-1059}.%referenz!
 Indem alle Metadaten zu einer Publikation und ihre semantische Erfassung in eine neue Definition integriert werden, sollen genauere Ergebnisse erzielt werden.
 
 
@@ -26,13 +26,14 @@ Indem alle Metadaten zu einer Publikation und ihre semantische Erfassung in eine
 
 Ziel dieser Arbeit ist es ein semantisches Netz zu modellieren, das alle zu einer mathematischen Publikation relevanten Metadaten berücksichtigt und mathematische Publikationen zueinander in Relation stellt.
 Im zweiten Teil der Arbeit wird dieses Netzwerk als Grundlage für die Formulierung eines Ähnlichkeitsmaßes und Ähnlichkeitsanalysen verwendet.
+Das vorgeschlagene Ähnlichkeitsmaß wird in Anlehnung an den schon existierenden Maßen SimRank \cite{simrank2002}, P-Rank \cite{ZhaoHS09} und C-Rank \cite{DBLP:journals/corr/abs-1109-1059} rekursiv definiert.
+Hierbei werden nicht nur Zitationen, sondern auch andere semantische Relationen zwischen einer Publikation und ihren einzelnen Metadaten, wie z.B Autor, Quelle, Erscheinungsjahr und Keywords, gezählt.
 %wie sieht es aus?
 Die Qualität des definierten Ähnlichkeitsmaßes wird ermittelt, indem die Ergebnisse, die es liefert, mit der schon im Datensatz durch Fachexperten vergebenen MSC-Klassifizierung
 \footnote{Die Mathematical Subject Classification (MSC) ist eine Klassifizierungskonvention, die durch die wissenschaftlichen Datenbanken Mathematical Reviews und das Zentralblatt Mathematik genutzt wird. Für den Aufbau siehe http://www.ams.org/mathscinet/msc/msc2010.html} verglichen werden.
 \\
 Der der Ausarbeitung zugrundeliegende Datensatz beinhaltet die Metadaten und MSC-Klassifikationen von ca. $2,900,000$ Publikationen vom Zentralblatt Mathematik, FIZ Karlsruhe.
-Diese werden mit Hilfe von Ontology-Engineering-Tools und einem in $Python$ geschriebenen Parser auf ein semantisches Netz abgebildet, das in der Sprache $OWL$ modelliert ist.
-% wie wird das Ähnlichkeitsmaß definiert/evaluiert (Verfahren + Werkzeuge)
+ wie wird das Ähnlichkeitsmaß definiert/evaluiert (Verfahren + Werkzeuge)
 
 \subsection{Aufbau der Arbeit}
 
