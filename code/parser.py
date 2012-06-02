@@ -217,16 +217,18 @@ class Parser(object):
                     so = re.findall(jour_pat, content)
                     for s in so:
                         currentPub.source = s
-                print("Debugging-.......... currentPub.source: ", currentPub.source)
-                #TODO: parse source so that it makes sense
-                #print ("source: ", currentPub.source)
+                currentPub.source = currentPub.source.replace(" ", "_")
+                #print("Debugging-.......... currentPub.source: ", currentPub.source)
 
             elif tag == 'cc' and content != '':
                 currentPub.mscClasses = content.split()
                 #print ("classes: ", currentPub.mscClasses)
 
             elif tag == 'ut' and content != '':
-                currentPub.englishKeywords = content.split("; ")
+                englishKeywordsTemp = content.split("; ")
+                for k in englishKeywordsTemp:
+                    k = k.replace(" ", "_")
+                    currentPub.englishKeywords.append(k)
                 #print ("keywords: ", currentPub.englishKeywords)
 
             elif tag == 'la' and content != '':
