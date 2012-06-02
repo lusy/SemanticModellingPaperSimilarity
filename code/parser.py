@@ -490,11 +490,19 @@ def main(args):
     root = etree.Element("Ontology")
     ## i contains all the nodes belonging to one publication
     ## j are the individual nodes for one publication
+    #print(etree.tostring(root, pretty_print=True))
+    print("<Ontology>")
     for i in p.iterate_publications(publications_to_owl):
         for j in i:
             root.append(j)
+            print(etree.tostring(j, pretty_print=True))
+            j.clear()
+            # cut references
+            while j.getprevious() is not None:
+                del j.getparent()[0]
 
-    print(etree.tostring(root, pretty_print=True))
+    print ("</Ontology>")
+    #print(etree.tostring(root, pretty_print=True))
 
 #############################################################
 
