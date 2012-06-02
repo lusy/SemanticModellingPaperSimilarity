@@ -318,20 +318,28 @@ def publications_to_owl(publication):
 
     #titleString
     if publication.titleString !='':
-        dataPropAsserTi = owl_data_property_assertion(pub, "hasTitleString", "&rdf;PlainLiteral", publication.titleString)
-        result.append(dataPropAsserTi)
+        try:
+            dataPropAsserTi = owl_data_property_assertion(pub, "hasTitleString", "&rdf;PlainLiteral", publication.titleString)
+            result.append(dataPropAsserTi)
+        except:
+            pass
+            #title not parseable
 
     #title
     #TODO extracting title from title string
 
     #source
     # source is never empty
-    decSo = owl_declaration(publication.source)
-    classAsserSo = owl_class_assertion(publication.source, "Source")
-    objPropAsserSo = owl_object_property_assertion("isPublishedIn", pub, publication.source)
-    result.append(decSo)
-    result.append(classAsserSo)
-    result.append(objPropAsserSo)
+    try:
+        decSo = owl_declaration(publication.source)
+        classAsserSo = owl_class_assertion(publication.source, "Source")
+        objPropAsserSo = owl_object_property_assertion("isPublishedIn", pub, publication.source)
+        result.append(decSo)
+        result.append(classAsserSo)
+        result.append(objPropAsserSo)
+    except:
+        #if a not unicode char in source
+        pass
 
     #publication year - precomputed
     #decPy = owl_declaration(str(publication.publicationYear))
@@ -342,13 +350,17 @@ def publications_to_owl(publication):
     #authors
     #print("Debuggging.....authors are", publication.authors)
     for auth in publication.authors:
-        if auth !='':
-            decAuth = owl_declaration(auth)
-            classAsserAuth = owl_class_assertion(auth, "Author")
-            objPropAsserAuth = owl_object_property_assertion("isAuthorOf", auth, pub)
-            result.append(decAuth)
-            result.append(classAsserAuth)
-            result.append(objPropAsserAuth)
+        try:
+            if auth !='':
+                decAuth = owl_declaration(auth)
+                classAsserAuth = owl_class_assertion(auth, "Author")
+                objPropAsserAuth = owl_object_property_assertion("isAuthorOf", auth, pub)
+                result.append(decAuth)
+                result.append(classAsserAuth)
+                result.append(objPropAsserAuth)
+        except:
+            pass
+            #not parseable
 
     #msc classes
     for cl in publication.mscClasses:
@@ -379,12 +391,16 @@ def publications_to_owl(publication):
     #english keywords
     if publication.englishKeywords != []:
         for k in publication.englishKeywords:
-            decKey = owl_declaration(k)
-            classAsserKey = owl_class_assertion(k, "EnglishKeywod")
-            objPropAsserKey = owl_object_property_assertion("hasKeyword", pub, k)
-            result.append(decKey)
-            result.append(classAsserKey)
-            result.append(objPropAsserKey)
+            try:
+                decKey = owl_declaration(k)
+                classAsserKey = owl_class_assertion(k, "EnglishKeywod")
+                objPropAsserKey = owl_object_property_assertion("hasKeyword", pub, k)
+                result.append(decKey)
+                result.append(classAsserKey)
+                result.append(objPropAsserKey)
+            except:
+                # if a not unicode character in keywords
+                pass
 
     #citations
     #we reference directly other publications using the an number
