@@ -204,7 +204,20 @@ class Parser(object):
 
             elif tag == 'so':
                 # source is never empty
-                currentPub.source = content
+                #pattern = ':([a-z/:]{2,5}):\t?(.*)'
+                book_pat = '(.*)(\(ISBN .*\)\.)\s.*'
+                jour_pat = '^(.*),.*'
+                if "ISBN" in content:
+                    so = re.findall(book_pat, content)
+                    for s in so:
+                        currentPub.source = s[0] + s[1]
+                        #print ("Debugging............s[0] ", s[0])
+                        #print ("Debugging............s[1] ", s[1])
+                else:
+                    so = re.findall(jour_pat, content)
+                    for s in so:
+                        currentPub.source = s
+                print("Debugging-.......... currentPub.source: ", currentPub.source)
                 #TODO: parse source so that it makes sense
                 #print ("source: ", currentPub.source)
 
@@ -305,6 +318,13 @@ def publications_to_owl(publication):
     #TODO extracting title from title string
 
     #source
+    # source is never empty
+    decSo = owl_declaration(publication.source)
+    classAsserSo = owl_class_assertion(publication.source, "Source")
+    objPropAsserSo = owl_object_property_assertion("isPublishedIn", pub, publication.source)
+    result.append(decSo)
+    result.append(classAsserSo)
+    result.append(objPropAsserSo)
     #TODO extracting source
 
     #publication year - precomputed
