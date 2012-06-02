@@ -308,8 +308,12 @@ def publications_to_owl(publication):
 
     #abstract
     if publication.abstract != '':
-        dataPropAsserAb = owl_data_property_assertion(pub, "hasAbstract", "&rdf;PlainLiteral", publication.abstract)
-        result.append(dataPropAsserAb)
+        try:
+            dataPropAsserAb = owl_data_property_assertion(pub, "hasAbstract", "&rdf;PlainLiteral", publication.abstract)
+            result.append(dataPropAsserAb)
+        except:
+            pass
+            #Parser.logger.warning("Invalid abstract")
 
     #titleString
     if publication.titleString !='':
@@ -327,7 +331,6 @@ def publications_to_owl(publication):
     result.append(decSo)
     result.append(classAsserSo)
     result.append(objPropAsserSo)
-    #TODO extracting source
 
     #publication year - precomputed
     #decPy = owl_declaration(str(publication.publicationYear))
@@ -449,7 +452,7 @@ def owl_data_property_assertion(elem, dataProp, dataType, value):
     dataProp1 = etree.Element("DataProperty", IRI="#%s" % dataProp)
     namedInd = etree.Element("NamedIndividual", IRI="#%s" % elem)
     literal = etree.Element("Literal", datatypeIRI="%s" % dataType)
-    literal.text = "%s" % str(value)
+    literal.text = str(value)
     dataPropAsser.append(dataProp1)
     dataPropAsser.append(namedInd)
     dataPropAsser.append(literal)
