@@ -249,7 +249,8 @@ class Parser(object):
                 pass
 
             elif tag == '::':
-                result.append(handleMethod(currentPub))
+                #result.append(handleMethod(currentPub))
+                handleMethod(currentPub)
                 del currentPub
                 #mach was mit dem erzeugten objekt
                 #zerstoere das objekt am ende
@@ -261,7 +262,7 @@ class Parser(object):
                 pass
 
         #print result
-        return result
+        #return result
 
 
 
@@ -396,8 +397,9 @@ def publications_to_owl(publication):
                 objPropAsserCit = owl_object_property_assertion("cites", pub, "Publication_%s" % c)
                 result.append(objPropAsserCit)
 
-
-    return result
+    for r in result:
+        print(etree.tostring(r, pretty_print=True))
+    #return result
 
 def testing_handler_method(publication):
     return publication.info()
@@ -492,15 +494,19 @@ def main(args):
     ## j are the individual nodes for one publication
     #print(etree.tostring(root, pretty_print=True))
     print("<Ontology>")
-    for i in p.iterate_publications(publications_to_owl):
-        for j in i:
-            root.append(j)
-            print(etree.tostring(j, pretty_print=True))
-            j.clear()
+    
+    #for i in p.iterate_publications(publications_to_owl):
+        #for j in i:
+            #root.append(j)
+            #print(etree.tostring(j, pretty_print=True))
+            #j.clear()
             # cut references
-            while j.getprevious() is not None:
-                del j.getparent()[0]
+            #while j.getprevious() is not None:
+                #del j.getparent()[0]
 
+        #del i
+
+    p.iterate_publications(publications_to_owl)
     print ("</Ontology>")
     #print(etree.tostring(root, pretty_print=True))
 
