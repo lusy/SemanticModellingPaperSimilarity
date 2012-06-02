@@ -7,9 +7,9 @@
 % Beschreibung der Eigenschaften (bisschen statistische Analysen?)
 % vlt eine Auflistung davon, welche Daten arbiträr sind (nicht immer ausgefüllt im Datensatz)
 
-Als Ausgangspunkt für den Entwurf und Evaluierung des semantischen Ähnlichkeitsmaßes wird ein Datensatz vom Zentralblatt Mathematik
+Als Ausgangspunkt für den Entwurf und Evaluierung des semantischen Ähnlichkeitsmaßes wird ein Datensatz vom Zentralblatt Mathematik,
 \footnote{Das Zentralblatt Mathematik ist die größte wissenschaftliche Datenbank, die Metadaten, Abstracts und Reviews auf den Gebieten der reinen und angewandten Mathematik enthält.}
-, der die Metadaten zu $2,907,086$ Publikationen enthält, eingesetzt.
+ der die Metadaten zu $2,907,086$ Publikationen enthält, eingesetzt.
 
 Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation möglichen Einträgen.
 %Zu jeder Publikation können die folgenden Einträge vorhanden sein:
@@ -40,8 +40,44 @@ Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation mö
 \label{tab:metadata}
 \end{table}
 
+Dazu ist noch zu erwähnen, dass zu einer Publikation mehrere Autoren/Autorinnen, MSC Klassen, Sprachen, Keywords und Zitationen möglich sind.
+\\
+\\
+Der Datensatz hat ferner die folgenden Merkmale:\\
+% guck die Autorenstatistiken nochmal an oder lass die sein, die Zahlen sind komisch
+Das Paper mit den meisten Zitationen zitiert 38 andere Arbeiten.
+Dabei hat jede Publikation im Schnitt 0.27 Referenzen.
+Tabelle XY stellt die am öftesten zitierten Publikationen und die Anzahl ihrer Referenzen dar.
+%'Zbl 0707.68001' 'Zbl 0425.00034' 'Zbl 0741.68016' 'Zbl 0657.00005' 
+%             257              212              183              159 
+%             'Zbl 0624.00010'          (Other) 
+%                          156           779362 
+%'Zbl 0707.68001' 
+%IJCAI-89. International joint conference on artificial intelligence, Detroit, MI, USA, August 20-25, 1989. Proceedings. Vol. 1 u. 2.
 
+%'Zbl 0425.00034' 
+%Proceedings of the 1978 IEEE conference on decision and control, including the 17th symposium on adaptive processes. IEEE Control Systems Society, January 10-12, 1979, Islandia Hyatt House Hotel, San Diego, California.
 
+%'Zbl 0741.68016' 
+%IJCAI 91, Proceedings of the 12th International Conference on Artificial Intelligence. Sydney, Australia, 24-30 August 1991. Vol. 1-2.
+
+%'Zbl 0657.00005' 
+%Proceedings of the International Congress of Mathematicians (ICM), August 3-11, 1986, Berkeley, California. Volumes $1+2$.
+
+%'Zbl 0624.00010'
+%Nonlinear oscillations. Proceedings of the 11th International Conference on Nonlinear Oscillations, Budapest, August 17-23, 1987.
+
+Im Durchschnitt wurden pro Publikation 3 Keywords vergeben.
+Die maximale Anzahl von Keywords für eine Arbeit ist 219, die nächst große - 162.
+Tabelle XY beinhaltet die am häufigsten vergebenen Keywords.
+%        'convergence'           'stability' 'functional analysis' 
+%                        18872                 16766                 15049 
+%                            'fluid mechanics'  'numerical examples'               (Other) 
+%                                            14185                 13874               8554787 
+
+Es gibt Papers auf 69 verschiedenen Sprachen.
+$2,897,259$ der Publikationen wurden auf einer Sprache veröffentlicht, $9,588$ auf 2, 33 auf 4 und eine Publikation ist auf 7 Sprachen verfügbar.
+Die am häufigsten vorkommenden Sprachen sind: Englisch (mit $2,370,288$ Publikationen), Russisch (mit $180,335$), Französisch ($100,575$), Deutsch ($91,510$) und Chinesisch ($77,924$).
 
 \subsection{Modellierung des semantischen Netzes}
 % Wie sieht es aus?
