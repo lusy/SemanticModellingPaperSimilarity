@@ -276,7 +276,94 @@ class Parser(object):
 
 
 ########## HandleMethods #################################################################
+def publications_to_graphml(publication):
+    '''Takes a publication object and converts it to its representaton in graphml formatt'''
+    result = []
 
+    #Publication Individual
+    if publication.an != '':
+        pub = "Publication_%s" % publication.an
+    else:
+        pub = "Publication_%d" % publication.id
+
+    decPub = graphml_node(pub, "Publication")
+    result.append(decPub)
+
+    #source
+    # source is never empty
+    try:
+        decSo = graphml_node(publication.source, "Source")
+        ctr = ctr + 1
+        objPropSo = graphml_edge(pub, publication.source, "isPublishedIn", ctr)
+        result.append(decSo)
+        result.append(objPropSo)
+    except:
+        #if a not unicode char in source
+        pass
+
+    #publication year - precomputed
+    #decPy = owl_declaration(str(publication.publicationYear))
+    #classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
+    ctr = ctr +1
+    objPropPy = graphml_edge(pub, str(publication.publicationYear), "wasPublishedInYear", ctr)
+    result.append(objPropPy)
+
+    #authors
+    #print("Debuggging.....authors are", publication.authors)
+    for auth in publication.authors:
+        try:
+            if auth !='':
+                decAuth = graphml_node(auth, "Author")
+                ctr = ctr + 1
+                objPropAuth = graphml_edge(auth, pub, "isAuthorOf", ctr)
+                result.append(decAuth)
+                result.append(objPropAuth)
+        except:
+            pass
+            #not parseable
+
+    #msc classes
+    for cl in publication.mscClasses:
+        decClass = graphml_node(cl, "MSC_Class")
+        ctr = ctr + 1
+        objPropCl = graphml_edge(pub, cl, "hasClassificationCode", ctr)
+        result.append(decClass)
+        result.append(objPropCl)
+
+    #english keywords
+    if publication.englishKeywords != []:
+        for k in publication.englishKeywords:
+            try:
+                decKey = graphml_node(k, "Keyword")
+                ctr = ctr + 1
+                objPropKey = graphml_edge(pub, k, "hasKeyword", ctr)
+                result.append(decKey)
+                result.append(objPropKey)
+            except:
+                # if a not unicode character in keywords
+                pass
+
+    #citations
+    #we reference directly other publications using the an number
+    #only if they are from the ZMath
+    pattern_cites = 'Zbl ([0-9\.]*)'
+    if publication.citations != []:
+        for ci in publication.citations:
+            ci_stripped = re.findall(pattern_cites, ci)
+            for c in ci_stripped:
+                ctr = ctr + 1
+                objPropCit = graphml_edge(pub, "Publication_%s" % c, "cites", ctr)
+                result.append(objPropCit)
+
+
+    for r in result:
+        #print(etree.tostring(r, pretty_print=True))
+        print(etree.tostring(r))
+    #return result
+
+
+
+# kick out everything which is not needed for computing similarity
 def publications_to_owl(publication):
     '''Takes a publication object and converts it to its representation in xml/owl syntax'''
     # TODO modify method so that it can append publications to existing owl file
@@ -299,30 +386,30 @@ def publications_to_owl(publication):
     result.append(classAsserPub)
 
     #ID
-    dataPropAsserId = owl_data_property_assertion(pub, "hasId", "&xsd;positiveInteger", publication.id)
-    result.append(dataPropAsserId)
+    #dataPropAsserId = owl_data_property_assertion(pub, "hasId", "&xsd;positiveInteger", publication.id)
+    #result.append(dataPropAsserId)
 
     #an
-    if publication.an != '':
-        dataPropAsserAn = owl_data_property_assertion(pub, "hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
-        result.append(dataPropAsserAn)
+    #if publication.an != '':
+        #dataPropAsserAn = owl_data_property_assertion(pub, "hasAccessionNumber", "&rdf;PlainLiteral", publication.an)
+        #result.append(dataPropAsserAn)
 
     #abstract
-    if publication.abstract != '':
-        try:
-            dataPropAsserAb = owl_data_property_assertion(pub, "hasAbstract", "&rdf;PlainLiteral", publication.abstract)
-            result.append(dataPropAsserAb)
-        except:
-            pass
+    #if publication.abstract != '':
+        #try:
+            #dataPropAsserAb = owl_data_property_assertion(pub, "hasAbstract", "&rdf;PlainLiteral", publication.abstract)
+            #result.append(dataPropAsserAb)
+        #except:
+            #pass
             #Parser.logger.warning("Invalid abstract")
 
     #titleString
-    if publication.titleString !='':
-        try:
-            dataPropAsserTi = owl_data_property_assertion(pub, "hasTitleString", "&rdf;PlainLiteral", publication.titleString)
-            result.append(dataPropAsserTi)
-        except:
-            pass
+    #if publication.titleString !='':
+        #try:
+            #dataPropAsserTi = owl_data_property_assertion(pub, "hasTitleString", "&rdf;PlainLiteral", publication.titleString)
+            #result.append(dataPropAsserTi)
+        #except:
+            #pass
             #title not parseable
 
     #title
@@ -372,21 +459,21 @@ def publications_to_owl(publication):
         result.append(objPropAsserCl)
 
     #languages
-    if type(publication.language) == str:
+    #if type(publication.language) == str:
         #Language is not extra added as individual of Class Language,
         #since all languages are precomputed
         #decLan = owl_declaration(publication.language)
         #classAsserLan = owl_class_assertion(publication.language, "Language")
-        objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, publication.language)
-        result.append(objPropAsserLan)
+        #objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, publication.language)
+        #result.append(objPropAsserLan)
 
     #if more than one languages
-    else:
-        for lan in publication.language:
+    #else:
+        #for lan in publication.language:
             #decLan = owl_declaration(lan)
             #classAsserLan = owl_class_assertion(lan, "Language")
-            objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, lan)
-            result.append(objPropAsserLan)
+            #objPropAsserLan = owl_object_property_assertion("hasLanguage", pub, lan)
+            #result.append(objPropAsserLan)
 
     #english keywords
     if publication.englishKeywords != []:
@@ -414,7 +501,8 @@ def publications_to_owl(publication):
                 result.append(objPropAsserCit)
 
     for r in result:
-        print(etree.tostring(r, pretty_print=True))
+        #print(etree.tostring(r, pretty_print=True))
+        print(etree.tostring(r))
     #return result
 
 def testing_handler_method(publication):
@@ -449,6 +537,21 @@ def extract_languages(publication):
 def extract_years(publication):
     print(publication.publicationYear)
 ##########################################################################################
+
+################## GraphML Helper Methods ####################################################
+def graphml_node(elem, attr):
+    dec = etree.Element("node", id="%s" % elem)
+    data = etree.Element("data", key="d0")
+    data.text = attr
+    dec.append(data)
+    return dec
+
+def graphml_edge(elem1, elem2, attr, ctr):
+    dec = etree.Element("edge", id = ctr, source = elem1, target = elem2)
+    data = etree.Element("data", key="d1")
+    data.text = attr
+    dec.append(data)
+    return dec
 
 ################## OWl Helper Methods ########################################################
 def owl_declaration(elem):
@@ -487,7 +590,7 @@ def owl_object_property_assertion(objProp, elem1, elem2):
     return objPropAsser
 
 ##########################################################################################
-
+ctr = 0
 def main(args):
     if len(args) != 1:
         print 'Usage: python parser.py <datasetfile>'
@@ -505,27 +608,41 @@ def main(args):
     #p.iterate_publications(extract_years)
 
 ##### parsing to xml/owl##################################
-    root = etree.Element("Ontology")
-    ## i contains all the nodes belonging to one publication
-    ## j are the individual nodes for one publication
-    #print(etree.tostring(root, pretty_print=True))
-    print("<Ontology>")
+    #root = etree.Element("Ontology")
+    ### i contains all the nodes belonging to one publication
+    ### j are the individual nodes for one publication
+    ##print(etree.tostring(root, pretty_print=True))
+    #print("<Ontology>")
     
-    #for i in p.iterate_publications(publications_to_owl):
-        #for j in i:
-            #root.append(j)
-            #print(etree.tostring(j, pretty_print=True))
-            #j.clear()
-            # cut references
-            #while j.getprevious() is not None:
-                #del j.getparent()[0]
+    ##for i in p.iterate_publications(publications_to_owl):
+       # #for j in i:
+            ##root.append(j)
+            ##print(etree.tostring(j, pretty_print=True))
+            ##j.clear()
+            ## cut references
+            ##while j.getprevious() is not None:
+                ##del j.getparent()[0]
 
-        #del i
+        ##del i
 
-    p.iterate_publications(publications_to_owl)
-    print ("</Ontology>")
+    #p.iterate_publications(publications_to_owl)
+    #print ("</Ontology>")
     #print(etree.tostring(root, pretty_print=True))
+############################################################
 
+####### parsing to graphml ##################################
+    #ctr = 0
+
+    print ('''<?xml version="1.0" encoding="UTF-8"?>
+            <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">''')
+    print ('''<key id="d0" for="node" attr.name="Class" attr.type="string"/>
+            <key id="d1" for="edge" attr.name="Relation" attr.type="string"/>
+            <graph id="G" edgedefault="directed">''')
+
+    p.iterate_publications(publications_to_graphml)
+    print("</graph>")
+    print("</graphml>")
 #############################################################
 
 if __name__ == "__main__":
