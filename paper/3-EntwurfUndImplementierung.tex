@@ -12,9 +12,7 @@ Als Ausgangspunkt für den Entwurf und Evaluierung des semantischen Ähnlichkeitsm
  der die Metadaten zu $2,907,086$ Publikationen enthält, eingesetzt.
 
 Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation möglichen Einträgen.
-%Zu jeder Publikation können die folgenden Einträge vorhanden sein:
-%ID, Accession Number (eine durch das Zentralblatt oder durch das Jahrbuch über die Fortschritte der Mathematik, JFM, vergebene eindeutige Identifikationsnummer),
-%welche sind immer da, welche sind optional
+
 \begin{table}[H]
 \centering % used for centering table
 \begin{tabular}{| c | l | l |}
@@ -36,7 +34,7 @@ Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation mö
         :rv/en: & Reviewer & die Reviewer einer Publikation\\
 		\hline
 \end{tabular}
-\caption{Die Metadaten vom ZMATH Datensatz. Alle \textit{Kursiveinträge} sind obligatorisch}
+\caption{Die Metadaten vom ZMATH Datensatz. Alle \textit{Kursiveinträge} sind obligatorisch.}
 \label{tab:metadata}
 \end{table}
 
@@ -47,37 +45,95 @@ Der Datensatz hat ferner die folgenden Merkmale:\\
 % guck die Autorenstatistiken nochmal an oder lass die sein, die Zahlen sind komisch
 Das Paper mit den meisten Zitationen zitiert 38 andere Arbeiten.
 Dabei hat jede Publikation im Schnitt 0.27 Referenzen.
-Tabelle XY stellt die am öftesten zitierten Publikationen und die Anzahl ihrer Referenzen dar.
-%'Zbl 0707.68001' 'Zbl 0425.00034' 'Zbl 0741.68016' 'Zbl 0657.00005' 
-%             257              212              183              159 
-%             'Zbl 0624.00010'          (Other) 
-%                          156           779362 
-%'Zbl 0707.68001' 
-%IJCAI-89. International joint conference on artificial intelligence, Detroit, MI, USA, August 20-25, 1989. Proceedings. Vol. 1 u. 2.
+Tabelle \ref{tab:citations} stellt die am öftesten zitierten Publikationen und die Anzahl ihrer Referenzen dar.
 
-%'Zbl 0425.00034' 
-%Proceedings of the 1978 IEEE conference on decision and control, including the 17th symposium on adaptive processes. IEEE Control Systems Society, January 10-12, 1979, Islandia Hyatt House Hotel, San Diego, California.
-
-%'Zbl 0741.68016' 
-%IJCAI 91, Proceedings of the 12th International Conference on Artificial Intelligence. Sydney, Australia, 24-30 August 1991. Vol. 1-2.
-
-%'Zbl 0657.00005' 
-%Proceedings of the International Congress of Mathematicians (ICM), August 3-11, 1986, Berkeley, California. Volumes $1+2$.
-
-%'Zbl 0624.00010'
-%Nonlinear oscillations. Proceedings of the 11th International Conference on Nonlinear Oscillations, Budapest, August 17-23, 1987.
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | p{8cm} | c |}
+    \hline
+    \textbf{:an:} & \textbf{ Titel/Quelle} & \textbf{Anzahl Referenzen}\\
+    \hline
+    $Zbl 0707.68001$ & IJCA I-89. International joint conference on artificial intelligence, Detroit, MI, USA, August 20-25, 1989. Proceedings. Vol. 1 u. 2.&257\\
+    \hline
+    $Zbl 0425.00034$ & Proceedings of the 1978 IEEE conference on decision and control, including the 17th symposium on adaptive processes. IEEE Control Systems Society, January 10-12, 1979, Islandia Hyatt House Hotel, San Diego, California. & 212\\
+    \hline
+    $Zbl 0741.68016$ & IJCAI 91, Proceedings of the 12th International Conference on Artificial Intelligence. Sydney, Australia, 24-30 August 1991. Vol. 1-2. & 183\\
+    \hline
+    $Zbl 0657.00005$ & Proceedings of the International Congress of Mathematicians (ICM), August 3-11, 1986, Berkeley, California. Volumes $1+2$. & 159\\
+    \hline
+    $Zbl 0624.00010$ & Nonlinear oscillations. Proceedings of the 11th International Conference on Nonlinear Oscillations, Budapest, August 17-23, 1987. & 156\\
+    \hline
+\end{tabular}
+\caption{Die am häufigsten zitierten Papers}
+\label{tab:citations}
+\end{table}
 
 Im Durchschnitt wurden pro Publikation 3 Keywords vergeben.
 Die maximale Anzahl von Keywords für eine Arbeit ist 219, die nächst große - 162.
-Tabelle XY beinhaltet die am häufigsten vergebenen Keywords.
+Tabelle \ref{tab:keywords} beinhaltet die am häufigsten vergebenen Keywords.
 %        'convergence'           'stability' 'functional analysis' 
 %                        18872                 16766                 15049 
 %                            'fluid mechanics'  'numerical examples'               (Other) 
 %                                            14185                 13874               8554787 
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | c |}
+		\hline
+		\textbf{Keyword} &\textbf{Anzahl Papers} \\
+		\hline
+		convergence & $18,872$\\
+		stability & $16,766$ \\
+		functional analysis & $15,049$ \\
+		fluid machanics & $14,185$ \\
+		numerical examples & $13,874$\\
+	    \hline
+\end{tabular}
+\caption{Die häufigsten Keywords}
+\label{tab:keywords}
+\end{table}
+
 
 Es gibt Papers auf 69 verschiedenen Sprachen.
 $2,897,259$ der Publikationen wurden auf einer Sprache veröffentlicht, $9,588$ auf 2, 33 auf 4 und eine Publikation ist auf 7 Sprachen verfügbar.
 Die am häufigsten vorkommenden Sprachen sind: Englisch (mit $2,370,288$ Publikationen), Russisch (mit $180,335$), Französisch ($100,575$), Deutsch ($91,510$) und Chinesisch ($77,924$).
+\\
+\\
+Im Durchschnitt hat jede Arbeit 2 MSC Klassen, die Arbeit mit den meisten Klassen hat 61.
+$2,594,068$ Publikationen haben mindestens eine MSC Klasse.
+Die am häufigsten vergebenen MSC Klassen sind $68U99$ (Compuer Science -> Computing methodologies and applications), $80A20$ (Classical thermodynamics, heat transfer -> Heat and mass transfer, heat flow), $93C05$ (Systems theory; control -> Control systems -> Linear systems) und $68Q25$ (Computer Science -> Theory of computing -> Analysis of algorithms and problem complexity).
+%most frequent items:
+% '68U99'  '80A20'  '93C05'  '68Q25'  '68Q45'  (Other) 
+%    21502    15444    14991    14315    13294  6542345 
+%//68U99
+%--------
+%68-XX Computer Science
+%68Uxx Computing methodologies and applications
+%68U99 None of the above, but in this section
+%
+%//80A20
+%-------
+%80-XX Classical thermodynamics, heat transfer
+%80Axx Thermodynamics and heat transfer
+%80A20 Heat and mass transfer, heat flow
+%
+%//93C05
+%-------
+%93-XX Systems theory; control
+%93Cxx Control systems
+%93C05 Linear systems
+%
+%//68Q25 and 68Q45
+%-----------------
+%68-XX Computer Science
+%68Qxx Theory of computing
+%68Q25 Analysis of algorithms and problem complexity
+%68Q45 Formal languages and automata
+
+Die Arbeiten, die der Datensatz enthält, sind in 89 verschiedenen Jahren veröffentlicht worden.
+Der früheste Eintrag (eine Arbeit vom schweizerischen Mathematiker Leonard Euler) stammt vom Jahr 1796.
+Es gibt auch jeweils eine Publikation von den Jahren 1879, 1914, 1924 und 1930.
+1931 ist mit 4041 Veröffentlichungen das erste Jahr, das mehr oder weniger vollständig im Datensatz vermerkt ist.
+Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 
 \subsection{Modellierung des semantischen Netzes}
 % Wie sieht es aus?
