@@ -166,6 +166,7 @@ class Parser(object):
             elif tag == 'au':
                 # save authors temporarily and simulate ai out of it if :ai: field empty
                 # case of :au: empty is handled below
+                tempAuthor = []
                 tempAuthor =  content.split("; ")
                 #print("Debuggging....... tempAuthor is", tempAuthor)
 
@@ -177,6 +178,7 @@ class Parser(object):
             elif tag =='ai' and (content == '' or content == "; " or ("; ;") in content) and tempAuthor != ['']:
                 self.logger.info("For publication %d we generate :ai: out of :au:" % currentPub.id)
                 # Check if one author or list of authors
+                currentPub.authors = []
                 if type(tempAuthor) == str :
                     try:
                         (lastName, firstName) = tempAuthor.lower().split(", ")
@@ -225,8 +227,9 @@ class Parser(object):
                 #print ("classes: ", currentPub.mscClasses)
 
             elif tag == 'ut' and content != '':
-                englishKeywordsTemp = content.split("; ")
-                for k in englishKeywordsTemp:
+                #englishKeywordsTemp = content.split("; ")
+                currentPub.englishKeywords = []
+                for k in content.split("; "):
                     k = k.replace(" ", "_")
                     currentPub.englishKeywords.append(k)
                 #print ("keywords: ", currentPub.englishKeywords)
@@ -293,8 +296,8 @@ def publications_to_graphml(publication):
     # source is never empty
     try:
         decSo = graphml_node(publication.source, "Source")
-        ctr = ctr + 1
-        objPropSo = graphml_edge(pub, publication.source, "isPublishedIn", ctr)
+        main.ctr = main.ctr + 1
+        objPropSo = graphml_edge(pub, publication.source, "isPublishedIn", main.ctr)
         result.append(decSo)
         result.append(objPropSo)
     except:
@@ -304,8 +307,8 @@ def publications_to_graphml(publication):
     #publication year - precomputed
     #decPy = owl_declaration(str(publication.publicationYear))
     #classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
-    ctr = ctr +1
-    objPropPy = graphml_edge(pub, str(publication.publicationYear), "wasPublishedInYear", ctr)
+    main.ctr = main.ctr +1
+    objPropPy = graphml_edge(pub, str(publication.publicationYear), "wasPublishedInYear", main.ctr)
     result.append(objPropPy)
 
     #authors
@@ -314,8 +317,8 @@ def publications_to_graphml(publication):
         try:
             if auth !='':
                 decAuth = graphml_node(auth, "Author")
-                ctr = ctr + 1
-                objPropAuth = graphml_edge(auth, pub, "isAuthorOf", ctr)
+                main.ctr = main.ctr + 1
+                objPropAuth = graphml_edge(auth, pub, "isAuthorOf", main.ctr)
                 result.append(decAuth)
                 result.append(objPropAuth)
         except:
@@ -325,8 +328,8 @@ def publications_to_graphml(publication):
     #msc classes
     for cl in publication.mscClasses:
         decClass = graphml_node(cl, "MSC_Class")
-        ctr = ctr + 1
-        objPropCl = graphml_edge(pub, cl, "hasClassificationCode", ctr)
+        main.ctr = main.ctr + 1
+        objPropCl = graphml_edge(pub, cl, "hasClassificationCode", main.ctr)
         result.append(decClass)
         result.append(objPropCl)
 
@@ -335,8 +338,8 @@ def publications_to_graphml(publication):
         for k in publication.englishKeywords:
             try:
                 decKey = graphml_node(k, "Keyword")
-                ctr = ctr + 1
-                objPropKey = graphml_edge(pub, k, "hasKeyword", ctr)
+                main.ctr = main.ctr + 1
+                objPropKey = graphml_edge(pub, k, "hasKeyword", main.ctr)
                 result.append(decKey)
                 result.append(objPropKey)
             except:
@@ -351,8 +354,8 @@ def publications_to_graphml(publication):
         for ci in publication.citations:
             ci_stripped = re.findall(pattern_cites, ci)
             for c in ci_stripped:
-                ctr = ctr + 1
-                objPropCit = graphml_edge(pub, "Publication_%s" % c, "cites", ctr)
+                main.ctr = main.ctr + 1
+                objPropCit = graphml_edge(pub, "Publication_%s" % c, "cites", main.ctr)
                 result.append(objPropCit)
 
 
@@ -590,7 +593,7 @@ def owl_object_property_assertion(objProp, elem1, elem2):
     return objPropAsser
 
 ##########################################################################################
-ctr = 0
+#ctr = 0
 def main(args):
     if len(args) != 1:
         print 'Usage: python parser.py <datasetfile>'
@@ -608,14 +611,14 @@ def main(args):
     #p.iterate_publications(extract_years)
 
 ##### parsing to xml/owl##################################
-    #root = etree.Element("Ontology")
-    ### i contains all the nodes belonging to one publication
-    ### j are the individual nodes for one publication
-    ##print(etree.tostring(root, pretty_print=True))
-    #print("<Ontology>")
+    root = etree.Element("Ontology")
+    ## i contains all the nodes belonging to one publication
+    ## j are the individual nodes for one publication
+    #print(etree.tostring(root, pretty_print=True))
+    print("<Ontology>")
     
-    ##for i in p.iterate_publications(publications_to_owl):
-       # #for j in i:
+    #for i in p.iterate_publications(publications_to_owl):
+       #for j in i:
             ##root.append(j)
             ##print(etree.tostring(j, pretty_print=True))
             ##j.clear()
@@ -625,24 +628,24 @@ def main(args):
 
         ##del i
 
-    #p.iterate_publications(publications_to_owl)
-    #print ("</Ontology>")
+    p.iterate_publications(publications_to_owl)
+    print ("</Ontology>")
     #print(etree.tostring(root, pretty_print=True))
 ############################################################
 
 ####### parsing to graphml ##################################
-    #ctr = 0
+    #main.ctr = 0
 
-    print ('''<?xml version="1.0" encoding="UTF-8"?>
-            <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">''')
-    print ('''<key id="d0" for="node" attr.name="Class" attr.type="string"/>
-            <key id="d1" for="edge" attr.name="Relation" attr.type="string"/>
-            <graph id="G" edgedefault="directed">''')
+    #print ('''<?xml version="1.0" encoding="UTF-8"?>
+    #        <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    #        xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">''')
+    #print ('''<key id="d0" for="node" attr.name="Class" attr.type="string"/>
+    #        <key id="d1" for="edge" attr.name="Relation" attr.type="string"/>
+    #        <graph id="G" edgedefault="directed">''')
 
-    p.iterate_publications(publications_to_graphml)
-    print("</graph>")
-    print("</graphml>")
+    #p.iterate_publications(publications_to_graphml)
+    #print("</graph>")
+    #print("</graphml>")
 #############################################################
 
 if __name__ == "__main__":
