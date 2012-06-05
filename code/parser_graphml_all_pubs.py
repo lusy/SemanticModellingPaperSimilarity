@@ -668,7 +668,7 @@ def main(args):
 
 ####### parsing to graphml ##################################
     main.ctr = 0
-    
+
     print ('''<?xml version="1.0" encoding="UTF-8"?>
             <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">''')
@@ -676,7 +676,21 @@ def main(args):
             <key id="d1" for="edge" attr.name="Relation" attr.type="string"/>
             <graph id="G" edgedefault="directed">''')
 
-    p.iterate_publications(publications_to_graphml)
+    year_pattern = '([0-9]{4})\n'
+
+    years = open('publication_years_list')
+    line = years.readline()
+    #year_nodes = []
+
+    while line:
+        years_stripped = re.findall(year_pattern, line)
+        for y in years_stripped:
+            print(etree.tostring((graphml_node(y, "PublicationYear"))))
+        line = years.readline()
+
+    years.close()
+
+    #p.iterate_publications(publications_to_graphml)
     print("</graph>")
     print("</graphml>")
 #############################################################
