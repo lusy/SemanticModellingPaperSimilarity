@@ -252,6 +252,18 @@ class Parser(object):
             elif tag == '::':
                 #result.append(handleMethod(currentPub))
                 handleMethod(currentPub)
+                currentPub.id = 0
+                currentPub.an = ""
+                currentPub.abstract = ""
+                currentPub.titleString = ""
+                currentPub.title = "" #TODO how to extract it
+                currentPub.publicationYear = 0
+                currentPub.authors = []
+                currentPub.mscClasses = []
+                currentPub.source = "" #TODO how to represent it; parse book/journal/conference
+                currentPub.language = []
+                currentPub.englishKeywords = []
+                currentPub.citations = []
                 del currentPub
                 #mach was mit dem erzeugten objekt
                 #zerstoere das objekt am ende
@@ -281,88 +293,94 @@ def publications_to_graphml(publication):
     '''Takes a publication object and converts it to its representaton in graphml formatt'''
     result = []
 
-    #Publication Individual
-    if publication.an != '':
-        pub = "Publication_%s" % publication.an
-        print("Debugging...............publication is ", pub)
-    else:
-        pub = "Publication_%d" % publication.id
+    # map only if all relevant metadata present
+    # id, source an publication year are always present
+    if (publication.authors != [] and publication.mscClasses != [] and publication.englishKeywords != [] and publication.citations != []):
+        #Publication Individual
+        if publication.an != '':
+            pub = "Publication_%s" % publication.an
+            print("Debugging...............publication is ", pub)
+        else:
+            pub = "Publication_%d" % publication.id
 
-    decPub = graphml_node(pub, "Publication")
-    result.append(decPub)
+        decPub = graphml_node(pub, "Publication")
+        result.append(decPub)
 
-    #source
-    # source is never empty
-    try:
-        decSo = graphml_node(publication.source, "Source")
-        main.ctr = main.ctr + 1
-        objPropSo = graphml_edge(pub, publication.source, "isPublishedIn", main.ctr)
-        result.append(decSo)
-        result.append(objPropSo)
-    except:
-        #if a not unicode char in source
-        pass
-
-    #publication year - precomputed
-    #decPy = owl_declaration(str(publication.publicationYear))
-    #classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
-    main.ctr = main.ctr +1
-    objPropPy = graphml_edge(pub, str(publication.publicationYear), "wasPublishedInYear", main.ctr)
-    result.append(objPropPy)
-
-    #authors
-    #print("Debuggging.....authors are", publication.authors)
-    for auth in publication.authors:
+        #source
+        # source is never empty
         try:
-            if auth !='':
-                decAuth = graphml_node(auth, "Author")
-                main.ctr = main.ctr + 1
-                objPropAuth = graphml_edge(auth, pub, "isAuthorOf", main.ctr)
-                result.append(decAuth)
-                result.append(objPropAuth)
+            decSo = graphml_node(publication.source, "Source")
+            main.ctr = main.ctr + 1
+            objPropSo = graphml_edge(pub, publication.source, "isPublishedIn", main.ctr)
+            result.append(decSo)
+            result.append(objPropSo)
         except:
+            #if a not unicode char in source
             pass
-            #not parseable
 
-    #msc classes
-    for cl in publication.mscClasses:
-        decClass = graphml_node(cl, "MSC_Class")
-        main.ctr = main.ctr + 1
-        objPropCl = graphml_edge(pub, cl, "hasClassificationCode", main.ctr)
-        result.append(decClass)
-        result.append(objPropCl)
+        #publication year - precomputed - TODO: really precompute them!
+        #decPy = owl_declaration(str(publication.publicationYear))
+        #classAsserPy = owl_class_assertion(str(publication.publicationYear), "PublicationYear")
+        main.ctr = main.ctr +1
+        objPropPy = graphml_edge(pub, str(publication.publicationYear), "wasPublishedInYear", main.ctr)
+        result.append(objPropPy)
 
-    #english keywords
-    if publication.englishKeywords != []:
+        #authors
+        #print("Debuggging.....authors are", publication.authors)
+        for auth in publication.authors:
+            #try:
+                if auth !='':
+                    decAuth = graphml_node(auth, "Author")
+                    main.ctr = main.ctr + 1
+                    objPropAuth = graphml_edge(auth, pub, "isAuthorOf", main.ctr)
+                    result.append(decAuth)
+                    result.append(objPropAuth)
+            #except:
+                #pass
+                #not parseable
+
+        #msc classes
+        for cl in publication.mscClasses:
+            decClass = graphml_node(cl, "MSC_Class")
+            main.ctr = main.ctr + 1
+            objPropCl = graphml_edge(pub, cl, "hasClassificationCode", main.ctr)
+            result.append(decClass)
+            result.append(objPropCl)
+
+        #english keywords
+        #if publication.englishKeywords != []:
         for k in publication.englishKeywords:
-            try:
-                decKey = graphml_node(k, "Keyword")
-                main.ctr = main.ctr + 1
-                objPropKey = graphml_edge(pub, k, "hasKeyword", main.ctr)
-                result.append(decKey)
-                result.append(objPropKey)
-            except:
-                # if a not unicode character in keywords
-                pass
+            #try:
+            decKey = graphml_node(k, "Keyword")
+            main.ctr = main.ctr + 1
+            objPropKey = graphml_edge(pub, k, "hasKeyword", main.ctr)
+            result.append(decKey)
+            result.append(objPropKey)
+                #except:
+                    # if a not unicode character in keywords
+                    #pass
 
-    #citations
-    #we reference directly other publications using the an number
-    #only if they are from the ZMath
-    pattern_cites = 'Zbl ([0-9\.]*)'
-    if publication.citations != []:
-        for ci in publication.citations:
-            ci_stripped = re.findall(pattern_cites, ci)
-            for c in ci_stripped:
-                main.ctr = main.ctr + 1
-                objPropCit = graphml_edge(pub, "Publication_%s" % c, "cites", main.ctr)
-                result.append(objPropCit)
+        #citations
+        #we reference directly other publications using the an number
+        #only if they are from the ZMath
+        pattern_cites = 'Zbl ([0-9\.]*)'
+        if publication.citations != []:
+            for ci in publication.citations:
+                ci_stripped = re.findall(pattern_cites, ci)
+                for c in ci_stripped:
+                    main.ctr = main.ctr + 1
+                    objPropCit = graphml_edge(pub, "Publication_%s" % c, "cites", main.ctr)
+                    result.append(objPropCit)
 
 
-    for r in result:
-        #print(etree.tostring(r, pretty_print=True))
-        print(etree.tostring(r))
-    #return result
-
+        for r in result:
+            #print(etree.tostring(r, pretty_print=True))
+            print(etree.tostring(r))
+        #return result
+   
+    #in case not all relevant metadata for a publication present
+    else:
+        pass
 
 
 # kick out everything which is not needed for computing similarity
