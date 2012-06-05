@@ -690,7 +690,7 @@ def main(args):
 
     years.close()
 
-    #p.iterate_publications(publications_to_graphml)
+    p.iterate_publications(publications_to_graphml)
     print("</graph>")
     print("</graphml>")
 #############################################################
