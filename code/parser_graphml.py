@@ -295,8 +295,8 @@ def publications_to_graphml(publication):
     # source is never empty
     try:
         decSo = graphml_node(publication.source, "Source")
-        ns.ctr = ns.ctr + 1
-        objPropSo = graphml_edge(pub, publication.source, "isPublishedIn", ns.ctr)
+        main.ctr = main.ctr + 1
+        objPropSo = graphml_edge(pub, publication.source, "isPublishedIn", main.ctr)
         result.append(decSo)
         result.append(objPropSo)
     except:
