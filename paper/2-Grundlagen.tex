@@ -230,19 +230,20 @@ In Anlehnung an die TF-IDF, die einzelne Terme gewichtet, werden hier die Gewich
 % sort the results
 
 \smallskip
-Das Ähnlichkeitsmaß \textit{SimRank} wird 2002 von Jeh und Widom entworfen \cite{simrank2002}.
+Das Ähnlichkeitsmaß \textit{SimRank} wurde 2002 von Jeh und Widom entworfen \cite{simrank2002}.
 \textit{SimRank} misst allgemein die strukturelle Ähnlichkeit von zwei Objekten aufgrund von Links.
 Die Autoren schlagen einen Algorithmus vor, der basierend auf dem Gesamtgraphen die Ähnlichkeit zwischen zwei Knoten rekursiv berechnet.
-Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' aus.
+Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' \cite{simrank2002 }aus.
 Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Referenzen rekursiv bestimmt werden kann.
 
 Zhao, Han und Sun haben mit \textit{P-Rank} ein ähnliches Konzept \cite{ZhaoHS09}.
 \textit{P-Rank} ist ebenso ein strukturelles Ähnlichkeitsmaß für Informationsnetzwerken, unterscheidet sich jedoch von \textit{SimRank} durch die Tatsache, dass es nicht nur ein- sonder auch ausgehende Kanten in die Ähnlichkeitsberechnung miteinbezieht.
-Es verallgemeinert das zugrundeliegende Prinzip von \textit{SimRank} folgendermaßen: ``zwei Objekte sind ähnlich, wenn sie (1) durch ähnliche Objekte referenziert werden; und (2) ähnliche Objekte referenzieren''.
+Es verallgemeinert das zugrundeliegende Prinzip von \textit{SimRank} folgendermaßen: ``zwei Objekte sind ähnlich, wenn sie (1) durch ähnliche Objekte referenziert werden; und (2) ähnliche Objekte referenzieren'' \cite{ZhaoHS09}.
 Die Autoren argumentieren, dass bibliografische Kopplung, Kozitationen und \textit{SimRank} lediglich Spezialfälle von \textit{P-Rank} sind.
 %auch Amsler wenn sich das Originalpaper findet.
+% die Tabelle, die alle zusammenfasst!!
 Das Gemeinsame zwischen \textit{SimRank} und \textit{P-Rank} ist die Propagierung der Ähnlichkeitswerte über das gesamte Netzwerk und die rekursive Art ihrer Berechnung.
-Eine Verbesserung von \textit{P-Rank} gegenüber \textit{SimRank} ist die Möglichkeit Ähnlichkeitswerte für neuere und potentiell interessante, aber immer noch nicht populäre Arbeiten zu ermitteln.
+Eine Verbesserung von \textit{P-Rank} gegenüber \textit{SimRank} ist die Möglichkeit, Ähnlichkeitswerte für neuere und potentiell interessante, aber immer noch nicht populäre Arbeiten zu ermitteln.
 \textit{SimRank}, das nur eingehende Kanten berücksichtigt, kann das nicht leisten.
 
 % Arbeiten, die (unter anderem) auch Ähnlichkeit von Papers berechnen,
@@ -258,28 +259,22 @@ Eine Verbesserung von \textit{P-Rank} gegenüber \textit{SimRank} ist die Möglich
 % based on this example one might be tempted to hypothesize that co-citation, like bibliographic coupling, measures subject similarity. However, the same agreement between bibliographic coupling and co-citation strength was not observed in other cases.
 % Small hat beobachtet, dass Gruppierungen von ``ähnlichen'' Papers aufgrund von Kozitationen und bibliografischer Kopplung zu sehr unterschiedlichen Resulaten führen.
 
-% C-Rank: A Link-based Similarity Measure for Scientific Literature \cite{DBLP:journals/corr/abs-1109-1059}
-
-% Frühere Arbeiten: - Für Referenzen, siehe das Paper oben!
-%---------------------------------------------------------
-% Bibliographic Coupling - M. Kessler
-% Co-citation - Henry Small \cite{Small_1973}
-% Amsler - gewichtete Summe von beiden
-% Simrank \cite{simrank2002}
-% rvs SimRank - verbessert Kozitation (meinen Yoon, Park und Kim)\cite{DBLP:journals/corr/abs-1109-1059}
-% P-Rank - verbessert Amsler (ebenso die) \cite{ZhaoHS09}
-
-%  A Link-based Similarity Measure for Scientific Literature
-% Zählen die Probleme, die beim nutzen von den oben genannten Maßen auftreten, auf (e.g. für welche Situationen sind diese ungeeignet)
-% Textbasierte Ähnlichkeitsmaße sind nicht geeignet, da diese 2 Paper auch dann als ähnlich bezeichnen würden, wenn sie dem selben Feld angehören, auch wenn sie sich mit unterschiedlichen Problemen beschäftigen.
-% all existing link-based similarity measures to fail in at least one of the following three cases: (1) measuring the similarity between old papers, (2) measuring the similarity between recent papers, and (3) measuring the similarity between an old paper and a recent one.
-% coupling cannot measure similarity between old but similar papers
-% co-citation cannot measure similarity between new but similar papers
-% Third, both Coupling and Co-citation may compute the score between two similar papers, one old and the other recent,as near 0, because the old paper tends to have few papers that are referenced by it and the recent one tends to have few papers that reference it.
-% SimRank fails to compute the similarity when a paper has no in-link, and rvs-SimRank fails when a paper has no out-link. Although being able to compute the similarity scores for more pairs than any other measures, P-Rank measures similarity for less number of pairs than C-Rank. This is because P-Rank fails to compute the similarity between an old paper and a recent one. In experiments, we show that the number of pairs of papers computed by C-Rank is more than that of any other measures.
-% wobei The existing measures can be used in (C1) and (C2) cases. The existing measures, however, cannot correctly measure the similarity in (C3).
-% Machen keinen Unterschied zwischen eingehenden und ausgehenden Kanten (Unterschied zu P-Rank: sie beziehen beides mit ein in die Berechnung, machen aber den Unterschied)
-% und berechnen auch strukturelle Ähnlichkeit im Endeffekt (wobei die beziehen sich schon konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen und nicht auf Informationsnetzwerke überhaupt)
+Angelehnt an \textit{SimRank} und \textit{P-Rank} schlagen Yoon, Kim und Park das linkbasierte Ähnlichkeitsmaß für wissenschaftliche Literatur \textit{C-Rank} vor \cite{DBLP:journals/corr/abs-1109-1059}.
+Sie geben selber nochmal einen Überblick über schon vorhandene Ähnlichkeitsmaße für wissenschaftliche Arbeiten und zählen gleichzeitig auch ihre Schwächen auf:\\
+\begin{itemize}
+\item Textbasierte Metriken für Ähnlichkeitsbestimmung wissenschaftlicher Publikationen würden zwei Papers auch dann als ähnlich bezeichnen, wenn sie demselben Forschungsfeld angehören, auch wenn sie sich mit unterschiedlichen Problemen beschäftigen.
+\item Die bibliografische Kopplung ist ungeeignet um Ähnlichkeit zwischen alten aber ähnlichen Arbeit zu berechnen.
+\item Durch Kozitationzählung kann die Ähnlichkeit zwischen neuen ähnlichen Arbeiten nicht gemessen werden.
+\item Beide sind nicht in der Lage Ähnlichkeit zwischen einem alten und einem neuen Paper, die ähnlich sind, zu bestimmen. Die alte Arbeit zitiert keine Neueren, die Neue kann nicht durch Ältere zitiert werden.
+\item \textit{SimRank}, das in gewissem Sinn eine Generalisierung der Kozitation ist, kann keine Ähnlichkeit berechnen, wenn ein Paper durch keine Anderen zitiert wird.
+\item Es wird noch \textit{rvs-SimRank} (reverse SimRank) genannt, das im Gegensatz zu \textit{SimRank} nur ausgehende Links für seine Berechnung betrachtet.
+Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen kann, wenn ein Paper keine Anderen zitiert.
+\item \textit{P-Rank} betrachtet sowohl ein- als auch ausgehende Kanten, ist aber auch für Bestimmen der Ähnlichkeit zwischen einer alten und einen neuen Arbeit ungeeignet.
+\end{itemize}
+Ähnlich wie \textit{P-Rank} stützt sich \textit{C-Rank} gleichzeitig auf ein- und ausgehenden Kanten.
+Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine geeignete Gewichtung beider Arten von Kanten vornimmt und \textit{C-Rank} überhaupt nicht dazwischen unterscheidet.
+\textit{C-Rank} geht tatsächlich aus einem ungerichteten Zitationsgraphen aus.
+Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaßen gelungen war.
 
 
 % A slightly different approach: Node similarity in neworked information spaces \cite{Lu01nodesimilarity}
