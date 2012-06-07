@@ -166,28 +166,26 @@ Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
 % Events
 
 \subsection{Verwandte Arbeiten}
+\subsubsection{Semantische Repräsentation}
 % Was gibt es schon zum Thema semantische Modellierung von Publikationen (Science Ontology, Diplomarbeit vom einen Typen\cite{abbildungXML2002} )
 Matthias Erbarth schlägt in seiner Diplomarbeit \cite{abbildungXML2002} eine semantische Modellierung mit Hilfe von XML-Technologien, jedoch von einer einzelnen Publikation, vor.
-Dabei liegt der Schwerpunkt auf die Idee, dass indem das in einer wissenschaftlichen Arbeit enthaltene Wissen in einer maschinenlesbaren Form dargestellt wird, Aufgaben der Information Retrieval effizienter gelöst werden können.
-Die Ontology of Science von Fred Freitas \cite{ontosci} bildet eine ganze Domäne von Forschungseinrichtungen, -arbeiten, -prozessen, -ereignissen ab. %Abbildung!
-Sie modelliert aber einzelne wissenschaftliche Arbeiten und die dazwischen bestehenden Relationen nicht detailliert genug, um eine adäquate Basis für den Entwurf eines semantischen Ähnlichkeitsmaßes für Publikationen aufgrund von Metadaten zu bieten.
-
+Dabei liegt sein Schwerpunkt auf der Idee, dass indem das in einer wissenschaftlichen Arbeit enthaltene Wissen in einer maschinenlesbaren Form dargestellt wird, Aufgaben der Information Retrieval effizienter gelöst werden können.
 % warum macht er das
 % was nützliches/wichtiges erreicht er dadurch
 % was für erkenntnisse kann man daraus für meinen fall ziehen
+Die Ontology of Science von Fred Freitas \cite{ontosci} bildet eine ganze Domäne von Forschungseinrichtungen, -arbeiten, -prozessen, -ereignissen ab. %Abbildung!
+Sie modelliert aber einzelne wissenschaftliche Arbeiten und die dazwischen bestehenden Relationen nicht detailliert genug, um eine adäquate Basis für den Entwurf eines semantischen Ähnlichkeitsmaßes für Publikationen aufgrund von Metadaten zu bieten.
 
 
-
-
+\subsubsection{Ähnlichkeitsmaße}
 % Was gibt es schon zum Thema Ähnlichkeitsmaßen (Kozitationen, Koautorenschaften, bibliographische Kopplung,
 
 % ----------- Textbasierte Maße -----------------------------------------------------------------------
+Bani-Ahmad et al. unterscheiden in ihrem Übersichtsartikel \cite{evalpubsim2005} zwischen text- und zitationsbasierten Ähnlichkeitsmaßen für wissenschaftliche Publikationen.
+Als Beispiel für ein textbasiertes Maß nennen sie die bekannte TF-IDF (Termfrequenz-Inverse Dokumentfrequenz).
+Diese wird, in Kombination mit anderen Methoden, auch von den Erfindern der automatisierten Indexingdienst für wissenschaftlichen Arbeiten CiteSeer\footnote{http://citeseerx.ist.psu.edu/index} Lee Giles and Kurt D. Bollacker and Steve Lawrence als Ähnlichkeitsmaß für Artikel eingesetzt \cite{Giles98citeseer}.
+Mit Hilfe von dieser Metrik werden Titel, Inhaltsverzeichnis, Abstract und Volltext von Publikationen ausgewertet.
 
-% Levenshtein distance: einfache Distanz zwischen 2 Strings/Texten \cite ???
-% basiert auf die Anzahl von Einfügungen, Löschungen, Ersetzungen von Buchstaben, die gebraucht werden, um einen String in einen anderen zu transformieren
-% extrem unpraktisch: wir können nicht für tausende von Dokumenten, mit mehreren Seiten Text die Levenshteindistanz messen..
-% fragwürdig, ob brauchbare Ergebnisse rauskommen (wobei man könnte vlt so was schon für das Bauen einer Plagiatsoftware einsetzen..)
-% kann vlt für das vergleichen von Abstracts/Titel genutzt werden
 
 % Evaluating Publication Similarity Measures \cite{evalpubsim2005}
 % Es gibt 2 Arten von Ähnlichkeitsmaßen für Publikationen: textbasiert(Information Retrieval) und zitationsbasiert(Bibliometrie), die beiden Ansätze liefern meistens auch ziemlich unterschiedliche Ergebnisse
