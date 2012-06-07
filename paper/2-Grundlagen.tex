@@ -276,15 +276,22 @@ Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine ge
 \textit{C-Rank} geht tatsächlich aus einem ungerichteten Zitationsgraphen aus.
 Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaßen gelungen war.
 
-
+\smallskip
+Eine bisschen unterschiedliche Herangehensweise wählen Lu et al. in ihrer Definition von Knotenähnlichkeit in Informationsnetzwerken \cite{Lu01nodesimilarity}.
+Diese lässt sich, genau wie alle anderen bereits erwähnten strukturellen Ähnlichkeitsmaße, auf Zitationsgraphen von wissenschaftlichen Publikationen anwenden.
+Genauer gesagt, arbeiten Lu und seine Kollegen zwei verschiedene Maßen aus.
+Beide beziehen (im Gegensatz zu \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank}) nur die lokale Nachbarschaft von Knoten in die Ähnlichkeitsberechnung ein.
+Das erste Maß, das die Forscher vorschlagen, basiert auf dem Vergleich der separaten lokalen Nachbarschaften von zwei Knoten.
+Jedem Knoten wird ein Authority-Gewicht zugewiesen.
+Zwei Knoten sind dann desto ähnlicher, je größer der Schnitt deren lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in diesem Schnitt liegen.
+Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
+Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
+Dafür wird der gemeinsame lokale Nachbarschaftsgraph zweier Publikationen aufgebaut.
+Der \textit{Maximum Flow Minimum Cut} Algorithmus wird benutzt um den Fluss auszurechnen, der vom einen zum anderen Knoten gereicht werden kann.
+Es werden die verschiedenen Pfade zwischen beiden Knoten gezählt.
+Dabei tragen längere Pfade weniger zu der Ähnlichkeit zwischen den Knoten bei.
+Der Minimum Cut bestimmt die Anzahl der Kanten, die entfernt werden sollten, um beide Knoten komplett von einander zu trennen.
 % A slightly different approach: Node similarity in neworked information spaces \cite{Lu01nodesimilarity}
-% aber auch nur aufgrund von Zitationen!!
-% metrics take advantage of the local neighbourhood of the nodes in the networked information space (vgl die vorherigen 3: die betrachten den gesamten Graph!)
-% explicit availability of the networked information space is not required, as long as a query engine is available for following links and extracting the necessary local neighbourhoods for similarity estimation.
-% two variations of similarity between 2 nodes:
-% 1) one based on the separate local neighbourhoods of the nodes
-% 2) another based on the joint local neighbourhood expanded from both nodes at the same time
-%
 % 1):
 %  based on a comparison of subgraphs based on hubs and authority values
 % measures how similar the both local citation communities are
