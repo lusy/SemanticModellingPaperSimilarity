@@ -12,6 +12,13 @@
 % Wie kann man das Ähnlichkeitsmaß anders/besser definieren?
 
 % man kann das semantische Ähnlichkeitsmaß mit einem textbasierten kombinieren, das die Ähnlichkeit zwischen Title/Abstracts auswertet, und diese dann auch für die Semantische Ähnlichkeit nutzen
+% Levenshtein distance: einfache Distanz zwischen 2 Strings/Texten \cite ???
+% basiert auf die Anzahl von Einfügungen, Löschungen, Ersetzungen von Buchstaben, die gebraucht werden, um einen String in einen anderen zu transformieren
+% extrem unpraktisch: wir können nicht für tausende von Dokumenten, mit mehreren Seiten Text die Levenshteindistanz messen..
+% fragwürdig, ob brauchbare Ergebnisse rauskommen (wobei man könnte vlt so was schon für das Bauen einer Plagiatsoftware einsetzen..)
+% kann vlt für das vergleichen von Abstracts/Titel genutzt werden
+
+
 % weiterführend kann man die Performance/die konkrete Implementierung, die die Performance ausmacht verbessern - dafür muss man die Performance evaluieren!
 
 % man kann doch als weiterführende Forschung eben solche Anwendungen bauen, die auf so einem Ähnlichkeitsmaß beruhen
