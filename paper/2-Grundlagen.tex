@@ -183,8 +183,14 @@ Sie modelliert aber einzelne wissenschaftliche Arbeiten und die dazwischen beste
 % ----------- Textbasierte Maße -----------------------------------------------------------------------
 Bani-Ahmad et al. unterscheiden in ihrem Übersichtsartikel \cite{evalpubsim2005} zwischen text- und zitationsbasierten Ähnlichkeitsmaßen für wissenschaftliche Publikationen.
 Als Beispiel für ein textbasiertes Maß nennen sie die bekannte TF-IDF (Termfrequenz-Inverse Dokumentfrequenz).
-Diese wird, in Kombination mit anderen Methoden, auch von den Erfindern der automatisierten Indexingdienst für wissenschaftlichen Arbeiten CiteSeer\footnote{http://citeseerx.ist.psu.edu/index} Lee Giles and Kurt D. Bollacker and Steve Lawrence als Ähnlichkeitsmaß für Artikel eingesetzt \cite{Giles98citeseer}.
+Der TF-IDF-Wert eines Terms (oder Worts) ist proportionell zur Anzahl der Vorkommen dieses Terms in einem Dokument und inversproportionell zur Anzahl der Vorkommen des Terms im Gesamtkorpus.
+Dieses Maß wird, in Kombination mit anderen Methoden, auch von den Erfindern der automatisierten Indexingdienst für wissenschaftlichen Arbeiten CiteSeer\footnote{http://citeseerx.ist.psu.edu/index}, Lee Giles and Kurt D. Bollacker and Steve Lawrence, als Ähnlichkeitsmaß für Artikel eingesetzt \cite{Giles98citeseer}.
 Mit Hilfe von dieser Metrik werden Titel, Inhaltsverzeichnis, Abstract und Volltext von Publikationen ausgewertet.
+Dieser Ansatz ist aus mehreren Gründen problematisch.
+Bei sehr großen Dokumentenmengen ist die Methode ziemlich rechenaufwendig.
+Zudem ist diese sprachabhängig - es ist nicht möglich aufgrund von reinen textbasierten Maßen, wie die TF-IDF, Ähnlichkeit zwischen Artikeln, die auf verschiedenen Sprachen vorliegen, zu messen.
+Außerdem ist die semantische Bedeutung von den Termen unbekannt, was die Ergebnisse verfälschen kann (Negationen werden nicht als solche berücksichtigt, Wörter, die mehrere Bedeutungen haben, werden aggregiert) \cite{gottwaldrecommender} \cite{Giles98citeseer}.
+% das Cosinusmaß -- look for a paper!
 
 
 % Evaluating Publication Similarity Measures \cite{evalpubsim2005}
@@ -199,9 +205,12 @@ Mit Hilfe von dieser Metrik werden Titel, Inhaltsverzeichnis, Abstract und Vollt
 % One limitation of this approach is the inherent noise  uncommon words may be shared by documents by coincidence, thereby giving false evidence that the documents are related.
 % Another limitation of this approach is the ambiguity of words and phrases. For example "arm" could mean a human limb, or a weapon. Simple word frequencies do not differentiate these uses, requiring context analysis for separation. - related to Problem3
 
-% das Cosinusmaß -- look for a paper!
-
 % ----------- Aufgrund von Links (linkbasierten/zitationsbasierte Maßen)--------------------------------------------------
+\smallskip
+Die zweite große Kategorie der existierenden Ähnlichkeitsmaße für wissenschaftliche Publikationen beruht auf Zitationen.
+Die Idee, dass Artikel, die gemeinsame Referenzen teilen, in irgendeiner Weise verwandt sind, ist auf M.M.Kessler \cite{Kessler:1963} zurückzuführen.
+In seiner Arbeit ``Bibliographic coupling between scientific papers'' schlägt er eine Methode für ``Gruppierung von technischen und wissenschaftlichen Papers aufgrund von bibliografischer Kopplung'' vor \cite{Kessler:1963}.
+
 % Die Pioniere
 % Bibliographic coupling between scientific papers - M.M. Kessler \cite{Kessler:1963}
 % method for grouping technical and scientific papers on the basis of bibliographic coupling units
