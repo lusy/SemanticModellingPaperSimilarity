@@ -115,7 +115,7 @@ Ein oft vorkommender Name, der sich auf verschiedene Personen bezieht, kann vers
 
 % Schlussfolgerung in die Richtung: deshalb brauchen wir andere Ansätze, Ähnlichkeit zu bestimmen
 
-Zussammenfassend lässt sich sagen, dass obwohl bibliometrische Analysen sich als einen ersten Ansatz für Ähnlichkeitsdefinition nutzen lassen, diese allein auf keinen Fall erschöpfend sind und manchmal sogar zu falschen oder unbegründeten Schlussfolgerungen führen können.
+Zussammenfassend lässt sich sagen, dass obwohl bibliometrische Analysen sich als ein erster Ansatz für Ähnlichkeitsdefinition nutzen lassen, diese allein auf keinen Fall erschöpfend sind und manchmal sogar zu falschen oder unbegründeten Schlussfolgerungen führen können.
 Zudem sind sie in manchen Fällen schwer anzuwenden.
 Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedenen Forschungsfeldern haben, nur aufgrund von Bibliometrie den Ähnlichkeitsgrad zu bestimmen: unterschiedliche Disziplinen haben verschiedene Zitierungsgewohnheiten (in manchen wird viel zitiert, in manchen weniger) \cite{Bornmann08}, was die Arbeiten schwer vergleichbar macht.
 % Pearsons Korrelationskoeffizient (wird auch oft für Ähnlichkeitsmessungen verwendet)
@@ -167,43 +167,37 @@ Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
 
 \subsection{Verwandte Arbeiten}
 % Was gibt es schon zum Thema semantische Modellierung von Publikationen (Science Ontology, Diplomarbeit vom einen Typen\cite{abbildungXML2002} )
+
+
+
+
+
 % Was gibt es schon zum Thema Ähnlichkeitsmaßen (Kozitationen, Koautorenschaften, bibliographische Kopplung,
 
-% Ähnlichkeit zwischen Autoren: \cite{Yang:2009:TRSN})
-% Ziel vom Paper: Modellierung eines sozialen Netzwerkes von Autoren
-% Haben mehrere Methoden genutzt und mit einander verglichen: anhand von Schlüsselwörtern/Keywords, anhand von den persönlichen Interessen der Autoren (von den Autoren selber bestimmt/aus deren Webpages extrahiert), anhand von Themen der Konferenzen, wo Autoren hingehen/Papers veröffentlichen, anhand von Koautorenschaften;
-% Die Methoden wurden sowohl einzeln angewandt als auch gewichtet zusammen
-% Keywords basierte Graphen wurden von den Autoren selber als aussagekräftiger gewertet als solche, die auf Koautorenschaften basierten
-% Probleme, wenn man nur Koautoren nutzt (siehe oben in der Beschreibung von Bibliometrie)
-% Probleme, wenn man Keywords nutzt: das selbe Keyword kann unterschiedlich geschrieben werden (web2.0 vs Web 2.0); hat den Nachteil, dass die Untersuchten Papers auf der selben Sprache sein sollten (bei uns sind English Keywords im Datensatz definiert, es kann aber nicht immer auf die Häufigkeit dieser im Volltext zurückgegriffen werden; wobei das werde ich vermutlich auch gar nicht tun)
+% ----------- Textbasierte Maße -----------------------------------------------------------------------
 
-
-% "Information on individual journal citations can be used to examine the impact of journals on the subject field and a map of co-cited documents can be used to identify subject specialties and sub-specialties"\cite{DBLP:conf/amcis/KimB08}
-% ebenso da: intercitation analysis (between clusters) vs co-citation analysis (within a cluster) - can be used to complement each other and fill in each others weaknesses
-
-% Arbeiten, die (unter anderem) auch Ähnlichkeit von Papers berechnen,
-% Aber NUR auf Grund von Zitationen
-
-% Allgemein strukturelle Ähnlichkeit zwischen 2 Objekte: Simrank \cite{simrank2002}
-% 2 Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind
-% Anhand von (gerichteten) Links/Referenzen/Kanten
-% anwendbar für Publikationen: dann auf grund von Referenzen/Zitationen
-% Sagen auch selber, dass ihr Algorithmus als eine Generalisierung von Kozitationsbasierten Maßen betrachtet werden kann, wo die Ähnlichkeit der zitierenden Dokumente auch rekursiv berechnet wird.
-% wird iterativ berechnet
-% letzteres ist sinnvoll für Dokumente, die selten zitiert werden
-% oder eben alle Mögliche Relationen, der Unterschied zu dem hier erstrebten Maß ist: SimRank ist strukturell, guckt sich nur Links an, unabhängig davon, was sie bedeuten; Mein Maß guckt sich die Semantik der Relationen an.
-
+% Levenshtein distance: einfache Distanz zwischen 2 Strings/Texten \cite ???
+% basiert auf die Anzahl von Einfügungen, Löschungen, Ersetzungen von Buchstaben, die gebraucht werden, um einen String in einen anderen zu transformieren
+% extrem unpraktisch: wir können nicht für tausende von Dokumenten, mit mehreren Seiten Text die Levenshteindistanz messen..
+% fragwürdig, ob brauchbare Ergebnisse rauskommen (wobei man könnte vlt so was schon für das Bauen einer Plagiatsoftware einsetzen..)
+% kann vlt für das vergleichen von Abstracts/Titel genutzt werden
 
 % Evaluating Publication Similarity Measures \cite{evalpubsim2005}
 % Es gibt 2 Arten von Ähnlichkeitsmaßen für Publikationen: textbasiert(Information Retrieval) und zitationsbasiert(Bibliometrie), die beiden Ansätze liefern meistens auch ziemlich unterschiedliche Ergebnisse
 
-% Textbasierte Ähnlichkeitsmaße \cite?????
+% Textbasierte Ähnlichkeitsmaße \cite{Giles98citeseer} und ...
 % Nutzen TF-IDF (Term Frequency- Inversed Document Frequency) und Vektorraummodelle aus der Information Retrieval
 % Mit diesen Maßen werden Titel, Inhaltsverzeichnis, Abstract und Text von wissenschaftlichen Arbeiten ausgewertet
 % Problematisch: bei Riesenumfangen, evtl unpraktisch
 % Problem2: sprachenabhängig
+% Problem3: semantische Bedeutung ist unbekannt, kann das Ergebnis verfälschen (z.B. werden Negationen nicht als solche berücksichtigt) \cite{gottwaldrecommender}
+% One limitation of this approach is the inherent noise  uncommon words may be shared by documents by coincidence, thereby giving false evidence that the documents are related.
+% Another limitation of this approach is the ambiguity of words and phrases. For example "arm" could mean a human limb, or a weapon. Simple word frequencies do not differentiate these uses, requiring context analysis for separation. - related to Problem3
 
+% das Cosinusmaß -- look for a paper!
 
+% ----------- Aufgrund von Links (linkbasierten/zitationsbasierte Maßen)--------------------------------------------------
+% Die Pioniere
 % Bibliographic coupling between scientific papers - M.M. Kessler \cite{Kessler:1963}
 % method for grouping technical and scientific papers on the basis of bibliographic coupling units
 % redet von "related groups" aufgrund von bibliographischer Kopplung.. aber nicht direkt von Ähnlichkeit
@@ -216,6 +210,34 @@ Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
 % These results suggest that bibliographic coupling is a less reliable indicator of subject similarity than co-citation, although co-citation may , in addition, reflect "semantic" relations among cited papers, analogous to those observed in patterns of co-occurence /// WTF??
 % Bibliographic coupling has been used to assemble groups of papers on particular subjects (Schiminovich). Co-citation has also been used to form these groups after the papers have been cited, but the present data suggest that the results of these two grouping procedures would differ quite significantly
 % It appears that an interpretation of the significance of strong co-citation links must rely both on the notion of subject similarity and on the association or co-occurance of ideas
+
+% Auch Kozitation:
+% "Information on individual journal citations can be used to examine the impact of journals on the subject field and a map of co-cited documents can be used to identify subject specialties and sub-specialties"\cite{DBLP:conf/amcis/KimB08}
+% ebenso da: intercitation analysis (between clusters) vs co-citation analysis (within a cluster) - can be used to complement each other and fill in each others weaknesses
+
+% Common Citation Inverse Document Frequency (CCIDF) \cite{Giles98citeseer}
+% analogous to the word oriented TFIDF word weights
+% As in the use of TFIDF, CCIDF assumes that if a very uncommon citation is shared by two documents, this should be weighted more highly than a citation made by a large number of documents.
+% Algorithm:
+% assign a weigth to each citation, equal to the inverse frequency of the citation in the entire database
+% Determine list of citation and their weigths for document A and search the database for all the documents which share at least one citation with A
+% For each of this documents determine the sum of the weigths of the shared with A citations
+% sort the results
+
+
+
+
+% Arbeiten, die (unter anderem) auch Ähnlichkeit von Papers berechnen,
+% Aber NUR auf Grund von Zitationen
+
+% Allgemein strukturelle Ähnlichkeit zwischen 2 Objekte: Simrank \cite{simrank2002}
+% 2 Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind
+% Anhand von (gerichteten) Links/Referenzen/Kanten
+% anwendbar für Publikationen: dann auf grund von Referenzen/Zitationen
+% Sagen auch selber, dass ihr Algorithmus als eine Generalisierung von Kozitationsbasierten Maßen betrachtet werden kann, wo die Ähnlichkeit der zitierenden Dokumente auch rekursiv berechnet wird.
+% wird iterativ berechnet
+% letzteres ist sinnvoll für Dokumente, die selten zitiert werden
+% oder eben alle Mögliche Relationen, der Unterschied zu dem hier erstrebten Maß ist: SimRank ist strukturell, guckt sich nur Links an, unabhängig davon, was sie bedeuten; Mein Maß guckt sich die Semantik der Relationen an.
 
 
 % P-Rank: a Comprehensive Structural Similarity Measure over Information Networks \cite{ZhaoHS09}
@@ -252,6 +274,44 @@ Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
 % wobei The existing measures can be used in (C1) and (C2) cases. The existing measures, however, cannot correctly measure the similarity in (C3).
 % Machen keinen Unterschied zwischen eingehenden und ausgehenden Kanten (Unterschied zu P-Rank: sie beziehen beides mit ein in die Berechnung, machen aber den Unterschied)
 % und berechnen auch strukturelle Ähnlichkeit im Endeffekt (wobei die beziehen sich schon konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen und nicht auf Informationsnetzwerke überhaupt)
+
+
+% A slightly different approach: Node similarity in neworked information spaces \cite{Lu01nodesimilarity}
+% aber auch nur aufgrund von Zitationen!!
+% metrics take advantage of the local neighbourhood of the nodes in the networked information space (vgl die vorherigen 3: die betrachten den gesamten Graph!)
+% explicit availability of the networked information space is not required, as long as a query engine is available for following links and extracting the necessary local neighbourhoods for similarity estimation.
+% two variations of similarity between 2 nodes:
+% 1) one based on the separate local neighbourhoods of the nodes
+% 2) another based on the joint local neighbourhood expanded from both nodes at the same time
+%
+% 1):
+%  based on a comparison of subgraphs based on hubs and authority values
+% measures how similar the both local citation communities are
+% uses vectors to compute similarity; authority weight is assigned to every node; two papers are similar if their individual local citation graphs share similar authority papers
+% construct two separate local citation graphs
+% two papers are probably more similar to each other if they are connected by reference coupling or co-citation by authority papers than by hubs
+% in order to get high similarity between papers their graphs must have a large intersection and there must be many authority papers in the intersection area
+% uses authority weigth as a measure of importance
+%
+% 2):
+% based on a network flow computation
+%  how strongly the two papers are connected in the citation graph
+% uses maximus flow/minimum cut algorithm to compute the amount of flow which can be pushed from one paper to another
+% key idea: count the number of different paths between the two papers
+% minimum cut: the minimum number of edges which needs to be cut in order to disconnect the one paper from the other
+% longer paths are less indicative for similarity than shorter ones
+% more links: higher capacity for link between source and sink, more links need to be cut in order to disconnect source from sink
+% an edge which is far away from the source/sink paper gets a low capacity weight, therefore you cannot push more flow through a longer path and as a result a longer path will contribute less to the overall flow from source to sink
+% the similarity metric should give the same value for two adjacent nodes as for two non-adjacent nodes, who have d common neighbours
+
+
+% Ähnlichkeit zwischen Autoren: \cite{Yang:2009:TRSN}) --- das interessante ist, dass sie Metadaten in die Auswertung miteinbeziehen
+% Ziel vom Paper: Modellierung eines sozialen Netzwerkes von Autoren
+% Haben mehrere Methoden genutzt und mit einander verglichen: anhand von Schlüsselwörtern/Keywords, anhand von den persönlichen Interessen der Autoren (von den Autoren selber bestimmt/aus deren Webpages extrahiert), anhand von Themen der Konferenzen, wo Autoren hingehen/Papers veröffentlichen, anhand von Koautorenschaften;
+% Die Methoden wurden sowohl einzeln angewandt als auch gewichtet zusammen
+% Keywords basierte Graphen wurden von den Autoren selber als aussagekräftiger gewertet als solche, die auf Koautorenschaften basierten
+% Probleme, wenn man nur Koautoren nutzt (siehe oben in der Beschreibung von Bibliometrie)
+% Probleme, wenn man Keywords nutzt: das selbe Keyword kann unterschiedlich geschrieben werden (web2.0 vs Web 2.0); hat den Nachteil, dass die Untersuchten Papers auf der selben Sprache sein sollten (bei uns sind English Keywords im Datensatz definiert, es kann aber nicht immer auf die Häufigkeit dieser im Volltext zurückgegriffen werden; wobei das werde ich vermutlich auch gar nicht tun)
 
 
 
