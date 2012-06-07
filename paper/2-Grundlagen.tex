@@ -210,24 +210,10 @@ Außerdem ist die semantische Bedeutung von den Termen unbekannt, was die Ergebni
 Die zweite große Kategorie der existierenden Ähnlichkeitsmaße für wissenschaftliche Publikationen beruht auf Zitationen.
 Die Idee, dass Artikel, die gemeinsame Referenzen teilen, in irgendeiner Weise verwandt sind, ist auf M.M.Kessler \cite{Kessler:1963} zurückzuführen.
 In seiner Arbeit ``Bibliographic coupling between scientific papers'' schlägt er eine Methode für ``Gruppierung von technischen und wissenschaftlichen Papers aufgrund von bibliografischer Kopplung'' vor \cite{Kessler:1963}.
-
-% Die Pioniere
-% Bibliographic coupling between scientific papers - M.M. Kessler \cite{Kessler:1963}
-% method for grouping technical and scientific papers on the basis of bibliographic coupling units
-% redet von "related groups" aufgrund von bibliographischer Kopplung.. aber nicht direkt von Ähnlichkeit
-
-% Co-citation in scientific literature - Henry Small \cite{Small_1973}
-% measure of relationship or association between two documents, established by later(citing) authors
-% co-citation patterns are found to differ significantly from bibliographic coupling patterns, but to agree generally with patterns of direct citation
-% absence of any clear relationship between bibliographic coupling strength and co-citation frequency
-% based on this example one might be tempted to hypothesize that co-citation, like bibliographic coupling, measures subject similarity. However, the same agreement between bibliographic coupling and co-citation strength was not observed in other cases.
-% These results suggest that bibliographic coupling is a less reliable indicator of subject similarity than co-citation, although co-citation may , in addition, reflect "semantic" relations among cited papers, analogous to those observed in patterns of co-occurence /// WTF??
-% Bibliographic coupling has been used to assemble groups of papers on particular subjects (Schiminovich). Co-citation has also been used to form these groups after the papers have been cited, but the present data suggest that the results of these two grouping procedures would differ quite significantly
-% It appears that an interpretation of the significance of strong co-citation links must rely both on the notion of subject similarity and on the association or co-occurance of ideas
-
-% Auch Kozitation:
-% "Information on individual journal citations can be used to examine the impact of journals on the subject field and a map of co-cited documents can be used to identify subject specialties and sub-specialties"\cite{DBLP:conf/amcis/KimB08}
-% ebenso da: intercitation analysis (between clusters) vs co-citation analysis (within a cluster) - can be used to complement each other and fill in each others weaknesses
+Der Erste, der explizit den Begriff $Ähnlichkeit$ verwendet, ist Henry Small \cite{Small_1973}.
+In Gegensatz zu Kessler legt Small jedoch seinen Schwerpunkt nicht auf bibliografischer Kopplung, sondern auf Zählung von Kozitationen.
+Er bezeichnet hohe Kozitationszahlen als einen Indikator für ``subject similarity'' und ``co-occurance of ideas''.
+Kozitationenzählung als Methode für die Identifikation von Artikeln, die das selbe oder ähnliches Thema teilen, benutzen auch Kim und Barnett \cite{DBLP:conf/amcis/KimB08}.
 
 % Common Citation Inverse Document Frequency (CCIDF) \cite{Giles98citeseer}
 % analogous to the word oriented TFIDF word weights
@@ -265,6 +251,11 @@ In seiner Arbeit ``Bibliographic coupling between scientific papers'' schlägt er
 % In real INs, those "unpopular entities", i.e.,entities with very few in-link relationships will be penalized by SimRank. Meanwhile, these entities are often not neglectable because they are new, potentially popular, and interesting" two entities are similar if (1) they are referenced by similar entities; and (2) they reference similar entities." to most users. However, they tend to be harder for  humans to find.
 % we consider an entity maximally similar to itself, to which we can assign the P-Rank score of 1. (If other entities are known to be similar a-priori, their similarities can be pre-assigned as well.)
 
+% Small 1973: --- Argument dafür, dass beides berücksichtigen Sinn macht!!
+% co-citation patterns are found to differ significantly from bibliographic coupling patterns, but to agree generally with patterns of direct citation
+% absence of any clear relationship between bibliographic coupling strength and co-citation frequency
+% based on this example one might be tempted to hypothesize that co-citation, like bibliographic coupling, measures subject similarity. However, the same agreement between bibliographic coupling and co-citation strength was not observed in other cases.
+% Small hat beobachtet, dass Gruppierungen von ``ähnlichen'' Papers aufgrund von Kozitationen und bibliografischer Kopplung zu sehr unterschiedlichen Resulaten führen.
 
 % C-Rank: A Link-based Similarity Measure for Scientific Literature \cite{DBLP:journals/corr/abs-1109-1059}
 
