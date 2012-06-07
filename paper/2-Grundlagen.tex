@@ -207,13 +207,18 @@ Außerdem ist die semantische Bedeutung von den Termen unbekannt, was die Ergebni
 
 % ----------- Aufgrund von Links (linkbasierten/zitationsbasierte Maßen)--------------------------------------------------
 \smallskip
-Die zweite große Kategorie der existierenden Ähnlichkeitsmaße für wissenschaftliche Publikationen beruht auf Zitationen.
+Die zweite große Kategorie existierender Ähnlichkeitsmaße für wissenschaftliche Publikationen beruht auf Zitationen.
 Die Idee, dass Artikel, die gemeinsame Referenzen teilen, in irgendeiner Weise verwandt sind, ist auf M.M.Kessler \cite{Kessler:1963} zurückzuführen.
 In seiner Arbeit ``Bibliographic coupling between scientific papers'' schlägt er eine Methode für ``Gruppierung von technischen und wissenschaftlichen Papers aufgrund von bibliografischer Kopplung'' vor \cite{Kessler:1963}.
-Der Erste, der explizit den Begriff $Ähnlichkeit$ verwendet, ist Henry Small \cite{Small_1973}.
-In Gegensatz zu Kessler legt Small jedoch seinen Schwerpunkt nicht auf bibliografischer Kopplung, sondern auf Zählung von Kozitationen.
+Der Erste, der explizit den Begriff \textit{Ähnlichkeit} verwendet, ist Henry Small \cite{Small_1973}.
+Im Gegensatz zu Kessler legt Small jedoch seinen Schwerpunkt nicht auf bibliografischer Kopplung, sondern auf Zählung von Kozitationen.
 Er bezeichnet hohe Kozitationszahlen als einen Indikator für ``subject similarity'' und ``co-occurance of ideas''.
 Kozitationenzählung als Methode für die Identifikation von Artikeln, die das selbe oder ähnliches Thema teilen, benutzen auch Kim und Barnett \cite{DBLP:conf/amcis/KimB08}.
+
+\smallskip
+Ein anderes zitationsbasiertes Maß ist die \textit{Common Citation Inverse Document Frequency} (CC-IDF) \cite{Giles98citeseer}.
+In Anlehnung an die TF-IDF, die einzelne Terme gewichtet, werden hier die Gewichte der Zitate bestimmt.
+Ähnlich wie bei TF-IDF geht CC-IDF davon aus, dass eine relativ seltene Zitation, die zwei Dokumente teilen, höher gewichet werden sollte, als eine Zitation, die in vielen Papers vorkommt.
 
 % Common Citation Inverse Document Frequency (CCIDF) \cite{Giles98citeseer}
 % analogous to the word oriented TFIDF word weights
@@ -224,7 +229,12 @@ Kozitationenzählung als Methode für die Identifikation von Artikeln, die das sel
 % For each of this documents determine the sum of the weigths of the shared with A citations
 % sort the results
 
-
+\smallskip
+Das Ähnlichkeitsmaß \textit{SimRank} wird 2002 von Jeh und Widom entworfen \cite{simrank2002}.
+\textit{SimRank} misst allgemein die strukturelle Ähnlichkeit von zwei Objekten aufgrund von Links.
+Die Autoren schlagen einen Algorithmus vor, der aufgrund des Gesamtgraphen die Ähnlichkeit zwischen zwei Knoten rekursiv berechnet.
+Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' aus.
+Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Referenzen rekursiv bestimmt werden kann.
 
 
 % Arbeiten, die (unter anderem) auch Ähnlichkeit von Papers berechnen,
