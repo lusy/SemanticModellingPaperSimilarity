@@ -189,7 +189,7 @@ Mit Hilfe von dieser Metrik werden Titel, Inhaltsverzeichnis, Abstract und Vollt
 Dieser Ansatz ist aus mehreren Gründen problematisch.
 Bei sehr großen Dokumentenmengen ist die Methode ziemlich rechenaufwendig.
 Zudem ist diese sprachabhängig - es ist nicht möglich aufgrund von reinen textbasierten Maßen, wie die TF-IDF, Ähnlichkeit zwischen Artikeln, die auf verschiedenen Sprachen vorliegen, zu messen.
-Außerdem ist die semantische Bedeutung von den Termen unbekannt, was die Ergebnisse verfälschen kann (Negationen werden nicht als solche berücksichtigt, Wörter, die mehrere Bedeutungen haben, werden aggregiert) \cite{gottwaldrecommender} \cite{Giles98citeseer}.
+Außerdem ist die semantische Bedeutung der Terme unbekannt, was die Ergebnisse verfälschen kann (Negationen werden nicht als solche berücksichtigt, Wörter, die mehrere Bedeutungen haben, werden aggregiert) \cite{gottwaldrecommender} \cite{Giles98citeseer}.
 % das Cosinusmaß -- look for a paper!
 
 
@@ -231,10 +231,10 @@ In Anlehnung an die TF-IDF, die einzelne Terme gewichtet, werden hier die Gewich
 
 \smallskip
 Das Ähnlichkeitsmaß \textit{SimRank} wurde 2002 von Jeh und Widom entworfen \cite{simrank2002}.
-\textit{SimRank} misst allgemein die strukturelle Ähnlichkeit von zwei Objekten aufgrund von Links.
+\textit{SimRank} misst allgemein die strukturelle Ähnlichkeit von zwei Objekten in einem Netzwerk aufgrund von Links.
 Die Autoren schlagen einen Algorithmus vor, der basierend auf dem Gesamtgraphen die Ähnlichkeit zwischen zwei Knoten rekursiv berechnet.
-Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' \cite{simrank2002 }aus.
-Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Referenzen rekursiv bestimmt werden kann.
+Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' \cite{simrank2002} aus.
+Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Literaturverweisen rekursiv bestimmt werden kann.
 
 Zhao, Han und Sun haben mit \textit{P-Rank} ein ähnliches Konzept \cite{ZhaoHS09}.
 \textit{P-Rank} ist ebenso ein strukturelles Ähnlichkeitsmaß für Informationsnetzwerken, unterscheidet sich jedoch von \textit{SimRank} durch die Tatsache, dass es nicht nur ein- sonder auch ausgehende Kanten in die Ähnlichkeitsberechnung miteinbezieht.
@@ -263,21 +263,21 @@ Angelehnt an \textit{SimRank} und \textit{P-Rank} schlagen Yoon, Kim und Park da
 Sie geben selber nochmal einen Überblick über schon vorhandene Ähnlichkeitsmaße für wissenschaftliche Arbeiten und zählen gleichzeitig auch ihre Schwächen auf:\\
 \begin{itemize}
 \item Textbasierte Metriken für Ähnlichkeitsbestimmung wissenschaftlicher Publikationen würden zwei Papers auch dann als ähnlich bezeichnen, wenn sie demselben Forschungsfeld angehören, auch wenn sie sich mit unterschiedlichen Problemen beschäftigen.
-\item Die bibliografische Kopplung ist ungeeignet um Ähnlichkeit zwischen alten aber ähnlichen Arbeit zu berechnen.
+\item Die bibliografische Kopplung ist ungeeignet, um Ähnlichkeit zwischen alten aber ähnlichen Arbeit zu berechnen.
 \item Durch Kozitationzählung kann die Ähnlichkeit zwischen neuen ähnlichen Arbeiten nicht gemessen werden.
 \item Beide sind nicht in der Lage Ähnlichkeit zwischen einem alten und einem neuen Paper, die ähnlich sind, zu bestimmen. Die alte Arbeit zitiert keine Neueren, die Neue kann nicht durch Ältere zitiert werden.
 \item \textit{SimRank}, das in gewissem Sinn eine Generalisierung der Kozitation ist, kann keine Ähnlichkeit berechnen, wenn ein Paper durch keine Anderen zitiert wird.
 \item Es wird noch \textit{rvs-SimRank} (reverse SimRank) genannt, das im Gegensatz zu \textit{SimRank} nur ausgehende Links für seine Berechnung betrachtet.
 Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen kann, wenn ein Paper keine Anderen zitiert.
-\item \textit{P-Rank} betrachtet sowohl ein- als auch ausgehende Kanten, ist aber auch für Bestimmen der Ähnlichkeit zwischen einer alten und einen neuen Arbeit ungeeignet.
+\item \textit{P-Rank} betrachtet sowohl ein- als auch ausgehende Kanten, ist aber auch für Bestimmen der Ähnlichkeit zwischen einer alten und einer neuen Arbeit ungeeignet.
 \end{itemize}
 Ähnlich wie \textit{P-Rank} stützt sich \textit{C-Rank} gleichzeitig auf ein- und ausgehenden Kanten.
 Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine geeignete Gewichtung beider Arten von Kanten vornimmt und \textit{C-Rank} überhaupt nicht dazwischen unterscheidet.
 \textit{C-Rank} geht tatsächlich aus einem ungerichteten Zitationsgraphen aus.
-Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaßen gelungen war.
+Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaße gelungen war.
 
 \smallskip
-Eine bisschen unterschiedliche Herangehensweise wählen Lu et al. in ihrer Definition von Knotenähnlichkeit in Informationsnetzwerken \cite{Lu01nodesimilarity}.
+Eine etwas unterschiedliche Herangehensweise wählen Lu et al. in ihrer Definition von Knotenähnlichkeit in Informationsnetzwerken \cite{Lu01nodesimilarity}.
 Diese lässt sich, genau wie alle anderen bereits erwähnten strukturellen Ähnlichkeitsmaße, auf Zitationsgraphen von wissenschaftlichen Publikationen anwenden.
 Genauer gesagt, arbeiten Lu und seine Kollegen zwei verschiedene Maßen aus.
 Beide beziehen (im Gegensatz zu \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank}) nur die lokale Nachbarschaft von Knoten in die Ähnlichkeitsberechnung ein.
@@ -288,9 +288,12 @@ Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
 Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
 Dafür wird der gemeinsame lokale Nachbarschaftsgraph zweier Publikationen aufgebaut.
 Der \textit{Maximum Flow Minimum Cut} Algorithmus wird benutzt um den Fluss auszurechnen, der vom einen zum anderen Knoten gereicht werden kann.
-Es werden die verschiedenen Pfade zwischen beiden Knoten gezählt.
-Dabei tragen längere Pfade weniger zu der Ähnlichkeit zwischen den Knoten bei.
-Der Minimum Cut bestimmt die Anzahl der Kanten, die entfernt werden sollten, um beide Knoten komplett von einander zu trennen.
+%Es werden die verschiedenen Pfade zwischen beiden Knoten gezählt.
+%Dabei tragen längere Pfade weniger zu der Ähnlichkeit zwischen den Knoten bei.
+%Der Minimum Cut bestimmt die Anzahl der Kanten, die entfernt werden sollten, um beide Knoten komplett von einander zu trennen.
+
+
+%----------------------------------------------------------------------------------------------------------------
 % A slightly different approach: Node similarity in neworked information spaces \cite{Lu01nodesimilarity}
 % 1):
 %  based on a comparison of subgraphs based on hubs and authority values
@@ -312,6 +315,17 @@ Der Minimum Cut bestimmt die Anzahl der Kanten, die entfernt werden sollten, um 
 % an edge which is far away from the source/sink paper gets a low capacity weight, therefore you cannot push more flow through a longer path and as a result a longer path will contribute less to the overall flow from source to sink
 % the similarity metric should give the same value for two adjacent nodes as for two non-adjacent nodes, who have d common neighbours
 
+Yang et al. präsentieren mit ihrer Arbeit \cite{Yang:2009:TRSN} ein Ähnlichkeitsmaß für Autoren wissenschaftlicher Literatur.
+Das Interessante an dem Entwurf ist, dass er, im Gegensatz zu allen zitationsbasierten Maßen für Publikationen, verschiedene Metadaten in die Ähnlichkeitsberechnung miteinbezieht.
+Die Wissenschaftler bestimmen die Ähnlichkeit zwischen Autoren anhand mehrerer Daten:\\
+\begin{itemize}
+\item Keywords, die die Forschungsschwerpunkte der Autoren beschreiben,
+\item der persönlichen Interessen der Autoren (diese werden von den Autoren selbst formuliert oder aus deren Webseiten extrahiert),
+\item Themen der Konferenzen, die die Autoren besuchen,
+\item Koautorenschaften.
+\end{itemize}
+Diese Ansätze werden sowohl einzeln als auch gewichtet zusammen angewandt.
+Die Arbeit kommt zu der Schlussfolgerung, dass eine gewichtete Summe die Ähnlichkeit am präzisesten bestimmt und zudem dass Ergebnisse, die nur aufgrund von Keywords erzielt worden sind, genauer sind als solche, die auf Koautorenschaften basieren.
 
 % Ähnlichkeit zwischen Autoren: \cite{Yang:2009:TRSN}) --- das interessante ist, dass sie Metadaten in die Auswertung miteinbeziehen
 % Ziel vom Paper: Modellierung eines sozialen Netzwerkes von Autoren
@@ -321,7 +335,8 @@ Der Minimum Cut bestimmt die Anzahl der Kanten, die entfernt werden sollten, um 
 % Probleme, wenn man nur Koautoren nutzt (siehe oben in der Beschreibung von Bibliometrie)
 % Probleme, wenn man Keywords nutzt: das selbe Keyword kann unterschiedlich geschrieben werden (web2.0 vs Web 2.0); hat den Nachteil, dass die Untersuchten Papers auf der selben Sprache sein sollten (bei uns sind English Keywords im Datensatz definiert, es kann aber nicht immer auf die Häufigkeit dieser im Volltext zurückgegriffen werden; wobei das werde ich vermutlich auch gar nicht tun)
 
-
+Dieser Überblick zeigt die Vor- und Nachteile schon vorhandener Ähnlichkeitsmaße.
+Die gemeinsame Schwächen dieser (und vor allem aller strukturellen zitationbasierten Ansätze) lassen darauf schließen, dass wir eine neue, allgemeinere Definition von Ähnlichkeit brauchen.
 
 % Aus diesen Gründen brauchen wir eine neue, allgemeinere Definition von Ähnlichkeit.
 
