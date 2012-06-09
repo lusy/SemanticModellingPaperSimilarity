@@ -193,7 +193,7 @@ Auf Abbildung \ref{fig:scientificdoc_relations} sind die Relationen zwischen der
     \label{fig:scientificdoc}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[hp]
     \centering
     \includegraphics[angle=90,scale=0.5]{../deps/science_onto_scientific_doc3.png}
     \caption{Ontology of Science. Relationen zwischen \textit{Scientific Document} und anderen Klassen}
@@ -314,7 +314,7 @@ Zwei Knoten sind dann desto ähnlicher, je größer der Schnitt deren lokalen Nachb
 Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
 Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
 Dafür wird der gemeinsame lokale Nachbarschaftsgraph zweier Publikationen aufgebaut.
-Der \textit{Maximum Flow Minimum Cut} Algorithmus wird benutzt um den Fluss auszurechnen, der vom einen zum anderen Knoten gereicht werden kann.
+Der \textit{Maximum Flow Minimum Cut} Algorithmus \cite{chinneck2010} wird benutzt um den Fluss auszurechnen, der vom einen zum anderen Knoten gereicht werden kann.
 %Es werden die verschiedenen Pfade zwischen beiden Knoten gezählt.
 %Dabei tragen längere Pfade weniger zu der Ähnlichkeit zwischen den Knoten bei.
 %Der Minimum Cut bestimmt die Anzahl der Kanten, die entfernt werden sollten, um beide Knoten komplett von einander zu trennen.
