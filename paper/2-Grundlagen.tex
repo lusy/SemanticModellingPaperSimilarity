@@ -168,7 +168,8 @@ Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
 \subsection{Verwandte Arbeiten}
 \subsubsection{Semantische Repräsentation}
 % Was gibt es schon zum Thema semantische Modellierung von Publikationen (Science Ontology, Diplomarbeit vom einen Typen\cite{abbildungXML2002} )
-Matthias Erbarth schlägt in seiner Diplomarbeit \cite{abbildungXML2002} eine semantische Modellierung mit Hilfe von XML-Technologien, jedoch von einer einzelnen Publikation, vor.
+Matthias Erbarth schlägt in seiner Diplomarbeit \cite{abbildungXML2002} eine semantische Modellierung mit Hilfe von XML-Technologien vor.
+Diese bildet jedoch eine einzelne Publikation ab.
 Dabei liegt sein Schwerpunkt auf der Idee, dass indem das in einer wissenschaftlichen Arbeit enthaltene Wissen in einer maschinenlesbaren Form dargestellt wird, Aufgaben der Information Retrieval effizienter gelöst werden können.
 % warum macht er das
 % was nützliches/wichtiges erreicht er dadurch
@@ -182,13 +183,15 @@ Sie modelliert aber einzelne wissenschaftliche Arbeiten und die dazwischen beste
 
 % ----------- Textbasierte Maße -----------------------------------------------------------------------
 Bani-Ahmad et al. unterscheiden in ihrem Übersichtsartikel \cite{evalpubsim2005} zwischen text- und zitationsbasierten Ähnlichkeitsmaßen für wissenschaftliche Publikationen.
-Als Beispiel für ein textbasiertes Maß nennen sie die bekannte TF-IDF (Termfrequenz-Inverse Dokumentfrequenz).
-Der TF-IDF-Wert eines Terms (oder Worts) ist proportionell zur Anzahl der Vorkommen dieses Terms in einem Dokument und inversproportionell zur Anzahl der Vorkommen des Terms im Gesamtkorpus.
+Als Beispiel für ein textbasiertes Maß nennen sie das auf die bekannte TF-IDF Metrik (Termfrequenz-Inverse Dokumentfrequenz) gestützte Kosinusmaß.
+Der TF-IDF-Wert eines Terms (oder Worts) ist proportional zur Anzahl der Vorkommen dieses Terms in einem Dokument und inversproportional zur Anzahl der Vorkommen des Terms im Gesamtkorpus.
+Zwei Dokumente, deren Ähnlichkeit bestimmt werden sollte, werden dann als Vektoren ihrer Termfrequenzen dargestellt.
+Die Dokumente sind desto ähnlicher, je näher zu einander sich diese Vektoren im Raum befinden, d.h. je kleiner der Winkel zwischen beiden ist (und je größer der Kosinus von diesem Winkel).
 Dieses Maß wird, in Kombination mit anderen Methoden, auch von den Erfindern der automatisierten Indexingdienst für wissenschaftlichen Arbeiten CiteSeer\footnote{http://citeseerx.ist.psu.edu/index}, Lee Giles and Kurt D. Bollacker and Steve Lawrence, als Ähnlichkeitsmaß für Artikel eingesetzt \cite{Giles98citeseer}.
 Mit Hilfe von dieser Metrik werden Titel, Inhaltsverzeichnis, Abstract und Volltext von Publikationen ausgewertet.
 Dieser Ansatz ist aus mehreren Gründen problematisch.
 Bei sehr großen Dokumentenmengen ist die Methode ziemlich rechenaufwendig.
-Zudem ist diese sprachabhängig - es ist nicht möglich aufgrund von reinen textbasierten Maßen, wie die TF-IDF, Ähnlichkeit zwischen Artikeln, die auf verschiedenen Sprachen vorliegen, zu messen.
+Zudem ist diese sprachabhängig - es ist nicht möglich aufgrund von reinen textbasierten Maßen, wie dem Kosinusmaß in Kombination mit TF-IDF, Ähnlichkeit zwischen Artikeln, die auf verschiedenen Sprachen vorliegen, zu messen.
 Außerdem ist die semantische Bedeutung der Terme unbekannt, was die Ergebnisse verfälschen kann (Negationen werden nicht als solche berücksichtigt, Wörter, die mehrere Bedeutungen haben, werden aggregiert) \cite{gottwaldrecommender} \cite{Giles98citeseer}.
 % das Cosinusmaß -- look for a paper!
 
