@@ -18,8 +18,8 @@ Es werden unter Anderem folgende Gegenstände quantitativ untersucht: die Trenden
 Die mit bibliometrischen Methoden gewonnenen Erkenntnisse sind oft Ausschlag gebend bei neuen Literaturbeschaffungen in Bibliotheken, oder werden als Ausgangspunkt für eine leistungsorientierte Mittelvergabe in Wissenschaft und Forschung eingesetzt \cite{bibliogrundw2005}.
 \\
 \\
-Die gegenwärtige Tendenz, diese statistischen Verfahren alleine für das Treffen dieser Entscheidungen zu benutzen, wird allerdings von diversen Experten stark kritisiert.
-Sie vertreten die Meinung, dass Forschung viel zu wichtig ist, um nur mit Hilfe von einem einzigen, zudem so vagen, Werkzeug, bewertet wird.
+Die gegenwärtige Tendenz, nur diese statistischen Verfahren für das Treffen dieser Entscheidungen zu benutzen, wird allerdings von diversen Experten stark kritisiert.
+Sie vertreten die Meinung, dass Forschung viel zu wichtig ist, um nur mit Hilfe von einem einzigen, zudem so vagen, Werkzeug, bewertet zu werden.
 Statistische Daten erscheinen objektiver und unabhängiger als manche anderen Praxen, wie z.B. Peer-Reviews \cite{citationstats2008}.
 Die Experten geben zu, dass es verlockend ist, eine einfache und einfach meßbare Vergleichsbasis für verschiedene Publikationen, Journalen, Wissenschaftlerinnen, etc. zu haben.
 Sie warnen aber vor, dass Zahlen nicht immer einer nüchternen Beurteilung überlegener sind, leicht falsch interpretiert werden können und mit Vorsicht zu genießen sind \cite{citationstats2008}.
@@ -78,7 +78,7 @@ Aufgrund dieser beiden Ausprägungen von Zitationsrelationen und auch noch der ei
 Das sind Graphen, deren Knoten für Publikationen stehen und wo jede Kante eine Zitation veranschaulicht (Abbildung \ref{fig:citenetwork}).
 Auf der Basis von Zitationsnetzwerken können Cluster von eng zusammenhängenden Dokumenten ermittelt werden.
 Die gerichteten Kanten eines solchen Graphen stehen auch für eine zeitliche Richtung - das zitierte Paper ist stets älter als die Arbeit, von der es zitiert wird.
-Viele Experten schlagen Ähnlichkeitsmaße vor, die auf Zitationsnetzwerke beruhen (siehe \cite{Small_1973}, \cite{simrank2002}, \cite{evalpubsim2005}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059}).
+Viele Experten schlagen Ähnlichkeitsmaße vor, die auf Zitationsnetzwerken beruhen (siehe \cite{Small_1973}, \cite{Lu01nodesimilarity}, \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059}).
 \\
 \\
 Auch wenn diese bibliometrische Herangehensweise als ein sinnvoller erster Ansatz erscheint, um die Ähnlichkeit zwischen zwei wissenschaftlichen Arbeiten zu ermitteln, werden bei näherer Betrachtung mehrere Probleme/Kritikpunkte aufgedeckt, weswegen auf jeden Fall auch andere Ähnlichkeitsindikatoren gesucht werden müssten:\\
@@ -189,7 +189,7 @@ Zwei Dokumente, deren Ähnlichkeit bestimmt werden sollte, werden dann als Vektor
 Die Dokumente sind desto ähnlicher, je näher zu einander sich diese Vektoren im Raum befinden, d.h. je kleiner der Winkel zwischen beiden ist (und je größer der Kosinus von diesem Winkel).
 Dieses Maß wird, in Kombination mit anderen Methoden, auch von den Erfindern der automatisierten Indexingdienst für wissenschaftlichen Arbeiten CiteSeer\footnote{http://citeseerx.ist.psu.edu/index}, Lee Giles and Kurt D. Bollacker and Steve Lawrence, als Ähnlichkeitsmaß für Artikel eingesetzt \cite{Giles98citeseer}.
 Mit Hilfe von dieser Metrik werden Titel, Inhaltsverzeichnis, Abstract und Volltext von Publikationen ausgewertet.
-Dieser Ansatz ist aus mehreren Gründen problematisch.
+Der Ansatz ist aus mehreren Gründen problematisch.
 Bei sehr großen Dokumentenmengen ist die Methode ziemlich rechenaufwendig.
 Zudem ist diese sprachabhängig - es ist nicht möglich aufgrund von reinen textbasierten Maßen, wie dem Kosinusmaß in Kombination mit TF-IDF, Ähnlichkeit zwischen Artikeln, die auf verschiedenen Sprachen vorliegen, zu messen.
 Außerdem ist die semantische Bedeutung der Terme unbekannt, was die Ergebnisse verfälschen kann (Negationen werden nicht als solche berücksichtigt, Wörter, die mehrere Bedeutungen haben, werden aggregiert) \cite{gottwaldrecommender} \cite{Giles98citeseer}.
