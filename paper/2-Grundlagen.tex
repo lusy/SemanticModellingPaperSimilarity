@@ -32,15 +32,13 @@ An der Stelle werden zwei von den Unterthemen der Bibliometrie kurz umrissen, di
 
 Die Zitationsanalyse ist eines der Kerngebiete der Bibliometrie.
 Sie untersucht die Beziehungen zwischen wissenschaftlichen Arbeiten aufgrund der Zählung von im Literaturverzeichnis angegebenen Quellen.
-% Kritik
-% Bilder!!!
 \\
 \\
 Eine spezielle Relation, die auf Zitationen basiert, ist die bibliographische Kopplung.
 Zwei Publikationen werden als bibliographisch gekoppelt bezeichnet, wenn sie ein gemeinsames früheres Werk zitieren (Abbildung \ref{fig:bibcoupling}).
 
 Die bibliographische Kopplung ist ein nützlicher Indikator, um Beziehungen zwischen frisch publizierten Arbeiten herzustellen, bzw. zwischen Artikeln, die in einem geringen zeitlichen Abstand publiziert worden sind.
-Mehrere Studien kennzeichnen zwei Publikationen desto verwandter, je stärker bibliographisch gekoppelt diese sind (d.h. je mehrere gemeinsamen Quellen diese zitieren) \cite{Kessler:1963} \cite{DBLP:journals/corr/abs-1109-1059}.%Quellen!!
+Mehrere Studien kennzeichnen zwei Publikationen desto verwandter, je stärker bibliographisch gekoppelt diese sind (d.h. je mehrere gemeinsamen Quellen diese zitieren) \cite{Kessler:1963} \cite{DBLP:journals/corr/abs-1109-1059}.
 \begin{figure}
     \begin{subfigure}[h]{0.5\textwidth}
         \centering
@@ -62,7 +60,6 @@ Mehrere Studien kennzeichnen zwei Publikationen desto verwandter, je stärker bib
 \\
 Eine andere Zitationsrelation ist die Kozitation.
 Eine Kozitation von zwei oder mehreren Arbeiten liegt vor, wenn alle diese von einer dritten gemeinsam zitiert werden (Abbildung \ref{fig:cocitation}).
-%Henry Small!!
 Laut Kim und Barnett \cite{DBLP:conf/amcis/KimB08} werden Cluster von häufig kozitierten Dokumenten als stark zusammenhängend betrachtet.
 Auch Henry Small bezeichnet zwei Publikationen desto ähnlicher je öfter diese zusammen kozitiert werden \cite{Small_1973}.
 % "Clusters of highly co-cited documents are considered to have high mutual dependance"\cite{DBLP:conf/amcis/KimB08}
@@ -169,13 +166,40 @@ Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
 \subsubsection{Semantische Repräsentation}
 % Was gibt es schon zum Thema semantische Modellierung von Publikationen (Science Ontology, Diplomarbeit vom einen Typen\cite{abbildungXML2002} )
 Matthias Erbarth schlägt in seiner Diplomarbeit \cite{abbildungXML2002} eine semantische Modellierung mit Hilfe von XML-Technologien vor.
-Diese bildet jedoch eine einzelne Publikation ab.
+Diese bildet jedoch eine einzelne Publikation mit ihren Einzelteilen ab.
+Das semantische Model einer Publikation soll dann mit einer Fachontologie in Verbindung gebracht werden, um eine ``erweiterte Stichwordindexierung'' zu ermöglichen.
 Dabei liegt sein Schwerpunkt auf der Idee, dass indem das in einer wissenschaftlichen Arbeit enthaltene Wissen in einer maschinenlesbaren Form dargestellt wird, Aufgaben der Information Retrieval effizienter gelöst werden können.
 % warum macht er das
 % was nützliches/wichtiges erreicht er dadurch
 % was für erkenntnisse kann man daraus für meinen fall ziehen
 Die Ontology of Science von Fred Freitas \cite{ontosci} bildet eine ganze Domäne von Forschungseinrichtungen, -arbeiten, -prozessen, -ereignissen ab. %Abbildung!
-Sie modelliert aber einzelne wissenschaftliche Arbeiten und die dazwischen bestehenden Relationen nicht detailliert genug, um eine adäquate Basis für den Entwurf eines semantischen Ähnlichkeitsmaßes für Publikationen aufgrund von Metadaten zu bieten.
+Abbildung \ref{fig:ontosci} gibt einen Überblick über die Klassen dieser Ontologie.
+Obwohl sie mögliche Typen von wissenschaftlichen Publikationen ausführlich in Form von Unterklassen abbildet, modelliert sie nicht alle zu einem wissenschaftlichen Dokument dazugehörigen Metadaten und die dazwischen bestehenden Relationen detailliert genug, um eine adäquate Basis für den Entwurf eines semantischen Ähnlichkeitsmaßes für Publikationen aufgrund von Metadaten zu bieten.
+Mehrere relevante Metadaten, wie Keywords, Klassifizierung, Zitationen, etc., werden von der Ontologie nicht modelliert.
+Alle Unterklassen der Klasse \textit{Scientific Document} sind auf Abbildung \ref{fig:scientificdoc} dargestellt.
+Auf Abbildung \ref{fig:scientificdoc_relations} sind die Relationen zwischen der Klasse \textit{Scientific Document} und anderen Klassen der Ontologie zu sehen.
+
+\begin{figure}[hp]
+    \centering
+    \includegraphics[scale=0.5]{../deps/ontology_of_science_complete_owlviz.png}
+    \caption{Ontology of Science}
+    \label{fig:ontosci}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{../deps/ontology_of_science_scientificdoc_owlviz.png}
+    \caption{Die Klasse \textit{Scientific Document}}
+    \label{fig:scientificdoc}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[angle=90,scale=0.5]{../deps/science_onto_scientific_doc3.png}
+    \caption{Relationen zwischen \textit{Scientific Document} und anderen Klassen}
+    \label{fig:scientificdoc_relations}
+\end{figure}
+
 
 
 \subsubsection{Ähnlichkeitsmaße}
