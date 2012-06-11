@@ -2,10 +2,69 @@
 
 In Anlehnung an den Arbeiten von Jeh und Widom \cite{simrank2002}, Zhao, Han und Sun \cite{ZhaoHS09} und Yoon, Kim und Park \cite{DBLP:journals/corr/abs-1109-1059}
 wird das folgende rekursive Ähnlichkeitsmaß, das semantische Relationen zwischen den Metadaten von wissenschaftlichen Publikationen berücksichtigt, vorgeschlagen.
+Es wird rekursiv die Ähnlichkeit zwischen jeden 2 Elementen, die der selben Kategorie angehören, aufgrund von den semantischen Relationen im modellierten semantischen Metadatengraphen für wissenschaftliche Publikationen ermittelt: jeden 2 Publikationen, jeden 2 Keywords, jeden 2 Autoren, jeden 2 Quellen und jeden 2 Erscheinungsjahren.
+Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
+Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Kategorie werden nur die Beziehungen zwischen Elementen der entsprechenden Kategorie und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen semantischen Netz modelliert sind.
+%Maßdefinition rekursiv
+\newtheorem{mydef}{Semantische Ähnlichkeit - rekursiv}
+\begin{mydef}
+\[
+sim(a,b) = 1 \quad \text{wenn } a=b
+\]
+\newline
+\text{sonst}
+\newline
+\text{wenn a und b Publikationen:}
+\[
+\begin{array}{lcl}
+ sim(a,b) & = & 
+        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
+        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} sim(K_i(a),K_j(b))
+        \\ & + &
+        \lambda_2\times\cfrac{c}{|A(a)||A(b)|}
+        \sum_{i=1}^{|A(a)|} \sum_{j=1}^{|A(b)|} sim(A_i(a),A_j(b))
+        \\ & + &
+        \lambda_3\times\cfrac{c}{|S(a)||S(b)|}
+        \sum_{i=1}^{|S(a)|} \sum_{j=1}^{|S(b)|} sim(S_i(a),S_j(b))
+        \\ & + &
+        \lambda_4\times\cfrac{c}{|C(a)||C(b)|}
+        \sum_{i=1}^{|C(a)|} \sum_{j=1}^{|C(b)|} sim(C_i(a),C_j(b))
+        \\ & + &
+        \lambda_5\times\cfrac{c}{|Y(a)||Y(b)|}
+        \sum_{i=1}^{|Y(a)|} \sum_{j=1}^{|Y(b)|} sim(Y_i(a),Y_j(b))
+\end{array}
+\]
+\newline
+\text{wenn a und b Elemente einer anderen Kategorie:}
+\[
+sim(a,b)  = 
+        \cfrac{c}{|L(a)||L(b)|}
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} sim(L_i(a),L_j(b))
+\]
+\newline
+\newline
+\newline
+wobei $K$ alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation darstellen.
+Dabei wird mit $K(a)$ die Menge aller Keywords von Paper a bezeichnet.
+(Die Menge aller Elemente, die in Relation $hasKeyword$ zum Paper a stehen.)
+$K_i(a)$ ist dann das i. Keyword von a.
+(Analog sind $A(a)$ alle Autoren von Paper a, $A_i(a)$ ist der i. Autor von Paper a u.s.w.)
+$L(a)$ und $L(b)$ beschreiben für 2 Elemente a und b, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit a, bzw b, in Relation stehen.
+\newline
+\newline
+$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
+\newline
+\newline
+$c$ ist ein Dämfungsfaktor, $c\in [0..1]$; c wird in Anlehnung an \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} bestimmt, die verschiedenen Werte ausprobieren und eine optimale Konstante in dem jeweiligen Fall vorschlagen.
+\newline
+\end{mydef}
+
+Die rekursive Definition kann folgendermaßen iterativ umgeschrieben werden.
+\cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} haben gezeigt, dass die so definierten iterativen Gleichungen zu einem Fixpunkt konvergieren.
 
 %Maßdefinition
-\newtheorem{mydef}{Semantische Ähnlichkeit}
-\begin{mydef}
+\newtheorem{mydef2}{Semantische Ähnlichkeit - iterativ}
+\begin{mydef2}
 \[
  R_0(a,b) =
     \begin{cases}
@@ -13,6 +72,8 @@ wird das folgende rekursive Ähnlichkeitsmaß, das semantische Relationen zwischen
      0 & \text{sonst}\\
     \end{cases}
 \]
+\newline
+\text{wenn a und b Publikationen:}
 \[
 \begin{array}{lcl}
  R_{k+1}(a,b) & = & 
@@ -33,16 +94,17 @@ wird das folgende rekursive Ähnlichkeitsmaß, das semantische Relationen zwischen
 \end{array}
 \]
 \newline
+\text{wenn a und b Elemente einer anderen Kategorie:}
+\[
+R_{k+1}(a,b)  = 
+        \cfrac{c}{|L(a)||L(b)|}
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_k(L_i(a),L_j(b))
+\]
+\end{mydef2}
+Das so definierte Maß hat die Eigenschaften Symmetrie, Monotonie, Existenz und Eindeutigkeit.
+Die entsprechenden Beweise können aus \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} entnommen werden.
 \newline
-wobei $K$ alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation darstellen
 \newline
-\newline
-$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
-\newline
-\newline
-$c$ ist ein Dämfungsfaktor, $c\in [0..1]$; c wird in Anlehnung an \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} bestimmt, die verschiedenen Werte ausprobieren und eine optimale Konstante in dem jeweiligen Fall vorschlagen.
-\newline
-\end{mydef}
 Das vorgeschlagene Maß grenzt sich folgendermaßen von früheren Arbeiten ab:
 \\
 \\
