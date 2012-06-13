@@ -1,0 +1,47 @@
+>>> import networkx as nx
+>>> nx.read_graphml('head_200_ParsedPublicationsGraphMl')
+<networkx.classes.digraph.DiGraph object at 0xa21ccac>
+>>> G=nx.read_graphml('head_200_ParsedPublicationsGraphMl')
+>>> G.nodes()
+
+>>> G.node['Publication_6002982']
+{'Class': u'Publication'}
+>>> G.node['Publication_6002983']
+{'Class': u'Publication'}
+>>> G.edge['Publication_6002982']['2012']
+{'Relation': u'wasPublishedInYear', 'id': '46'}
+
+
+>> for n, nbrsdict in G.adjacency_iter():
+...     for nbr, eattr in nbrsdict.items():
+...             if eattr['Relation']=='isAuthorOf':
+...                     (n, nbr)
+... 
+('cullinane.michael', 'Publication_6002694')
+('weber.hans-j', 'Publication_5948059')
+('davis.martin', 'Publication_6002984')
+('brayton.r--k', 'Publication_6002982')
+('villa.t', 'Publication_6002982')
+('sangiovanni-vincentelli.a', 'Publication_6002982')
+('beigi.homayoon', 'Publication_6002983')
+('meier.david-l', 'Publication_5782041')
+('yevtushenko.n', 'Publication_6002982')
+('arfken.george-b', 'Publication_5948059')
+('petrenko.a', 'Publication_6002982')
+('mishchenko.a', 'Publication_6002982')
+
+>>> for n, nbrsdict in G.adjacency_iter():
+...     for nbr, eattr in nbrsdict.items():
+...             if eattr['Relation']=='cites':
+...                     (n,nbr)
+... 
+('Publication_5948059', 'Publication_0970.00005')
+('Publication_5948059', 'Publication_0135.42304')
+('Publication_5948059', 'Publication_1066.00001')
+('Publication_6002984', 'Publication_0960.01001')
+
+>>> for n in G.nodes_iter():
+...     if G.node[n]['Class']=='PublicationYear':
+...             n
+... 
+
