@@ -254,18 +254,6 @@ class Parser(object):
             elif tag == '::':
                 #result.append(handleMethod(currentPub))
                 handleMethod(currentPub)
-                #currentPub.id = 0
-                #currentPub.an = ""
-                #currentPub.abstract = ""
-                #currentPub.titleString = ""
-                #currentPub.title = "" #TODO how to extract it
-                #currentPub.publicationYear = 0
-                #currentPub.authors = []
-                #currentPub.mscClasses = []
-                #currentPub.source = "" #TODO how to represent it; parse book/journal/conference
-                #currentPub.language = []
-                #currentPub.englishKeywords = []
-                #currentPub.citations = []
                 tempAuthor = []
                 del currentPub
                 #mach was mit dem erzeugten objekt
@@ -643,7 +631,7 @@ def main(args):
     ### j are the individual nodes for one publication
     ##print(etree.tostring(root, pretty_print=True))
     #print("<Ontology>")
-    
+
     ##for i in p.iterate_publications(publications_to_owl):
        # #for j in i:
             ##root.append(j)
@@ -662,7 +650,7 @@ def main(args):
 
 ####### parsing to graphml ##################################
     main.ctr = 0
-    
+
     print ('''<?xml version="1.0" encoding="UTF-8"?>
             <graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">''')
@@ -670,15 +658,29 @@ def main(args):
             <key id="d1" for="edge" attr.name="Relation" attr.type="string"/>
             <graph id="G" edgedefault="directed">''')
 
+    year_pattern = '([0-9]{4})\n'
+
+    years = open('publication_years_list')
+    line = years.readline()
+    #year_nodes = []
+
+    while line:
+        years_stripped = re.findall(year_pattern, line)
+        for y in years_stripped:
+            print(etree.tostring((graphml_node(y, "PublicationYear"))))
+        line = years.readline()
+
+    years.close()
+
     p.iterate_publications(publications_to_graphml)
     print("</graph>")
     print("</graphml>")
 #############################################################
 
 if __name__ == "__main__":
-    #main(sys.argv[1:])
-    t = timeit.Timer("main(args)", "from __main__ import main; args=%r" % sys.argv[1:])
-    print t.timeit(number=1)
+    main(sys.argv[1:])
+    #t = timeit.Timer("main(args)", "from __main__ import main; args=%r" % sys.argv[1:])
+    #print t.timeit(number=1)
 
 # main
 # datei als parameter uebergeben
