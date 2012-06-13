@@ -158,6 +158,42 @@ while k>0:
 
                     #print('sim_key: ', sim_key[a][b])
 
+                elif G.node[a]['Class'] == 'Author' and G.node[b]['Class'] == 'Author':
+                    authorValue = 0
+                    neighborsOfA = list()
+                    neighborsOfB = list()
+                    for na in G.neighbors_iter(a):
+                        neighborsOfA.append(na)
+                        for nb in G.neighbors_iter(b):
+                            neighborsOfB.append(nb)
+                            authorValue = authorValue + sim_pub[na][nb] # authors have publications as neighbors
+
+                    sim_author[a][b] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+
+                elif G.node[a]['Class'] == 'Source' and G.node[b]['Class'] == 'Source':
+                    sourceValue = 0
+                    neighborsOfA = list()
+                    neighborsOfB = list()
+                    for na in G.neighbors_iter(a):
+                        neighborsOfA.append(na)
+                        for nb in G.neighbors_iter(b):
+                            neighborsOfB.append(nb)
+                            sourceValue = sourceValue + sim_pub[na][nb] # sources have publications as neighbors
+
+                    sim_source[a][b] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+
+                elif G.node[a]['Class'] == 'PublicationYear' and G.node[b]['Class'] == 'PublicationYear':
+                    yearValue = 0
+                    neighborsOfA = list()
+                    neighborsOfB = list()
+                    for na in G.neighbors_iter(a):
+                        neighborsOfA.append(na)
+                        for nb in G.neighbors_iter(b):
+                            neighborsOfB.append(nb)
+                            yearValue = yearValue + sim_pub[na][nb] # years have publications as neighbors
+
+                   sim_year[a][b] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+
                 else:
                     pass
                     #do nothing, both nodes belong to different classes
@@ -165,4 +201,7 @@ while k>0:
     print('Next iteration')
     print ('sim_pub is: ', sim_pub)
     print ('sim_key is: ', sim_key)
+    print ('sim_author is: ', sim_author)
+    print ('sim_year is: ', sim_year)
+    print ('sim_source is: ', sim_source)
     print('\n')
