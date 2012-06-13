@@ -258,18 +258,6 @@ class Parser(object):
             elif tag == '::':
                 #result.append(handleMethod(currentPub))
                 handleMethod(currentPub)
-                #currentPub.id = 0
-                #currentPub.an = ""
-                #currentPub.abstract = ""
-                #currentPub.titleString = ""
-                #currentPub.title = "" #TODO how to extract it
-                #currentPub.publicationYear = 0
-                #currentPub.authors = []
-                #currentPub.mscClasses = []
-                #currentPub.source = "" #TODO how to represent it; parse book/journal/conference
-                #currentPub.language = []
-                #currentPub.englishKeywords = []
-                #currentPub.citations = []
                 del tempAuthor[0:len(tempAuthor)]
                 #print("Debugging.......................... tempAuthor", tempAuthor)
                 #print("Debugging.........................authors after del(currentPub)", currentPub.authors)
