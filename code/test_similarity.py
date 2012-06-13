@@ -114,7 +114,41 @@ while k>0:
                             for nkb in G.neighbors_iter(b):
                                 if G.node[nkb]['Class']== 'Keyword':
                                     keywordNeighborsOfB.append(nkb)
-                                    keyPubValue = keyPubValue + sim_key[na][nkb]
+                                    keyPubValue = keyPubValue + sim_key[nka][nkb]
+
+                    authorPubValue = 0
+                    authorNeighborsOfA = list()
+                    authorNeighborsOfB = list()
+                    for naa in G.neighbors_iter(a):
+                        if G.node[naa]['Class'] == 'Author':
+                            authorNeighborsOfA.append(naa)
+                            for nab in G.neighbors_iter(b):
+                                if G.node[nab]['Class']== 'Author':
+                                    authorNeighborsOfB.append(nab)
+                                    authorPubValue = authorPubValue + sim_author[naa][nab]
+
+                    sourcePubValue = 0
+                    sourceNeighborsOfA = list()
+                    sourceNeighborsOfB = list()
+                    for nsa in G.neighbors_iter(a):
+                        if G.node[nsa]['Class'] == 'Source':
+                            sourceNeighborsOfA.append(nsa)
+                            for nsb in G.neighbors_iter(b):
+                                if G.node[nsb]['Class']== 'Source':
+                                    sourceNeighborsOfB.append(nsb)
+                                    sourcePubValue = sourcePubValue + sim_source[nsa][nsb]
+
+                    yearPubValue = 0
+                    yearNeighborsOfA = list()
+                    yearNeighborsOfB = list()
+                    for nya in G.neighbors_iter(a):
+                        if G.node[nya]['Class'] == 'PublicationYear':
+                            yearNeighborsOfA.append(nya)
+                            for nyb in G.neighbors_iter(b):
+                                if G.node[nyb]['Class']== 'PublicationYear':
+                                    yearNeighborsOfB.append(nyb)
+                                    yearPubValue = yearPubValue + sim_year[nya][nyb]
+
 
                     #print("Debugging...............")
                     #print("a: ", a)
@@ -131,7 +165,7 @@ while k>0:
                     if keywordNeighborsOfA == [] or keywordNeighborsOfB == []:
                         sim_pub[a][b] = l1*c*pubValue / (len(set(publicationNeighborsOfA))*len(set(publicationNeighborsOfB)))
                     else:
-                        sim_pub[a][b] = l1*c*pubValue / (len(set(publicationNeighborsOfA))*len(set(publicationNeighborsOfB))) + l2*c*keyPubValue / (len(set(keywordNeighborsOfA))*len(set(keywordNeighborsOfB)))
+                        sim_pub[a][b] = l1*c*pubValue / (len(set(publicationNeighborsOfA))*len(set(publicationNeighborsOfB))) + l2*c*keyPubValue / (len(set(keywordNeighborsOfA))*len(set(keywordNeighborsOfB))) + l3*c*authorPubValue / (len(set(authorNeighborsOfA))*len(set(authorNeighborsOfB))) + l4*c*yearPubValue / (len(set(yearNeighborsOfA))*len(set(yearNeighborsOfB)))+ l5*c*sourcePubValue / (len(set(sourceNeighborsOfA))*len(set(sourceNeighborsOfB)))
 
                     #print('sim_pub: ', sim_pub[a][b])
 
