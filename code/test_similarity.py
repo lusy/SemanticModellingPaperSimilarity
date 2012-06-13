@@ -23,9 +23,15 @@ G.add_edges_from([('Publication_3', 'Publication_1', {'Relation':'cites'}), ('Pu
 
 sim_pub = dict()
 sim_key = dict()
+sim_year = dict()
+sim_author = dict()
+sim_source = dict()
 
-l1 = 0.7 #lambda fuer publications
-l2 = 0.3 #lambda fuer keywords
+l1 = 0.2 #lambda fuer publications
+l2 = 0.5 #lambda fuer keywords
+l3 = 0.1 #lambda fuer authors
+l4 = 0.1 #lambda fuer years
+l5 = 0.1 #lambda fuer source
 c = 0.7 #damping factor
 k = 12
 
@@ -35,6 +41,12 @@ for a in G.nodes_iter():
         sim_pub[a]={}
     elif G.node[a]['Class'] == 'Keyword':
         sim_key[a]={}
+    elif G.node[a]['Class'] == 'Author':
+        sim_author[a]={}
+    elif G.node[a]['Class'] == 'PublicationYear':
+        sim_year[a]={}
+    elif G.node[a]['Class'] == 'Source':
+        sim_source[a]={}
     else:
         pass
         #there are only publications and keywords in the current graph
@@ -52,6 +64,22 @@ for a in G.nodes_iter():
                 sim_key[a][b] = 1
             else:
                 sim_key[a][b] = 0
+        elif G.node[a]['Class'] == 'Author' and G.node[b]['Class'] == 'Author':
+            if a==b:
+                sim_author[a][b] = 1
+            else:
+                sim_author[a][b] = 0
+        elif G.node[a]['Class'] == 'Source' and G.node[b]['Class'] == 'Source':
+            if a==b:
+                sim_source[a][b] = 1
+            else:
+                sim_source[a][b] = 0
+        elif G.node[a]['Class'] == 'PublicationYear' and G.node[b]['Class'] == 'PublicationYear':
+            if a==b:
+                sim_year[a][b] = 1
+            else:
+                sim_year[a][b] = 0
+
         else:
             pass
             # a and b belong to different classes and are dissimilar
