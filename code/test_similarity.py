@@ -1,7 +1,7 @@
 import networkx as nx
 import numpy
 
-G = nx.Graph()
+#G = nx.Graph()
 
 ###### Graph Nr 1 ###############################################
 #G.add_nodes_from([('Publication_1', {'Class':'Publication'}), ('Publication_2', {'Class':'Publication'}), ('Keyword_1', {'Class':'Keyword'}), ('Keyword_2',{'Class':'Keyword'}), ('Keyword_3', {'Class':'Keyword'})])
@@ -22,11 +22,12 @@ G = nx.Graph()
 #################################################################
 
 ###### Graph Nr 4 ###############################################
-G.add_nodes_from([('Publication_1', {'Class':'Publication'}), ('Publication_2', {'Class':'Publication'}), ('Publication_3', {'Class':'Publication'}), ('Keyword_1', {'Class':'Keyword'}), ('Keyword_2',{'Class':'Keyword'}), ('Keyword_3', {'Class':'Keyword'}), ('Year_1', {'Class':'PublicationYear'}), ('Year_2', {'Class':'PublicationYear'}), ('Source_1', {'Class':'Source'}), ('Source_2', {'Class':'Source'}), ('Author_1', {'Class':'Author'}), ('Author_2', {'Class':'Author'}), ('Author_3', {'Class':'Author'})])
+#G.add_nodes_from([('Publication_1', {'Class':'Publication'}), ('Publication_2', {'Class':'Publication'}), ('Publication_3', {'Class':'Publication'}), ('Keyword_1', {'Class':'Keyword'}), ('Keyword_2',{'Class':'Keyword'}), ('Keyword_3', {'Class':'Keyword'}), ('Year_1', {'Class':'PublicationYear'}), ('Year_2', {'Class':'PublicationYear'}), ('Source_1', {'Class':'Source'}), ('Source_2', {'Class':'Source'}), ('Author_1', {'Class':'Author'}), ('Author_2', {'Class':'Author'}), ('Author_3', {'Class':'Author'})])
 
-G.add_edges_from([('Publication_1', 'Keyword_1', {'Relation':'hasKeyword'}), ('Publication_1', 'Year_1', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_1', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_2', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_2', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_2', 'Source_2', {'Relation':'isPublishedIn'}), ('Publication_2', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_2', 'Author_2', {'Relation':'hasAuthor'}), ('Publication_3', 'Keyword_3', {'Relation':'hasKeyword'}), ('Publication_3', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_3', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_3', 'Author_3', {'Relation':'hasAuthor'}), ('Publication_3', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Publication_2', {'Relation':'cites'}), ('Publication_1', 'Publication_3', {'Relation':'cites'})])
+#G.add_edges_from([('Publication_1', 'Keyword_1', {'Relation':'hasKeyword'}), ('Publication_1', 'Year_1', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_1', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_2', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_2', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_2', 'Source_2', {'Relation':'isPublishedIn'}), ('Publication_2', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_2', 'Author_2', {'Relation':'hasAuthor'}), ('Publication_3', 'Keyword_3', {'Relation':'hasKeyword'}), ('Publication_3', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_3', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_3', 'Author_3', {'Relation':'hasAuthor'}), ('Publication_3', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Publication_2', {'Relation':'cites'}), ('Publication_1', 'Publication_3', {'Relation':'cites'})])
 #################################################################
 
+G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml')
 
 sim_pub = dict()
 sim_key = dict()
@@ -169,10 +170,29 @@ while k>0:
                     #print('keywordNeighborsOfA: ', keywordNeighborsOfA)
                     #print('keywordNeighborsOfB: ', keywordNeighborsOfB)
 
-                    if keywordNeighborsOfA == [] or keywordNeighborsOfB == []:
-                        sim_pub[a][b] = l1*c*pubValue / (len(set(publicationNeighborsOfA))*len(set(publicationNeighborsOfB)))
-                    else:
-                        sim_pub[a][b] = l1*c*pubValue / (len(set(publicationNeighborsOfA))*len(set(publicationNeighborsOfB))) + l2*c*keyPubValue / (len(set(keywordNeighborsOfA))*len(set(keywordNeighborsOfB))) + l3*c*authorPubValue / (len(set(authorNeighborsOfA))*len(set(authorNeighborsOfB))) + l4*c*yearPubValue / (len(set(yearNeighborsOfA))*len(set(yearNeighborsOfB)))+ l5*c*sourcePubValue / (len(set(sourceNeighborsOfA))*len(set(sourceNeighborsOfB)))
+                    weighted_pubValue = 0
+                    weighted_keyPubValue = 0
+                    weighted_authorPubValue = 0
+                    weighted_yearPubValue = 0
+                    weighted_sourcePubValue = 0
+
+                    if publicationNeighborsOfA != [] and publicationNeighborsOfB != []:
+                        weighted_pubValue = l1*c*pubValue / (len(set(publicationNeighborsOfA))*len(set(publicationNeighborsOfB)))
+
+                    if keywordNeighborsOfA != [] and keywordNeighborsOfB != []:
+                        weighted_keyPubValue = l2*c*keyPubValue / (len(set(keywordNeighborsOfA))*len(set(keywordNeighborsOfB)))
+
+                    if authorNeighborsOfA != [] and authorNeighborsOfB != []:
+                        weighted_authorPubValue =  l3*c*authorPubValue / (len(set(authorNeighborsOfA))*len(set(authorNeighborsOfB)))
+
+                    if yearNeighborsOfA != [] and yearNeighborsOfB != []:
+                        weighted_yearPubValue = l4*c*yearPubValue / (len(set(yearNeighborsOfA))*len(set(yearNeighborsOfB)))
+
+                    if sourceNeighborsOfA != [] and sourceNeighborsOfB != []:
+                        weighted_sourcePubValue = l5*c*sourcePubValue / (len(set(sourceNeighborsOfA))*len(set(sourceNeighborsOfB)))
+
+
+                    sim_pub[a][b] = weighted_pubValue + weighted_keyPubValue + weighted_authorPubValue + weighted_yearPubValue + weighted_sourcePubValue
 
                     #print('sim_pub: ', sim_pub[a][b])
 
@@ -233,7 +253,10 @@ while k>0:
                             neighborsOfB.append(nb)
                             yearValue = yearValue + sim_pub[na][nb] # years have publications as neighbors
 
-                   sim_year[a][b] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    if neighborsOfA != [] and neighborsOfB != []:
+                        sim_year[a][b] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    else:
+                        sim_year[a][b] = 0
 
                 else:
                     pass
@@ -241,8 +264,8 @@ while k>0:
 
     print('Next iteration')
     print ('sim_pub is: ', sim_pub)
-    print ('sim_key is: ', sim_key)
-    print ('sim_author is: ', sim_author)
-    print ('sim_year is: ', sim_year)
-    print ('sim_source is: ', sim_source)
+    #print ('sim_key is: ', sim_key)
+    #print ('sim_author is: ', sim_author)
+    #print ('sim_year is: ', sim_year)
+    #print ('sim_source is: ', sim_source)
     print('\n')
