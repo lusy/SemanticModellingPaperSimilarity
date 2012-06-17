@@ -128,7 +128,10 @@ while k>0:
                             for nb in G.neighbors_iter(b):
                                 if G.node[nb]['Class'] == 'Publication':
                                     publicationNeighborsOfB.append(nb)
-                                    pubValue = pubValue + sim_pub[na][nb]
+                                    try:
+                                        pubValue = pubValue + sim_pub[na][nb]
+                                    except:
+                                        pubValue = pubValue + sim_pub[nb][na]
 
                     keyPubValue = 0
                     keywordNeighborsOfA = list()
@@ -139,7 +142,10 @@ while k>0:
                             for nkb in G.neighbors_iter(b):
                                 if G.node[nkb]['Class']== 'Keyword':
                                     keywordNeighborsOfB.append(nkb)
-                                    keyPubValue = keyPubValue + sim_key[nka][nkb]
+                                    try:
+                                        keyPubValue = keyPubValue + sim_key[nka][nkb]
+                                    except:
+                                        keyPubValue = keyPubValue + sim_key[nkb][nka]
 
                     authorPubValue = 0
                     authorNeighborsOfA = list()
@@ -150,7 +156,10 @@ while k>0:
                             for nab in G.neighbors_iter(b):
                                 if G.node[nab]['Class']== 'Author':
                                     authorNeighborsOfB.append(nab)
-                                    authorPubValue = authorPubValue + sim_author[naa][nab]
+                                    try:
+                                        authorPubValue = authorPubValue + sim_author[naa][nab]
+                                    except:
+                                        authorPubValue = authorPubValue + sim_author[nab][naa]
 
                     sourcePubValue = 0
                     sourceNeighborsOfA = list()
@@ -161,7 +170,10 @@ while k>0:
                             for nsb in G.neighbors_iter(b):
                                 if G.node[nsb]['Class']== 'Source':
                                     sourceNeighborsOfB.append(nsb)
-                                    sourcePubValue = sourcePubValue + sim_source[nsa][nsb]
+                                    try:
+                                        sourcePubValue = sourcePubValue + sim_source[nsa][nsb]
+                                    except:
+                                        sourcePubValue = sourcePubValue + sim_source[nsb][nsa]
 
                     yearPubValue = 0
                     yearNeighborsOfA = list()
@@ -172,7 +184,10 @@ while k>0:
                             for nyb in G.neighbors_iter(b):
                                 if G.node[nyb]['Class']== 'PublicationYear':
                                     yearNeighborsOfB.append(nyb)
-                                    yearPubValue = yearPubValue + sim_year[nya][nyb]
+                                    try:
+                                        yearPubValue = yearPubValue + sim_year[nya][nyb]
+                                    except:
+                                        yearPubValue = yearPubValue + sim_year[nyb][nya]
 
 
                     #print("Debugging...............")
