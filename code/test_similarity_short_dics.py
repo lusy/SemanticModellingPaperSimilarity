@@ -223,8 +223,14 @@ while k>0:
                     if sourceNeighborsOfA != [] and sourceNeighborsOfB != []:
                         weighted_sourcePubValue = l5*c*sourcePubValue / (len(set(sourceNeighborsOfA))*len(set(sourceNeighborsOfB)))
 
+                    #is sim_pub[a][b] or sim_pub[b][a] saved?
+                    try:
+                        exist_sim = sim_pub[a][b]
+                        sim_pub[a][b] = weighted_pubValue + weighted_keyPubValue + weighted_authorPubValue + weighted_yearPubValue + weighted_sourcePubValue
+                    except:
+                        exist_sim = sim_pub[b][a]
+                        sim_pub[b][a] = weighted_pubValue + weighted_keyPubValue + weighted_authorPubValue + weighted_yearPubValue + weighted_sourcePubValue
 
-                    sim_pub[a][b] = weighted_pubValue + weighted_keyPubValue + weighted_authorPubValue + weighted_yearPubValue + weighted_sourcePubValue
 
                     #print('sim_pub: ', sim_pub[a][b])
 
@@ -236,7 +242,10 @@ while k>0:
                         neighborsOfA.append(na)
                         for nb in G.neighbors_iter(b):
                             neighborsOfB.append(nb)
-                            keywordValue = keywordValue + sim_pub[na][nb] # keyword have publications as neighbors
+                            try:
+                                keywordValue = keywordValue + sim_pub[na][nb] # keyword have publications as neighbors
+                            except:
+                                keywordValue = keywordValue + sim_pub[nb][na]
 
                     #print("Debuging key..................")
                     #print('a: ', a)
@@ -247,7 +256,13 @@ while k>0:
                     #print('NeighborsOfA: ', neighborsOfA)
                     #print('NeighborsOfB: ', neighborsOfB)
 
-                    sim_key[a][b] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    try:
+                        exist_sim = sim_key[a][b]
+                        sim_key[a][b] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    except:
+                        exist_sim = sim_key[b][a]
+                        sim_key[b][a] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+
 
                     #print('sim_key: ', sim_key[a][b])
 
@@ -259,9 +274,18 @@ while k>0:
                         neighborsOfA.append(na)
                         for nb in G.neighbors_iter(b):
                             neighborsOfB.append(nb)
-                            authorValue = authorValue + sim_pub[na][nb] # authors have publications as neighbors
+                            try:
+                                authorValue = authorValue + sim_pub[na][nb] # authors have publications as neighbors
+                            except:
+                                authorValue = authorValue + sim_pub[nb][na]
 
-                    sim_author[a][b] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    try:
+                        exist_sim = sim_author[a][b]
+                        sim_author[a][b] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    except:
+                        exist_sim = sim_author[b][a]
+                        sim_author[b][a] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+
 
                 elif G.node[a]['Class'] == 'Source' and G.node[b]['Class'] == 'Source':
                     sourceValue = 0
@@ -271,9 +295,18 @@ while k>0:
                         neighborsOfA.append(na)
                         for nb in G.neighbors_iter(b):
                             neighborsOfB.append(nb)
-                            sourceValue = sourceValue + sim_pub[na][nb] # sources have publications as neighbors
+                            try:
+                                sourceValue = sourceValue + sim_pub[na][nb] # sources have publications as neighbors
+                            except:
+                                sourceValue = sourceValue + sim_pub[nb][na]
 
-                    sim_source[a][b] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    try:
+                        exist_sim = sim_source[a][b]
+                        sim_source[a][b] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                    except:
+                        exist_sim = sim_source[b][a]
+                        sim_source[b][a] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+
 
                 elif G.node[a]['Class'] == 'PublicationYear' and G.node[b]['Class'] == 'PublicationYear':
                     yearValue = 0
@@ -283,12 +316,24 @@ while k>0:
                         neighborsOfA.append(na)
                         for nb in G.neighbors_iter(b):
                             neighborsOfB.append(nb)
-                            yearValue = yearValue + sim_pub[na][nb] # years have publications as neighbors
+                            try:
+                                yearValue = yearValue + sim_pub[na][nb] # years have publications as neighbors
+                            except:
+                                yearValue = yearValue + sim_pub[nb][na]
 
-                    if neighborsOfA != [] and neighborsOfB != []:
-                        sim_year[a][b] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
-                    else:
-                        sim_year[a][b] = 0
+                    try:
+                        exist_sim = sim_year[a][b]
+                        if neighborsOfA != [] and neighborsOfB != []:
+                            sim_year[a][b] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                        else:
+                            sim_year[a][b] = 0
+                    except:
+                        exist_sim = sim_year[b][a]
+                        if neighborsOfA != [] and neighborsOfB != []:
+                            sim_year[b][a] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                        else:
+                            sim_year[b][a] = 0
+
 
                 else:
                     pass
