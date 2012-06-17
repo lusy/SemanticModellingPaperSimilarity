@@ -368,7 +368,9 @@ def publications_to_graphml(publication):
                 ci_stripped = re.findall(pattern_cites, ci)
                 for c in ci_stripped:
                     main.ctr = main.ctr + 1
+                    decCit = graphml_node(c, "Publication")
                     objPropCit = graphml_edge(pub, "Publication_%s" % c, "cites", main.ctr)
+                    result.append(decCit)
                     result.append(objPropCit)
 
 
@@ -376,7 +378,7 @@ def publications_to_graphml(publication):
             #print(etree.tostring(r, pretty_print=True))
             print(etree.tostring(r))
         #return result
-   
+
     #in case not all relevant metadata for a publication present
     else:
         return
