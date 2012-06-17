@@ -368,7 +368,7 @@ def publications_to_graphml(publication):
                 ci_stripped = re.findall(pattern_cites, ci)
                 for c in ci_stripped:
                     main.ctr = main.ctr + 1
-                    decCit = graphml_node(c, "Publication")
+                    decCit = graphml_node("Publication_%s" % c, "Publication")
                     objPropCit = graphml_edge(pub, "Publication_%s" % c, "cites", main.ctr)
                     result.append(decCit)
                     result.append(objPropCit)
