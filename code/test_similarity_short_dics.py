@@ -27,7 +27,7 @@ import numpy
 #G.add_edges_from([('Publication_1', 'Keyword_1', {'Relation':'hasKeyword'}), ('Publication_1', 'Year_1', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_1', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_2', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_2', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_2', 'Source_2', {'Relation':'isPublishedIn'}), ('Publication_2', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_2', 'Author_2', {'Relation':'hasAuthor'}), ('Publication_3', 'Keyword_3', {'Relation':'hasKeyword'}), ('Publication_3', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_3', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_3', 'Author_3', {'Relation':'hasAuthor'}), ('Publication_3', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Publication_2', {'Relation':'cites'}), ('Publication_1', 'Publication_3', {'Relation':'cites'})])
 #################################################################
 
-G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml')
+G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml.graphml')
 
 sim_pub = dict()
 sim_key = dict()
@@ -339,8 +339,40 @@ while k>0:
                     pass
                     #do nothing, both nodes belong to different classes
 
-    print('Next iteration')
-    print ('sim_pub is: ', sim_pub)
+    #pretty print
+    print('Next iteration\n')
+
+    print("------sim_pub------\n")
+    for i in sim_pub.iterkeys():
+        print(i)
+        print(sim_pub[i])
+
+    print('\n')
+    print("------sim_key------\n")
+    for i in sim_key.iterkeys():
+        print(i)
+        print(sim_key[i])
+
+    print('\n')
+    print("------sim_author------\n")
+    for i in sim_author.iterkeys():
+        print(i)
+        print(sim_author[i])
+
+    print('\n')
+    print("------sim_year------\n")
+    for i in sim_year.iterkeys():
+        print(i)
+        print(sim_year[i])
+
+    print('\n')
+    print("------sim_source------\n")
+    for i in sim_source.iterkeys():
+        print(i)
+        print(sim_source[i])
+
+
+    #print ('sim_pub is: ', sim_pub)
     #print ('sim_key is: ', sim_key)
     #print ('sim_author is: ', sim_author)
     #print ('sim_year is: ', sim_year)
