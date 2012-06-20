@@ -5,15 +5,21 @@ Titel, Thema, Autor, Erscheinungsjahr, Journal und Literaturverweise sind nur ei
 Diese stehen in bestimmten Relationen zueinander.
 Es gibt schon mehrere Repräsentationen von wissenschaftlichen Arbeiten: Zitations- oder Koautorgraphen berücksichtigen aber beispielsweise nur Referenzen oder Autoren.
 Zusätzliche Metadaten können jedoch für eine Analyse ebenfalls bedeutende und interessante Einsichten bringen.
+\\
+\\
 Durch den Aufbau eines semantischen Netzes, das alle zu einer Publikation relevanten Informationen enthält, soll ein allgemeineres Modell für wissenschaftliche Publikationen entwickelt werden.
 Durch die Berücksichtigung der in diesem Modell erfassten semantischen Relationen wird dann versucht, ein möglichts präzises Ähnlichkeitsmaß für wissenschaftliche Publikationen zu entwerfen. %vlt beispiele (A ist Autor von Paper P, P ist Journal C erschienen, hat X,Y,Z als Keywords usw)
 Ein gutes Ähnlichkeitsmaß findet mehrere Gebräuche: es kann bei automatischer Klassifizierung von Arbeiten in einer wissenschaftlichen Datenbank oder als Ausgangspunkt für das Vorschlagen verwandter/relevanter Dokumente eingesetzt werden.
+\\
+\\
 Frühere Entwürfe von Ähnlichkeitsmaßen sind rein textbasiert \cite{Giles98citeseer} oder beziehen nur bibliometrische Kategorien wie Zitationsanalysen (von direkten Zitaten, Kozitationen oder bibliographischen Kopplungen) oder Koautorenschaften ein \cite{Kessler:1963} \cite{Small_1973} \cite{DBLP:journals/corr/abs-1109-1059}. %referenz!
 Das Erste dieser Verfahren kann nur eingeschränkt angewandt werden: bei sehr großen Dokumentenmengen oder in Fällen, wo die Dokumente auf verschiedenen Sprachen vorliegen, ist ein textbasiertes Ähnlichkeitsmaß eher unpraktikabel.
 Zudem bleibt die semantische Bedeutung von Termen unbekannt, was die Resultate verfälschen kann \cite{gottwaldrecommender}.
 Das zweite Verfahren bringt mit sich den Nachteil, dass nur das Vorhandensein eines Zitates und nicht der Grund des Zitierens registriert wird, was auch zu einem verzerrten Ähnlichkeitsbild führen kann. %evtl referenz!
 Das Problem würde auch in den Fällen auftreten, in denen wir Ähnlichkeit aufgrund von anderen Einzelkategorien definieren würden.
 Ein quellenbasiertes Ähnlichkeitsmaß wäre zum Beispiel problematisch, da nicht alle Artikel zu einem bestimmten Themengebiet in den selben Kernjournalen veröffentlicht werden, sondern auch immer wieder in Zeitschriften erscheinen, wo man eine Veröffentlichung nicht erwartet hat \cite{frank2009einfuehrung}.
+\\
+\\
 Indem alle Metadaten zu einer Publikation und ihre semantische Erfassung in eine neue Definition integriert werden, sollen genauere Ergebnisse erzielt werden.
 
 
@@ -29,7 +35,7 @@ Indem alle Metadaten zu einer Publikation und ihre semantische Erfassung in eine
 % Verfahren
 % benutzte Werkzeuge
 
-Ziel dieser Arbeit ist es ein semantisches Netz zu modellieren, das alle zu einer mathematischen Publikation relevanten Metadaten berücksichtigt und mathematische Publikationen zueinander in Relation stellt.
+Ziel dieser Arbeit ist es zunächst ein semantisches Netz zu modellieren, das alle zu einer mathematischen Publikation relevanten Metadaten berücksichtigt und mathematische Publikationen zueinander in Relation stellt.
 Im zweiten Teil der Arbeit wird dieses Netzwerk als Grundlage für die Formulierung eines Ähnlichkeitsmaßes und Ähnlichkeitsanalysen verwendet.
 Das vorgeschlagene Ähnlichkeitsmaß wird in Anlehnung an den schon existierenden Maßen SimRank \cite{simrank2002}, P-Rank \cite{ZhaoHS09} und C-Rank \cite{DBLP:journals/corr/abs-1109-1059} rekursiv definiert.
 Hierbei werden nicht nur Zitationen, sondern auch andere semantische Relationen zwischen einer Publikation und ihren einzelnen Metadaten, wie z.B Autor, Quelle, Erscheinungsjahr und Keywords, gezählt.
