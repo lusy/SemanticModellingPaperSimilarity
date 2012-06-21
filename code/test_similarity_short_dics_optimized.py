@@ -440,7 +440,7 @@ def main(args):
         #print('\n')
 
 #Print final results
-    f = open('../data/testdata/output_head200_1', 'w')
+    f = open('../data/testdata/output_head200_2', 'w')
     f.write("------sim_pub------\n")
     for i in sim_pub.iterkeys():
         f.write(str(i))
