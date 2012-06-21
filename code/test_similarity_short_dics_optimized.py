@@ -73,40 +73,41 @@ def main(args):
                 except:
                     if a==b:
                         sim_pub[a][b] = 1
-                    else:
-                        sim_pub[a][b] = 0
+                    # try to optimize: we dont actually need to store all the zeroes...
+                    #else:
+                        #sim_pub[a][b] = 0
             elif G.node[a]['Class'] == 'Keyword' and G.node[b]['Class'] == 'Keyword':
                 try:
                     keyword_similarity = sim_key[b][a]
                 except:
                     if a==b:
                         sim_key[a][b] = 1
-                    else:
-                        sim_key[a][b] = 0
+                    #else:
+                        #sim_key[a][b] = 0
             elif G.node[a]['Class'] == 'Author' and G.node[b]['Class'] == 'Author':
                 try:
                     author_similarity = sim_author[b][a]
                 except:
                     if a==b:
                         sim_author[a][b] = 1
-                    else:
-                        sim_author[a][b] = 0
+                    #else:
+                        #sim_author[a][b] = 0
             elif G.node[a]['Class'] == 'Source' and G.node[b]['Class'] == 'Source':
                 try:
                     source_similarity = sim_source[b][a]
                 except:
                     if a==b:
                         sim_source[a][b] = 1
-                    else:
-                        sim_source[a][b] = 0
+                    #else:
+                        #sim_source[a][b] = 0
             elif G.node[a]['Class'] == 'PublicationYear' and G.node[b]['Class'] == 'PublicationYear':
                 try:
                     year_similarity = sim_year[b][a]
                 except:
                     if a==b:
                         sim_year[a][b] = 1
-                    else:
-                        sim_year[a][b] = 0
+                    #else:
+                        #sim_year[a][b] = 0
 
             else:
                 pass
@@ -137,7 +138,10 @@ def main(args):
                                         try:
                                             pubValue = pubValue + sim_pub[na][nb]
                                         except:
-                                            pubValue = pubValue + sim_pub[nb][na]
+                                            try:
+                                                pubValue = pubValue + sim_pub[nb][na]
+                                            except:
+                                                pubValue = pubValue + 0
 
                         keyPubValue = 0
                         keywordNeighborsOfA = list()
@@ -151,8 +155,11 @@ def main(args):
                                         try:
                                             keyPubValue = keyPubValue + sim_key[nka][nkb]
                                         except:
-                                            keyPubValue = keyPubValue + sim_key[nkb][nka]
-    
+                                            try:
+                                                keyPubValue = keyPubValue + sim_key[nkb][nka]
+                                            except:
+                                                keyPubValue = keyPubValue + 0
+
                         authorPubValue = 0
                         authorNeighborsOfA = list()
                         authorNeighborsOfB = list()
@@ -165,7 +172,10 @@ def main(args):
                                         try:
                                             authorPubValue = authorPubValue + sim_author[naa][nab]
                                         except:
-                                            authorPubValue = authorPubValue + sim_author[nab][naa]
+                                            try:
+                                                authorPubValue = authorPubValue + sim_author[nab][naa]
+                                            except:
+                                                authorPubValue = authorPubValue + 0
 
                         sourcePubValue = 0
                         sourceNeighborsOfA = list()
@@ -179,7 +189,10 @@ def main(args):
                                         try:
                                             sourcePubValue = sourcePubValue + sim_source[nsa][nsb]
                                         except:
-                                            sourcePubValue = sourcePubValue + sim_source[nsb][nsa]
+                                            try:
+                                                sourcePubValue = sourcePubValue + sim_source[nsb][nsa]
+                                            except:
+                                                sourcePubValue = sourcePubValue + 0
 
                         yearPubValue = 0
                         yearNeighborsOfA = list()
@@ -193,7 +206,10 @@ def main(args):
                                         try:
                                             yearPubValue = yearPubValue + sim_year[nya][nyb]
                                         except:
-                                            yearPubValue = yearPubValue + sim_year[nyb][nya]
+                                            try:
+                                                yearPubValue = yearPubValue + sim_year[nyb][nya]
+                                            except:
+                                                yearPubValue = yearPubValue + 0
 
 
                         #print("Debugging...............")
@@ -229,13 +245,21 @@ def main(args):
                         if sourceNeighborsOfA != [] and sourceNeighborsOfB != []:
                             weighted_sourcePubValue = l5*c*sourcePubValue / (len(set(sourceNeighborsOfA))*len(set(sourceNeighborsOfB)))
 
-                        #is sim_pub[a][b] or sim_pub[b][a] saved?
-                        try:
-                            exist_sim = sim_pub[a][b]
-                            sim_pub[a][b] = weighted_pubValue + weighted_keyPubValue + weighted_authorPubValue + weighted_yearPubValue + weighted_sourcePubValue
-                        except:
-                            exist_sim = sim_pub[b][a]
-                            sim_pub[b][a] = weighted_pubValue + weighted_keyPubValue + weighted_authorPubValue + weighted_yearPubValue + weighted_sourcePubValue
+                        #is the computed similarity different from zero?
+                        #if zero, do not save anything
+                        computedPubSim = weighted_pubValue + weighted_keyPubValue + weighted_authorPubValue + weighted_yearPubValue + weighted_sourcePubValue
+                        if computedPubSim != 0:
+                            #is sim_pub[a][b] or sim_pub[b][a] saved?
+                            try:
+                                exist_sim = sim_pub[a][b]
+                                sim_pub[a][b] = computedPubSim
+                            except:
+                                try:
+                                    exist_sim = sim_pub[b][a]
+                                    sim_pub[b][a] = computedPubSim
+                                # if none of them saved yet because it was previously zero, save it now
+                                except:
+                                    sim_pub[a][b] = computedPubSim
 
 
                         #print('sim_pub: ', sim_pub[a][b])
@@ -251,7 +275,10 @@ def main(args):
                                 try:
                                     keywordValue = keywordValue + sim_pub[na][nb] # keyword have publications as neighbors
                                 except:
-                                    keywordValue = keywordValue + sim_pub[nb][na]
+                                    try:
+                                        keywordValue = keywordValue + sim_pub[nb][na]
+                                    except:
+                                        keywordValue = keywordValue + 0
 
                         #print("Debuging key..................")
                         #print('a: ', a)
@@ -262,12 +289,18 @@ def main(args):
                         #print('NeighborsOfA: ', neighborsOfA)
                         #print('NeighborsOfB: ', neighborsOfB)
 
-                        try:
-                            exist_sim = sim_key[a][b]
-                            sim_key[a][b] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
-                        except:
-                            exist_sim = sim_key[b][a]
-                            sim_key[b][a] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                        # only update similarity, if computed score not zero
+                        if keywordValue != 0:
+                            try:
+                                exist_sim = sim_key[a][b]
+                                sim_key[a][b] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                            except:
+                                try:
+                                    exist_sim = sim_key[b][a]
+                                    sim_key[b][a] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                                # if none of them was saved yet because they were both zero, save it now
+                                except:
+                                    sim_key[a][b] = c*keywordValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
 
 
                         #print('sim_key: ', sim_key[a][b])
@@ -283,14 +316,23 @@ def main(args):
                                 try:
                                     authorValue = authorValue + sim_pub[na][nb] # authors have publications as neighbors
                                 except:
-                                    authorValue = authorValue + sim_pub[nb][na]
+                                    try:
+                                        authorValue = authorValue + sim_pub[nb][na]
+                                    except:
+                                        authorValue = authorValue + 0 # if sim_pub[nb][na] doesnt exist
 
-                        try:
-                            exist_sim = sim_author[a][b]
-                            sim_author[a][b] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
-                        except:
-                            exist_sim = sim_author[b][a]
-                            sim_author[b][a] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                        # only update similarity if computed score not zero
+                        if authorValue != 0:
+                            try:
+                                exist_sim = sim_author[a][b]
+                                sim_author[a][b] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                            except:
+                                try:
+                                    exist_sim = sim_author[b][a]
+                                    sim_author[b][a] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                                # if none of them is saved, cause they were both previously zero, save it now
+                                except:
+                                    sim_author[a][b] = c*authorValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
 
 
                     elif G.node[a]['Class'] == 'Source' and G.node[b]['Class'] == 'Source':
@@ -304,14 +346,23 @@ def main(args):
                                 try:
                                     sourceValue = sourceValue + sim_pub[na][nb] # sources have publications as neighbors
                                 except:
-                                    sourceValue = sourceValue + sim_pub[nb][na]
+                                    try:
+                                        sourceValue = sourceValue + sim_pub[nb][na]
+                                    except:
+                                        sourceValue = sourceValue + 0 #if no entry in sim_pub for na and nb
 
-                        try:
-                            exist_sim = sim_source[a][b]
-                            sim_source[a][b] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
-                        except:
-                            exist_sim = sim_source[b][a]
-                            sim_source[b][a] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                        # only update similarity if computed score not zero
+                        if sourceValue != 0:
+                            try:
+                                exist_sim = sim_source[a][b]
+                                sim_source[a][b] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                            except:
+                                try:
+                                    exist_sim = sim_source[b][a]
+                                    sim_source[b][a] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                                # if none of them saved yet, because they were both previously zero, save it now
+                                except:
+                                    sim_source[a][b] = c*sourceValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
 
 
                     elif G.node[a]['Class'] == 'PublicationYear' and G.node[b]['Class'] == 'PublicationYear':
@@ -325,20 +376,23 @@ def main(args):
                                 try:
                                     yearValue = yearValue + sim_pub[na][nb] # years have publications as neighbors
                                 except:
-                                    yearValue = yearValue + sim_pub[nb][na]
+                                    try:
+                                        yearValue = yearValue + sim_pub[nb][na]
+                                    except:
+                                        yearValue = yearValue + 0 # if no entry in sim_pub for na and nb
 
-                        try:
-                            exist_sim = sim_year[a][b]
-                            if neighborsOfA != [] and neighborsOfB != []:
+                        # only update similarity if computed score not zero
+                        if yearValue != 0:
+                            try:
+                                exist_sim = sim_year[a][b]
                                 sim_year[a][b] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
-                            else:
-                                sim_year[a][b] = 0
-                        except:
-                            exist_sim = sim_year[b][a]
-                            if neighborsOfA != [] and neighborsOfB != []:
-                                sim_year[b][a] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
-                            else:
-                                sim_year[b][a] = 0
+                            except:
+                                try:
+                                    exist_sim = sim_year[b][a]
+                                    sim_year[b][a] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
+                                # if none of them saved yet because they were both previously zero, save it now
+                                except:
+                                    sim_year[a][b] = c*yearValue / (len(set(neighborsOfA))*len(set(neighborsOfB)))
 
 
                     else:
