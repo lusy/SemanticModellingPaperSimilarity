@@ -1,0 +1,6 @@
+Short dics, no other performance optimization
+Laufzeit: O(n^4)
+
+515  Nodes -> 97  Publications -> 6.19021105766 Sec
+1898 Nodes -> 393 Publications -> 102.075402021 Sec
+4451 Nodes -> 995 Publications -> 622.173852921 Sec
