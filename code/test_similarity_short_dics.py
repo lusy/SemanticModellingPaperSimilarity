@@ -30,7 +30,7 @@ def main(args):
     #G.add_edges_from([('Publication_1', 'Keyword_1', {'Relation':'hasKeyword'}), ('Publication_1', 'Year_1', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_1', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_2', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_2', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_2', 'Source_2', {'Relation':'isPublishedIn'}), ('Publication_2', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_2', 'Author_2', {'Relation':'hasAuthor'}), ('Publication_3', 'Keyword_3', {'Relation':'hasKeyword'}), ('Publication_3', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_3', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_3', 'Author_3', {'Relation':'hasAuthor'}), ('Publication_3', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Publication_2', {'Relation':'cites'}), ('Publication_1', 'Publication_3', {'Relation':'cites'})])
     #################################################################
 
-    G = nx.read_graphml('output/head_100000_ParsedPublicationsGraphMlCompletePubs_citationsdec')
+    G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml.graphml')
 
     sim_pub = dict()
     sim_key = dict()
@@ -43,8 +43,8 @@ def main(args):
     l3 = 0.1 #lambda fuer authors
     l4 = 0.1 #lambda fuer years
     l5 = 0.1 #lambda fuer source
-    c = 0.7 #damping factor
-    k = 8
+    c = 0.6 #damping factor
+    k = 7 # number of iterations
 
     #initialization
     for a in G.nodes_iter():
@@ -118,7 +118,10 @@ def main(args):
     #iteration
     while k>0:
         k = k-1
+        nodectr = 0
         for a in G.nodes_iter():
+            nodectr = nodectr + 1
+            print ("in iteration %d, begin computing node %d" % (k, nodectr))
             for b in G.nodes_iter():
                 if a!=b: #otherwise is similarity = 1
                     if G.node[a]['Class']=='Publication' and G.node[b]['Class'] == 'Publication':
@@ -381,42 +384,49 @@ def main(args):
         #print ('sim_year is: ', sim_year)
         #print ('sim_source is: ', sim_source)
         #print('\n')
-    
+
 #Print final results
-    print("------sim_pub------\n")
+    f = open('../data/testdata/output_head200_1', 'w')
+    f.write("------sim_pub------\n")
     for i in sim_pub.iterkeys():
-        print(i)
-        print(sim_pub[i])
-        print('\n')
+        f.write(str(i))
+        f.write(": ")
+        f.write(str(sim_pub[i]))
+        f.write('\n\n')
 
-    print('\n')
-    print("------sim_key------\n")
+    f.write('\n')
+    f.write("------sim_key------\n")
     for i in sim_key.iterkeys():
-        print(i)
-        print(sim_key[i])
-        print('\n')
+        f.write(str(i))
+        f.write(": ")
+        f.write(str(sim_key[i]))
+        f.write('\n\n')
 
-    print('\n')
-    print("------sim_author------\n")
+    f.write('\n')
+    f.write("------sim_author------\n")
     for i in sim_author.iterkeys():
-        print(i)
-        print(sim_author[i])
-        print('\n')
+        f.write(str(i))
+        f.write(": ")
+        f.write(str(sim_author[i]))
+        f.write('\n\n')
 
-    print('\n')
-    print("------sim_year------\n")
+    f.write('\n')
+    f.write("------sim_year------\n")
     for i in sim_year.iterkeys():
-        print(i)
-        print(sim_year[i])
-        print('\n')
+        f.write(str(i))
+        f.write(": ")
+        f.write(str(sim_year[i]))
+        f.write('\n\n')
 
-    print('\n')
-    print("------sim_source------\n")
+    f.write('\n')
+    f.write("------sim_source------\n")
     for i in sim_source.iterkeys():
-        print(i)
-        print(sim_source[i])
-        print('\n')
+        f.write(str(i))
+        f.write(": ")
+        f.write(str(sim_source[i]))
+        f.write('\n\n')
 
+    f.close()
 
 if __name__ == "__main__":
     t = timeit.Timer("main(args)", "from __main__ import main; args=%r" % sys.argv[1:])
