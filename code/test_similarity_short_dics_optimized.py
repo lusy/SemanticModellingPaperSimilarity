@@ -30,7 +30,7 @@ def main(args):
     #G.add_edges_from([('Publication_1', 'Keyword_1', {'Relation':'hasKeyword'}), ('Publication_1', 'Year_1', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_1', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_2', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_2', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_2', 'Source_2', {'Relation':'isPublishedIn'}), ('Publication_2', 'Author_1', {'Relation':'hasAuthor'}), ('Publication_2', 'Author_2', {'Relation':'hasAuthor'}), ('Publication_3', 'Keyword_3', {'Relation':'hasKeyword'}), ('Publication_3', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_3', 'Source_1', {'Relation':'isPublishedIn'}), ('Publication_3', 'Author_3', {'Relation':'hasAuthor'}), ('Publication_3', 'Year_2', {'Relation':'wasPublishedInYear'}), ('Publication_1', 'Publication_2', {'Relation':'cites'}), ('Publication_1', 'Publication_3', {'Relation':'cites'})])
     #################################################################
 
-    G = nx.read_graphml('benchmarks/head60000_parsedcomplete_graphml')
+    G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml.graphml')
 
     sim_pub = dict()
     sim_key = dict()
@@ -442,7 +442,7 @@ def main(args):
         #print('\n')
 
 #Print final results
-    f = open('benchmarks/output_head60000', 'w')
+    f = open('output_head200', 'w')
     f.write("------sim_pub------\n")
     for i in sim_pub.iterkeys():
         f.write(str(i))
