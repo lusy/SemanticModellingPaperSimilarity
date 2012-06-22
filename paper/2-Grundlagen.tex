@@ -471,3 +471,30 @@ sim(a,b)  =
 \]
 \newline
 \end{mydef7}
+
+Tabelle \ref{tab:compareMeasures}\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Dabei ist noch zu bemerken, dass Zhao, Han und Sun das \textit{Amsler-Maß} fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} fasst nochmal die existierenden Ähnlichkeitsmaße zusammen.
+In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaftien von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
+In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Papers das gesamte Publikationsnetzwerk rekursiv betrachten.
+Dabei ist $k$ die Anzahl der Iterationen, die jedes Maß verwendet,
+$c$ ist das benutzte Dämpfungsfaktor,
+$\lambda$ ist der Parameter, der die Gewichtung der eingehenden Zitationen bestimmt.
+(wenn $\lambda=1$ werden nur eingehende Links berücksichtigt, wenn $\lambda=0$ werden nur ausgehende Links berücksichtigt.)
+In der Spalte \textit{``Beide, gewichtet''} stehen die Maße, die sowohl ein- als auch ausgehende Link in einer bestimmten Gewichtung in ihrer Berechnung miteinbeziehen.
+In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide Arten von Links miteinbeziehen, allerdings ohne zwischen diesen Arten zu unterscheiden.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{| m{2cm} | m{2cm} | m{2cm} | m{2.5cm} | m{2cm} |}
+    \hline
+    \textbf{} & \textbf{In-Link} & \textbf{Out-Link} & \textbf{Beide, gewichtet} & \textbf{Beide, keine \newline Gewichtung}\\
+    \hline
+    Lokal \newline $k=1, c=1$ & Kozitation \newline $\lambda=1$ & Kopplung \newline $\lambda=0$ & & Amsler \newline kein $\lambda$\\
+    \hline
+    Global \newline $k=\infty$, \newline $c=variiert$ & SimRank \newline $\lambda=1$ & rvs-SimRank \newline $\lambda=0$ & P-Rank \newline $\lambda=variiert$ & C-Rank \newline kein $\lambda$ \\
+    \hline
+\end{tabular}
+\caption{Existierende Ähnlichkeitsmaße in Vergleich}
+\label{tab:compareMeasures}
+\end{table}
+
+
