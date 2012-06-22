@@ -368,10 +368,10 @@ Diese gemeinsame Schwäche lässt darauf schließen, dass wir eine neue, allgemeine
 
 % Aus diesen Gründen brauchen wir eine neue, allgemeinere Definition von Ähnlichkeit.
 
+\newtheorem{mydef}{Definition}
 \textbf{Überblick über die schon vorhandenen zitationsbasierten Ähnlichkeitsmaße für Publikationen}
 \\
-\newtheorem{mydef}{Bibliographische Kopplung}
-\begin{mydef}
+\begin{mydef}[Bibliographische Kopplung]
 \[
 sim(a,b) = O(a) \cap O(b)
 \]
@@ -382,18 +382,16 @@ Die Anzahl der gemeinsamen ausgehenden Links
 \end{mydef}
 
 
-\newtheorem{mydef2}{Kozitationen}
-\begin{mydef2}
+\begin{mydef}[Kozitation]
 \[
  sim(a,b) = I(a) \cap I(b)
 \]
 \newline
 % Normalisierung?
 Die Anzahl der gemeinsamen eingehenden Links
-\end{mydef2}
+\end{mydef}
 
-\newtheorem{mydef3}{Amsler}
-\begin{mydef3}
+\begin{mydef}[Amsler]
 \[
  sim(a,b) = \cfrac{L(a) \cap L(b)}{L(a) \cup L(b)}
 \]
@@ -402,11 +400,10 @@ Die Anzahl der gemeinsamen Links.
 (Sowohl ein- als auch ausgehende Links werden gezählt.
 Eine Unterscheidung zwischen beiden Arten von Links unternimmt Amsler nicht.)
 Das Ergebnis wird normalisiert, indem es durch die Anzahl aller Links beiden Publikationen geteilt wird.
-\end{mydef3}
+\end{mydef}
 
 
-\newtheorem{mydef4}{SimRank}
-\begin{mydef4}
+\begin{mydef}[SimRank]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -418,10 +415,9 @@ sim(a,b)  =
         \sum_{i=1}^{|I(a)|} \sum_{j=1}^{|I(b)|} sim(I_i(a),I_j(b))
 \]
 \newline
-\end{mydef4}
+\end{mydef}
 
-\newtheorem{mydef5}{rvs-SimRank}
-\begin{mydef5}
+\begin{mydef}[rvs-SimRank]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -433,11 +429,10 @@ sim(a,b)  =
         \sum_{i=1}^{|O(a)|} \sum_{j=1}^{|O(b)|} sim(O_i(a),O_j(b))
 \]
 \newline
-\end{mydef5}
+\end{mydef}
 
 
-\newtheorem{mydef6}{P-Rank}
-\begin{mydef6}
+\begin{mydef}[P-Rank]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -454,11 +449,10 @@ sim(a,b) & = &
 \end{array}
 \]
 \newline
-\end{mydef6}
+\end{mydef}
 
 
-\newtheorem{mydef7}{C-Rank}
-\begin{mydef7}
+\begin{mydef}[C-Rank]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -470,7 +464,7 @@ sim(a,b)  =
         \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} sim(L_i(a),L_j(b))
 \]
 \newline
-\end{mydef7}
+\end{mydef}
 
 Tabelle \ref{tab:compareMeasures}\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Dabei ist noch zu bemerken, dass Zhao, Han und Sun das \textit{Amsler-Maß} fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} fasst nochmal die existierenden Ähnlichkeitsmaße zusammen.
 In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaftien von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
@@ -496,5 +490,4 @@ In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide A
 \caption{Existierende Ähnlichkeitsmaße in Vergleich}
 \label{tab:compareMeasures}
 \end{table}
-
 
