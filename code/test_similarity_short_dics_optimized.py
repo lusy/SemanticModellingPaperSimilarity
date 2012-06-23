@@ -123,8 +123,36 @@ def main(args):
         k = k-1
         nodectr = 0
         for a in G.nodes_iter():
+            # logging progress to stdout
             nodectr = nodectr + 1
             print ("in iteration %d, begin computing node %d" % (k, nodectr))
+
+            partialSumsOfA = dict()
+            essentialNodesForA = list()
+
+            #compute essentialNodesForA
+            if G.node[a]['Class']=='Publication':
+                for u in G.neighbors_iter(a):
+
+
+            elif G.node[a]['Class']=='Keyword' or G.node[a]['Class']=='Author' or G.node[a]['Class']=='Source' or G.node[a]['Class']=='PublicationYear':
+                for u in G.neighbors_iter(a):
+                    # if pair (u,v) saved
+                    for v in iter(sim_pub[u]):
+                        for b in G.neighbors_iter(v):
+                            essentialNodesForA.append(b)
+                    # if pair (v,u) saved
+                    for v in iter(sim_pub):
+                        try:
+                            tmp = sim_pub[v][u]
+                            for b in G.neighbors_iter(v):
+                                essentialNodesForA.append(b)
+                        except:
+                            print("ohh nooooo")
+
+            else:
+                pass
+
             for b in G.nodes_iter():
                 if a!=b: #otherwise is similarity = 1
                     if G.node[a]['Class']=='Publication' and G.node[b]['Class'] == 'Publication':
