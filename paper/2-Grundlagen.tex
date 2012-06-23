@@ -242,11 +242,48 @@ Der Erste, der explizit den Begriff \textit{Ähnlichkeit} verwendet, ist Henry Sm
 Im Gegensatz zu Kessler legt Small jedoch seinen Schwerpunkt nicht auf bibliographischer Kopplung, sondern auf Zählung von Kozitationen.
 Er bezeichnet hohe Kozitationszahlen als einen Indikator für ``subject similarity'' und ``co-occurance of ideas''.
 Kozitationenzählung als Methode für die Identifikation von Artikeln, die das selbe oder ähnliches Thema teilen, benutzen auch Kim und Barnett \cite{DBLP:conf/amcis/KimB08}.
+Definitionen \ref{theo:kopplung} bzw. \ref{theo:co-citation} stellen die Gleichungen der bibliographischen Kopplung und der Kozitation dar.
+Spätere Arbeiten erwähnen, dass beide mit Hilfe vom Jaccard-Koeffizient normalisiert werden können \cite{DBLP:journals/corr/abs-1109-1059}.
+
+\begin{mydef}[Bibliographische Kopplung]
+\[
+sim(a,b) = O(a) \cap O(b)
+\]
+\newline
+%Frage: schlägt er auch Normalisierung vor?
+Die Anzahl der gemeinsamen ausgehenden Links
+\label{theo:kopplung}
+\end{mydef}
+
+
+\begin{mydef}[Kozitation]
+\[
+ sim(a,b) = I(a) \cap I(b)
+\]
+\newline
+% Normalisierung?
+Die Anzahl der gemeinsamen eingehenden Links
+\label{theo:co-citation}
+\end{mydef}
+
 
 \smallskip
 Auch Robert Amsler präsentiert in seinem Artikel \cite{amsler1972applications} ein zitationsbasiertes Ähnlichkeitsmaß für wissenschaftliche Arbeiten.
 Er unterscheidet allerdings nicht zwischen bibliographischer Kopplung und Kozitationen, sondern berücksichtigt beide Arten von Zitationsbeziehungen in der vorgeschlagenen Definition.
 Amsler definiert die \textit{``linkage similarity''} zweier Publikationen als die ``Gesamtanzahl von Vorgängern und Nachfahren, die diese teilen''.
+Er schlägt ferner auch eine Normalisierung für sein Maß mittels des Jaccard-Koeffizients vor.
+
+\begin{mydef}[Amsler]
+\[
+ sim(a,b) = \cfrac{L(a) \cap L(b)}{L(a) \cup L(b)}
+\]
+\newline
+Die Anzahl der gemeinsamen Links.
+(Sowohl ein- als auch ausgehende Links werden gezählt.
+Eine Unterscheidung zwischen beiden Arten von Links unternimmt Amsler nicht.)
+Das Ergebnis wird normalisiert, indem es durch die Anzahl aller Links beiden Publikationen geteilt wird.
+\label{theo:amsler}
+\end{mydef}
 
 
 \smallskip
@@ -270,6 +307,20 @@ Die Autoren schlagen einen Algorithmus vor, der basierend auf dem Gesamtgraphen 
 Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' \cite{simrank2002} aus.
 Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Literaturverweisen rekursiv bestimmt werden kann.
 
+\begin{mydef}[SimRank]
+\[
+sim(a,b) = 1 \quad \text{wenn } a=b
+\]
+\newline
+\text{sonst}
+\[
+sim(a,b)  = 
+        \cfrac{c}{|I(a)||I(b)|}
+        \sum_{i=1}^{|I(a)|} \sum_{j=1}^{|I(b)|} sim(I_i(a),I_j(b))
+\]
+\newline
+\end{mydef}
+
 Zhao, Han und Sun haben mit \textit{P-Rank} ein ähnliches Konzept \cite{ZhaoHS09}.
 \textit{P-Rank} ist ebenso ein strukturelles Ähnlichkeitsmaß für Informationsnetzwerken, unterscheidet sich jedoch von \textit{SimRank} durch die Tatsache, dass es nicht nur ein- sonder auch ausgehende Kanten in die Ähnlichkeitsberechnung miteinbezieht.
 Es verallgemeinert das zugrundeliegende Prinzip von \textit{SimRank} folgendermaßen: ``zwei Objekte sind ähnlich, wenn sie (1) durch ähnliche Objekte referenziert werden; und (2) ähnliche Objekte referenzieren'' \cite{ZhaoHS09}.
@@ -280,6 +331,26 @@ Die Autoren argumentieren, dass in dem Fall bibliografische Kopplung, Kozitation
 Das Gemeinsame zwischen \textit{SimRank} und \textit{P-Rank} ist die Propagierung der Ähnlichkeitswerte über das gesamte Netzwerk und die rekursive Art ihrer Berechnung.
 Eine Verbesserung von \textit{P-Rank} gegenüber \textit{SimRank} ist die Möglichkeit, Ähnlichkeitswerte für neuere und potentiell interessante, aber immer noch nicht populäre Arbeiten zu ermitteln.
 \textit{SimRank}, das nur eingehende Kanten berücksichtigt, kann das nicht leisten.
+
+\begin{mydef}[P-Rank]
+\[
+sim(a,b) = 1 \quad \text{wenn } a=b
+\]
+\newline
+\text{sonst}
+\[
+\begin{array}{lcl}
+sim(a,b) & = &
+        \lambda\times\cfrac{c}{|I(a)||I(b)|}
+        \sum_{i=1}^{|I(a)|} \sum_{j=1}^{|I(b)|} sim(I_i(a),I_j(b))
+        \\ & + &
+        (1-\lambda)\times\cfrac{c}{|O(a)||O(b)|}
+        \sum_{i=1}^{|O(a)|} \sum_{j=1}^{|O(b)|} sim(O_i(a),O_j(b))
+\end{array}
+\]
+\newline
+\end{mydef}
+
 
 % Arbeiten, die (unter anderem) auch Ähnlichkeit von Papers berechnen,
 % Aber NUR auf Grund von Zitationen
@@ -310,8 +381,36 @@ Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen
 Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine geeignete Gewichtung beider Arten von Kanten vornimmt und \textit{C-Rank} überhaupt nicht dazwischen unterscheidet.
 \textit{C-Rank} geht tatsächlich aus einem ungerichteten Zitationsgraphen aus.
 Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaße gelungen war.
-\\
-\\
+
+\begin{mydef}[rvs-SimRank]
+\[
+sim(a,b) = 1 \quad \text{wenn } a=b
+\]
+\newline
+\text{sonst}
+\[
+sim(a,b)  = 
+        \cfrac{c}{|O(a)||O(b)|}
+        \sum_{i=1}^{|O(a)|} \sum_{j=1}^{|O(b)|} sim(O_i(a),O_j(b))
+\]
+\newline
+\end{mydef}
+
+
+\begin{mydef}[C-Rank]
+\[
+sim(a,b) = 1 \quad \text{wenn } a=b
+\]
+\newline
+\text{sonst}
+\[
+sim(a,b)  = 
+        \cfrac{c}{|L(a)||L(b)|}
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} sim(L_i(a),L_j(b))
+\]
+\newline
+\end{mydef}
+
 Tabelle \ref{tab:compareMeasures}\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Dabei ist noch zu bemerken, dass Zhao, Han und Sun das \textit{Amsler}-Maß fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} fasst nochmal diese ``Familie'' zitationsbasierter Ähnlichkeitsmaße zusammen.
 In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaften von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
 In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Papers das gesamte Publikationsnetzwerk rekursiv betrachten.
@@ -333,7 +432,7 @@ In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide A
     Global \newline $k=\infty$, \newline $c=variiert$ & SimRank \newline $\lambda=1$ & rvs-SimRank \newline $\lambda=0$ & P-Rank \newline $\lambda=variiert$ & C-Rank \newline kein $\lambda$ \\
     \hline
 \end{tabular}
-\caption{Existierende Ähnlichkeitsmaße in Vergleich}
+\caption{Existierende zitationsbasierte Ähnlichkeitsmaße in Vergleich}
 \label{tab:compareMeasures}
 \end{table}
 
@@ -402,102 +501,4 @@ Ferner sind Zitationen alleine kein aussagekräftiger Indikator für Ähnlichkeit, 
 Diese gemeinsame Schwäche lässt darauf schließen, dass wir eine neue, allgemeinere Definition von Ähnlichkeit brauchen.
 
 % Aus diesen Gründen brauchen wir eine neue, allgemeinere Definition von Ähnlichkeit.
-
-\textbf{Überblick über die schon vorhandenen zitationsbasierten Ähnlichkeitsmaße für Publikationen}
-\\
-\begin{mydef}[Bibliographische Kopplung]
-\[
-sim(a,b) = O(a) \cap O(b)
-\]
-\newline
-%Frage: schlägt er auch Normalisierung vor?
-\newline
-Die Anzahl der gemeinsamen ausgehenden Links
-\end{mydef}
-
-
-\begin{mydef}[Kozitation]
-\[
- sim(a,b) = I(a) \cap I(b)
-\]
-\newline
-% Normalisierung?
-Die Anzahl der gemeinsamen eingehenden Links
-\end{mydef}
-
-\begin{mydef}[Amsler]
-\[
- sim(a,b) = \cfrac{L(a) \cap L(b)}{L(a) \cup L(b)}
-\]
-\newline
-Die Anzahl der gemeinsamen Links.
-(Sowohl ein- als auch ausgehende Links werden gezählt.
-Eine Unterscheidung zwischen beiden Arten von Links unternimmt Amsler nicht.)
-Das Ergebnis wird normalisiert, indem es durch die Anzahl aller Links beiden Publikationen geteilt wird.
-\end{mydef}
-
-
-\begin{mydef}[SimRank]
-\[
-sim(a,b) = 1 \quad \text{wenn } a=b
-\]
-\newline
-\text{sonst}
-\[
-sim(a,b)  = 
-        \cfrac{c}{|I(a)||I(b)|}
-        \sum_{i=1}^{|I(a)|} \sum_{j=1}^{|I(b)|} sim(I_i(a),I_j(b))
-\]
-\newline
-\end{mydef}
-
-\begin{mydef}[rvs-SimRank]
-\[
-sim(a,b) = 1 \quad \text{wenn } a=b
-\]
-\newline
-\text{sonst}
-\[
-sim(a,b)  = 
-        \cfrac{c}{|O(a)||O(b)|}
-        \sum_{i=1}^{|O(a)|} \sum_{j=1}^{|O(b)|} sim(O_i(a),O_j(b))
-\]
-\newline
-\end{mydef}
-
-
-\begin{mydef}[P-Rank]
-\[
-sim(a,b) = 1 \quad \text{wenn } a=b
-\]
-\newline
-\text{sonst}
-\[
-\begin{array}{lcl}
-sim(a,b) & = &
-        \lambda\times\cfrac{c}{|I(a)||I(b)|}
-        \sum_{i=1}^{|I(a)|} \sum_{j=1}^{|I(b)|} sim(I_i(a),I_j(b))
-        \\ & + &
-        (1-\lambda)\times\cfrac{c}{|O(a)||O(b)|}
-        \sum_{i=1}^{|O(a)|} \sum_{j=1}^{|O(b)|} sim(O_i(a),O_j(b))
-\end{array}
-\]
-\newline
-\end{mydef}
-
-
-\begin{mydef}[C-Rank]
-\[
-sim(a,b) = 1 \quad \text{wenn } a=b
-\]
-\newline
-\text{sonst}
-\[
-sim(a,b)  = 
-        \cfrac{c}{|L(a)||L(b)|}
-        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} sim(L_i(a),L_j(b))
-\]
-\newline
-\end{mydef}
-
 
