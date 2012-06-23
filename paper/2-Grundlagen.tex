@@ -166,7 +166,7 @@ Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
 % Was gibt es schon zum Thema semantische Modellierung von Publikationen (Science Ontology, Diplomarbeit vom einen Typen\cite{abbildungXML2002} )
 Matthias Erbarth schlägt in seiner Diplomarbeit \cite{abbildungXML2002} eine semantische Modellierung mit Hilfe von XML-Technologien vor.
 Diese bildet jedoch eine einzelne Publikation mit ihren Einzelteilen ab.
-Das semantische Model einer Publikation soll dann mit einer Fachontologie in Verbindung gebracht werden, um eine ``erweiterte Stichwordindexierung'' zu ermöglichen.
+Das semantische Model einer Publikation soll dann mit einer Fachontologie in Verbindung gebracht werden, um eine ``erweiterte Stichwortindexierung'' zu ermöglichen.
 Dabei liegt sein Schwerpunkt auf der Idee, dass indem das in einer wissenschaftlichen Arbeit enthaltene Wissen in einer maschinenlesbaren Form dargestellt wird, Aufgaben der Information Retrieval effizienter gelöst werden können.
 % warum macht er das
 % was nützliches/wichtiges erreicht er dadurch
@@ -207,11 +207,13 @@ Auf Abbildung \ref{fig:scientificdoc_relations} sind die Relationen zwischen der
 % ----------- Textbasierte Maße -----------------------------------------------------------------------
 Bani-Ahmad et al. unterscheiden in ihrem Übersichtsartikel \cite{evalpubsim2005} zwischen text- und zitationsbasierten Ähnlichkeitsmaßen für wissenschaftliche Publikationen.
 Als Beispiel für ein textbasiertes Maß nennen sie das auf die bekannte TF-IDF Metrik (Termfrequenz-Inverse Dokumentfrequenz) gestützte Kosinusmaß.
-Der TF-IDF-Wert eines Terms (oder Worts) ist proportional zur Anzahl der Vorkommen dieses Terms in einem Dokument und inversproportional zur Anzahl der Vorkommen des Terms im Gesamtkorpus.
+Der TF-IDF-Wert eines Terms (oder Worts) ist proportional zur Anzahl der Vorkommen dieses Terms in einem Dokument und inversproportional zur Anzahl der Vorkommen des Terms im Gesamtdokumentenkorpus.
 Zwei Dokumente, deren Ähnlichkeit bestimmt werden sollte, werden dann als Vektoren ihrer Termfrequenzen dargestellt.
 Die Dokumente sind desto ähnlicher, je näher zu einander sich diese Vektoren im Raum befinden, d.h. je kleiner der Winkel zwischen beiden ist (und je größer der Kosinus von diesem Winkel).
 Dieses Maß wird, in Kombination mit anderen Methoden, auch von den Erfindern der automatisierten Indexingdienst für wissenschaftliche Arbeiten CiteSeer\footnote{http://citeseerx.ist.psu.edu/index}, Lee Giles and Kurt D. Bollacker and Steve Lawrence, als Ähnlichkeitsmaß für Artikel eingesetzt \cite{Giles98citeseer}.
 Mit Hilfe von dieser Metrik werden Titel, Inhaltsverzeichnis, Abstract und Volltext von Publikationen ausgewertet.
+\\
+\\
 Der Ansatz ist aus mehreren Gründen problematisch.
 Bei sehr großen Dokumentenmengen ist die Methode ziemlich rechenaufwendig.
 Zudem ist diese sprachabhängig - es ist nicht möglich aufgrund von reinen textbasierten Maßen, wie dem Kosinusmaß in Kombination mit TF-IDF, Ähnlichkeit zwischen Artikeln, die auf verschiedenen Sprachen vorliegen, zu messen.
@@ -235,11 +237,17 @@ Außerdem ist die semantische Bedeutung der Terme unbekannt, was die Ergebnisse v
 \smallskip
 Die zweite große Kategorie existierender Ähnlichkeitsmaße für wissenschaftliche Publikationen beruht auf Zitationen.
 Die Idee, dass Artikel, die gemeinsame Referenzen teilen, in irgendeiner Weise verwandt sind, ist auf M.M.Kessler \cite{Kessler:1963} zurückzuführen.
-In seiner Arbeit ``Bibliographic coupling between scientific papers'' schlägt er eine Methode für ``Gruppierung von technischen und wissenschaftlichen Papers aufgrund von bibliografischer Kopplung'' vor \cite{Kessler:1963}.
+In seiner Arbeit ``Bibliographic coupling between scientific papers'' schlägt er eine Methode für ``Gruppierung von technischen und wissenschaftlichen Papers aufgrund von bibliographischer Kopplung'' vor \cite{Kessler:1963}.
 Der Erste, der explizit den Begriff \textit{Ähnlichkeit} verwendet, ist Henry Small \cite{Small_1973}.
-Im Gegensatz zu Kessler legt Small jedoch seinen Schwerpunkt nicht auf bibliografischer Kopplung, sondern auf Zählung von Kozitationen.
+Im Gegensatz zu Kessler legt Small jedoch seinen Schwerpunkt nicht auf bibliographischer Kopplung, sondern auf Zählung von Kozitationen.
 Er bezeichnet hohe Kozitationszahlen als einen Indikator für ``subject similarity'' und ``co-occurance of ideas''.
 Kozitationenzählung als Methode für die Identifikation von Artikeln, die das selbe oder ähnliches Thema teilen, benutzen auch Kim und Barnett \cite{DBLP:conf/amcis/KimB08}.
+
+\smallskip
+Auch Robert Amsler präsentiert in seinem Artikel \cite{amsler1972applications} ein zitationsbasiertes Ähnlichkeitsmaß für wissenschaftliche Arbeiten.
+Er unterscheidet allerdings nicht zwischen bibliographischer Kopplung und Kozitationen, sondern berücksichtigt beide Arten von Zitationsbeziehungen in der vorgeschlagenen Definition.
+Amsler definiert die \textit{``linkage similarity''} zweier Publikationen als die ``Gesamtanzahl von Vorgängern und Nachfahren, die diese teilen''.
+
 
 \smallskip
 Ein anderes zitationsbasiertes Maß ist die \textit{Common Citation Inverse Document Frequency} (CC-IDF) \cite{Giles98citeseer}.
