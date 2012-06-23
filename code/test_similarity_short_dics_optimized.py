@@ -130,9 +130,83 @@ def main(args):
             partialSumsOfA = dict()
             essentialNodesForA = list()
 
+            essentialNodesForA.append(a)
+
             #compute essentialNodesForA
             if G.node[a]['Class']=='Publication':
                 for u in G.neighbors_iter(a):
+                    if G.node[u]['Class']=='Publication':
+                        # if pair (u,v) saved
+                        for v in iter(sim_pub[u]):
+                            for b in G.neighbors_iter(v):
+                                essentialNodesForA.append(b)
+                        # if pair (v,u) saved
+                        for v in iter(sim_pub):
+                            try:
+                                tmp = sim_pub[v][u]
+                                for b in G.neighbors_iter(v):
+                                    essentialNodesForA.append(b)
+                            except:
+                                print("ohh nooooo")
+
+                    elif G.node[u]['Class']=='Keyword':
+                        # if pair (u,v) saved
+                        for v in iter(sim_key[u]):
+                            for b in G.neighbors_iter(v):
+                                essentialNodesForA.append(b)
+                        # if pair (v,u) saved
+                        for v in iter(sim_key):
+                            try:
+                                tmp = sim_key[v][u]
+                                for b in G.neighbors_iter(v):
+                                    essentialNodesForA.append(b)
+                            except:
+                                print("ohh nooooo")
+
+                    elif G.node[u]['Class']=='Author':
+                        # if pair (u,v) saved
+                        for v in iter(sim_author[u]):
+                            for b in G.neighbors_iter(v):
+                                essentialNodesForA.append(b)
+                        # if pair (v,u) saved
+                        for v in iter(sim_author):
+                            try:
+                                tmp = sim_author[v][u]
+                                for b in G.neighbors_iter(v):
+                                    essentialNodesForA.append(b)
+                            except:
+                                print("ohh nooooo")
+
+                    elif G.node[u]['Class']=='Source':
+                        # if pair (u,v) saved
+                        for v in iter(sim_source[u]):
+                            for b in G.neighbors_iter(v):
+                                essentialNodesForA.append(b)
+                        # if pair (v,u) saved
+                        for v in iter(sim_source):
+                            try:
+                                tmp = sim_source[v][u]
+                                for b in G.neighbors_iter(v):
+                                    essentialNodesForA.append(b)
+                            except:
+                                print("ohh nooooo")
+
+                    elif G.node[u]['Class']=='PublicationYear':
+                        # if pair (u,v) saved
+                        for v in iter(sim_year[u]):
+                            for b in G.neighbors_iter(v):
+                                essentialNodesForA.append(b)
+                        # if pair (v,u) saved
+                        for v in iter(sim_year):
+                            try:
+                                tmp = sim_year[v][u]
+                                for b in G.neighbors_iter(v):
+                                    essentialNodesForA.append(b)
+                            except:
+                                print("ohh nooooo")
+
+                    else:
+                        pass
 
 
             elif G.node[a]['Class']=='Keyword' or G.node[a]['Class']=='Author' or G.node[a]['Class']=='Source' or G.node[a]['Class']=='PublicationYear':
