@@ -273,7 +273,8 @@ Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsg
 Zhao, Han und Sun haben mit \textit{P-Rank} ein ähnliches Konzept \cite{ZhaoHS09}.
 \textit{P-Rank} ist ebenso ein strukturelles Ähnlichkeitsmaß für Informationsnetzwerken, unterscheidet sich jedoch von \textit{SimRank} durch die Tatsache, dass es nicht nur ein- sonder auch ausgehende Kanten in die Ähnlichkeitsberechnung miteinbezieht.
 Es verallgemeinert das zugrundeliegende Prinzip von \textit{SimRank} folgendermaßen: ``zwei Objekte sind ähnlich, wenn sie (1) durch ähnliche Objekte referenziert werden; und (2) ähnliche Objekte referenzieren'' \cite{ZhaoHS09}.
-Die Autoren argumentieren, dass bibliografische Kopplung, Kozitationen und \textit{SimRank} lediglich Spezialfälle von \textit{P-Rank} sind.
+Ein spezifischer Anwendungsfall für \textit{P-Rank} sind auch Zitationsnetzwerke.
+Die Autoren argumentieren, dass in dem Fall bibliografische Kopplung, Kozitationen und \textit{SimRank} lediglich Spezialfälle von \textit{P-Rank} sind.
 %auch Amsler wenn sich das Originalpaper findet.
 % die Tabelle, die alle zusammenfasst!!
 Das Gemeinsame zwischen \textit{SimRank} und \textit{P-Rank} ist die Propagierung der Ähnlichkeitswerte über das gesamte Netzwerk und die rekursive Art ihrer Berechnung.
@@ -297,7 +298,7 @@ Angelehnt an \textit{SimRank} und \textit{P-Rank} schlagen Yoon, Kim und Park da
 Sie geben selber nochmal einen Überblick über schon vorhandene Ähnlichkeitsmaße für wissenschaftliche Arbeiten und zählen gleichzeitig auch ihre Schwächen auf:\\
 \begin{itemize}
 \item Textbasierte Metriken für Ähnlichkeitsbestimmung wissenschaftlicher Publikationen würden zwei Papers auch dann als ähnlich bezeichnen, wenn sie demselben Forschungsfeld angehören, auch wenn sie sich mit unterschiedlichen Problemen beschäftigen.
-\item Die bibliografische Kopplung ist ungeeignet, um Ähnlichkeit zwischen alten aber ähnlichen Arbeit zu berechnen.
+\item Die bibliographische Kopplung ist ungeeignet, um Ähnlichkeit zwischen alten aber ähnlichen Arbeit zu berechnen.
 \item Durch Kozitationzählung kann die Ähnlichkeit zwischen neuen ähnlichen Arbeiten nicht gemessen werden.
 \item Beide sind nicht in der Lage Ähnlichkeit zwischen einem alten und einem neuen Paper, die ähnlich sind, zu bestimmen. Die alte Arbeit zitiert keine Neueren, die Neue kann nicht durch Ältere zitiert werden.
 \item \textit{SimRank}, das in gewissem Sinn eine Generalisierung der Kozitation ist, kann keine Ähnlichkeit berechnen, wenn ein Paper durch keine Anderen zitiert wird.
@@ -309,6 +310,32 @@ Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen
 Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine geeignete Gewichtung beider Arten von Kanten vornimmt und \textit{C-Rank} überhaupt nicht dazwischen unterscheidet.
 \textit{C-Rank} geht tatsächlich aus einem ungerichteten Zitationsgraphen aus.
 Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaße gelungen war.
+\\
+\\
+Tabelle \ref{tab:compareMeasures}\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Dabei ist noch zu bemerken, dass Zhao, Han und Sun das \textit{Amsler}-Maß fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} fasst nochmal diese ``Familie'' zitationsbasierter Ähnlichkeitsmaße zusammen.
+In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaften von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
+In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Papers das gesamte Publikationsnetzwerk rekursiv betrachten.
+Dabei ist $k$ die Anzahl der Iterationen, die jedes Maß verwendet,
+$c$ ist das benutzte Dämpfungsfaktor bei der rekursiven Berechnung,
+$\lambda$ ist der Parameter, der die Gewichtung der eingehenden Zitationen bestimmt.
+(wenn $\lambda=1$ werden nur eingehende Links berücksichtigt, wenn $\lambda=0$ werden nur ausgehende Links berücksichtigt.)
+In der Spalte \textit{``Beide, gewichtet''} stehen die Maße, die sowohl ein- als auch ausgehende Links in einer bestimmten Gewichtung in ihrer Berechnung miteinbeziehen.
+In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide Arten von Links miteinbeziehen, allerdings ohne zwischen diesen Arten zu unterscheiden.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{| m{2cm} | m{2cm} | m{2cm} | m{2.5cm} | m{2cm} |}
+    \hline
+    \textbf{} & \textbf{In-Link} & \textbf{Out-Link} & \textbf{Beide, gewichtet} & \textbf{Beide, keine \newline Gewichtung}\\
+    \hline
+    Lokal \newline $k=1, c=1$ & Kozitation \newline $\lambda=1$ & Kopplung \newline $\lambda=0$ & & Amsler \newline kein $\lambda$\\
+    \hline
+    Global \newline $k=\infty$, \newline $c=variiert$ & SimRank \newline $\lambda=1$ & rvs-SimRank \newline $\lambda=0$ & P-Rank \newline $\lambda=variiert$ & C-Rank \newline kein $\lambda$ \\
+    \hline
+\end{tabular}
+\caption{Existierende Ähnlichkeitsmaße in Vergleich}
+\label{tab:compareMeasures}
+\end{table}
 
 \smallskip
 Eine etwas unterschiedliche Herangehensweise wählen Lu et al. in ihrer Definition von Knotenähnlichkeit in Informationsnetzwerken \cite{Lu01nodesimilarity}.
@@ -376,7 +403,6 @@ Diese gemeinsame Schwäche lässt darauf schließen, dass wir eine neue, allgemeine
 
 % Aus diesen Gründen brauchen wir eine neue, allgemeinere Definition von Ähnlichkeit.
 
-\newtheorem{mydef}{Definition}
 \textbf{Überblick über die schon vorhandenen zitationsbasierten Ähnlichkeitsmaße für Publikationen}
 \\
 \begin{mydef}[Bibliographische Kopplung]
@@ -474,28 +500,4 @@ sim(a,b)  =
 \newline
 \end{mydef}
 
-Tabelle \ref{tab:compareMeasures}\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Dabei ist noch zu bemerken, dass Zhao, Han und Sun das \textit{Amsler-Maß} fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} fasst nochmal die existierenden Ähnlichkeitsmaße zusammen.
-In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaftien von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
-In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Papers das gesamte Publikationsnetzwerk rekursiv betrachten.
-Dabei ist $k$ die Anzahl der Iterationen, die jedes Maß verwendet,
-$c$ ist das benutzte Dämpfungsfaktor,
-$\lambda$ ist der Parameter, der die Gewichtung der eingehenden Zitationen bestimmt.
-(wenn $\lambda=1$ werden nur eingehende Links berücksichtigt, wenn $\lambda=0$ werden nur ausgehende Links berücksichtigt.)
-In der Spalte \textit{``Beide, gewichtet''} stehen die Maße, die sowohl ein- als auch ausgehende Link in einer bestimmten Gewichtung in ihrer Berechnung miteinbeziehen.
-In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide Arten von Links miteinbeziehen, allerdings ohne zwischen diesen Arten zu unterscheiden.
-
-\begin{table}[h]
-\centering
-\begin{tabular}{| m{2cm} | m{2cm} | m{2cm} | m{2.5cm} | m{2cm} |}
-    \hline
-    \textbf{} & \textbf{In-Link} & \textbf{Out-Link} & \textbf{Beide, gewichtet} & \textbf{Beide, keine \newline Gewichtung}\\
-    \hline
-    Lokal \newline $k=1, c=1$ & Kozitation \newline $\lambda=1$ & Kopplung \newline $\lambda=0$ & & Amsler \newline kein $\lambda$\\
-    \hline
-    Global \newline $k=\infty$, \newline $c=variiert$ & SimRank \newline $\lambda=1$ & rvs-SimRank \newline $\lambda=0$ & P-Rank \newline $\lambda=variiert$ & C-Rank \newline kein $\lambda$ \\
-    \hline
-\end{tabular}
-\caption{Existierende Ähnlichkeitsmaße in Vergleich}
-\label{tab:compareMeasures}
-\end{table}
 
