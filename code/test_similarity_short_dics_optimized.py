@@ -147,7 +147,8 @@ def main(args):
                                 for b in G.neighbors_iter(v):
                                     essentialNodesForA.append(b)
                             except:
-                                print("ohh nooooo")
+                                pass
+                                #print("ohh nooooo")
 
                     elif G.node[u]['Class']=='Keyword':
                         # if pair (u,v) saved
@@ -161,7 +162,8 @@ def main(args):
                                 for b in G.neighbors_iter(v):
                                     essentialNodesForA.append(b)
                             except:
-                                print("ohh nooooo")
+                                pass
+                                #print("ohh nooooo")
 
                     elif G.node[u]['Class']=='Author':
                         # if pair (u,v) saved
@@ -175,7 +177,8 @@ def main(args):
                                 for b in G.neighbors_iter(v):
                                     essentialNodesForA.append(b)
                             except:
-                                print("ohh nooooo")
+                                pass
+                                #print("ohh nooooo")
 
                     elif G.node[u]['Class']=='Source':
                         # if pair (u,v) saved
@@ -189,7 +192,8 @@ def main(args):
                                 for b in G.neighbors_iter(v):
                                     essentialNodesForA.append(b)
                             except:
-                                print("ohh nooooo")
+                                pass
+                                #print("ohh nooooo")
 
                     elif G.node[u]['Class']=='PublicationYear':
                         # if pair (u,v) saved
@@ -203,7 +207,8 @@ def main(args):
                                 for b in G.neighbors_iter(v):
                                     essentialNodesForA.append(b)
                             except:
-                                print("ohh nooooo")
+                                pass
+                                #print("ohh nooooo")
 
                     else:
                         pass
@@ -224,7 +229,8 @@ def main(args):
                                 if G.node[b]['Class']=='Keyword':
                                     essentialNodesForA.append(b)
                         except:
-                            print("ohh nooooo")
+                            pass
+                            #print("ohh nooooo")
 
             elif G.node[a]['Class']=='Author':
                  for u in G.neighbors_iter(a):
@@ -241,7 +247,8 @@ def main(args):
                                 if G.node[b]['Class']=='Author':
                                     essentialNodesForA.append(b)
                         except:
-                            print("ohh nooooo")
+                            pass
+                            #print("ohh nooooo")
 
             elif G.node[a]['Class']=='Source':
                   for u in G.neighbors_iter(a):
@@ -258,7 +265,8 @@ def main(args):
                                 if G.node[b]['Class']=='Source':
                                     essentialNodesForA.append(b)
                         except:
-                            print("ohh nooooo")
+                            pass
+                            #print("ohh nooooo")
 
             elif G.node[a]['Class']=='PublicationYear':
                  for u in G.neighbors_iter(a):
@@ -275,7 +283,8 @@ def main(args):
                                 if G.node[b]['Class']=='PublicationYear':
                                     essentialNodesForA.append(b)
                         except:
-                            print("ohh nooooo")
+                            pass
+                            #print("ohh nooooo")
 
             else:
                 pass
@@ -437,15 +446,6 @@ def main(args):
                                     except:
                                         keywordValue = keywordValue + 0
 
-                        #print("Debuging key..................")
-                        #print('a: ', a)
-                        #print('b: ', b)
-                        #print('neighbors of a: ', G.neighbors(a))
-                        #print('neighbors of b: ', G.neighbors(b))
-                        #print('keywordvalue: ', keywordValue)
-                        #print('NeighborsOfA: ', neighborsOfA)
-                        #print('NeighborsOfB: ', neighborsOfB)
-
                         # only update similarity, if computed score not zero
                         if keywordValue != 0:
                             try:
@@ -597,7 +597,7 @@ def main(args):
         #print('\n')
 
 #Print final results
-    f = open('output_head200', 'w')
+    f = open('../data/testdata/output_head200_essentialNodePairs', 'w')
     f.write("------sim_pub------\n")
     for i in sim_pub.iterkeys():
         f.write(str(i))
