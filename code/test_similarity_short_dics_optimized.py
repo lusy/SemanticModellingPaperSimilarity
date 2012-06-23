@@ -209,25 +209,78 @@ def main(args):
                         pass
 
 
-            elif G.node[a]['Class']=='Keyword' or G.node[a]['Class']=='Author' or G.node[a]['Class']=='Source' or G.node[a]['Class']=='PublicationYear':
+            elif G.node[a]['Class']=='Keyword':
                 for u in G.neighbors_iter(a):
                     # if pair (u,v) saved
                     for v in iter(sim_pub[u]):
                         for b in G.neighbors_iter(v):
-                            essentialNodesForA.append(b)
+                            if G.node[b]['Class']=='Keyword':
+                                essentialNodesForA.append(b)
                     # if pair (v,u) saved
                     for v in iter(sim_pub):
                         try:
                             tmp = sim_pub[v][u]
                             for b in G.neighbors_iter(v):
+                                if G.node[b]['Class']=='Keyword':
+                                    essentialNodesForA.append(b)
+                        except:
+                            print("ohh nooooo")
+
+            elif G.node[a]['Class']=='Author':
+                 for u in G.neighbors_iter(a):
+                    # if pair (u,v) saved
+                    for v in iter(sim_pub[u]):
+                        for b in G.neighbors_iter(v):
+                            if G.node[b]['Class']=='Author':
                                 essentialNodesForA.append(b)
+                    # if pair (v,u) saved
+                    for v in iter(sim_pub):
+                        try:
+                            tmp = sim_pub[v][u]
+                            for b in G.neighbors_iter(v):
+                                if G.node[b]['Class']=='Author':
+                                    essentialNodesForA.append(b)
+                        except:
+                            print("ohh nooooo")
+
+            elif G.node[a]['Class']=='Source':
+                  for u in G.neighbors_iter(a):
+                    # if pair (u,v) saved
+                    for v in iter(sim_pub[u]):
+                        for b in G.neighbors_iter(v):
+                            if G.node[b]['Class']=='Source':
+                                essentialNodesForA.append(b)
+                    # if pair (v,u) saved
+                    for v in iter(sim_pub):
+                        try:
+                            tmp = sim_pub[v][u]
+                            for b in G.neighbors_iter(v):
+                                if G.node[b]['Class']=='Source':
+                                    essentialNodesForA.append(b)
+                        except:
+                            print("ohh nooooo")
+
+            elif G.node[a]['Class']=='PublicationYear':
+                 for u in G.neighbors_iter(a):
+                    # if pair (u,v) saved
+                    for v in iter(sim_pub[u]):
+                        for b in G.neighbors_iter(v):
+                            if G.node[b]['Class']=='PublicationYear':
+                                essentialNodesForA.append(b)
+                    # if pair (v,u) saved
+                    for v in iter(sim_pub):
+                        try:
+                            tmp = sim_pub[v][u]
+                            for b in G.neighbors_iter(v):
+                                if G.node[b]['Class']=='PublicationYear':
+                                    essentialNodesForA.append(b)
                         except:
                             print("ohh nooooo")
 
             else:
                 pass
 
-            for b in G.nodes_iter():
+            for b in essentialNodesForA:
                 if a!=b: #otherwise is similarity = 1
                     if G.node[a]['Class']=='Publication' and G.node[b]['Class'] == 'Publication':
                         pubValue = 0
