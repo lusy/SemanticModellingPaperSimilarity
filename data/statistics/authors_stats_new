@@ -1,0 +1,32 @@
+> summary(data)
+transactions as itemMatrix in sparse format with
+ 2907086 rows (elements/itemsets/transactions) and
+ 1178649 columns (items) and a density of 1.427646e-06 
+
+most frequent items:
+           'erdos.paul'       'ballico.edoardo'        'godeaux.lucien' 
+                   1208                    1100                     794 
+      'carlitz.leonard' 'srivastava.hari-mohan'                 (Other) 
+                    735                     556                 4887342 
+
+element (itemset/transaction) length distribution:
+sizes
+      0       1       2       3       4       5       6       7       8       9 
+   9136 1556462  876256  336431   93591   23550    6855    2395    1074     515 
+     10      11      12      13      14      15      16      17      18      19 
+    301     147     109      72      42      36      32      14      16       9 
+     20      21      22      23      24      25      26      27      28      30 
+     10      10       5       2       2       3       2       1       2       1 
+     31      35      38 
+      2       2       1 
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   1.000   1.000   1.683   2.000  38.000 
+
+includes extended item information - examples:
+                          labels
+1  "\\\\v{s}p\\\\'anikov\\\\'a."
+2             "andrade.jos\\\\'"
+3         "ar\\\\'evalo.fabiola"
+> 
+
