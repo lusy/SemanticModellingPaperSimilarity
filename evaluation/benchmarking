@@ -1,4 +1,5 @@
 Short dics, no other performance optimization
+=============================================
 Laufzeit: O(n^4)
 
 515   Nodes -> 97   Publications -> 6.19021105766 Sec
@@ -7,7 +8,26 @@ Laufzeit: O(n^4)
 10359 Nodes -> 2509 Publications -> 4013.51781201 Sec
 22707 Nodes -> 5906 Publications -> 22630.2091651 Sec
 
+-----------------------------------------------------
 Essential node pairs don't actually bring anything (or I'm implementing them stupidely).
 
 For comparison
 515 Nodes -> Essential node pairs implemented -> 24.2374608517 Sec
+
+
+Existing measures applied to
+============================
+SimRank: 278628 Papers, Zeit unbekannt
+
+Accuracy estimate of SimRank:
+10000 Nodes - 46 Stunden (1GB RAM, 2.1GHz CPU)
+
+P-Rank
+------
+Heterogenous IN: 218930 Nodes;
+Mit den beschriebenen Parametern ihres Systems (2.4 GHz CPU und 2 GB RAM) können sie auf keinen Fall alles im Memory laden...
+Bzw steht nirgendswo wie lange sie für gebraucht haben
+
+Homogenous IN: 21740 Nodes
+
+C-Rank: 23795 Publications
