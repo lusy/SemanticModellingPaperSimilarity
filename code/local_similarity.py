@@ -2,7 +2,9 @@ import networkx as nx
 import timeit
 import sys
 
-def find_all_paths(graph, start, end, path=[]):
+def find_all_paths_max_depth(graph, start, end, maxd, currentd=0, path=[]):
+    if currentd > maxd:
+        return []
     path = path + [start]
     if start == end:
         return [path]
@@ -11,10 +13,11 @@ def find_all_paths(graph, start, end, path=[]):
     paths = []
     for node in graph[start]:
         if node not in path:
-            newpaths = find_all_paths(graph, node, end, path)
+            newpaths = find_all_paths_max_depth(graph, node, end, maxd, currentd+1, path)
             for newpath in newpaths:
                 paths.append(newpath)
     return paths
+
 
 def main(args):
     G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml.graphml')
@@ -46,10 +49,28 @@ def main(args):
                         exist_sim = sim_pub[b][a] #do nothing
                     except:
                         #whether shortest path(a,b) <=t -> otherwise similarity=0, will not be saved
-                        if nx.has_path(G, a, b) and nx.shortest_path_length(G, a, b) <= t:
-                            for path in find_all_paths(G, a, b):
+                        try:
+                            for path in find_all_paths_max_depth(G, a, b, t):
+                                pathValue = 0
+                                for node in path:
+                                    if node == a:
+                                        pass
+                                    elif node == b:
+                                        pass
+                                    elif G.node[a]['Class'] == 'Keyword':
 
+                                    elif G.node[a]['Class'] == 'Author':
 
+                                    elif G.node[a]['Class'] == 'PublicationYear':
+
+                                    elif G.node[a]['Class'] == 'Source':
+
+                                    elif G.node[a]['Class'] == 'Publication':
+
+                                    else:
+                                        pass
+                        except:
+                            pass # no path in all paths mit max depth t, similarity=0 and wont be saved
 
             # compute all paths of the length <= t, with source a
             # for all publication nodes p lying on these paths:
