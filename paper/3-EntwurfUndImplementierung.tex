@@ -179,11 +179,39 @@ Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder 
 \\
 Aus diesen Gründen schlägt die aktuelle Arbeit die \textit{Publications Ontology} vor.
 Diese modelliert die folgenden Klassen: \textit{Publication}, \textit{Title}, \textit{Author}, \textit{Keyword}, \textit{ClassifiationCode} (mit Unterklassen \textit{ACM\_ClassifictionCode} und \textit{MSC\_ClassificationCode}), \textit{Editor}, \textit{Reviewer}, \textit{Language}, \textit{PublicationYear} und \textit{Source} (mit Unterklassen \textit{Book}, \textit{Journal} und \textit{Proceedings})
-und auch die entsprechenden, in der Regel invertierbaren, Beziehungen zwischen diesen Klassen (z.B. die Paare: hasAuthor - isAuthorOf, hasClassificationCode - isClassificationCodeOf, etc.).
-Ferner werden die folgenden für eine Publikation relevante Metadaten als Data Properties (?) dargestellt:
-Eine vollständige Auflistung der Klassen der \textit{Publications Ontology} sowie der Object und Data Properties bieten Abbildungen xyz an.
+und auch die entsprechenden, in der Regel invertierbaren, Beziehungen zwischen diesen Klassen (z.B. die Paare: \textit{hasAuthor} - \textit{isAuthorOf}, \textit{hasClassificationCode} - \textit{isClassificationCodeOf}, etc.).
+Ferner werden die folgenden, für eine Publikation relevanten, Metadaten als Data Properties dargestellt: \textit{Abstract}, \textit{Id} und \textit{Accession Number} (letztere ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
+Eine vollständige Auflistung der Klassen der \textit{Publications Ontology} sowie der Object und Data Properties bietet Abbildung \ref{fig:pubOntoClOPDP} an.
 Auf Abbildung aaa sind alle Klassen mit den dazugehörigen Unterklassen und die dazwischen herrschenden Beziehungen zu sehen.
-Abbildung bbb zeigt nochmal die Oberklassen mit den gelabelten Beziehungen (jedoch, aus ästetischen Gründen, nur in einer Richtung).
+Abbildung bbb zeigt nochmal die Oberklassen mit den gelabelten Beziehungen (jedoch, aus ästhetischen Gründen, nur in einer Richtung).
+
+% mit OWL modelliert: was sind überhaupt Classes, Object Properties, Data Properties?
+
+\begin{figure}
+    \begin{subfigure}[h]{0.3\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{./diagrams/classes_cut_3.png}
+        \caption{Classes}
+        \label{fig:pubOntoClasses}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[h]{0.3\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{./diagrams/object_properties_cut_3.png}
+        \caption{Object Properties}
+        \label{fig:pubOntoObjectProps}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[h]{0.3\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{./diagrams/data_properties_cut_4.png}
+        \caption{Data Properties}
+        \label{fig:pubOntoDataProps}
+    \end{subfigure}
+    \caption{Classes, Object Properties und Data Properties der \textit{Publications Ontology}}
+    \label{fig:pubOntoClOPDP}
+\end{figure}
+
 
 \subsection{Mapping auf das entworfene Schema}
 % technische Details
