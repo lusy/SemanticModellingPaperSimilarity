@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.owl-ontologies.com/Ontology1339194027.owl#"
+     xml:base="http://www.owl-ontologies.com/Ontology1339194027.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#cites -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#cites">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasAuthor">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Author"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isAuthorOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasClassificationCode -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasClassificationCode">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#ClassificationCode"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasEditor -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasEditor">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Editor"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isEditorOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasKeyword -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasKeyword">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isKeywordOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasKeywordLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasKeywordLanguage">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isKeywordLanguageOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasPublicationLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasPublicationLanguage">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isPublicationLanguageOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasPublications -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasPublications">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasReviewer -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasReviewer">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isReviewerOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasTitle -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasTitle">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasTitleLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasTitleLanguage">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isTitleLanguageOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isAuthorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isAuthorOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Author"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isCitedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isCitedBy">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#cites"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isClassificationCodeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isClassificationCodeOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#ClassificationCode"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#hasClassificationCode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isCoAuthorWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isCoAuthorWith">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Author"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Author"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#isCoAuthorWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isEditorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isEditorOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Editor"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isKeywordLanguageOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isKeywordLanguageOf">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isKeywordOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isKeywordOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isPublicationLanguageOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isPublicationLanguageOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isPublishedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isPublishedIn">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#hasPublications"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isReviewerOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isReviewerOf">
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isTitleLanguageOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isTitleLanguageOf">
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#isTitleOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#isTitleOf">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#hasTitle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#wasPublishedInYear -->
+
+    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#wasPublishedInYear">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#ACM_ClassificationCode -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#ACM_ClassificationCode">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#ClassificationCode"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#MSC_ClassificationCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Author -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Author">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#ClassificationCode"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Editor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Book -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Book">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Journal"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Proceedings"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#ClassificationCode -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#ClassificationCode">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Editor"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Editor -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Editor">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Journal -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Journal">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Proceedings"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Keyword">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Language"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Language -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Language">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#MSC_ClassificationCode -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#MSC_ClassificationCode">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#ClassificationCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Proceedings -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Proceedings">
+        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Publication -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Publication">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#PublicationYear">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Reviewer">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Source"/>
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Source -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Source">
+        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#Title -->
+
+    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#Title"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.5.1912) http://owlapi.sourceforge.net -->
+
