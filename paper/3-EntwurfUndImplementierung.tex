@@ -167,12 +167,22 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 
 Eins der Ziele dieser Arbeit war, eine Modellierung wissenschaftlicher Publikationen und dazu gehöriger Metadaten in der Form eines semantischen Netzes zu schaffen.
 Im zweiten Teil der Arbeit soll dann von dieser semantischen Repräsentation profitiert werden, indem möglichst viele verschiedene Metadaten in die Ermittlung der Ähnlichkeit zwischen zwei Publikationen berücksichtigt werden.
-Die bereits existierende $Ontology of Science$ \cite{ontosci} scheint auf dem ersten Blick einen ähnlichen Zweck zu erfüllen, hat jedoch einen ganz anderen Fokus.
+\\
+\\
+Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf dem ersten Blick einen ähnlichen Zweck zu erfüllen, hat jedoch einen ganz anderen Fokus.
 Sie modelliert eine ganze Domäne von wissenschaftlichen Akteuren, Ereignissen, Einrichtungen, Arbeiten und die dazwischen bestehenden Beziehungen.
-Sie bietet ferner eine recht detaillierte Aufteilung von wissenschaftlichen Publikationen.
+Sie bietet ferner eine recht detaillierte Aufteilung von wissenschaftlichen Publikationen in Unterkategorien (z.B. \textit{Technical report}, \textit{Book}, \textit{Thesis}, \textit{Journal article}, etc.).
 Dennoch eignet sich das Modell, das sie schafft, für Ähnlichkeitsanalysen zwischen Publikationen aufgrund von Metadaten eher schlecht.
-Viele Einheiten, die für solche Analysen von großem Interesse wären, werden durch die $Ontology of Science$ nicht erfasst.
+Viele Einheiten, die für solche Analysen von großem Interesse wären, werden durch die \textit{Ontology of Science} nicht erfasst.
 Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder Zitationen.
+\\
+\\
+Aus diesen Gründen schlägt die aktuelle Arbeit die \textit{Publications Ontology} vor.
+Diese modelliert die folgenden Klassen: ... und auch die entsprechenden, in der Regel invertierbaren, Beziehungen zwischen diesen Klassen (z.B. die Paare: hasAuthor - isAuthorOf, hasClassificationCode - isClassificationCodeOf, etc.).
+Ferner werden die folgenden für eine Publikation relevante Metadaten als Data Properties (?) dargestellt:
+Eine vollständige Auflistung der Klassen der \textit{Publications Ontology} sowie der Object und Data Properties bieten Abbildungen xyz an.
+Auf Abbildung aaa sind alle Klassen mit den dazugehörigen Unterklassen und die dazwischen herrschenden Beziehungen zu sehen.
+Abbildung bbb zeigt nochmal die Oberklassen mit den gelabelten Beziehungen (jedoch, aus ästetischen Gründen, nur in einer Richtung).
 
 \subsection{Mapping auf das entworfene Schema}
 % technische Details
