@@ -273,6 +273,41 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasAbstract -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasAbstract"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasAccessionNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasAccessionNumber"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasId"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/Ontology1339194027.owl#hasTitleString -->
+
+    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/Ontology1339194027.owl#hasTitleString"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
