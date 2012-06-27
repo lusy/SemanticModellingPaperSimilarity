@@ -18,14 +18,30 @@ def find_all_paths_max_depth(graph, start, end, maxd, currentd=0, path=[]):
                 paths.append(newpath)
     return paths
 
+def find_all_paths_max_depth_no_end(graph, start, maxd, currentd=0, path=[]):
+    if currentd > maxd:
+        return []
+    path = path + [start]
+    #if start == end:
+    #    return [path]
+    if not graph.has_node(start):
+        return []
+    paths = []
+    for node in graph[start]:
+        if node not in path:
+            newpaths = find_all_paths_max_depth(graph, node, maxd, currentd+1, path)
+            for newpath in newpaths:
+                paths.append(newpath)
+    return paths
+
 
 def main(args):
-    G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml.graphml')
-    #G = nx.Graph()
+    #G = nx.read_graphml('../data/testdata/head200_parsedcomplete_graphml.graphml')
+    G = nx.Graph()
     ###### Graph Nr 2 ###############################################
-    #G.add_nodes_from([('Publication_1', {'Class':'Publication'}), ('Publication_2', {'Class':'Publication'}), ('Keyword_1', {'Class':'Keyword'}), ('Keyword_2',{'Class':'Keyword'}), ('Keyword_3', {'Class':'Keyword'}), ('Publication_3', {'Class':'Publication'})])
+    G.add_nodes_from([('Publication_1', {'Class':'Publication'}), ('Publication_2', {'Class':'Publication'}), ('Keyword_1', {'Class':'Keyword'}), ('Keyword_2',{'Class':'Keyword'}), ('Keyword_3', {'Class':'Keyword'}), ('Publication_3', {'Class':'Publication'})])
 
-    #G.add_edges_from([('Publication_1', 'Keyword_1', {'Relation':'hasKeyword'}), ('Publication_2', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_2', 'Keyword_3', {'Relation':'hasKeyword'}), ('Publication_1', 'Publication_2', {'Relation':'cites'}), ('Publication_1', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_3', 'Keyword_3', {'Relation':'hasKeyword'})])
+    G.add_edges_from([('Publication_1', 'Keyword_1', {'Relation':'hasKeyword'}), ('Publication_2', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_2', 'Keyword_3', {'Relation':'hasKeyword'}), ('Publication_1', 'Publication_2', {'Relation':'cites'}), ('Publication_1', 'Keyword_2', {'Relation':'hasKeyword'}), ('Publication_3', 'Keyword_3', {'Relation':'hasKeyword'})])
     #################################################################
 
     ##### Graph Nr 4 ###############################################
@@ -99,7 +115,7 @@ def main(args):
                 # sim(a,p) = sum(all paths between a and p) <- Normalization???
 
     #Print final results
-    f = open('output_head200', 'w')
+    f = open('output_test1', 'w')
     f.write("------sim_pub------\n")
     for i in sim_pub.iterkeys():
         f.write(str(i))
