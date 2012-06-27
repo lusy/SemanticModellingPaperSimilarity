@@ -1,7 +1,8 @@
 set terminal png enhanced font  "Helvitica, 14" size 700,450
 set output 'mscClassFreq.png'
 set style data histogram
-set title 'Häufigkeit der MSC-Klassen im reduzierten zmath-Datensatz'
+set xlabel font "Helvitica, 10"
+set ylabel font "Helvitica, 10"
 set xlabel 'Anzahl MSC Klassen'
 set ylabel 'Anzahl Publikationen'
 set style fill solid 0.75 border -1
