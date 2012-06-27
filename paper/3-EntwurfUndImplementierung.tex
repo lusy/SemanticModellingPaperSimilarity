@@ -153,15 +153,29 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 % Was könnte vlt anders/besser realisiert werden
 % Vlt technische Details/Grenzen/Eckdaten (Laufzeit, Speicherplatz, etc)
 % Vlt Werkzeuge
-%Diese werden mit Hilfe von Ontology-Engineering-Tools und einem in $Python$ geschriebenen Parser auf ein semantisches Netz abgebildet, das in der Sprache $OWL$ modelliert ist.
-%
 
-% Mein Modell ist eigentlich ein semantisches Netz, worauf auch graphen-theoretische Methoden angewandt werden
+% Motivation für die Modellierung:
+% Ontology of Science z.b hat nen anderen Fokus;
+% modelliert eine ganze Domäne von wissenschaftlichen Akteuren, Ereignissen, Einrichtungen,..
+% das Modell, das sie bietet, ist für Ähnlichkeitsanalysen zwischen wissenschaftlichen Arbeiten nicht geeignet.
+% Was Ontology of Science zu einer Publikation modelliert: diverse Unterklassen (Report, Thesis, ...), Author, Topic, Publication Year
+% Was Ontology of Science zu einer Publikation NICHT modelliert (ist aber wichtig): Classification, Title, Keywords, Source (klar gekennzeichnet und in Relation zu der Publikation stehend), Zitationsrelationen
+
+% Die Klassen einzeln durchgehen + die Relationen: erklären warum genau diese relevant sind und modelliert werden sollen
+% erklären welche Metadaten genau für diese Arbeit von Relevanz sind
+% zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 
 \subsection{Mapping auf das entworfene Schema}
 % technische Details
 % Werkzeuge
 % Designentscheidungen (wir Mappen die Sprachen jedes mal mit/doch nicht, ...) begründen
+
+
+%Diese werden mit Hilfe von Ontology-Engineering-Tools und einem in $Python$ geschriebenen Parser auf ein semantisches Netz abgebildet, das in der Sprache $OWL$ modelliert ist.
+%
+
+% Mein Modell ist eigentlich ein semantisches Netz, worauf auch graphen-theoretische Methoden angewandt werden
+
 
 \subsection{Ein Ähnlichkeitsmaß für mathematische Publikationen}
 % Definieren
