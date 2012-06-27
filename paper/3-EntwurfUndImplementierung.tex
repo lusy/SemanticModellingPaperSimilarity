@@ -42,15 +42,16 @@ Dazu ist noch zu erwähnen, dass zu einer Publikation mehrere Autoren/Autorinnen,
 \\
 \\
 Der Datensatz hat ferner die folgenden Merkmale:\\
-% guck die Autorenstatistiken nochmal an oder lass die sein, die Zahlen sind komisch
 Jede Publikation hat im Schnitt $1.68$ Autoren.
 Die größte Anzahl an Wissenschaftler und Wissenschaftlerinnen, die zusammen eine Arbeit publiziert haben, ist 38.
 Die produktivsten Autoren sind Paul Erdös mit $1208$ Veröffentlichungen, Edoardo Ballico ($1100$ Publikationen), Lucien Godeaux ($794$ Publikationen) und Leonard Carlitz ($735$ Publikationen).
+Eine Verteilung der Autorenzahlen im $zmath$-Datensatz ist auf Abbildung \ref{fig:authorFreq} zu sehen\footnote{Publikationen, wo die Anzahl der Autoren, Zitationen, Keywords oder MSC-Klassen null ist, werden in den Diagrammen nicht berücksichtigt}.
 \\
 \\
 Das Paper mit dem größten Literaturverzeichnis zitiert 38 andere Arbeiten.
 Jede Publikation hat im Schnitt 0.27 Zitationen.
-Tabelle \ref{tab:citations} stellt die am öftesten zitierten Publikationen und die Anzahl ihrer Referenzen dar.
+Tabelle \ref{tab:citations} stellt die am öftesten zitierten Publikationen und die Anzahl ihrer Referenzen dar,
+die Häufigkeitsverteilung der Zitationen im Datensatz ist in Abbildung \ref{fig:citationFreq} dargestellt.
 
 \begin{table}[h]
 \centering
@@ -76,10 +77,8 @@ Tabelle \ref{tab:citations} stellt die am öftesten zitierten Publikationen und d
 Im Durchschnitt wurden pro Publikation 3 Keywords vergeben.
 Die maximale Anzahl von Keywords für eine Arbeit ist 219, die nächst große - 162.
 Tabelle \ref{tab:keywords} beinhaltet die am häufigsten vergebenen Keywords.
-%        'convergence'           'stability' 'functional analysis' 
-%                        18872                 16766                 15049 
-%                            'fluid mechanics'  'numerical examples'               (Other) 
-%                                            14185                 13874               8554787 
+Häufigkeitsverteilung der Keywords kann Abbildung \ref{fig:keywordFreq} entnommen weden.
+
 \begin{table}[h]
 \centering
 \begin{tabular}{| l | c |}
@@ -106,39 +105,47 @@ Die am häufigsten vorkommenden Sprachen sind: Englisch (mit $2,370,288$ Publikat
 Im Durchschnitt hat jede Arbeit 2 MSC Klassen, die Arbeit mit den meisten Klassen hat 61.
 $2,594,068$ Publikationen haben mindestens eine MSC Klasse.
 Die am häufigsten vergebenen MSC Klassen sind $68U99$ (Compuer Science -> Computing methodologies and applications), $80A20$ (Classical thermodynamics, heat transfer -> Heat and mass transfer, heat flow), $93C05$ (Systems theory; control -> Control systems -> Linear systems) und $68Q25$ (Computer Science -> Theory of computing -> Analysis of algorithms and problem complexity).
-%most frequent items:
-% '68U99'  '80A20'  '93C05'  '68Q25'  '68Q45'  (Other) 
-%    21502    15444    14991    14315    13294  6542345 
-%//68U99
-%--------
-%68-XX Computer Science
-%68Uxx Computing methodologies and applications
-%68U99 None of the above, but in this section
-%
-%//80A20
-%-------
-%80-XX Classical thermodynamics, heat transfer
-%80Axx Thermodynamics and heat transfer
-%80A20 Heat and mass transfer, heat flow
-%
-%//93C05
-%-------
-%93-XX Systems theory; control
-%93Cxx Control systems
-%93C05 Linear systems
-%
-%//68Q25 and 68Q45
-%-----------------
-%68-XX Computer Science
-%68Qxx Theory of computing
-%68Q25 Analysis of algorithms and problem complexity
-%68Q45 Formal languages and automata
-
+Abbildung \ref{fig:mscClassFreq} stellt die Verteilung der MSC-Klassen im Datensatz dar.
+\\
+\\
 Die Arbeiten, die der Datensatz enthält, sind in 89 verschiedenen Jahren veröffentlicht worden.
 Der früheste Eintrag (eine Arbeit vom schweizerischen Mathematiker Leonard Euler) stammt vom Jahr 1796.
 Es gibt auch jeweils eine Publikation von den Jahren 1879, 1914, 1924 und 1930.
 1931 ist mit 4041 Veröffentlichungen das erste Jahr, das mehr oder weniger vollständig im Datensatz vermerkt ist.
 Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
+
+
+\begin{figure}
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../data/statistics/authorFreq.png}
+        \caption{Autorenverteilung}
+        \label{fig:authorFreq}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../data/statistics/citationFreq.png}
+        \caption{Zitationsverteilung}
+        \label{fig:citationFreq}
+    \end{subfigure}
+    \newline
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../data/statistics/keyWordFreq.png}
+        \caption{Keywordverteilung}
+        \label{fig:keywordFreq}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../data/statistics/mscClassFreq.png}
+        \caption{Verteilung der MSC-Klassen}
+        \label{fig:mscClassFreq}
+    \end{subfigure}
+    \caption{Verteilungen einiger Metadaten im zmath-Datensatz}
+    \label{fig:frequencies}
+\end{figure}
 
 \subsection{Modellierung des semantischen Netzes}
 % Wie sieht es aus?
