@@ -178,6 +178,10 @@ Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder 
 \\
 \\
 Aus diesen Gründen schlägt die aktuelle Arbeit die \textit{Publications Ontology} vor.
+Die \textit{Publications Ontology} wird mit Hilfe der Ontologiebeschreibungssprache \textit{OWL} definiert.
+Die \textit{Web Ontology Language} (kurz \textit{OWL}) ist ein Standard des World Wide Web Consortiums (W3C), der die Wissensrepräsentation in der Form maschinenlesbarer Ontologien ermöglicht.
+\\
+\\
 Diese modelliert die folgenden Klassen: \textit{Publication}, \textit{Title}, \textit{Author}, \textit{Keyword}, \textit{ClassifiationCode} (mit Unterklassen \textit{ACM\_ClassifictionCode} und \textit{MSC\_ClassificationCode}), \textit{Editor}, \textit{Reviewer}, \textit{Language}, \textit{PublicationYear} und \textit{Source} (mit Unterklassen \textit{Book}, \textit{Journal} und \textit{Proceedings})
 und auch die entsprechenden, in der Regel invertierbaren, Beziehungen zwischen diesen Klassen (z.B. die Paare: \textit{hasAuthor} - \textit{isAuthorOf}, \textit{hasClassificationCode} - \textit{isClassificationCodeOf}, etc.).
 Ferner werden die folgenden, für eine Publikation relevanten, Metadaten als Data Properties dargestellt: \textit{Abstract}, \textit{Id} und \textit{Accession Number} (letztere ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
