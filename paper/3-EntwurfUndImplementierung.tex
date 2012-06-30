@@ -226,8 +226,6 @@ Bei den Object Properties geht es in der Regel aus deren Namen hervor, zwischen 
 z.B. stehen eine Publikation und ihr Titel in Relation \textit{hasTitle} zu einander, die inverse Relation \textit{isTitleOf} hält dann zwischen dem Titel und der Publikation.
 Abbildung \ref{fig:pubsOnto_relations} zeigt die Oberklassen der \textit{Publications Ontology} mit den dazu gehörigen gelabelten Beziehungen (es wird jedoch aus ästhetischen Gründen nur eine der beiden Richtungen dargestellt).
 Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikation (eines Individuums der Klasse Publikation) und einem Attribut, das zu dieser Publikation gehört, ab.
-% erkläre Unterschied Title-TitleString
-% erkläre andere Design entscheidungen
 
 \begin{figure}[hp]
     \centering
@@ -243,6 +241,18 @@ Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikat
     \label{fig:pubsOnto_relations}
 \end{figure}
 
+Eine besondere Designentscheidung ist, dass die drei Object Properties \textit{hasKeywordLanguage}, \textit{hasPublicationLanguage} und \textit{hasTitleLanguage} einzeln modelliert sind.
+Der Hintergrundgedanke dabei ist, dass eine Publikation oder die entsprechenden Metadaten: Keyword und Titel, auf mehreren Sprachen vorliegen können.
+Diese Definition erlaubt dann, dass z.B. der englische Begriff \textit{graph theory} und der Deutsche \textit{Graphentheorie} auf das selbe Keyword abgebildet werden können, was für eine spätere Ähnlichkeitsanalyse extrem sinnvoll wäre.
+\\
+\\
+Eine andere auffällige Besonderheit ist die Tatsache, dass sowohl die Klasse \textit{Title} als auch die Data Property \textit{hasTitleString} modelliert werden.
+% zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
+\\
+\\
+Das vorgeschlagene Ontologieschema ist möglichst allgemein gehalten, damit verschiedene Datensätze, die wissenschaftliche Publikationen beinhalten, darauf abgebildet werden können.
+Bei Bedarf kann das Schema unkompliziert erweitert werden:
+es können z.B. weitere Unterklassen von \textit{Source} oder \textit{ClassificationCode} definiert werden, sofern solche in dem aktuell betrachteten Datensatz vorhanden sind.
 
 
 %GraphML
