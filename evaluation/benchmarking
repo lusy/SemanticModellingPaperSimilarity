@@ -2,11 +2,18 @@ Short dics, no other performance optimization
 =============================================
 Laufzeit: O(n^4)
 
-515   Nodes -> 97   Publications -> 6.19021105766 Sec
-1898  Nodes -> 393  Publications -> 102.075402021 Sec
-4451  Nodes -> 995  Publications -> 622.173852921 Sec
-10359 Nodes -> 2509 Publications -> 4013.51781201 Sec
-22707 Nodes -> 5906 Publications -> 22630.2091651 Sec
+With Debug print
+----------------
+Head1000  -> 515   Nodes -> 97   Publications -> 6.19021105766 Sec
+Head4000  -> 1898  Nodes -> 393  Publications -> 102.075402021 Sec
+Head10000 -> 4451  Nodes -> 995  Publications -> 622.173852921 Sec
+Head25000 -> 10359 Nodes -> 2509 Publications -> 4013.51781201 Sec
+Head40000 -> 22707 Nodes -> 5906 Publications -> 22630.2091651 Sec
+
+No Debug print
+--------------
+Head1000  -> 515   Nodes -> 97   Publications -> 6.18429207802 Sec
+Head10000 -> 4451  Nodes -> 995  Publications -> 627.383505106 Sec
 
 -----------------------------------------------------
 Essential node pairs don't actually bring anything (or I'm implementing them stupidely).
