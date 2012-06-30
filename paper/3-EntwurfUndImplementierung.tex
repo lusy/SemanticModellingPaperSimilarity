@@ -247,6 +247,10 @@ Diese Definition erlaubt dann, dass z.B. der englische Begriff \textit{graph the
 \\
 \\
 Eine andere auffällige Besonderheit ist die Tatsache, dass sowohl die Klasse \textit{Title} als auch die Data Property \textit{hasTitleString} modelliert werden.
+Diese Entscheidung beruht auf der Idee, dass ein Individuum der Klasse \textit{Publication} mittels \textit{hasTitleString} mit seinem exakten Titel (einer Instanz des Datentyps \textit{string}) verknüpft werden kann.
+Aus diesem Stringdatenwert können dann später die Schlüsselbegriffe extrahiert werden und als ein \textit{Bag of words}\footnote{Bag of words bezeichnet in den Feldern der Information Retrieval und Natural Language Processing eine ungeordnete Menge von Wörtern} auf ein Individuum der Klasse \textit{Title} abgebildet werden.
+Somit können Titel verschiedener Publikationen, die die gleichen bedeutsamen Begriffe enthalten, auf das selbe Individuum der Klasse \textit{Title} abgebildet werden.
+Das ist jedoch eine Möglichkeit, die die aktuelle Arbeit nicht mehr realisiert und die zukünftig näher untersucht werden kann.
 % zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 \\
 \\
