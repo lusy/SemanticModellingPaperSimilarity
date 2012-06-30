@@ -43,3 +43,14 @@ C-Rank: 23795 Publications
 Local-similarity
 ================
 515   Nodes -> 97   Publications -> 218.xxxxxx Sec
+
+Stripped data set, node counts:
+===============================
+1154950 publications
+453196 sources
+696941 authors
+1281894 mscClasses
+1931430 keywords
+89 publication Years
+Nodes alltogether, without publication years: 5518411
+Nodes alltogether, with publication years: 5518500
