@@ -187,23 +187,6 @@ Alle allgemeinen Kategorien (Publikation, Autor, Quelle, etc.) werden dabei als 
 Die gelabelten Kanten dieses semantischen Netzes sind die Relationen zwischen einem Paper und seinen Metadaten.
 Manche Klassen, bzw. die dazugehörigen Individuen, besitzen auch Attribute.
 Z.B. hat jedes Individuum der Klasse \textit{Publication} das Attribut \textit{Id} und kann optional auch die Attribute \textit{Abstract}, \textit{AccessionNumber} oder \textit{TitleString} haben.
-\\
-\\
-Die \textit{Publications Ontology} modelliert die folgenden Klassen: \textit{Publication}, \textit{Title}, \textit{Author}, \textit{Keyword}, \textit{ClassifiationCode} (mit Unterklassen \textit{ACM\_ClassifictionCode} und \textit{MSC\_ClassificationCode}), \textit{Editor}, \textit{Reviewer}, \textit{Language}, \textit{PublicationYear} und \textit{Source} (mit Unterklassen \textit{Book}, \textit{Journal} und \textit{Proceedings})
-und auch die entsprechenden, in der Regel invertierbaren, Beziehungen zwischen diesen Klassen (z.B. die Paare: \textit{hasAuthor} - \textit{isAuthorOf}, \textit{hasClassificationCode} - \textit{isClassificationCodeOf}, etc.).
-Im Sinne von \textit{OWL} werden letztere als Object Properties definiert.
-Object Properties beschreiben in \textit{OWL} abstrakte Rollen, die zwischen zwei Individuen halten \cite{Hitzler:2007:SW}.
-Ferner werden die folgenden, für eine Publikation relevanten, Metadaten als Data Properties dargestellt:
-\textit{Abstract}, \textit{Id}, \textit{TitleString} und \textit{Accession Number} (letzteres ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
-Data Properties oder konkrete Rollen verbinden in \textit{OWL} Individuen mit Datenwerten \cite{Hitzler:2007:SW}.
-Eine vollständige Auflistung der Klassen der \textit{Publications Ontology} sowie der Object und Data Properties bietet Abbildung \ref{fig:pubOntoClOPDP} an.
-Auf Abbildung aaa sind alle Klassen mit den dazugehörigen Unterklassen und die dazwischen herrschenden Beziehungen zu sehen.
-Bei den Object Properties geht es in der Regel aus deren Namen hervor, zwischen Individuen welcher zwei Klassen diese halten:
-z.B. stehen eine Publikation und ihr Titel in Relation \textit{hasTitle} zu einander, die inverse Relation \textit{isTitleOf} hält dann zwischen dem Titel und der Publikation.
-Abbildung bbb zeigt die Oberklassen der \textit{Publications Ontology} mit den dazu gehörigen gelabelten Beziehungen (es wird jedoch aus ästhetischen Gründen nur eine der beiden Richtungen dargestellt).
-Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikation (eines Individuums der Klasse Publikation) und einem Attribut, das zu dieser Publikation gehört, ab.
-% erkläre Unterschied Title-TitleString
-% erkläre andere Design entscheidungen
 
 \begin{figure}
     \begin{subfigure}[h]{0.3\textwidth}
@@ -229,6 +212,38 @@ Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikat
     \caption{Classes, Object Properties und Data Properties der \textit{Publications Ontology}}
     \label{fig:pubOntoClOPDP}
 \end{figure}
+
+Die \textit{Publications Ontology} modelliert die folgenden Klassen: \textit{Publication}, \textit{Title}, \textit{Author}, \textit{Keyword}, \textit{ClassifiationCode} (mit Unterklassen \textit{ACM\_ClassifictionCode} und \textit{MSC\_ClassificationCode}), \textit{Editor}, \textit{Reviewer}, \textit{Language}, \textit{PublicationYear} und \textit{Source} (mit Unterklassen \textit{Book}, \textit{Journal} und \textit{Proceedings})
+und auch die entsprechenden, in der Regel invertierbaren, Beziehungen zwischen diesen Klassen (z.B. die Paare: \textit{hasAuthor} - \textit{isAuthorOf}, \textit{hasClassificationCode} - \textit{isClassificationCodeOf}, etc.).
+Im Sinne von \textit{OWL} werden letztere als Object Properties definiert.
+Object Properties beschreiben in \textit{OWL} abstrakte Rollen, die zwischen zwei Individuen halten \cite{Hitzler:2007:SW}.
+Ferner werden die folgenden, für eine Publikation relevanten, Metadaten als Data Properties dargestellt:
+\textit{Abstract}, \textit{Id}, \textit{TitleString} und \textit{Accession Number} (letzteres ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
+Data Properties oder konkrete Rollen verbinden in \textit{OWL} Individuen mit Datenwerten \cite{Hitzler:2007:SW}.
+Eine vollständige Auflistung der Klassen der \textit{Publications Ontology} sowie der Object und Data Properties bietet Abbildung \ref{fig:pubOntoClOPDP} an.
+Auf Abbildung \ref{fig:pubsOnto} sind alle Klassen mit den dazugehörigen Unterklassen und die dazwischen herrschenden Beziehungen zu sehen.
+Bei den Object Properties geht es in der Regel aus deren Namen hervor, zwischen Individuen welcher zwei Klassen diese halten:
+z.B. stehen eine Publikation und ihr Titel in Relation \textit{hasTitle} zu einander, die inverse Relation \textit{isTitleOf} hält dann zwischen dem Titel und der Publikation.
+Abbildung \ref{fig:pubsOnto_relations} zeigt die Oberklassen der \textit{Publications Ontology} mit den dazu gehörigen gelabelten Beziehungen (es wird jedoch aus ästhetischen Gründen nur eine der beiden Richtungen dargestellt).
+Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikation (eines Individuums der Klasse Publikation) und einem Attribut, das zu dieser Publikation gehört, ab.
+% erkläre Unterschied Title-TitleString
+% erkläre andere Design entscheidungen
+
+\begin{figure}[hp]
+    \centering
+    \includegraphics[angle=90,scale=0.5]{../deps/publications_ontology.png}
+    \caption{Publications Ontology: alle Klassen und Unterklassen}
+    \label{fig:pubsOnto}
+\end{figure}
+
+\begin{figure}[hpt]
+    %\centering
+    \includegraphics[scale=0.4]{../deps/publications_ontology_relations.png}
+    \caption{Publications Ontology: Relationen zwischen den Oberklassen}
+    \label{fig:pubsOnto_relations}
+\end{figure}
+
+
 
 %GraphML
 % alternative Repräsentation mit dem Ziel Resourcen zu sparren (wird viel weniger Speicherplatz verbraucht)
