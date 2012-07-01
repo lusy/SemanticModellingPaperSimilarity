@@ -175,10 +175,11 @@ Sie bietet ferner eine recht detaillierte Aufteilung von wissenschaftlichen Publ
 Dennoch eignet sich das Modell, das sie schafft, für Ähnlichkeitsanalysen zwischen Publikationen aufgrund von Metadaten eher schlecht.
 Viele Einheiten, die für solche Analysen von großem Interesse wären, werden durch die \textit{Ontology of Science} nicht erfasst.
 Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder Zitationen.
-\\
-\\
+
+
+\subsubsection{Ontologieschema in OWL}
 Aus diesen Gründen schlägt die aktuelle Arbeit die \textit{Publications Ontology} vor.
-Die \textit{Publications Ontology} hat die Form eines semantischen Netzes, das mit Hilfe der Ontologiebeschreibungssprache \textit{OWL} definiert wurde.
+Die \textit{Publications Ontology} hat die Form eines semantischen Netzes, das mit Hilfe der Ontologiebeschreibungssprache \textit{OWL}\footnote{http://www.w3.org/TR/owl2-overview/} definiert wurde.
 Die \textit{Web Ontology Language} (kurz \textit{OWL}) ist ein Standard des World Wide Web Consortiums (W3C), der die Wissensrepräsentation in der Form maschinenlesbarer Ontologien ermöglicht.
 \\
 \\
@@ -258,6 +259,29 @@ Das ist jedoch eine Möglichkeit, die die aktuelle Arbeit nicht mehr realisiert u
 Das vorgeschlagene Ontologieschema ist möglichst allgemein gehalten, damit verschiedene Datensätze, die wissenschaftliche Publikationen beinhalten, darauf abgebildet werden können.
 Bei Bedarf kann das Schema unkompliziert erweitert werden:
 es können z.B. weitere Unterklassen von \textit{Source} oder \textit{ClassificationCode} definiert werden, sofern solche in dem aktuell betrachteten Datensatz vorhanden sind.
+
+
+\subsubsection{GraphML}
+An der Stelle wird kurz erwähnt, dass die \textit{OWL}-Modellierung nicht die Wissensrepräsentation ist, die auch tatsächlich in der aktuellen Arbeit für die weiteren Ähnlichkeitsanalysen verwendet wird.
+Anstatt dessen wird die semantische Ähnlichkeit zwischen zwei wissenschaftlichen Publikationen aufgrund von einer \textit{GraphML}-Modellierung\footnote{\textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
+Sie unterstützt ungerichtete, gerichtete, gemischte, Hyper- und Multigraphen.
+Ferner können sowohl Knoten als auch Kanten beliebige Attribute zugeordnet werden.
+Eine vollständige Dokumentation von \textit{GraphML} ist unter graphml.graphdrawing.org/primer/graphml-primer.htm zu finden.
+} berechnet.
+Die Überführung der \textit{Publications Ontology} vom \textit{OWL}-Schema ins \textit{GraphML}-Schema ist weitgehend unproblematisch, da bei der \textit{OWL}-Modellierung keine spezifische \textit{OWL}-Features benutzt werden.
+\\
+\\
+Die Motivation hierfür ist Ressourcensparren.
+Wie bereits angedeutet, beinhaltet der von dieser Arbeit benutzte Testdatensatz die Metadaten zu $2,907,086$ Publikationen.
+Eine \textit{OWL}-Repräsentation der vollständigen Daten wird $8.9$ Gb groß, dagegen ist die \textit{GraphML}-Repräsentation davon nur $4.8$ Gb.
+Das ist an der Stelle von besonderer Bedeutung, da der Ähnlichkeitsberechnungsalgorithmus zunächst die Gesamtdaten in den Arbeitsspeicher lädt und darauf arbeit.
+\\
+\\
+Wie sieht die GraphML-Modellierung aus?
+
+
+% Beschreibung GraphML
+% möglich, da keine spezielle OWL-Features genutzt werden
 
 
 %GraphML
