@@ -1,21 +1,4 @@
     <Declaration>
-        <Class IRI="#Publication"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Author"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Keyword"/>
-    </Declaration>
-
-    <Declaration>
-        <ObjectProperty IRI="#hasAuthor"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasKeyword"/>
-    </Declaration>
-
-    <Declaration>
         <NamedIndividual IRI="#Publication_123456"/>
     </Declaration>
     <ClassAssertion>
