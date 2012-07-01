@@ -274,10 +274,18 @@ Die Überführung der \textit{Publications Ontology} vom \textit{OWL}-Schema ins \
 Die Motivation hierfür ist Ressourcensparren.
 Wie bereits angedeutet, beinhaltet der von dieser Arbeit benutzte Testdatensatz die Metadaten zu $2,907,086$ Publikationen.
 Eine \textit{OWL}-Repräsentation der vollständigen Daten wird $8.9$ Gb groß, dagegen ist die \textit{GraphML}-Repräsentation davon nur $4.8$ Gb.
-Das ist an der Stelle von besonderer Bedeutung, da der Ähnlichkeitsberechnungsalgorithmus zunächst die Gesamtdaten in den Arbeitsspeicher lädt und darauf arbeit.
-\\
-\\
-Wie sieht die GraphML-Modellierung aus?
+Das ist an der Stelle von besonderer Bedeutung, da der Ähnlichkeitsberechnungsalgorithmus zunächst die Gesamtdaten in den Arbeitsspeicher lädt und darauf arbeitet.
+Zum Vergleich werden hier zwei Codeausschnitte aufgeführt, die die \textit{OWL}- bzw. \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und 2 Keywords \textit{graph theory} und \textit{shortest path} darstellen.
+
+\begin{program}
+\input{diagrams/pub_graphml_example}
+\caption{Die \textit{GraphML}-Repräsentation}
+\end{program}
+
+\begin{program}
+\input{diagrams/pub_owl_example}
+\caption{Die \textit{OWL}-Repräsentation}
+\end{program}
 
 
 % Beschreibung GraphML
