@@ -1,0 +1,64 @@
+    <Declaration>
+        <Class IRI="#Publication"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Author"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Keyword"/>
+    </Declaration>
+
+    <Declaration>
+        <ObjectProperty IRI="#hasAuthor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKeyword"/>
+    </Declaration>
+
+    <Declaration>
+        <NamedIndividual IRI="#Publication_123456"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Publication"/>
+        <NamedIndividual IRI="#Publication_123456"/>
+    </ClassAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#smith.john"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Author"/>
+        <NamedIndividual IRI="#smith.john"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasAuthor"/>
+        <NamedIndividual IRI="#Publication_123456"/>
+        <NamedIndividual IRI="#smith.john"/>
+    </ObjectPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#graph_theory"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Keyword"/>
+        <NamedIndividual IRI="#graph_theory"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasKeyword"/>
+        <NamedIndividual IRI="#Publication_123456"/>
+        <NamedIndividual IRI="#graph_theory"/>
+    </ObjectPropertyAssertion>
+
+    <Declaration>
+        <NamedIndividual IRI="#shortest_path"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="#Keyword"/>
+        <NamedIndividual IRI="#shortest_path"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasKeyword"/>
+        <NamedIndividual IRI="#Publication_123456"/>
+        <NamedIndividual IRI="#shortest_path"/>
+    </ObjectPropertyAssertion>
+
