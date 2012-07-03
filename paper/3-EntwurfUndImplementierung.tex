@@ -323,6 +323,149 @@ Zum Vergleich werden hier zwei Codeausschnitte aufgeführt, die die \textit{OWL}-
 
 % Idee von paper \cite{Yang:2009:TRSN} nutzen, um das Maß zu definieren
 
+In Anlehnung an den Arbeiten von Jeh und Widom \cite{simrank2002}, Zhao, Han und Sun \cite{ZhaoHS09} und Yoon, Kim und Park \cite{DBLP:journals/corr/abs-1109-1059}
+wird ein Ähnlichkeitsmaß, das semantische Relationen zwischen den Metadaten von wissenschaftlichen Publikationen berücksichtigt, vorgeschlagen.
+Die Version, die hier betrachtet wird, bezieht die folgenden Metadaten eines Papers ein: Autor, Quelle, Erscheinungsjahr, Keywords und Zitationen.
+Wenn jedoch weitere Metadaten in einer sinnvollen Form vorhanden sind\footnote{Beispiel hierfür wäre der schon angesprochene Titel in der Form \textit{Bag of words}},
+kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung miteinfließen.
+\\
+\\
+Es wird rekursiv die Ähnlichkeit zwischen jeden 2 Elementen, die der selben Kategorie angehören, aufgrund von den semantischen Relationen im modellierten semantischen Metadatengraphen für wissenschaftliche Publikationen ermittelt: jeden 2 Publikationen, jeden 2 Keywords, jeden 2 Autoren, jeden 2 Quellen und jeden 2 Erscheinungsjahren.
+Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
+Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Kategorie werden nur die Beziehungen zwischen Elementen der entsprechenden Kategorie und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen semantischen Netz modelliert sind.
+(Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords werden nur Relationen (Keyword \textit{isKeywordOf} Publikation) berücksichtigt, da Keywords in keinen anderen Relationen teilnehmen.)
+\\
+\\
+Die folgende Definition veranschaulicht das Maß.
+
+%Maßdefinition rekursiv
+\begin{mydef}[Semantische Ähnlichkeit - rekursiv]
+
+\[
+sim(a,b) = 1 \quad \text{wenn } a=b
+\]
+\newline
+\text{sonst}
+\newline
+\text{wenn a und b Publikationen:}
+\[
+\begin{array}{lcl}
+ sim(a,b) & = & 
+        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
+        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} sim(K_i(a),K_j(b))
+        \\ & + &
+        \lambda_2\times\cfrac{c}{|A(a)||A(b)|}
+        \sum_{i=1}^{|A(a)|} \sum_{j=1}^{|A(b)|} sim(A_i(a),A_j(b))
+        \\ & + &
+        \lambda_3\times\cfrac{c}{|S(a)||S(b)|}
+        \sum_{i=1}^{|S(a)|} \sum_{j=1}^{|S(b)|} sim(S_i(a),S_j(b))
+        \\ & + &
+        \lambda_4\times\cfrac{c}{|C(a)||C(b)|}
+        \sum_{i=1}^{|C(a)|} \sum_{j=1}^{|C(b)|} sim(C_i(a),C_j(b))
+        \\ & + &
+        \lambda_5\times\cfrac{c}{|Y(a)||Y(b)|}
+        \sum_{i=1}^{|Y(a)|} \sum_{j=1}^{|Y(b)|} sim(Y_i(a),Y_j(b))
+\end{array}
+\]
+\newline
+\text{wenn a und b Elemente einer anderen Kategorie:}
+\[
+sim(a,b)  = 
+        \cfrac{c}{|L(a)||L(b)|}
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} sim(L_i(a),L_j(b))
+\]
+\newline
+\newline
+\newline
+wobei $K$ alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation darstellen.
+Dabei wird mit $K(a)$ die Menge aller Keywords von Paper a bezeichnet.
+(Die Menge aller Elemente, die in Relation $hasKeyword$ zum Paper a stehen.)
+$K_i(a)$ ist dann das i. Keyword von a.
+(Analog sind $A(a)$ alle Autoren von Paper a, $A_i(a)$ ist der i. Autor von Paper a u.s.w.)
+$L(a)$ und $L(b)$ beschreiben für 2 Elemente a und b, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit a, bzw b, in Relation stehen.
+\newline
+\newline
+$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
+\newline
+\newline
+$c$ ist ein Dämfungsfaktor, $c\in [0..1]$; c wird in Anlehnung an \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} bestimmt, die verschiedenen Werte ausprobieren und eine optimale Konstante in dem jeweiligen Fall vorschlagen.
+\newline
+\end{mydef}
+
+Die rekursive Definition kann folgendermaßen iterativ umgeschrieben werden.
+\cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} haben gezeigt, dass die so definierten iterativen Gleichungen zu einem Fixpunkt konvergieren.
+
+%Maßdefinition
+\begin{mydef}[Semantische Ähnlichkeit - iterativ]
+
+\[
+ R_0(a,b) =
+    \begin{cases}
+     1 & \text{wenn } $a$ = $b$ \\
+     0 & \text{sonst}\\
+    \end{cases}
+\]
+\newline
+\text{wenn a und b Publikationen:}
+\[
+\begin{array}{lcl}
+ R_{k+1}(a,b) & = & 
+        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
+        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} R_k(K_i(a),K_j(b))
+        \\ & + &
+        \lambda_2\times\cfrac{c}{|A(a)||A(b)|}
+        \sum_{i=1}^{|A(a)|} \sum_{j=1}^{|A(b)|} R_k(A_i(a),A_j(b))
+        \\ & + &
+        \lambda_3\times\cfrac{c}{|S(a)||S(b)|}
+        \sum_{i=1}^{|S(a)|} \sum_{j=1}^{|S(b)|} R_k(S_i(a),S_j(b))
+        \\ & + &
+        \lambda_4\times\cfrac{c}{|C(a)||C(b)|}
+        \sum_{i=1}^{|C(a)|} \sum_{j=1}^{|C(b)|} R_k(C_i(a),C_j(b))
+        \\ & + &
+        \lambda_5\times\cfrac{c}{|Y(a)||Y(b)|}
+        \sum_{i=1}^{|Y(a)|} \sum_{j=1}^{|Y(b)|} R_k(Y_i(a),Y_j(b))
+\end{array}
+\]
+\newline
+\text{wenn a und b Elemente einer anderen Kategorie:}
+\[
+R_{k+1}(a,b)  = 
+        \cfrac{c}{|L(a)||L(b)|}
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_k(L_i(a),L_j(b))
+\]
+\end{mydef}
+Das so definierte Maß hat die Eigenschaften Symmetrie, Monotonie, Existenz und Eindeutigkeit.
+Die entsprechenden Beweise können aus \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} entnommen werden.
+\newline
+\newline
+Das vorgeschlagene Maß grenzt sich folgendermaßen von früheren Arbeiten ab:
+\\
+\\
+SimRank und rvs-SimRank \cite{simrank2002} messen allgemeine strukturelle Ähnlichkeit in Graphstrukturen, jeweils auf die ein- bzw. auf die ausgehenden Kanten des Graphs gestützt.
+\\
+\\
+P-Rank \cite{ZhaoHS09} verallgemeinert die zwei Maße, indem es sowohl ein- als auch ausgehenden Kanten von Informationsnetzwerken, in einer bestimmten Gewichtung, betrachtet.
+\\
+\\
+C-Rank \cite{DBLP:journals/corr/abs-1109-1059} bezieht sich schon, im Gegensatz zu allen eben erwähnten Ansätzen, konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen. Das Maß berücksichtigt aber nur Zitationen und unterscheidet die Richtung des Zitats nicht (d.h. unterscheidet nicht, ob Paper $A$ Paper $B$ zitiert oder anders rum).
+
+% Notes on accuracy, decay factor and convergence:
+% ------------------------------------------------
+
+% Accuracy: C-Rank > SimRank > P-Rank > rvs-SimRank
+
+% Number of iterations:
+% SimRank converges at k = 3,
+% rvs-SimRank converges at k = 5,
+% P-Rank converges at k = 6,
+% C-Rank converges at k = 9.
+
+% Decay factor:
+% It is obvious that the similarity score of C-Rank increases with the increase of C.
+% When C = 0.2, C-Rank converges fast at k = 2.
+% When C = 0.8, on the other hand, C-Rank converges at the 9-th iteration.
+% When C is low, the recursive power of C-Rank is weakened such that only the papers in local or near-local neighborhood are used in similarity computation.
+% When C is high, more papers in a more global neighborhood can be used in computing the similarity recursively. When C is high, therefore, the convergence takes more time.
 \subsection{Mapping auf das entworfene Schema}
 % technische Details
 % Werkzeuge
