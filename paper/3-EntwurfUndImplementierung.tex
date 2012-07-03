@@ -263,7 +263,7 @@ es können z.B. weitere Unterklassen von \textit{Source} oder \textit{Classificat
 
 
 \subsubsection{GraphML}
-An der Stelle wird kurz erwähnt, dass die \textit{OWL}-Modellierung nicht die Wissensrepräsentation ist, die auch tatsächlich in der aktuellen Arbeit für die weiteren Ähnlichkeitsanalysen verwendet wird.
+An der Stelle wird erwähnt, dass die \textit{OWL}-Modellierung nicht die Wissensrepräsentation ist, die auch tatsächlich in der aktuellen Arbeit für die weiteren Ähnlichkeitsanalysen verwendet wird.
 Anstatt dessen wird die semantische Ähnlichkeit zwischen zwei wissenschaftlichen Publikationen aufgrund von einer \textit{GraphML}-Modellierung\footnote{\textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
 Sie unterstützt ungerichtete, gerichtete, gemischte, Hyper- und Multigraphen.
 Ferner können sowohl Knoten als auch Kanten beliebige Attribute zugeordnet werden.
@@ -314,16 +314,17 @@ Genau dieser Größenunterschied ist was letztere vor allem motiviert.
 \\
 Zudem ist jeweils noch ein Datensatz in \textit{OWL}- bzw. \textit{GraphML}-Format entstanden und zwar einer, der nur die \textit{OWL}-/\textit{GraphML}-Repräsentation von Publikationen enthält, von denen vollständige (aus der Sicht des vorgeschlagenen Ähnlichkeitsmaßes) Metadaten vorhanden sind.
 Genauer gesagt enthalten diese Datensätze nur Publikationen, für die Autor, Keywords, Quelle, Erscheinungsjahr und Zitationen alle gleichzeitig vorliegen.
-Die eigentliche Analyse wird im Anschluss genau auf die Datensätze ausgewertet und zwar aus zweierlei Gründen.
+Diese reduzierten Datensätze beinhalten dann nur noch $1,154,950$ Publikationen.
+Die eigentliche Analyse wird im Anschluss genau auf die Datensätze durchgeführt und zwar aus zweierlei Gründen.
 \\
 \\
-Zu einem ist das Ziel dieser Arbeit, festzustellen inwiefern eine semantische Ähnlichkeitsanaylse von wissenschaftlichen Publikationen sinnvolle Ergebnisse liefert.
+Zu einem ist das Ziel dieser Arbeit, festzustellen inwiefern eine semantische Ähnlichkeitsanaylse von wissenschaftlichen Publikationen aufgrund von Metadaten und den entsprechenden Beziehungen zwischen den Publikationen und diesen Metadaten sinnvolle Ergebnisse liefert.
 Hierfür ist das Vorhandensein von einem möglichst vollständigen Satz von Metadaten von besonderer Bedeutung.
-Es ist logisch, dass wenn wir eine Ähnlichkeitsanalyse aufgrund von einer gewichteten Kombination von 5 verschiedenen Arten von Metadaten durchführen, werden Papers, für die nicht alle 5 Arten von Metadaten vorliegen, in dem Sinne benachteiligt, dass sie als weniger ähnlich zu anderen Publikationen gewertet werden im Vergleich zu Publikationspaaren, für die vollständige Metadaten da sind.
+Es ist logisch, dass wenn die Ähnlichkeitsberechnung eine gewichtete Kombination von 5 verschiedenen Arten von Metadaten beinhaltet, werden Papers, für die nicht alle 5 Arten von Metadaten vorliegen, in dem Sinne benachteiligt, dass sie als weniger ähnlich zu anderen Publikationen gewertet werden im Vergleich zu Publikationspaaren, für die vollständige Metadaten da sind.
 \\
 \\
-Zum anderen wird dieses Trimming/Pruning vom Datensatz wieder aus Effizienz- und Resourcenspargründen vorgenommen: mit $4.8$ Gb ist die \textit{GraphML}-Repräsentation des gesamten \textit{zmath}-Datensatzes immer noch zu umfangreich, um mit unseren Methoden effizient ausgewertet zu werden.
-Selbst wenn wir die Eingangsdaten in einer Datenbank speichern und nicht in den Speicher laden müssen, haben wir immer noch die Probleme mit $O(n^4)$ Laufzeit auf 3 Mio Knoten und der Erstellung einer Ähnlichkeitsmatrix, die im schlimmsten Fall $O(n^2)$ Platz verbraucht.
+Zum anderen wird dieses Pruning vom Datensatz wieder aus Effizienz- und Resourcenspargründen vorgenommen: mit $4.8$ Gb ist die \textit{GraphML}-Repräsentation des gesamten \textit{zmath}-Datensatzes immer noch zu umfangreich, um mit unseren Methoden effizient ausgewertet zu werden.
+Selbst wenn wir die Eingangsdaten in einer Datenbank speichern und nicht in den Speicher laden müssen, haben wir immer noch die Probleme mit $O(n^4)$ Laufzeit auf 3 Millionen Knoten und der Erstellung einer Ähnlichkeitsmatrix, die im schlimmsten Fall $O(n^2)$ Platz verbraucht.
 
 %Diese werden mit Hilfe von Ontology-Engineering-Tools und einem in $Python$ geschriebenen Parser auf ein semantisches Netz abgebildet, das in der Sprache $OWL$ modelliert ist.
 % datensatz ist trimmed
