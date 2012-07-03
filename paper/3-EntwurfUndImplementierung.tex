@@ -148,6 +148,7 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 \end{figure}
 
 \subsection{Modellierung des semantischen Netzes}
+\label{subsec:modell}
 % Wie sieht es aus?
 % Welche Überlegungen gab es bei der Designentscheidung? Warum hab ich an Stellen, wo mehrere Ansätze möglich waren genau das gewählt?
 % Was könnte vlt anders/besser realisiert werden
@@ -275,26 +276,16 @@ Die Motivation hierfür ist Ressourcensparren.
 Wie bereits angedeutet, beinhaltet der von dieser Arbeit benutzte Testdatensatz die Metadaten zu $2,907,086$ Publikationen.
 Eine \textit{OWL}-Repräsentation der vollständigen Daten wird $8.9$ Gb groß, dagegen ist die \textit{GraphML}-Repräsentation davon nur $4.8$ Gb.
 Das ist an der Stelle von besonderer Bedeutung, da der Ähnlichkeitsberechnungsalgorithmus zunächst die Gesamtdaten in den Arbeitsspeicher lädt und darauf arbeitet.
-Zum Vergleich werden hier zwei Codeausschnitte aufgeführt (siehe Listing \ref{pro:graphml} und \ref{pro:owl}), die die \textit{OWL}- bzw. \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und 2 Keywords \textit{graph theory} und \textit{shortest path} darstellen.
-\\
-\\
-Wie bereits am Code zu erkennen ist, werden bei der \textit{GraphML}-Repräsentation jede Publikation und jedes dazugehörige Metadatum als Knoten eines Graphen modelliert.
-Die Klasse, zu der jedes Metadatum gehört, wird dann als Knotenattribut gespeichert.
-Die Beziehungen zwischen einer Publikation und einem Metadatum stellen die Kanten des Graphen dar.
-Die Art der Beziehung wird wieder als Attribut modelliert, jedoch der Kante.
-Auf eine explizite Modellierung beider Relationen, die zwischen einer Publikation und einem Metadatum halten (z.B. \textit{hasAuthor} und \textit{isAuthorOf}), wird um Speicherplatz zu sparen verzichtet.
+Zum Vergleich werden hier zwei Codeausschnitte aufgeführt, die die \textit{OWL}- bzw. \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und 2 Keywords \textit{graph theory} und \textit{shortest path} darstellen.
 
-
-\begin{program}[h!]
+\begin{program}
 \input{diagrams/pub_graphml_example}
 \caption{Die \textit{GraphML}-Repräsentation}
-\label{pro:graphml}
 \end{program}
 
-\begin{program}[hp]
+\begin{program}
 \input{diagrams/pub_owl_example}
 \caption{Die \textit{OWL}-Repräsentation}
-\label{pro:owl}
 \end{program}
 
 
@@ -315,9 +306,27 @@ Auf eine explizite Modellierung beider Relationen, die zwischen einer Publikatio
 % Werkzeuge
 % Designentscheidungen (wir Mappen die Sprachen jedes mal mit/doch nicht, ...) begründen
 
+Um das vorgeschlagene Ähnlichkeitsmaß für wissenschaftliche Publikationen auswerten zu können, wird der Testdatensatz vom Zentralblatt Mathematik auf das im Kapitel \ref{subsec:modell} vorgestellte semantische Schema abgebildet.
+Mit Hilfe von einem in \textit{Python} geschriebenen Parser werden die Daten vom \textit{zmath}-Datensatz sowohl in \textit{OWL}- als auch in \textit{GraphML}-Format überführt.
+Wie bereits erwähnt ist die \textit{OWL}-Repräsentation der vollständigen Daten $8.9$ Gb groß, die \textit{GraphML}-Repräsentation davon ist nur $4.8$ Gb.
+Genau dieser Größenunterschied ist was letztere vor allem motiviert.
+\\
+\\
+Zudem ist jeweils noch ein Datensatz in \textit{OWL}- bzw. \textit{GraphML}-Format entstanden und zwar einer, der nur die \textit{OWL}-/\textit{GraphML}-Repräsentation von Publikationen enthält, von denen vollständige (aus der Sicht des vorgeschlagenen Ähnlichkeitsmaßes) Metadaten vorhanden sind.
+Genauer gesagt enthalten diese Datensätze nur Publikationen, für die Autor, Keywords, Quelle, Erscheinungsjahr und Zitationen alle gleichzeitig vorliegen.
+Die eigentliche Analyse wird im Anschluss genau auf die Datensätze ausgewertet und zwar aus zweierlei Gründen.
+\\
+\\
+Zu einem ist das Ziel dieser Arbeit, festzustellen inwiefern eine semantische Ähnlichkeitsanaylse von wissenschaftlichen Publikationen sinnvolle Ergebnisse liefert.
+Hierfür ist das Vorhandensein von einem möglichst vollständigen Satz von Metadaten von besonderer Bedeutung.
+Es ist logisch, dass wenn wir eine Ähnlichkeitsanalyse aufgrund von einer gewichteten Kombination von 5 verschiedenen Arten von Metadaten durchführen, werden Papers, für die nicht alle 5 Arten von Metadaten vorliegen, in dem Sinne benachteiligt, dass sie als weniger ähnlich zu anderen Publikationen gewertet werden im Vergleich zu Publikationspaaren, für die vollständige Metadaten da sind.
+\\
+\\
+Zum anderen wird dieses Trimming/Pruning vom Datensatz wieder aus Effizienz- und Resourcenspargründen vorgenommen: mit $4.8$ Gb ist die \textit{GraphML}-Repräsentation des gesamten \textit{zmath}-Datensatzes immer noch zu umfangreich, um mit unseren Methoden effizient ausgewertet zu werden.
+Selbst wenn wir die Eingangsdaten in einer Datenbank speichern und nicht in den Speicher laden müssen, haben wir immer noch die Probleme mit $O(n^4)$ Laufzeit auf 3 Mio Knoten und der Erstellung einer Ähnlichkeitsmatrix, die im schlimmsten Fall $O(n^2)$ Platz verbraucht.
 
 %Diese werden mit Hilfe von Ontology-Engineering-Tools und einem in $Python$ geschriebenen Parser auf ein semantisches Netz abgebildet, das in der Sprache $OWL$ modelliert ist.
-%
+% datensatz ist trimmed
 
 % Mein Modell ist eigentlich ein semantisches Netz, worauf auch graphen-theoretische Methoden angewandt werden
 
