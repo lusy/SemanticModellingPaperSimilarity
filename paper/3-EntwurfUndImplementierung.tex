@@ -301,6 +301,28 @@ Zum Vergleich werden hier zwei Codeausschnitte aufgeführt, die die \textit{OWL}-
 % und mit nem Größenvergleich (ich habe ja beide vollständige Repräsentationen ausgerechnet)
 % und Erwähnen wie viele Publikationen darzustellen sind
 
+\subsection{Ein Ähnlichkeitsmaß für mathematische Publikationen}
+% Definieren
+% Entscheidungen begründen
+
+% Combine using the semantic network:
+% Zitationen (die verschiedenen Ausprägungen davon auch)
+% Autoren
+% Keywords - take a look at paper \cite{Yang:2009:TRSN}
+% Sources
+% Jahren (Vermutung: Paper, die mit einem großen zeitlichen Abstand veröffentlicht worden sind, sind eher weniger ähnlich; Idee: ausprobieren mit verschiedenen Zeitfenstern, innerhalb davon die Papers ähnlich sein sollten)
+
+% Eine gewichtete Kombination von diesen Relationen
+% Begründung: warum ist die Gewichtung so ausgefallen
+% 3 verschiedene Varianten machen:
+%%% gleichgewichtet: für Vergleich; Gleichgewichtung macht in dem Sinne keinen Sinn, weil dafür bräuchten wir nicht zwischen verschiedenen Relationen unterscheiden
+%%% 2 andere - nach Bauchgefühl
+%% aber begründet: z.b. keywords, höhere gewichtung wegen \cite{Yang:2009:TRSN}, bei publikationsjahren: zeitfenster, literatur veraltet \cite{frank2009einfuehrung}
+% take a look at how to compute sim rank: consider the bipartite variant - what is the difference between In-Neighbours and Out-Neighbours in my case? Should I make one?
+
+
+% Idee von paper \cite{Yang:2009:TRSN} nutzen, um das Maß zu definieren
+
 \subsection{Mapping auf das entworfene Schema}
 % technische Details
 % Werkzeuge
@@ -334,24 +356,4 @@ Selbst wenn wir die Eingangsdaten in einer Datenbank speichern und nicht in den 
 % hier erwähnen, dass 2 Mappings(OWL und GraphML) entstanden sind (platzsparrgründe)
 % dass auch von denen 2 Mappings entstanden sind - vom gesamten Datensatz und nur von Publikationen mit vollständigen (im Sinne meines Ähnlichkeitsmaßes) Metadaten;
 % das letzte ist ok, da wir genau den Einfluss von vielen vorhandenen Metadaten auf eine Ähnlichkeitsanalyse untersuchen
-\subsection{Ein Ähnlichkeitsmaß für mathematische Publikationen}
-% Definieren
-% Entscheidungen begründen
 
-% Combine using the semantic network:
-% Zitationen (die verschiedenen Ausprägungen davon auch)
-% Autoren
-% Keywords - take a look at paper \cite{Yang:2009:TRSN}
-% Sources
-% Jahren (Vermutung: Paper, die mit einem großen zeitlichen Abstand veröffentlicht worden sind, sind eher weniger ähnlich; Idee: ausprobieren mit verschiedenen Zeitfenstern, innerhalb davon die Papers ähnlich sein sollten)
-
-% Eine gewichtete Kombination von diesen Relationen
-% Begründung: warum ist die Gewichtung so ausgefallen
-% 3 verschiedene Varianten machen:
-%%% gleichgewichtet: für Vergleich; Gleichgewichtung macht in dem Sinne keinen Sinn, weil dafür bräuchten wir nicht zwischen verschiedenen Relationen unterscheiden
-%%% 2 andere - nach Bauchgefühl
-%% aber begründet: z.b. keywords, höhere gewichtung wegen \cite{Yang:2009:TRSN}, bei publikationsjahren: zeitfenster, literatur veraltet \cite{frank2009einfuehrung}
-% take a look at how to compute sim rank: consider the bipartite variant - what is the difference between In-Neighbours and Out-Neighbours in my case? Should I make one?
-
-
-% Idee von paper \cite{Yang:2009:TRSN} nutzen, um das Maß zu definieren
