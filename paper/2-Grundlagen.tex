@@ -420,7 +420,7 @@ Tabelle \ref{tab:compareMeasures}\footnote{Tabelle \ref{tab:compareMeasures} ist
 In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaften von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
 In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Papers das gesamte Publikationsnetzwerk rekursiv betrachten.
 Dabei ist $k$ die Anzahl der Iterationen, die jedes Maß verwendet,
-$c$ ist das benutzte Dämpfungsfaktor bei der rekursiven Berechnung,
+$c$ ist der benutzte Dämpfungsfaktor bei der rekursiven Berechnung,
 $\lambda$ ist der Parameter, der die Gewichtung der eingehenden Zitationen bestimmt.
 (wenn $\lambda=1$ werden nur eingehende Links berücksichtigt, wenn $\lambda=0$ werden nur ausgehende Links berücksichtigt.)
 In der Spalte \textit{``Beide, gewichtet''} stehen die Maße, die sowohl ein- als auch ausgehende Links in einer bestimmten Gewichtung in ihrer Berechnung miteinbeziehen.
@@ -448,7 +448,7 @@ Genauer gesagt, arbeiten Lu und seine Kollegen zwei verschiedene Maße aus.
 Beide beziehen (im Gegensatz zu \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank}) nur die lokale Nachbarschaft von Knoten in die Ähnlichkeitsberechnung ein.
 Das erste Maß, das die Forscher vorschlagen, basiert auf dem Vergleich der separaten lokalen Nachbarschaften von zwei Knoten.
 Jedem Knoten wird ein Authority-Gewicht zugewiesen.
-Zwei Knoten sind dann ähnlicher, je größer der Schnitt deren lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in diesem Schnitt liegen.
+Zwei Knoten sind dann umso ähnlicher, je größer die Schnittmenge ihrer lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in dieser Menge liegen.
 Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
 Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
 Dafür wird der gemeinsame lokale Nachbarschaftsgraph zweier Publikationen aufgebaut.
@@ -481,7 +481,7 @@ Der \textit{Maximum Flow Minimum Cut} Algorithmus \cite{chinneck2010} wird benut
 % the similarity metric should give the same value for two adjacent nodes as for two non-adjacent nodes, who have d common neighbours
 
 Yang et al. präsentieren mit ihrer Arbeit \cite{Yang:2009:TRSN} ein Ähnlichkeitsmaß für Autoren wissenschaftlicher Literatur.
-Im Gegensatz zu allen zitationsbasierten Maßen für Publikationen bezieht dieser Entwurf verschiedene Metadaten in die Ähnlichkeitsberechnung mitein.
+Im Gegensatz zu allen zitationsbasierten Maßen für Publikationen bezieht dieser Entwurf verschiedene Metadaten in die Ähnlichkeitsberechnung mit ein.
 Die Wissenschaftler bestimmen die Ähnlichkeit zwischen Autoren anhand mehrerer Daten:\\
 \begin{itemize}
 \item Keywords, die die Forschungsschwerpunkte der Autoren beschreiben,
@@ -503,7 +503,7 @@ Die Arbeit kommt zu der Schlussfolgerung, dass eine gewichtete Summe die Ähnlich
 Dieser Überblick zeigt die Vor- und Nachteile schon vorhandener Ähnlichkeitsmaße.
 Alle strukturellen Ansätze, die nur auf Zitationen basieren, berücksichtigen in ihrer Ähnlichkeitsberechnung nur eine Art von vielen möglichen Metadaten.
 Ferner sind Zitationen alleine kein aussagekräftiger Indikator für Ähnlichkeit, da wissenschaftliche Arbeiten andere Publikationen aus verschiedenen Gründen zitieren können.
-Diese gemeinsame Schwäche lässt darauf schließen, dass wir eine neue, allgemeinere Definition von Ähnlichkeit brauchen.
+Diese gemeinsame Schwäche lässt darauf schließen, dass eine neue, allgemeinere Definition von Ähnlichkeit gebraucht wird.
 
 % Aus diesen Gründen brauchen wir eine neue, allgemeinere Definition von Ähnlichkeit.
 
