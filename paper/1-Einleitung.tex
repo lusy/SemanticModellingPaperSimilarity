@@ -1,6 +1,19 @@
 \section{Einleitung}
+%Die Frage ``Wann sind sich zwei wissenschaftliche Publikationen ähnlich?'' wird oft gestellt und ist für Anwendungen wie automatisierte Klassifikation von wissenschaftlichen Arbeiten oder Recommendersysteme, die einer Leserin weitere interessante Papers, die mit ihrer Forschung zu tun haben, empfehlen, von hoher Relevanz.
+%Es existieren bereits mehrere Ansätze, die versuchen, eine Antwort darauf zu geben.
+%Die meisten davon beschränken sich jedoch auf 1-2 Publikationsmerkmale.
+%Es gibt zahlreiche Studien, die bibliometrische Ähnlichkeitsmaße vorschlagen, die auf Kozitationen, Koautorenschaften oder bibliographischer Kopplung beruhen.
+%Ziel dieser Arbeit ist es, möglichst viele von den zu einer wissenschaftlichen Publikation vorhandenen Metadaten und ihre Relationen unter einander semantsich zu erfassen, sodass all diese unter einer geeigneten Gewichtung in der Definition eines Ähnlichkeitsmaßes mit einbezogen werden können.
+%Der Analyse zugrundeliegende Datensatz sind die Metadaten aller Publikationen vom Zentralblatt Mathematik mit dem Stand März 2012.
 
 \subsection{Motivation}
+Der Begriff \textit{Ähnlichkeit} in Zusammenhang mit wissenschaftlichen Arbeiten ist für die Forschung allgemein von besonderer Relevanz.
+Wissenschaftlerinnen, die sich für ein bestimmtes Thema interessieren oder auf einem bestimmten Feld forschen, sind stets daran interessiert, Publikationen zu finden, die anderen Artikeln, die sie bereits gelesen haben, ähnlich sind.
+Das Thema von automatisierter Klassifikation von wissenschaftlichen Arbeiten ist auch sehr aktuell: derzeitig werden diese in wissenschaftlichen Datenbanken vorwiegend per Hand durch Experten klassifiziert, ein langwieriger und kostspieliger Prozess.
+Deshalb wird schon länger versucht ein möglichst präzises Ähnlichkeitsmaß für Publikationen zu definieren.
+Frühere Ansätze beschränken sich jedoch auf 1-2 Publikationsmerkmale, was die Frage aufwirft, inwiefern diese genau genug sind.
+\\
+\\
 Titel, Thema, Autor, Erscheinungsjahr, Journal und Literaturverweise sind nur einige für eine wissenschaftliche Publikation relevante Metadaten.
 Diese stehen in bestimmten Relationen zueinander.
 Es gibt schon mehrere Repräsentationen von wissenschaftlichen Arbeiten: Zitations- oder Koautorgraphen berücksichtigen aber beispielsweise nur Referenzen oder Autoren.
@@ -8,8 +21,8 @@ Zusätzliche Metadaten können jedoch für eine Analyse ebenfalls bedeutende und in
 \\
 \\
 Durch den Aufbau eines semantischen Netzes, das alle zu einer Publikation relevanten Informationen enthält, soll ein allgemeineres Modell für wissenschaftliche Publikationen entwickelt werden.
-Durch die Berücksichtigung der in diesem Modell erfassten semantischen Relationen wird dann versucht, ein möglichts präzises Ähnlichkeitsmaß für wissenschaftliche Publikationen zu entwerfen. %vlt beispiele (A ist Autor von Paper P, P ist Journal C erschienen, hat X,Y,Z als Keywords usw)
-Ein gutes Ähnlichkeitsmaß findet mehrere Gebräuche: es kann bei automatischer Klassifizierung von Arbeiten in einer wissenschaftlichen Datenbank oder als Ausgangspunkt für das Vorschlagen verwandter/relevanter Dokumente eingesetzt werden.
+Durch die Berücksichtigung der in diesem Modell erfassten semantischen Relationen wird dann versucht, ein möglichts genaues Ähnlichkeitsmaß für wissenschaftliche Publikationen zu entwerfen. %vlt beispiele (A ist Autor von Paper P, P ist Journal C erschienen, hat X,Y,Z als Keywords usw)
+%Ein gutes Ähnlichkeitsmaß findet mehrere Gebräuche: es kann bei automatischer Klassifizierung von Arbeiten in einer wissenschaftlichen Datenbank oder als Ausgangspunkt für das Vorschlagen verwandter/relevanter Dokumente eingesetzt werden.
 \\
 \\
 Frühere Entwürfe von Ähnlichkeitsmaßen sind rein textbasiert \cite{Giles98citeseer} oder beziehen nur bibliometrische Kategorien wie Zitationsanalysen (von direkten Zitaten, Kozitationen oder bibliographischen Kopplungen) oder Koautorenschaften ein \cite{Kessler:1963} \cite{Small_1973} \cite{DBLP:journals/corr/abs-1109-1059}. %referenz!
