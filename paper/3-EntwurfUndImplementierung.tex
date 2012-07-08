@@ -320,10 +320,16 @@ Wenn jedoch weitere Metadaten in einer sinnvollen Form vorhanden sind\footnote{B
 kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung miteinfließen.
 \\
 \\
+Analog zu den schon erwähnten Arbeiten, die strukturelle Ähnlichkeitsmaße für Informationsnetzwerke definieren, basiert das vorgeschlagene semantische Maß auch auf der Idee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind''.
 Es wird rekursiv die Ähnlichkeit zwischen jeden 2 Elementen, die der selben Kategorie angehören, aufgrund von den semantischen Relationen im modellierten semantischen Metadatengraphen für wissenschaftliche Publikationen ermittelt: jeden 2 Publikationen, jeden 2 Keywords, jeden 2 Autoren, jeden 2 Quellen und jeden 2 Erscheinungsjahren.
 Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
 Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Kategorie werden nur die Beziehungen zwischen Elementen der entsprechenden Kategorie und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen semantischen Netz modelliert sind.
 (Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords werden nur Relationen (Keyword \textit{isKeywordOf} Publikation) berücksichtigt, da Keywords in keinen anderen Relationen teilnehmen.)
+\\
+\\
+Mit $sim(a,b)$ wird der Ähnlichkeitswert für 2 Elemente $a$ und $b$ bezeichnet.
+Dabei gilt stets $0 \leq sim(a,b) \leq 1$.
+Die grundlegende Idee bei der Definition ist, dass ein Element am meisten ähnlich zu sich selbst ist.
 \\
 \\
 Die folgende Definition veranschaulicht das Maß.
@@ -369,16 +375,22 @@ sim(a,b)  =
 $K$ stellen alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation dar.
 Dabei wird mit $K(a)$ die Menge aller Keywords von Paper $a$ bezeichnet.
 (Die Menge aller Elemente, die in Relation $hasKeyword$ zum Paper a stehen.)
+$|K(a)|$ ist die Anzahl der Elemente, die dieser Menge angehören.
 $K_i(a)$ ist dann das i. Keyword von $a$.
-(Analog sind $A(a)$ alle Autoren von Paper $a$, $A_i(a)$ ist der i. Autor von Paper $a$ u.s.w.)
-$L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen.
-\newline
-\newline
+(Analog sind $A(a)$ alle Autoren von Paper $a$, $|A(a)|$ ist deren Anzahl, $A_i(a)$ ist der i. Autor von Paper $a$ u.s.w.)
+$L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen (also alle Nachbarn von $a$ bzw. $b$).
+\\
+\\
 $\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
-\newline
-\newline
-$c$ ist ein Dämfungsfaktor, $c\in [0..1]$; $c$ wird in Anlehnung an \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} bestimmt, die verschiedenen Werte ausprobieren und eine optimale Konstante in dem jeweiligen Fall vorschlagen.
-\newline
+\\
+\\
+$c$ ist ein Dämpfungsfaktor, $c\in [0..1]$;
+$c$ wird in Anlehnung an \cite{Lizorkin2010} bestimmt, die eine Genauigkeitsschätzung für \textit{SimRank} abhängig von der Wahl der Anzahl der Iterationen und des Werts des Dämpfungsfaktors berechnen.
+\\
+\\
+Um Division durch $0$ zu vermeiden, wird für den Fall, dass z.B. $K(a)=\emptyset$ oder $K(b)=\emptyset$ die ganze Komponente
+$\lambda_x\times\cfrac{c}{|K(a)||K(b)|}\sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} sim(K_i(a),K_j(b)) = 0$ gesetzt.
+\\
 
 Die rekursive Definition kann folgendermaßen iterativ umgeschrieben werden.
 \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} haben gezeigt, dass die so definierten iterativen Gleichungen zu einem Fixpunkt konvergieren.
