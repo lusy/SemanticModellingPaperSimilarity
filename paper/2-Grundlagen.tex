@@ -173,19 +173,22 @@ Dabei liegt sein Schwerpunkt auf der Idee, dass indem das in einer wissenschaftl
 % warum macht er das
 % was nützliches/wichtiges erreicht er dadurch
 % was für erkenntnisse kann man daraus für meinen fall ziehen
+\\
+\\
 Die Ontology of Science von Fred Freitas \cite{ontosci} bildet eine ganze Domäne von Forschungseinrichtungen, -arbeiten, -prozessen, -ereignissen ab. %Abbildung!
-Abbildung \ref{fig:ontosci} gibt einen Überblick über die Klassen dieser Ontologie.
+%comment: zu viel Bild...
+%Abbildung \ref{fig:ontosci} gibt einen Überblick über die Klassen dieser Ontologie.
 Obwohl sie mögliche Typen von wissenschaftlichen Publikationen ausführlich in Form von Unterklassen abbildet, modelliert sie nicht alle zu einem wissenschaftlichen Dokument dazugehörigen Metadaten und die dazwischen bestehenden Relationen detailliert genug, um eine adäquate Basis für den Entwurf eines semantischen Ähnlichkeitsmaßes für Publikationen aufgrund von Metadaten zu bieten.
 Mehrere relevante Metadaten, wie Keywords, Klassifizierung, Zitationen, etc., werden von der Ontologie nicht modelliert.
 Alle Unterklassen der Klasse \textit{Scientific Document} sind auf Abbildung \ref{fig:scientificdoc} dargestellt.
 Auf Abbildung \ref{fig:scientificdoc_relations} sind die Relationen zwischen der Klasse \textit{Scientific Document} und anderen Klassen der Ontologie zu sehen.
 
-\begin{figure}[hp]
-    \centering
-    \includegraphics[scale=0.5]{../deps/ontology_of_science_complete_owlviz.png}
-    \caption{Ontology of Science}
-    \label{fig:ontosci}
-\end{figure}
+%\begin{figure}[hp]
+%    \centering
+%    \includegraphics[scale=0.5]{../deps/ontology_of_science_complete_owlviz.png}
+%    \caption{Ontology of Science}
+%    \label{fig:ontosci}
+%\end{figure}
 
 \begin{figure}[h!]
     \centering
@@ -324,7 +327,7 @@ sim(a,b)  =
 \end{mydef}
 
 Zhao, Han und Sun haben mit \textit{P-Rank} ein ähnliches Konzept \cite{ZhaoHS09}.
-\textit{P-Rank} ist ebenso ein strukturelles Ähnlichkeitsmaß für Informationsnetzwerken, unterscheidet sich jedoch von \textit{SimRank} durch die Tatsache, dass es nicht nur ein- sonder auch ausgehende Kanten in die Ähnlichkeitsberechnung miteinbezieht.
+\textit{P-Rank} ist ebenso ein strukturelles Ähnlichkeitsmaß für Informationsnetzwerke, unterscheidet sich jedoch von \textit{SimRank} durch die Tatsache, dass es nicht nur ein- sonder auch ausgehende Kanten in die Ähnlichkeitsberechnung miteinbezieht.
 Es verallgemeinert das zugrundeliegende Prinzip von \textit{SimRank} folgendermaßen: ``zwei Objekte sind ähnlich, wenn sie (1) durch ähnliche Objekte referenziert werden; und (2) ähnliche Objekte referenzieren'' \cite{ZhaoHS09}.
 Ein spezifischer Anwendungsfall für \textit{P-Rank} sind auch Zitationsnetzwerke.
 Die Autoren argumentieren, dass in dem Fall bibliografische Kopplung, Kozitationen und \textit{SimRank} lediglich Spezialfälle von \textit{P-Rank} sind.
