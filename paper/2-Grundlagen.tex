@@ -384,7 +384,7 @@ Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen
 \end{itemize}
 Ähnlich wie \textit{P-Rank} stützt sich \textit{C-Rank} gleichzeitig auf ein- und ausgehenden Kanten.
 Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine geeignete Gewichtung beider Arten von Kanten vornimmt und \textit{C-Rank} überhaupt nicht dazwischen unterscheidet.
-\textit{C-Rank} geht tatsächlich aus einem ungerichteten Zitationsgraphen aus.
+\textit{C-Rank} geht von einem ungerichteten Zitationsgraphen aus.
 Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaße gelungen war.
 
 \begin{mydef}[rvs-SimRank]
@@ -444,11 +444,11 @@ In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide A
 \smallskip
 Eine etwas unterschiedliche Herangehensweise wählen Lu et al. in ihrer Definition von Knotenähnlichkeit in Informationsnetzwerken \cite{Lu01nodesimilarity}.
 Diese lässt sich, genau wie alle anderen bereits erwähnten strukturellen Ähnlichkeitsmaße, auf Zitationsgraphen von wissenschaftlichen Publikationen anwenden.
-Genauer gesagt, arbeiten Lu und seine Kollegen zwei verschiedene Maßen aus.
+Genauer gesagt, arbeiten Lu und seine Kollegen zwei verschiedene Maße aus.
 Beide beziehen (im Gegensatz zu \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank}) nur die lokale Nachbarschaft von Knoten in die Ähnlichkeitsberechnung ein.
 Das erste Maß, das die Forscher vorschlagen, basiert auf dem Vergleich der separaten lokalen Nachbarschaften von zwei Knoten.
 Jedem Knoten wird ein Authority-Gewicht zugewiesen.
-Zwei Knoten sind dann desto ähnlicher, je größer der Schnitt deren lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in diesem Schnitt liegen.
+Zwei Knoten sind dann ähnlicher, je größer der Schnitt deren lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in diesem Schnitt liegen.
 Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
 Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
 Dafür wird der gemeinsame lokale Nachbarschaftsgraph zweier Publikationen aufgebaut.
@@ -481,7 +481,7 @@ Der \textit{Maximum Flow Minimum Cut} Algorithmus \cite{chinneck2010} wird benut
 % the similarity metric should give the same value for two adjacent nodes as for two non-adjacent nodes, who have d common neighbours
 
 Yang et al. präsentieren mit ihrer Arbeit \cite{Yang:2009:TRSN} ein Ähnlichkeitsmaß für Autoren wissenschaftlicher Literatur.
-Das Interessante an dem Entwurf ist, dass er, im Gegensatz zu allen zitationsbasierten Maßen für Publikationen, verschiedene Metadaten in die Ähnlichkeitsberechnung miteinbezieht.
+Im Gegensatz zu allen zitationsbasierten Maßen für Publikationen bezieht dieser Entwurf verschiedene Metadaten in die Ähnlichkeitsberechnung mitein.
 Die Wissenschaftler bestimmen die Ähnlichkeit zwischen Autoren anhand mehrerer Daten:\\
 \begin{itemize}
 \item Keywords, die die Forschungsschwerpunkte der Autoren beschreiben,
