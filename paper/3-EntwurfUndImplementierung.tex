@@ -482,17 +482,21 @@ Diese reduzierten Datensätze beinhalten $1,154,950$ Publikationen.
 Die eigentliche Analyse wird im Anschluss auf dem verkleinerten Datensatz durchgeführt.
 \\
 \\
-Zu einem ist das Ziel dieser Arbeit, festzustellen inwiefern eine semantische Ähnlichkeitsanaylse von wissenschaftlichen Publikationen aufgrund von Metadaten und den entsprechenden Beziehungen zwischen den Publikationen und diesen Metadaten sinnvolle Ergebnisse liefert.
-Hierfür ist das Vorhandensein von einem möglichst vollständigen Satz von Metadaten von besonderer Bedeutung.
-Es ist logisch, dass wenn die Ähnlichkeitsberechnung eine gewichtete Kombination von 5 verschiedenen Arten von Metadaten beinhaltet, werden Papers, für die nicht alle 5 Arten von Metadaten vorliegen, in dem Sinne benachteiligt, dass sie als weniger ähnlich zu anderen Publikationen gewertet werden im Vergleich zu Publikationspaaren, für die vollständige Metadaten da sind.
+%Kommentar von Susi: die andere Formulierung ist zu lang.
+Dieses Vorgehen basiert einerseits auf einem effizienteren und sparsameren Umgang mit Ressourcen.
+Andererseits sollen Publikationen mit im Ähnlichkeitsmaß verwendeten fehlenden Metadaten in der Berechnung nicht benachteiligt werden.
+Es sollte dennoch in einer späteren Phase evaluiert werden, inwiefern fehlende Metadaten eine korrekte Ausführung und Ähnlichkeitsberechnung beeinflussen.
 \\
 \\
-Zum anderen wird dieses Pruning vom Datensatz wieder aus Effizienz- und Resourcenspargründen vorgenommen: mit $4.8$ Gb ist die \textit{GraphML}-Repräsentation des gesamten \textit{zmath}-Datensatzes immer noch zu umfangreich, um mit unseren Methoden effizient ausgewertet zu werden.
-Selbst wenn wir die Eingangsdaten in einer Datenbank speichern und nicht in den Speicher laden müssen, haben wir immer noch die Probleme mit $O(n^4)$ Laufzeit auf 3 Millionen Knoten und der Erstellung einer Ähnlichkeitsmatrix, die im schlimmsten Fall $O(n^2)$ Platz verbraucht.
+%Zu einem ist das Ziel dieser Arbeit, festzustellen inwiefern eine semantische Ähnlichkeitsanaylse von wissenschaftlichen Publikationen aufgrund von Metadaten und den entsprechenden Beziehungen zwischen den Publikationen und diesen Metadaten sinnvolle Ergebnisse liefert.
+%Hierfür ist das Vorhandensein von einem möglichst vollständigen Satz von Metadaten von besonderer Bedeutung.
+%Es ist logisch, dass wenn die Ähnlichkeitsberechnung eine gewichtete Kombination von 5 verschiedenen Arten von Metadaten beinhaltet, werden Papers, für die nicht alle 5 Arten von Metadaten vorliegen, in dem Sinne benachteiligt, dass sie als weniger ähnlich zu anderen Publikationen gewertet werden im Vergleich zu Publikationspaaren, für die vollständige Metadaten da sind.
+\\
+\\
+%Zum anderen wird dieses Pruning vom Datensatz wieder aus Effizienz- und Resourcenspargründen vorgenommen: mit $4.8$ Gb ist die \textit{GraphML}-Repräsentation des gesamten \textit{zmath}-Datensatzes immer noch zu umfangreich, um mit unseren Methoden effizient ausgewertet zu werden.
+%Selbst wenn wir die Eingangsdaten in einer Datenbank speichern und nicht in den Speicher laden müssen, haben wir immer noch die Probleme mit $O(n^4)$ Laufzeit auf 3 Millionen Knoten und der Erstellung einer Ähnlichkeitsmatrix, die im schlimmsten Fall $O(n^2)$ Platz verbraucht.
 
-%Diese werden mit Hilfe von Ontology-Engineering-Tools und einem in $Python$ geschriebenen Parser auf ein semantisches Netz abgebildet, das in der Sprache $OWL$ modelliert ist.
-% datensatz ist trimmed
-
+%-------------------------------------------------------------
 % Mein Modell ist eigentlich ein semantisches Netz, worauf auch graphen-theoretische Methoden angewandt werden
 
 % hier erwähnen, dass 2 Mappings(OWL und GraphML) entstanden sind (platzsparrgründe)
