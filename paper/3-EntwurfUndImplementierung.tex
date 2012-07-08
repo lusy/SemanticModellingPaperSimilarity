@@ -302,16 +302,6 @@ Zum Vergleich werden hier zwei Codeausschnitte aufgeführt, die die \textit{OWL}-
 % und Erwähnen wie viele Publikationen darzustellen sind
 
 \subsection{Ein Ähnlichkeitsmaß für mathematische Publikationen}
-% Definieren
-% Entscheidungen begründen
-
-% Combine using the semantic network:
-% Zitationen (die verschiedenen Ausprägungen davon auch)
-% Autoren
-% Keywords - take a look at paper \cite{Yang:2009:TRSN}
-% Sources
-% Jahren (Vermutung: Paper, die mit einem großen zeitlichen Abstand veröffentlicht worden sind, sind eher weniger ähnlich; Idee: ausprobieren mit verschiedenen Zeitfenstern, innerhalb davon die Papers ähnlich sein sollten)
-
 % Eine gewichtete Kombination von diesen Relationen
 % Begründung: warum ist die Gewichtung so ausgefallen
 % 3 verschiedene Varianten machen:
@@ -374,23 +364,21 @@ sim(a,b)  =
         \cfrac{c}{|L(a)||L(b)|}
         \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} sim(L_i(a),L_j(b))
 \]
-\newline
-\newline
-\newline
-wobei $K$ alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation darstellen.
-Dabei wird mit $K(a)$ die Menge aller Keywords von Paper a bezeichnet.
+\end{mydef}
+
+$K$ stellen alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-Relationen, $C$ alle Zitationsrelationen und $Y$ alle Erscheinungsjahrrelationen einer Publikation dar.
+Dabei wird mit $K(a)$ die Menge aller Keywords von Paper $a$ bezeichnet.
 (Die Menge aller Elemente, die in Relation $hasKeyword$ zum Paper a stehen.)
-$K_i(a)$ ist dann das i. Keyword von a.
-(Analog sind $A(a)$ alle Autoren von Paper a, $A_i(a)$ ist der i. Autor von Paper a u.s.w.)
-$L(a)$ und $L(b)$ beschreiben für 2 Elemente a und b, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit a, bzw b, in Relation stehen.
+$K_i(a)$ ist dann das i. Keyword von $a$.
+(Analog sind $A(a)$ alle Autoren von Paper $a$, $A_i(a)$ ist der i. Autor von Paper $a$ u.s.w.)
+$L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen.
 \newline
 \newline
 $\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
 \newline
 \newline
-$c$ ist ein Dämfungsfaktor, $c\in [0..1]$; c wird in Anlehnung an \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} bestimmt, die verschiedenen Werte ausprobieren und eine optimale Konstante in dem jeweiligen Fall vorschlagen.
+$c$ ist ein Dämfungsfaktor, $c\in [0..1]$; $c$ wird in Anlehnung an \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} bestimmt, die verschiedenen Werte ausprobieren und eine optimale Konstante in dem jeweiligen Fall vorschlagen.
 \newline
-\end{mydef}
 
 Die rekursive Definition kann folgendermaßen iterativ umgeschrieben werden.
 \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} haben gezeigt, dass die so definierten iterativen Gleichungen zu einem Fixpunkt konvergieren.
