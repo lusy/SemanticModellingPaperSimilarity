@@ -166,8 +166,8 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 % erklären welche Metadaten genau für diese Arbeit von Relevanz sind
 % zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 
-Ein der Ziele dieser Arbeit war, eine Modellierung wissenschaftlicher Publikationen und dazu gehöriger Metadaten in der Form eines semantischen Netzes zu schaffen.
-Im zweiten Teil der Arbeit soll dann von dieser semantischen Repräsentation profitiert werden, indem möglichst viele verschiedene Metadaten in die Ermittlung der Ähnlichkeit zwischen zwei Publikationen berücksichtigt werden.
+Eines der Ziele dieser Arbeit war, eine Modellierung wissenschaftlicher Publikationen und dazu gehöriger Metadaten in der Form eines semantischen Netzes zu schaffen.
+Im zweiten Teil der Arbeit soll dann von dieser semantischen Repräsentation profitiert werden, indem möglichst viele verschiedene Metadaten für die Ermittlung der Ähnlichkeit zwischen zwei Publikationen berücksichtigt werden.
 \\
 \\
 Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf dem ersten Blick einen ähnlichen Zweck zu erfüllen, hat jedoch einen ganz anderen Fokus.
@@ -179,7 +179,7 @@ Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder 
 
 
 \subsubsection{Ontologieschema in OWL}
-Aus diesen Gründen schlägt die aktuelle Arbeit die \textit{Publications Ontology} vor.
+Aus diesen Gründen schlägt die aktuelle Arbeit eine neue \textit{Publications Ontology} vor.
 Die \textit{Publications Ontology} hat die Form eines semantischen Netzes, das mit Hilfe der Ontologiebeschreibungssprache \textit{OWL}\footnote{http://www.w3.org/TR/owl2-overview/} definiert wurde.
 Die \textit{Web Ontology Language} (kurz \textit{OWL}) ist ein Standard des World Wide Web Consortiums (W3C), der die Wissensrepräsentation in der Form maschinenlesbarer Ontologien ermöglicht.
 \\
@@ -223,8 +223,8 @@ Ferner werden die folgenden, für eine Publikation relevanten, Metadaten als Data
 \textit{Abstract}, \textit{Id}, \textit{TitleString} und \textit{Accession Number} (letzteres ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
 Data Properties oder konkrete Rollen verbinden in \textit{OWL} Individuen mit Datenwerten \cite{Hitzler:2007:SW}.
 Eine vollständige Auflistung der Klassen der \textit{Publications Ontology} sowie der Object und Data Properties bietet Abbildung \ref{fig:pubOntoClOPDP} an.
-Auf Abbildung \ref{fig:pubsOnto} sind alle Klassen mit den dazugehörigen Unterklassen und die dazwischen herrschenden Beziehungen zu sehen.
-Bei den Object Properties geht es in der Regel aus deren Namen hervor, zwischen Individuen welcher zwei Klassen diese halten:
+In Abbildung \ref{fig:pubsOnto} sind alle Klassen mit den dazugehörigen Unterklassen und die dazwischen herrschenden Beziehungen zu sehen.
+Bei den Object Properties geht es in der Regel aus deren Namen hervor, zwischen Individuen welcher zwei Klassen diese stehen:
 z.B. stehen eine Publikation und ihr Titel in Relation \textit{hasTitle} zu einander, die inverse Relation \textit{isTitleOf} hält dann zwischen dem Titel und der Publikation.
 Abbildung \ref{fig:pubsOnto_relations} zeigt die Oberklassen der \textit{Publications Ontology} mit den dazu gehörigen gelabelten Beziehungen (es wird jedoch aus ästhetischen Gründen nur eine der beiden Richtungen dargestellt).
 Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikation (eines Individuums der Klasse Publikation) und einem Attribut, das zu dieser Publikation gehört, ab.
@@ -245,10 +245,11 @@ Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikat
 
 Eine besondere Designentscheidung ist, dass die drei Object Properties \textit{hasKeywordLanguage}, \textit{hasPublicationLanguage} und \textit{hasTitleLanguage} einzeln modelliert sind.
 Der Hintergrundgedanke dabei ist, dass eine Publikation oder die entsprechenden Metadaten: Keyword und Titel, auf mehreren Sprachen vorliegen können.
-Diese Definition erlaubt dann, dass z.B. der englische Begriff \textit{graph theory} und der Deutsche \textit{Graphentheorie} auf das selbe Keyword abgebildet werden können, was für eine spätere Ähnlichkeitsanalyse extrem sinnvoll wäre.
+Diese Definition erlaubt dann, dass z.B. der englische Begriff \textit{graph theory} und das deutsche Wort \textit{Graphentheorie} auf das selbe Keyword abgebildet werden können.
+Das kann ein zukünftiges sprachunabhängiges Verfahren zur Ähnlichkeitsberechnung unterstützen.
 \\
 \\
-Eine andere auffällige Besonderheit ist die Tatsache, dass sowohl die Klasse \textit{Title}, die mittels der Object Property \textit{hasTitle} mit der Klasse \textit{Publication} verbunden ist, als auch die Data Property \textit{hasTitleString} modelliert werden.
+Eine andere auffällige Besonderheit ist die Tatsache, dass sowohl die Klasse \textit{Title}, die mittels der Object Property \textit{hasTitle} mit der Klasse \textit{Publication} verbunden ist, als auch das Data Property \textit{hasTitleString} modelliert werden.
 Diese Entscheidung beruht auf der Idee, dass ein Individuum der Klasse \textit{Publication} mittels \textit{hasTitleString} mit seinem exakten Titel (einer Instanz des Datentyps \textit{string}) verknüpft werden kann.
 Aus diesem Stringdatenwert können dann später die Schlüsselbegriffe extrahiert werden und als ein \textit{Bag of words}\footnote{Bag of words bezeichnet in den Feldern der Information Retrieval und Natural Language Processing eine ungeordnete Menge von Wörtern} auf ein Individuum der Klasse \textit{Title} abgebildet werden.
 Somit können Titel verschiedener Publikationen, die die gleichen bedeutsamen Begriffe enthalten, auf das selbe Individuum der Klasse \textit{Title} abgebildet werden.
@@ -272,7 +273,7 @@ Eine vollständige Dokumentation von \textit{GraphML} ist unter graphml.graphdraw
 Die Überführung der \textit{Publications Ontology} vom \textit{OWL}-Schema ins \textit{GraphML}-Schema ist weitgehend unproblematisch, da bei der \textit{OWL}-Modellierung keine spezifische \textit{OWL}-Features benutzt werden.
 \\
 \\
-Die Motivation hierfür ist Ressourcensparren.
+Die Motivation hierfür ist ein sparsamerer Umgang mit Ressourcen.
 Wie bereits angedeutet, beinhaltet der von dieser Arbeit benutzte Testdatensatz die Metadaten zu $2,907,086$ Publikationen.
 Eine \textit{OWL}-Repräsentation der vollständigen Daten wird $8.9$ Gb groß, dagegen ist die \textit{GraphML}-Repräsentation davon nur $4.8$ Gb.
 Das ist an der Stelle von besonderer Bedeutung, da der Ähnlichkeitsberechnungsalgorithmus zunächst die Gesamtdaten in den Arbeitsspeicher lädt und darauf arbeitet.
@@ -313,7 +314,7 @@ Zum Vergleich werden hier zwei Codeausschnitte aufgeführt, die die \textit{OWL}-
 
 % Idee von paper \cite{Yang:2009:TRSN} nutzen, um das Maß zu definieren
 
-In Anlehnung an den Arbeiten von Jeh und Widom \cite{simrank2002}, Zhao, Han und Sun \cite{ZhaoHS09} und Yoon, Kim und Park \cite{DBLP:journals/corr/abs-1109-1059}
+In Anlehnung an die Arbeiten von Jeh und Widom \cite{simrank2002}, Zhao, Han und Sun \cite{ZhaoHS09} und Yoon, Kim und Park \cite{DBLP:journals/corr/abs-1109-1059}
 wird ein Ähnlichkeitsmaß, das semantische Relationen zwischen den Metadaten von wissenschaftlichen Publikationen berücksichtigt, vorgeschlagen.
 Die Version, die hier betrachtet wird, bezieht die folgenden Metadaten eines Papers ein: Autor, Quelle, Erscheinungsjahr, Keywords und Zitationen.
 Wenn jedoch weitere Metadaten in einer sinnvollen Form vorhanden sind\footnote{Beispiel hierfür wäre der schon angesprochene Titel in der Form \textit{Bag of words}},
@@ -321,10 +322,10 @@ kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung 
 \\
 \\
 Analog zu den schon erwähnten Arbeiten, die strukturelle Ähnlichkeitsmaße für Informationsnetzwerke definieren, basiert das vorgeschlagene semantische Maß auch auf der Idee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind''.
-Es wird rekursiv die Ähnlichkeit zwischen je 2 Elementen, die der selben Kategorie angehören, aufgrund von den semantischen Relationen im modellierten semantischen Metadatengraphen für wissenschaftliche Publikationen ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
+Es wird rekursiv die Ähnlichkeit zwischen je 2 Elementen einer Klasse aufgrund der Relationen im modellierten semantischen Netz für wissenschaftliche Publikationen ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
 Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
-Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Kategorie werden nur die Beziehungen zwischen Elementen der entsprechenden Kategorie und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen semantischen Netz modelliert sind.
-(Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords werden nur Relationen (Keyword \textit{isKeywordOf} Publikation) berücksichtigt, da Keywords in keinen anderen Relationen teilnehmen.)
+Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Klasse werden nur die Beziehungen zwischen Elementen der entsprechenden Klasse und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen semantischen Netz modelliert sind.
+(Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords wird die Relation (Keyword \textit{isKeywordOf} Publikation) berücksichtigt.)
 \\
 \\
 Mit $sim(a,b)$ wird der Ähnlichkeitswert für 2 Elemente $a$ und $b$ bezeichnet.
@@ -378,10 +379,10 @@ Dabei wird mit $K(a)$ die Menge aller Keywords von Paper $a$ bezeichnet.
 $|K(a)|$ ist die Anzahl der Elemente, die dieser Menge angehören.
 $K_i(a)$ ist dann das i. Keyword von $a$.
 (Analog sind $A(a)$ alle Autoren von Paper $a$, $|A(a)|$ ist deren Anzahl, $A_i(a)$ ist der i. Autor von Paper $a$ u.s.w.)
-$L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen (also alle Nachbarn von $a$ bzw. $b$).
+$L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben Klasse angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen (also alle Nachbarn von $a$ bzw. $b$).
 \\
 \\
-$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten für eine Publikation priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
+$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen der verschiedenen Relationen, die die Bedeutung der einzelnen Metadaten für eine Publikation priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
 \\
 \\
 $c$ ist ein Dämpfungsfaktor, $c\in [0..1]$;
