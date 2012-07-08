@@ -166,14 +166,14 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 % erklären welche Metadaten genau für diese Arbeit von Relevanz sind
 % zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 
-Eins der Ziele dieser Arbeit war, eine Modellierung wissenschaftlicher Publikationen und dazu gehöriger Metadaten in der Form eines semantischen Netzes zu schaffen.
+Ein der Ziele dieser Arbeit war, eine Modellierung wissenschaftlicher Publikationen und dazu gehöriger Metadaten in der Form eines semantischen Netzes zu schaffen.
 Im zweiten Teil der Arbeit soll dann von dieser semantischen Repräsentation profitiert werden, indem möglichst viele verschiedene Metadaten in die Ermittlung der Ähnlichkeit zwischen zwei Publikationen berücksichtigt werden.
 \\
 \\
 Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf dem ersten Blick einen ähnlichen Zweck zu erfüllen, hat jedoch einen ganz anderen Fokus.
 Sie modelliert eine ganze Domäne von wissenschaftlichen Akteuren, Ereignissen, Einrichtungen, Arbeiten und die dazwischen bestehenden Beziehungen.
 Sie bietet ferner eine recht detaillierte Aufteilung von wissenschaftlichen Publikationen in Unterkategorien (z.B. \textit{Technical report}, \textit{Book}, \textit{Thesis}, \textit{Journal article}, etc.).
-Dennoch eignet sich das Modell, das sie schafft, für Ähnlichkeitsanalysen zwischen Publikationen aufgrund von Metadaten eher schlecht.
+Dennoch eignet sich das Modell eher schlecht für Ähnlichkeitsanalysen zwischen Publikationen aufgrund von Metadaten.
 Viele Einheiten, die für solche Analysen von großem Interesse wären, werden durch die \textit{Ontology of Science} nicht erfasst.
 Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder Zitationen.
 
@@ -321,7 +321,7 @@ kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung 
 \\
 \\
 Analog zu den schon erwähnten Arbeiten, die strukturelle Ähnlichkeitsmaße für Informationsnetzwerke definieren, basiert das vorgeschlagene semantische Maß auch auf der Idee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind''.
-Es wird rekursiv die Ähnlichkeit zwischen jeden 2 Elementen, die der selben Kategorie angehören, aufgrund von den semantischen Relationen im modellierten semantischen Metadatengraphen für wissenschaftliche Publikationen ermittelt: jeden 2 Publikationen, jeden 2 Keywords, jeden 2 Autoren, jeden 2 Quellen und jeden 2 Erscheinungsjahren.
+Es wird rekursiv die Ähnlichkeit zwischen je 2 Elementen, die der selben Kategorie angehören, aufgrund von den semantischen Relationen im modellierten semantischen Metadatengraphen für wissenschaftliche Publikationen ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
 Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
 Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Kategorie werden nur die Beziehungen zwischen Elementen der entsprechenden Kategorie und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen semantischen Netz modelliert sind.
 (Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords werden nur Relationen (Keyword \textit{isKeywordOf} Publikation) berücksichtigt, da Keywords in keinen anderen Relationen teilnehmen.)
@@ -364,7 +364,7 @@ sim(a,b) = 1 \quad \text{wenn } a=b
 \end{array}
 \]
 \newline
-\text{wenn a und b Elemente einer anderen Kategorie:}
+\text{wenn a und b aus sonstiger Klasse:}
 \[
 sim(a,b)  = 
         \cfrac{c}{|L(a)||L(b)|}
@@ -381,7 +381,7 @@ $K_i(a)$ ist dann das i. Keyword von $a$.
 $L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben semantischen Kategorie angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen (also alle Nachbarn von $a$ bzw. $b$).
 \\
 \\
-$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
+$\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen von den verschiedenen Relationen, die die Bedeutung von den einzelnen Metadaten für eine Publikation priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
 \\
 \\
 $c$ ist ein Dämpfungsfaktor, $c\in [0..1]$;
@@ -390,6 +390,10 @@ $c$ wird in Anlehnung an \cite{Lizorkin2010} bestimmt, die eine Genauigkeitsschä
 \\
 Um Division durch $0$ zu vermeiden, wird für den Fall, dass z.B. $K(a)=\emptyset$ oder $K(b)=\emptyset$ die ganze Komponente
 $\lambda_x\times\cfrac{c}{|K(a)||K(b)|}\sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} sim(K_i(a),K_j(b)) = 0$ gesetzt.
+\\
+\\
+Das so definierte Maß hat die Eigenschaften Symmetrie, Monotonie, Existenz und Eindeutigkeit.
+Die entsprechenden Beweise können aus \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} entnommen werden.
 \\
 
 Die rekursive Definition kann folgendermaßen iterativ umgeschrieben werden.
@@ -427,17 +431,13 @@ Die rekursive Definition kann folgendermaßen iterativ umgeschrieben werden.
 \end{array}
 \]
 \newline
-\text{wenn a und b Elemente einer anderen Kategorie:}
+\text{wenn a und b aus sonstiger Klasse:}
 \[
 R_{k+1}(a,b)  = 
         \cfrac{c}{|L(a)||L(b)|}
         \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_k(L_i(a),L_j(b))
 \]
 \end{mydef}
-Das so definierte Maß hat die Eigenschaften Symmetrie, Monotonie, Existenz und Eindeutigkeit.
-Die entsprechenden Beweise können aus \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} entnommen werden.
-\newline
-\newline
 Das vorgeschlagene Maß grenzt sich folgendermaßen von früheren Arbeiten ab:
 \\
 \\
@@ -473,14 +473,13 @@ C-Rank \cite{DBLP:journals/corr/abs-1109-1059} bezieht sich schon, im Gegensatz 
 
 Um das vorgeschlagene Ähnlichkeitsmaß für wissenschaftliche Publikationen auswerten zu können, wird der Testdatensatz vom Zentralblatt Mathematik auf das im Kapitel \ref{subsec:modell} vorgestellte semantische Schema abgebildet.
 Mit Hilfe von einem in \textit{Python} geschriebenen Parser werden die Daten vom \textit{zmath}-Datensatz sowohl in \textit{OWL}- als auch in \textit{GraphML}-Format überführt.
-Wie bereits erwähnt ist die \textit{OWL}-Repräsentation der vollständigen Daten $8.9$ Gb groß, die \textit{GraphML}-Repräsentation davon ist nur $4.8$ Gb.
-Genau dieser Größenunterschied ist was letztere vor allem motiviert.
+Die \textit{OWL}-Repräsentation der vollständigen Daten ist wie bereits erwähnt ca. doppelt so groß wie die \textit{GraphML}-Repräsentation, weshalb im weiteren Verlauf \textit{GraphML} Anwendung findet.
 \\
 \\
-Zudem ist jeweils noch ein Datensatz in \textit{OWL}- bzw. \textit{GraphML}-Format entstanden und zwar einer, der nur die \textit{OWL}-/\textit{GraphML}-Repräsentation von Publikationen enthält, von denen vollständige (aus der Sicht des vorgeschlagenen Ähnlichkeitsmaßes) Metadaten vorhanden sind.
+Zudem ist jeweils noch ein Datensatz in \textit{OWL}- bzw. \textit{GraphML}-Format entstanden, der nur die \textit{OWL}-/\textit{GraphML}-Repräsentation von Publikationen enthält, von denen vollständige (aus der Sicht des vorgeschlagenen Ähnlichkeitsmaßes) Metadaten vorhanden sind.
 Genauer gesagt enthalten diese Datensätze nur Publikationen, für die Autor, Keywords, Quelle, Erscheinungsjahr und Zitationen alle gleichzeitig vorliegen.
-Diese reduzierten Datensätze beinhalten dann nur noch $1,154,950$ Publikationen.
-Die eigentliche Analyse wird im Anschluss genau auf die Datensätze durchgeführt und zwar aus zweierlei Gründen.
+Diese reduzierten Datensätze beinhalten $1,154,950$ Publikationen.
+Die eigentliche Analyse wird im Anschluss auf dem verkleinerten Datensatz durchgeführt.
 \\
 \\
 Zu einem ist das Ziel dieser Arbeit, festzustellen inwiefern eine semantische Ähnlichkeitsanaylse von wissenschaftlichen Publikationen aufgrund von Metadaten und den entsprechenden Beziehungen zwischen den Publikationen und diesen Metadaten sinnvolle Ergebnisse liefert.
