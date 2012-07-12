@@ -147,7 +147,7 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
     \label{fig:frequencies}
 \end{figure}
 
-\subsection{Modellierung des semantischen Netzes}
+\subsection{Modellierung des Publikationnetzwerks}
 \label{subsec:modell}
 % Wie sieht es aus?
 % Welche Überlegungen gab es bei der Designentscheidung? Warum hab ich an Stellen, wo mehrere Ansätze möglich waren genau das gewählt?
@@ -166,141 +166,65 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 % erklären welche Metadaten genau für diese Arbeit von Relevanz sind
 % zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 
-Eines der Ziele dieser Arbeit war, eine Modellierung wissenschaftlicher Publikationen und dazu gehöriger Metadaten in der Form eines semantischen Netzes zu schaffen.
-Im zweiten Teil der Arbeit soll dann von dieser semantischen Repräsentation profitiert werden, indem möglichst viele verschiedene Metadaten für die Ermittlung der Ähnlichkeit zwischen zwei Publikationen berücksichtigt werden.
+Als Grundlage für die Ermittlung der Ähnlichkeit zwischen zwei wissenschaftlichen Publikationen sollte eine Modellierung dieser und der dazu gehörigen Metadaten in der Form eines Netzwerks realisiert werden.
 \\
 \\
-Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf dem ersten Blick einen ähnlichen Zweck zu erfüllen, hat jedoch einen ganz anderen Fokus.
+Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf dem ersten Blick ein gutes Modell für Publikationen zu sein, hat jedoch einen ganz anderen Fokus.
 Sie modelliert eine ganze Domäne von wissenschaftlichen Akteuren, Ereignissen, Einrichtungen, Arbeiten und die dazwischen bestehenden Beziehungen.
 Sie bietet ferner eine recht detaillierte Aufteilung von wissenschaftlichen Publikationen in Unterkategorien (z.B. \textit{Technical report}, \textit{Book}, \textit{Thesis}, \textit{Journal article}, etc.).
 Dennoch eignet sich das Modell eher schlecht für Ähnlichkeitsanalysen zwischen Publikationen aufgrund von Metadaten.
 Viele Einheiten, die für solche Analysen von großem Interesse wären, werden durch die \textit{Ontology of Science} nicht erfasst.
 Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder Zitationen.
-
-
-\subsubsection{Ontologieschema in OWL}
-Aus diesen Gründen schlägt die aktuelle Arbeit eine neue \textit{Publications Ontology} vor.
-Die \textit{Publications Ontology} hat die Form eines semantischen Netzes, das mit Hilfe der Ontologiebeschreibungssprache \textit{OWL}\footnote{http://www.w3.org/TR/owl2-overview/} definiert wurde.
-Die \textit{Web Ontology Language} (kurz \textit{OWL}) ist ein Standard des World Wide Web Consortiums (W3C), der die Wissensrepräsentation in der Form maschinenlesbarer Ontologien ermöglicht.
 \\
 \\
-Wie bereits in Kapitel \ref{sec:semanticNet} erwähnt, modelliert die \textit{Publications Ontology} jede Publikation und jedes dazugehörige Metadatum als Individuen.
-Alle allgemeinen Kategorien (Publikation, Autor, Quelle, etc.) werden dabei als Klassen definiert.
-Die gelabelten Kanten dieses semantischen Netzes sind die Relationen zwischen einem Paper und seinen Metadaten.
-Manche Klassen, bzw. die dazugehörigen Individuen, besitzen auch Attribute.
-Z.B. hat jedes Individuum der Klasse \textit{Publication} das Attribut \textit{Id} und kann optional auch die Attribute \textit{Abstract}, \textit{AccessionNumber} oder \textit{TitleString} haben.
-
-\begin{figure}
-    \begin{subfigure}[h]{0.3\textwidth}
-        \centering
-        \includegraphics[scale=0.4]{./diagrams/classes_cut_3.png}
-        \caption{Classes}
-        \label{fig:pubOntoClasses}
-    \end{subfigure}
-    \quad
-    \begin{subfigure}[h]{0.3\textwidth}
-        \centering
-        \includegraphics[scale=0.4]{./diagrams/object_properties_cut_3.png}
-        \caption{Object Properties}
-        \label{fig:pubOntoObjectProps}
-    \end{subfigure}
-    \quad
-    \begin{subfigure}[h]{0.3\textwidth}
-        \centering
-        \includegraphics[scale=0.4]{./diagrams/data_properties_cut_4.png}
-        \caption{Data Properties}
-        \label{fig:pubOntoDataProps}
-    \end{subfigure}
-    \caption{Classes, Object Properties und Data Properties der \textit{Publications Ontology}}
-    \label{fig:pubOntoClOPDP}
-\end{figure}
-
-Die \textit{Publications Ontology} modelliert die folgenden Klassen: \textit{Publication}, \textit{Title}, \textit{Author}, \textit{Keyword}, \textit{ClassifiationCode} (mit Unterklassen \textit{ACM\_ClassifictionCode} und \textit{MSC\_ClassificationCode}), \textit{Editor}, \textit{Reviewer}, \textit{Language}, \textit{PublicationYear} und \textit{Source} (mit Unterklassen \textit{Book}, \textit{Journal} und \textit{Proceedings})
-und auch die entsprechenden, in der Regel invertierbaren, Beziehungen zwischen diesen Klassen (z.B. die Paare: \textit{hasAuthor} - \textit{isAuthorOf}, \textit{hasClassificationCode} - \textit{isClassificationCodeOf}, etc.).
-Im Sinne von \textit{OWL} werden letztere als Object Properties definiert.
-Object Properties beschreiben in \textit{OWL} abstrakte Rollen, die zwischen zwei Individuen halten \cite{Hitzler:2007:SW}.
-Ferner werden die folgenden, für eine Publikation relevanten, Metadaten als Data Properties dargestellt:
-\textit{Abstract}, \textit{Id}, \textit{TitleString} und \textit{Accession Number} (letzteres ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
-Data Properties oder konkrete Rollen verbinden in \textit{OWL} Individuen mit Datenwerten \cite{Hitzler:2007:SW}.
-Eine vollständige Auflistung der Klassen der \textit{Publications Ontology} sowie der Object und Data Properties bietet Abbildung \ref{fig:pubOntoClOPDP} an.
-In Abbildung \ref{fig:pubsOnto} sind alle Klassen mit den dazugehörigen Unterklassen und die dazwischen herrschenden Beziehungen zu sehen.
-Bei den Object Properties geht es in der Regel aus deren Namen hervor, zwischen Individuen welcher zwei Klassen diese stehen:
-z.B. stehen eine Publikation und ihr Titel in Relation \textit{hasTitle} zu einander, die inverse Relation \textit{isTitleOf} hält dann zwischen dem Titel und der Publikation.
-Abbildung \ref{fig:pubsOnto_relations} zeigt die Oberklassen der \textit{Publications Ontology} mit den dazu gehörigen gelabelten Beziehungen (es wird jedoch aus ästhetischen Gründen nur eine der beiden Richtungen dargestellt).
-Die Data Properties bilden stets die Beziehung zwischen einer konkreten Publikation (eines Individuums der Klasse Publikation) und einem Attribut, das zu dieser Publikation gehört, ab.
+Aus diesen Gründen schlägt die aktuelle Arbeit ein Informationsnetzwerk für Publikationen vor.
+Das allgemeine Schema dieses Publikationnetzwerks ist auf Abbildung \ref{fig:schemePubs} veranschaulicht.
+Wie bereits in Kapitel \ref{sec:knowledgeRep} erwähnt, wird dabei jede Publikation und jedes dazugehörige Metadatum als einen Knoten modelliert.
+Jeder dieser Knoten hat das Attribut \textit{Klasse}, das bezeichnet, ob es sich um eine Publikation, einen Autor, ein Keyword, ein Erscheinungsjahr, einen Klassifikationscode, eine Sprache, einen Editor, einen Reviewer oder eine Quelle handelt.
+Ferner können die Knoten, die Publikationen repräsentieren, auch eines oder mehrere der folgenden Attribute haben: \textit{Id}, \textit{Abstract}, \textit{TitleString} oder \textit{Accession Number} (letzteres ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
+\smallskip
+Die gelabelten Kanten dieses Netzes sind die Relationen zwischen einem Paper und seinen Metadaten.
+Mögliche Werte dieses Relationattributs einer Kante sind \textit{hasAuthor}, \textit{hasKeyword}, \textit{hasClassificationCode}, \textit{wasPublishedInYear}, \textit{cites}, \textit{isPublshedIn}, \textit{hasPublicationLanguage}, \textit{hasKeywordlanguage}, \textit{hasTitleLanguage}, \textit{hasEditor}, \textit{hasReviewer}, \textit{hasTitle}, \textit{isCoauthorWith},
+je nachdem welchen Klassen die Endknoten dieser Kante angehören.
 
 \begin{figure}[hp]
     \centering
-    \includegraphics[angle=90,scale=0.5]{../deps/publications_ontology.png}
-    \caption{Publications Ontology: alle Klassen und Unterklassen}
-    \label{fig:pubsOnto}
+    \includegraphics[angle=90,scale=0.6]{../deps/publications_ontology_relations.png}
+    \caption{Informationsnetzwerk für wissenschaftliche Publikationen: allgemeines Schema}
+    \label{fig:schemePubs}
 \end{figure}
-
-\begin{figure}[hpt]
-    %\centering
-    \includegraphics[scale=0.4]{../deps/publications_ontology_relations.png}
-    \caption{Publications Ontology: Relationen zwischen den Oberklassen}
-    \label{fig:pubsOnto_relations}
-\end{figure}
-
-Eine besondere Designentscheidung ist, dass die drei Object Properties \textit{hasKeywordLanguage}, \textit{hasPublicationLanguage} und \textit{hasTitleLanguage} einzeln modelliert sind.
+\smallskip
+Eine besondere Designentscheidung ist, dass die drei Relationen \textit{hasKeywordLanguage}, \textit{hasPublicationLanguage} und \textit{hasTitleLanguage} einzeln modelliert sind.
 Der Hintergrundgedanke dabei ist, dass eine Publikation oder die entsprechenden Metadaten: Keyword und Titel, auf mehreren Sprachen vorliegen können.
 Diese Definition erlaubt dann, dass z.B. der englische Begriff \textit{graph theory} und das deutsche Wort \textit{Graphentheorie} auf das selbe Keyword abgebildet werden können.
 Das kann ein zukünftiges sprachunabhängiges Verfahren zur Ähnlichkeitsberechnung unterstützen.
 \\
 \\
-Eine andere auffällige Besonderheit ist die Tatsache, dass sowohl die Klasse \textit{Title}, die mittels der Object Property \textit{hasTitle} mit der Klasse \textit{Publication} verbunden ist, als auch das Data Property \textit{hasTitleString} modelliert werden.
-Diese Entscheidung beruht auf der Idee, dass ein Individuum der Klasse \textit{Publication} mittels \textit{hasTitleString} mit seinem exakten Titel (einer Instanz des Datentyps \textit{string}) verknüpft werden kann.
-Aus diesem Stringdatenwert können dann später die Schlüsselbegriffe extrahiert werden und als ein \textit{Bag of words}\footnote{Bag of words bezeichnet in den Feldern der Information Retrieval und Natural Language Processing eine ungeordnete Menge von Wörtern} auf ein Individuum der Klasse \textit{Title} abgebildet werden.
-Somit können Titel verschiedener Publikationen, die die gleichen bedeutsamen Begriffe enthalten, auf das selbe Individuum der Klasse \textit{Title} abgebildet werden.
+Eine andere auffällige Besonderheit ist die Tatsache, dass sowohl Knoten mit dem Attribut \textit{Klasse=Title}, die in Relation \textit{hasTitle} mit Knoten der Klasse \textit{Publication} stehen, als auch das Attribut \textit{TitleString} bei Knoten der Klasse \textit{Publication} modelliert werden.
+Diese Entscheidung beruht auf der Idee, dass ein Knoten der Klasse \textit{Publication} seinen exakten Titel im Attribut \textit{TitleString} speichern kann.
+Aus diesem Stringdatenwert können dann später die Schlüsselbegriffe extrahiert werden und als ein \textit{Bag of words}\footnote{Bag of words bezeichnet in den Feldern der Information Retrieval und Natural Language Processing eine ungeordnete Menge von Wörtern} auf ein Knoten der Klasse \textit{Title} abgebildet werden.
+Somit können Titel verschiedener Publikationen, die die gleichen bedeutsamen Begriffe enthalten, auf das selbe Knoten der Klasse \textit{Title} abgebildet werden.
 Dieser Ansatz wäre für eine Ähnlichkeitsanalyse viel sinnvoller als ein einfaches Stringmatching auf zwei exakten Titel zu machen oder die String-Edit-Distance zwischen diesen zu bestimmen.
 Das ist jedoch eine Möglichkeit, die die aktuelle Arbeit nicht mehr realisiert und die zukünftig näher untersucht werden kann.
 % zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 \\
 \\
-Das vorgeschlagene Ontologieschema ist möglichst allgemein gehalten, damit verschiedene Datensätze, die wissenschaftliche Publikationen beinhalten, darauf abgebildet werden können.
-Bei Bedarf kann das Schema unkompliziert erweitert werden:
-es können z.B. weitere Unterklassen von \textit{Source} oder \textit{ClassificationCode} definiert werden, sofern solche in dem aktuell betrachteten Datensatz vorhanden sind.
-
-
-\subsubsection{GraphML}
-An der Stelle wird erwähnt, dass die \textit{OWL}-Modellierung nicht die Wissensrepräsentation ist, die auch tatsächlich in der aktuellen Arbeit für die weiteren Ähnlichkeitsanalysen verwendet wird.
-Anstatt dessen wird die semantische Ähnlichkeit zwischen zwei wissenschaftlichen Publikationen aufgrund von einer \textit{GraphML}-Modellierung\footnote{\textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
+Das vorgeschlagene Netzwerkschema ist möglichst allgemein gehalten, damit verschiedene Datensätze, die wissenschaftliche Publikationen beinhalten, darauf abgebildet werden können.
+Bei Bedarf kann das Schema unkompliziert erweitert werden.
+\\
+\\
+Die Modellierung des Publikationnetzwerks wurde mit \textit{GraphML}\footnote{\textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
 Sie unterstützt ungerichtete, gerichtete, gemischte, Hyper- und Multigraphen.
 Ferner können sowohl Knoten als auch Kanten beliebige Attribute zugeordnet werden.
 Eine vollständige Dokumentation von \textit{GraphML} ist unter graphml.graphdrawing.org/primer/graphml-primer.htm zu finden.
-} berechnet.
-Die Überführung der \textit{Publications Ontology} vom \textit{OWL}-Schema ins \textit{GraphML}-Schema ist weitgehend unproblematisch, da bei der \textit{OWL}-Modellierung keine spezifische \textit{OWL}-Features benutzt werden.
-\\
-\\
-Die Motivation hierfür ist ein sparsamerer Umgang mit Ressourcen.
-Wie bereits angedeutet, beinhaltet der von dieser Arbeit benutzte Testdatensatz die Metadaten zu $2,907,086$ Publikationen.
-Eine \textit{OWL}-Repräsentation der vollständigen Daten wird $8.9$ Gb groß, dagegen ist die \textit{GraphML}-Repräsentation davon nur $4.8$ Gb.
-Das ist an der Stelle von besonderer Bedeutung, da der Ähnlichkeitsberechnungsalgorithmus zunächst die Gesamtdaten in den Arbeitsspeicher lädt und darauf arbeitet.
-Zum Vergleich werden hier zwei Codeausschnitte aufgeführt, die die \textit{OWL}- bzw. \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und 2 Keywords \textit{graph theory} und \textit{shortest path} darstellen.
+} realisiert.
+Der folgende Codeausschnitt soll die \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und 2 Keywords \textit{graph theory} und \textit{shortest path} veranschaulichen.
 
 \begin{program}
 \input{diagrams/pub_graphml_example}
 \caption{Die \textit{GraphML}-Repräsentation}
 \end{program}
 
-\begin{program}
-\input{diagrams/pub_owl_example}
-\caption{Die \textit{OWL}-Repräsentation}
-\end{program}
-
-
-% Beschreibung GraphML
-% möglich, da keine spezielle OWL-Features genutzt werden
-
-
-%GraphML
-% alternative Repräsentation mit dem Ziel Resourcen zu sparren (wird viel weniger Speicherplatz verbraucht)
-% eignet sich gut, da der konkrete Algorithmus, der die Ähnlichkeit berechnet, nicht auf spezielle Eigenschaften von OWL angewiesen ist
-% kurz diese Modellierung beschreiben.
-% vlt mit nem Code-Vergleich zw beiden
-% und mit nem Größenvergleich (ich habe ja beide vollständige Repräsentationen ausgerechnet)
-% und Erwähnen wie viele Publikationen darzustellen sind
 
 \subsection{Ein Ähnlichkeitsmaß für mathematische Publikationen}
 % Eine gewichtete Kombination von diesen Relationen
@@ -479,7 +403,9 @@ Die \textit{OWL}-Repräsentation der vollständigen Daten ist wie bereits erwähnt 
 \\
 Zudem ist jeweils noch ein Datensatz in \textit{OWL}- bzw. \textit{GraphML}-Format entstanden, der nur die \textit{OWL}-/\textit{GraphML}-Repräsentation von Publikationen enthält, von denen vollständige (aus der Sicht des vorgeschlagenen Ähnlichkeitsmaßes) Metadaten vorhanden sind.
 Genauer gesagt enthalten diese Datensätze nur Publikationen, für die Autor, Keywords, Quelle, Erscheinungsjahr und Zitationen alle gleichzeitig vorliegen.
-Diese reduzierten Datensätze beinhalten $1,154,950$ Publikationen.
+Diese reduzierten Datensätze beinhalten $1,154,950$ Publikationen.%knapp 1Gb
+%Wie bereits angedeutet, beinhaltet der von dieser Arbeit benutzte Testdatensatz die Metadaten zu $2,907,086$ Publikationen.
+%Eine \textit{OWL}-Repräsentation der vollständigen Daten wird $8.9$ Gb groß, dagegen ist die \textit{GraphML}-Repräsentation davon nur $4.8$ Gb.
 Die eigentliche Analyse wird im Anschluss auf dem verkleinerten Datensatz durchgeführt.
 \\
 \\
