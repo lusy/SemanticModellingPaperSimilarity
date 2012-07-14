@@ -241,8 +241,8 @@ Der folgende Codeausschnitt soll die \textit{GraphML}-Repräsentation der Beispie
 In Anlehnung an die Arbeiten von Jeh und Widom \cite{simrank2002}, Zhao, Han und Sun \cite{ZhaoHS09} und Yoon, Kim und Park \cite{DBLP:journals/corr/abs-1109-1059}
 wird ein Ähnlichkeitsmaß, das die Relationen zwischen den Metadaten von wissenschaftlichen Publikationen berücksichtigt, vorgeschlagen.
 Analog zu diesen Arbeiten, die strukturelle Ähnlichkeitsmaße für Informationsnetzwerke definieren, basiert das vorgeschlagene Maß auch auf der Idee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind''.
-Im Gegensatz zu \textit{SimRank} \cite{simrank2002}, \textit{P-Rank} \cite{ZhaoHS09} und \textit{C-Rank} \cite{DBLP:journals/corr/abs-1109-1059} jedoch berücksichtigt dieses Maß nicht nur Publikationen, sondern auch dazugehörige Metadaten.
-Die Version, die hier betrachtet wird, bezieht die folgenden Metadaten eines Papers ein: Autor, Quelle, Erscheinungsjahr, Keywords und Zitationen.
+Im Gegensatz zu \textit{SimRank} \cite{simrank2002}, \textit{P-Rank} \cite{ZhaoHS09} und \textit{C-Rank} \cite{DBLP:journals/corr/abs-1109-1059} jedoch, bezieht dieses Maß nicht nur Publikationen, sondern auch dazugehörige Metadaten ein.
+Die Version, die hier betrachtet wird, rechnet mit den folgenden Metadaten eines Papers: Autor, Quelle, Erscheinungsjahr, Keywords und Zitationen.
 Wenn jedoch weitere Metadaten in einer sinnvollen Form vorhanden sind\footnote{Beispiel hierfür wäre der schon angesprochene Titel in der Form \textit{Bag of words}},
 kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung miteinfließen.
 \\
@@ -375,23 +375,6 @@ P-Rank \cite{ZhaoHS09} verallgemeinert die zwei Maße, indem es sowohl ein- als a
 \\
 C-Rank \cite{DBLP:journals/corr/abs-1109-1059} bezieht sich schon, im Gegensatz zu allen eben erwähnten Ansätzen, konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen. Das Maß berücksichtigt aber nur Zitationen.
 
-% Notes on accuracy, decay factor and convergence:
-% ------------------------------------------------
-
-% Accuracy: C-Rank > SimRank > P-Rank > rvs-SimRank
-
-% Number of iterations:
-% SimRank converges at k = 3,
-% rvs-SimRank converges at k = 5,
-% P-Rank converges at k = 6,
-% C-Rank converges at k = 9.
-
-% Decay factor:
-% It is obvious that the similarity score of C-Rank increases with the increase of C.
-% When C = 0.2, C-Rank converges fast at k = 2.
-% When C = 0.8, on the other hand, C-Rank converges at the 9-th iteration.
-% When C is low, the recursive power of C-Rank is weakened such that only the papers in local or near-local neighborhood are used in similarity computation.
-% When C is high, more papers in a more global neighborhood can be used in computing the similarity recursively. When C is high, therefore, the convergence takes more time.
 \subsection{Mapping auf das entworfene Schema}
 % technische Details
 % Werkzeuge
