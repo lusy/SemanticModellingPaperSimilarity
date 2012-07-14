@@ -23,7 +23,26 @@
 %    Boot Volume: Macintosh HD
 %    Boot Mode: Normal
 
+% wie werden die lambdas gewählt? warum?
+% wie wird c gewählt? warum (simRank optimierungspaper)
 
+% Notes on accuracy, decay factor and convergence:
+% ------------------------------------------------
+
+% Accuracy: C-Rank > SimRank > P-Rank > rvs-SimRank
+
+% Number of iterations:
+% SimRank converges at k = 3,
+% rvs-SimRank converges at k = 5,
+% P-Rank converges at k = 6,
+% C-Rank converges at k = 9.
+
+% Decay factor:
+% It is obvious that the similarity score of C-Rank increases with the increase of C.
+% When C = 0.2, C-Rank converges fast at k = 2.
+% When C = 0.8, on the other hand, C-Rank converges at the 9-th iteration.
+% When C is low, the recursive power of C-Rank is weakened such that only the papers in local or near-local neighborhood are used in similarity computation.
+% When C is high, more papers in a more global neighborhood can be used in computing the similarity recursively. When C is high, therefore, the convergence takes more time.
 
 \subsection{Auswertung der Ergebnisse}
 % Macht das, was rauskommt, Sinn?
