@@ -375,42 +375,29 @@ P-Rank \cite{ZhaoHS09} verallgemeinert die zwei Maße, indem es sowohl ein- als a
 \\
 C-Rank \cite{DBLP:journals/corr/abs-1109-1059} bezieht sich schon, im Gegensatz zu allen eben erwähnten Ansätzen, konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen. Das Maß berücksichtigt aber nur Zitationen.
 
-\subsection{Mapping auf das entworfene Schema}
+%\subsection{Mapping auf das entworfene Schema}
 % technische Details
 % Werkzeuge
 % Designentscheidungen (wir Mappen die Sprachen jedes mal mit/doch nicht, ...) begründen
 
-Um das vorgeschlagene Ähnlichkeitsmaß für wissenschaftliche Publikationen auswerten zu können, wird der Testdatensatz vom Zentralblatt Mathematik auf das im Kapitel \ref{subsec:modell} vorgestellte semantische Schema abgebildet.
-Mit Hilfe von einem in \textit{Python} geschriebenen Parser werden die Daten vom \textit{zmath}-Datensatz sowohl in \textit{OWL}- als auch in \textit{GraphML}-Format überführt.
-Die \textit{OWL}-Repräsentation der vollständigen Daten ist wie bereits erwähnt ca. doppelt so groß wie die \textit{GraphML}-Repräsentation, weshalb im weiteren Verlauf \textit{GraphML} Anwendung findet.
-\\
-\\
-Zudem ist jeweils noch ein Datensatz in \textit{OWL}- bzw. \textit{GraphML}-Format entstanden, der nur die \textit{OWL}-/\textit{GraphML}-Repräsentation von Publikationen enthält, von denen vollständige (aus der Sicht des vorgeschlagenen Ähnlichkeitsmaßes) Metadaten vorhanden sind.
-Genauer gesagt enthalten diese Datensätze nur Publikationen, für die Autor, Keywords, Quelle, Erscheinungsjahr und Zitationen alle gleichzeitig vorliegen.
-Diese reduzierten Datensätze beinhalten $1,154,950$ Publikationen.%knapp 1Gb
-%Wie bereits angedeutet, beinhaltet der von dieser Arbeit benutzte Testdatensatz die Metadaten zu $2,907,086$ Publikationen.
-%Eine \textit{OWL}-Repräsentation der vollständigen Daten wird $8.9$ Gb groß, dagegen ist die \textit{GraphML}-Repräsentation davon nur $4.8$ Gb.
-Die eigentliche Analyse wird im Anschluss auf dem verkleinerten Datensatz durchgeführt.
-\\
-\\
+%Um das vorgeschlagene Ähnlichkeitsmaß für wissenschaftliche Publikationen auswerten zu können, wird der Testdatensatz vom Zentralblatt Mathematik auf das im Kapitel \ref{subsec:modell} vorgestellte Graphenschema abgebildet.
+%Mit Hilfe von einem in \textit{Python} geschriebenen Parser werden die Daten vom \textit{zmath}-Datensatz in \textit{GraphML}-Format überführt.
+%Die \textit{GraphML}-Repräsentation der vollständigen Daten ist ca. $4.8$ Gb groß.
+
+% Das Trimming wird in Kapitel 4 erläutert.
+
+
 %Kommentar von Susi: die andere Formulierung ist zu lang.
-Dieses Vorgehen basiert einerseits auf einem effizienteren und sparsameren Umgang mit Ressourcen.
-Andererseits sollen Publikationen mit im Ähnlichkeitsmaß verwendeten fehlenden Metadaten in der Berechnung nicht benachteiligt werden.
-Es sollte dennoch in einer späteren Phase evaluiert werden, inwiefern fehlende Metadaten eine korrekte Ausführung und Ähnlichkeitsberechnung beeinflussen.
-\\
-\\
+%Dieses Vorgehen basiert einerseits auf einem effizienteren und sparsameren Umgang mit Ressourcen.
+%Andererseits sollen Publikationen mit im Ähnlichkeitsmaß verwendeten fehlenden Metadaten in der Berechnung nicht benachteiligt werden.
+%Es sollte dennoch in einer späteren Phase evaluiert werden, inwiefern fehlende Metadaten eine korrekte Ausführung und Ähnlichkeitsberechnung beeinflussen.
+
+
 %Zu einem ist das Ziel dieser Arbeit, festzustellen inwiefern eine semantische Ähnlichkeitsanaylse von wissenschaftlichen Publikationen aufgrund von Metadaten und den entsprechenden Beziehungen zwischen den Publikationen und diesen Metadaten sinnvolle Ergebnisse liefert.
 %Hierfür ist das Vorhandensein von einem möglichst vollständigen Satz von Metadaten von besonderer Bedeutung.
 %Es ist logisch, dass wenn die Ähnlichkeitsberechnung eine gewichtete Kombination von 5 verschiedenen Arten von Metadaten beinhaltet, werden Papers, für die nicht alle 5 Arten von Metadaten vorliegen, in dem Sinne benachteiligt, dass sie als weniger ähnlich zu anderen Publikationen gewertet werden im Vergleich zu Publikationspaaren, für die vollständige Metadaten da sind.
-\\
-\\
+
+
 %Zum anderen wird dieses Pruning vom Datensatz wieder aus Effizienz- und Resourcenspargründen vorgenommen: mit $4.8$ Gb ist die \textit{GraphML}-Repräsentation des gesamten \textit{zmath}-Datensatzes immer noch zu umfangreich, um mit unseren Methoden effizient ausgewertet zu werden.
 %Selbst wenn wir die Eingangsdaten in einer Datenbank speichern und nicht in den Speicher laden müssen, haben wir immer noch die Probleme mit $O(n^4)$ Laufzeit auf 3 Millionen Knoten und der Erstellung einer Ähnlichkeitsmatrix, die im schlimmsten Fall $O(n^2)$ Platz verbraucht.
-
-%-------------------------------------------------------------
-% Mein Modell ist eigentlich ein semantisches Netz, worauf auch graphen-theoretische Methoden angewandt werden
-
-% hier erwähnen, dass 2 Mappings(OWL und GraphML) entstanden sind (platzsparrgründe)
-% dass auch von denen 2 Mappings entstanden sind - vom gesamten Datensatz und nur von Publikationen mit vollständigen (im Sinne meines Ähnlichkeitsmaßes) Metadaten;
-% das letzte ist ok, da wir genau den Einfluss von vielen vorhandenen Metadaten auf eine Ähnlichkeitsanalyse untersuchen
 
