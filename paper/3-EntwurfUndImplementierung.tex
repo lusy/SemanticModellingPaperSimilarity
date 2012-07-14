@@ -239,16 +239,17 @@ Der folgende Codeausschnitt soll die \textit{GraphML}-Repräsentation der Beispie
 % Idee von paper \cite{Yang:2009:TRSN} nutzen, um das Maß zu definieren
 
 In Anlehnung an die Arbeiten von Jeh und Widom \cite{simrank2002}, Zhao, Han und Sun \cite{ZhaoHS09} und Yoon, Kim und Park \cite{DBLP:journals/corr/abs-1109-1059}
-wird ein Ähnlichkeitsmaß, das semantische Relationen zwischen den Metadaten von wissenschaftlichen Publikationen berücksichtigt, vorgeschlagen.
+wird ein Ähnlichkeitsmaß, das die Relationen zwischen den Metadaten von wissenschaftlichen Publikationen berücksichtigt, vorgeschlagen.
+Analog zu diesen Arbeiten, die strukturelle Ähnlichkeitsmaße für Informationsnetzwerke definieren, basiert das vorgeschlagene Maß auch auf der Idee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind''.
+Im Gegensatz zu \textit{SimRank} \cite{simrank2002}, \textit{P-Rank} \cite{ZhaoHS09} und \textit{C-Rank} \cite{DBLP:journals/corr/abs-1109-1059} jedoch berücksichtigt dieses Maß nicht nur Publikationen, sondern auch dazugehörige Metadaten.
 Die Version, die hier betrachtet wird, bezieht die folgenden Metadaten eines Papers ein: Autor, Quelle, Erscheinungsjahr, Keywords und Zitationen.
 Wenn jedoch weitere Metadaten in einer sinnvollen Form vorhanden sind\footnote{Beispiel hierfür wäre der schon angesprochene Titel in der Form \textit{Bag of words}},
 kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung miteinfließen.
 \\
 \\
-Analog zu den schon erwähnten Arbeiten, die strukturelle Ähnlichkeitsmaße für Informationsnetzwerke definieren, basiert das vorgeschlagene semantische Maß auch auf der Idee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind''.
-Es wird rekursiv die Ähnlichkeit zwischen je 2 Elementen einer Klasse aufgrund der Relationen im modellierten semantischen Netz für wissenschaftliche Publikationen ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
+Es wird rekursiv die Ähnlichkeit zwischen je 2 Knoten derselben Klasse aufgrund der Relationen im modellierten Publikationsnetz ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
 Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
-Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Klasse werden nur die Beziehungen zwischen Elementen der entsprechenden Klasse und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen semantischen Netz modelliert sind.
+Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Klasse werden nur die Beziehungen zwischen Elementen der entsprechenden Klasse und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen Netz modelliert sind.
 (Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords wird die Relation (Keyword \textit{isKeywordOf} Publikation) berücksichtigt.)
 \\
 \\
@@ -372,7 +373,7 @@ SimRank und rvs-SimRank \cite{simrank2002} messen allgemeine strukturelle Ähnlic
 P-Rank \cite{ZhaoHS09} verallgemeinert die zwei Maße, indem es sowohl ein- als auch ausgehenden Kanten von Informationsnetzwerken, in einer bestimmten Gewichtung, betrachtet.
 \\
 \\
-C-Rank \cite{DBLP:journals/corr/abs-1109-1059} bezieht sich schon, im Gegensatz zu allen eben erwähnten Ansätzen, konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen. Das Maß berücksichtigt aber nur Zitationen und unterscheidet die Richtung des Zitats nicht (d.h. unterscheidet nicht, ob Paper $A$ Paper $B$ zitiert oder anders rum).
+C-Rank \cite{DBLP:journals/corr/abs-1109-1059} bezieht sich schon, im Gegensatz zu allen eben erwähnten Ansätzen, konkret auf Ähnlichkeit zwischen wissenschaftlichen Publikationen. Das Maß berücksichtigt aber nur Zitationen.
 
 % Notes on accuracy, decay factor and convergence:
 % ------------------------------------------------
