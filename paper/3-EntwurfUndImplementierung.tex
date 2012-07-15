@@ -38,19 +38,19 @@ Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation mö
 \label{tab:metadata}
 \end{table}
 
-Dazu ist noch zu erwähnen, dass zu einer Publikation mehrere Autoren/Autorinnen, MSC Klassen, Sprachen, Keywords und Zitationen möglich sind.
+Zu einer Publikation sind mehrere Autoren/Autorinnen, MSC Klassen, Sprachen, Keywords und Zitationen möglich.
 \\
 \\
 Der Datensatz hat ferner die folgenden Merkmale:\\
 Jede Publikation hat im Schnitt $1.68$ Autoren.
 Die größte Anzahl an Wissenschaftler und Wissenschaftlerinnen, die zusammen eine Arbeit publiziert haben, ist 38.
-Die produktivsten Autoren sind Paul Erdös mit $1208$ Veröffentlichungen, Edoardo Ballico ($1100$ Publikationen), Lucien Godeaux ($794$ Publikationen) und Leonard Carlitz ($735$ Publikationen).
+Die Autoren mit den meisten Publikationen sind Paul Erdös mit $1208$ Veröffentlichungen, Edoardo Ballico ($1100$ Publikationen), Lucien Godeaux ($794$ Publikationen) und Leonard Carlitz ($735$ Publikationen).
 Eine Verteilung der Autorenzahlen im $zmath$-Datensatz ist auf Abbildung \ref{fig:authorFreq} zu sehen\footnote{Publikationen, wo die Anzahl der Autoren, Zitationen, Keywords oder MSC-Klassen null ist, werden in den Diagrammen nicht berücksichtigt}.
 \\
 \\
 Das Paper mit dem größten Literaturverzeichnis zitiert 38 andere Arbeiten.
-Jede Publikation hat im Schnitt 0.27 Zitationen\footnote{wobei es davon auszugehen ist, dass die Zitationen nicht bei allen Publikationen erfasst wurden}.
-Tabelle \ref{tab:citations} stellt die am öftesten zitierten Publikationen und die Anzahl ihrer Referenzen dar,
+Jede Publikation hat im Schnitt 0.27 Zitationen (wobei es davon auszugehen ist, dass die Zitationen nicht bei allen Publikationen erfasst wurden).
+Tabelle \ref{tab:citations} stellt die am meisten zitierten Publikationen und die Anzahl ihrer Referenzen dar,
 die Häufigkeitsverteilung der Zitationen im Datensatz ist in Abbildung \ref{fig:citationFreq} dargestellt.
 
 \begin{table}[h]
@@ -75,7 +75,7 @@ die Häufigkeitsverteilung der Zitationen im Datensatz ist in Abbildung \ref{fig:
 \end{table}
 
 Im Durchschnitt wurden pro Publikation 3 Keywords vergeben.
-Die maximale Anzahl von Keywords für eine Arbeit ist 219, die nächst große - 162.
+Die maximale Anzahl von Keywords für eine Arbeit ist 219. %, die nächst große - 162.
 Tabelle \ref{tab:keywords} beinhaltet die am häufigsten vergebenen Keywords.
 Häufigkeitsverteilung der Keywords kann Abbildung \ref{fig:keywordFreq} entnommen weden.
 
@@ -109,10 +109,10 @@ Abbildung \ref{fig:mscClassFreq} stellt die Verteilung der MSC-Klassen im Datens
 \\
 \\
 Die Arbeiten, die der Datensatz enthält, sind in 89 verschiedenen Jahren veröffentlicht worden.
-Der früheste Eintrag (eine Arbeit vom schweizerischen Mathematiker Leonard Euler) stammt vom Jahr 1796.
+Der früheste Eintrag (eine Arbeit vom schweizer Mathematiker Leonard Euler) stammt vom Jahr 1796.
 Es gibt auch jeweils eine Publikation von den Jahren 1879, 1914, 1924 und 1930.
 1931 ist mit 4041 Veröffentlichungen das erste Jahr, das mehr oder weniger vollständig im Datensatz vermerkt ist.
-Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
+Das Jahr mit den meisten Publikationen bis jetzt war $2008$ mit $102,319$ Veröffentlichungen.
 
 
 \begin{figure}
@@ -169,7 +169,7 @@ Das produktivste Jahr bis jetzt war 2008 mit $102,319$ Veröffentlichungen.
 Als Grundlage für die Ermittlung der Ähnlichkeit zwischen zwei wissenschaftlichen Publikationen sollte eine Modellierung dieser und der dazu gehörigen Metadaten in der Form eines Netzwerks realisiert werden.
 \\
 \\
-Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf dem ersten Blick ein gutes Modell für Publikationen zu sein, hat jedoch einen ganz anderen Fokus.
+Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf den ersten Blick ein gutes Modell für Publikationen zu sein, hat jedoch einen ganz anderen Fokus.
 Sie modelliert eine ganze Domäne von wissenschaftlichen Akteuren, Ereignissen, Einrichtungen, Arbeiten und die dazwischen bestehenden Beziehungen.
 Sie bietet ferner eine recht detaillierte Aufteilung von wissenschaftlichen Publikationen in Unterkategorien (z.B. \textit{Technical report}, \textit{Book}, \textit{Thesis}, \textit{Journal article}, etc.).
 Dennoch eignet sich das Modell eher schlecht für Ähnlichkeitsanalysen zwischen Publikationen aufgrund von Metadaten.
@@ -179,7 +179,7 @@ Einige Beispiele hierfür sind Metadaten wie Klassifikationscodes, Keywords oder 
 \\
 Aus diesen Gründen schlägt die aktuelle Arbeit ein Informationsnetzwerk für Publikationen vor.
 Das allgemeine Schema dieses Publikationnetzwerks ist auf Abbildung \ref{fig:schemePubs} veranschaulicht.
-Wie bereits in Kapitel \ref{sec:knowledgeRep} erwähnt, wird dabei jede Publikation und jedes dazugehörige Metadatum als einen Knoten modelliert.
+Wie bereits in Kapitel \ref{sec:knowledgeRep} erwähnt, wird dabei jede Publikation und jedes dazugehörige Metadatum als ein Knoten modelliert.
 Jeder dieser Knoten hat das Attribut \textit{Klasse}, das bezeichnet, ob es sich um eine Publikation, einen Autor, ein Keyword, ein Erscheinungsjahr, einen Klassifikationscode, eine Sprache, einen Editor, einen Reviewer oder eine Quelle handelt.
 Ferner können die Knoten, die Publikationen repräsentieren, auch eines oder mehrere der folgenden Attribute haben: \textit{Id}, \textit{Abstract}, \textit{TitleString} oder \textit{Accession Number} (letzteres ist eine für den \textit{zmath}-Datensatz spezifische Identifikationsnummer).
 \smallskip
@@ -200,25 +200,25 @@ Diese Definition erlaubt dann, dass z.B. der englische Begriff \textit{graph the
 Das kann ein zukünftiges sprachunabhängiges Verfahren zur Ähnlichkeitsberechnung unterstützen.
 \\
 \\
-Eine andere auffällige Besonderheit ist die Tatsache, dass sowohl Knoten mit dem Attribut \textit{Klasse=Title}, die in Relation \textit{hasTitle} mit Knoten der Klasse \textit{Publication} stehen, als auch das Attribut \textit{TitleString} bei Knoten der Klasse \textit{Publication} modelliert werden.
+Eine andere Besonderheit ist die Tatsache, dass sowohl Knoten mit dem Attribut \textit{Klasse=Title}, die in Relation \textit{hasTitle} mit Knoten der Klasse \textit{Publication} stehen, als auch das Attribut \textit{TitleString} bei Knoten der Klasse \textit{Publication} modelliert werden.
 Diese Entscheidung beruht auf der Idee, dass ein Knoten der Klasse \textit{Publication} seinen exakten Titel im Attribut \textit{TitleString} speichern kann.
 Aus diesem Stringdatenwert können dann später die Schlüsselbegriffe extrahiert werden und als ein \textit{Bag of words}\footnote{Bag of words bezeichnet in den Feldern der Information Retrieval und Natural Language Processing eine ungeordnete Menge von Wörtern} auf ein Knoten der Klasse \textit{Title} abgebildet werden.
-Somit können Titel verschiedener Publikationen, die die gleichen bedeutsamen Begriffe enthalten, auf das selbe Knoten der Klasse \textit{Title} abgebildet werden.
+Somit können Titel verschiedener Publikationen, die die gleichen bedeutsamen Begriffe enthalten, auf den selben Knoten der Klasse \textit{Title} abgebildet werden.
 Dieser Ansatz wäre für eine Ähnlichkeitsanalyse viel sinnvoller als ein einfaches Stringmatching auf zwei exakten Titel zu machen oder die String-Edit-Distance zwischen diesen zu bestimmen.
 Das ist jedoch eine Möglichkeit, die die aktuelle Arbeit nicht mehr realisiert und die zukünftig näher untersucht werden kann.
 % zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 \\
 \\
 Das vorgeschlagene Netzwerkschema ist möglichst allgemein gehalten, damit verschiedene Datensätze, die wissenschaftliche Publikationen beinhalten, darauf abgebildet werden können.
-Bei Bedarf kann das Schema unkompliziert erweitert werden.
+Bei Bedarf kann das Schema in Zukunft erweitert werden.
 \\
 \\
 Die Modellierung des Publikationnetzwerks wurde mit \textit{GraphML}\footnote{\textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
 Sie unterstützt ungerichtete, gerichtete, gemischte, Hyper- und Multigraphen.
 Ferner können sowohl Knoten als auch Kanten beliebige Attribute zugeordnet werden.
-Eine vollständige Dokumentation von \textit{GraphML} ist unter graphml.graphdrawing.org/primer/graphml-primer.htm zu finden.
+Eine vollständige Dokumentation von \textit{GraphML} ist unter http://graphml.graphdrawing.org/primer/graphml-primer.htm zu finden.
 } realisiert.
-Der folgende Codeausschnitt soll die \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und 2 Keywords \textit{graph theory} und \textit{shortest path} veranschaulichen.
+Der folgende Codeausschnitt soll die \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und zwei Keywords \textit{graph theory} und \textit{shortest path} veranschaulichen.
 
 \begin{program}
 \input{diagrams/pub_graphml_example}
@@ -247,7 +247,7 @@ Wenn jedoch weitere Metadaten in einer sinnvollen Form vorhanden sind\footnote{B
 kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung miteinfließen.
 \\
 \\
-Es wird rekursiv die Ähnlichkeit zwischen je 2 Knoten derselben Klasse aufgrund der Relationen im modellierten Publikationsnetz ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
+Es wird rekursiv die Ähnlichkeit zwischen je zwei Knoten derselben Klasse aufgrund der Relationen im modellierten Publikationsnetz ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
 Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
 Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Klasse werden nur die Beziehungen zwischen Elementen der entsprechenden Klasse und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen Netz modelliert sind.
 (Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords wird die Relation (Keyword \textit{isKeywordOf} Publikation) berücksichtigt.)
@@ -302,7 +302,7 @@ $K$ stellen alle Keyword-Relationen, $A$ alle Autor-Relationen, $S$ alle Source-
 Dabei wird mit $K(a)$ die Menge aller Keywords von Paper $a$ bezeichnet.
 (Die Menge aller Elemente, die in Relation $hasKeyword$ zum Paper a stehen.)
 $|K(a)|$ ist die Anzahl der Elemente, die dieser Menge angehören.
-$K_i(a)$ ist dann das i. Keyword von $a$.
+$K_i(a)$ ist dann das i-te Keyword von $a$.
 (Analog sind $A(a)$ alle Autoren von Paper $a$, $|A(a)|$ ist deren Anzahl, $A_i(a)$ ist der i. Autor von Paper $a$ u.s.w.)
 $L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben Klasse angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen (also alle Nachbarn von $a$ bzw. $b$).
 \\
@@ -310,8 +310,8 @@ $L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben Klasse 
 $\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen der verschiedenen Relationen, die die Bedeutung der einzelnen Metadaten für eine Publikation priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
 \\
 \\
-$c$ ist ein Dämpfungsfaktor, $c\in [0..1]$;
-$c$ wird in Anlehnung an \cite{Lizorkin2010} bestimmt, die eine Genauigkeitsschätzung für \textit{SimRank} abhängig von der Wahl der Anzahl der Iterationen und des Werts des Dämpfungsfaktors berechnen.
+$c$ ist ein Dämpfungsfaktor ($c\in [0..1]$) und
+wird in Anlehnung an \cite{Lizorkin2010} bestimmt, die eine Genauigkeitsschätzung für \textit{SimRank} abhängig von der Wahl der Anzahl der Iterationen und des Werts des Dämpfungsfaktors berechnen.
 \\
 \\
 Um Division durch $0$ zu vermeiden, wird für den Fall, dass z.B. $K(a)=\emptyset$ oder $K(b)=\emptyset$ die ganze Komponente

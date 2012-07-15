@@ -8,10 +8,9 @@
 
 \subsection{Motivation}
 Der Begriff \textit{Ähnlichkeit} in Zusammenhang mit wissenschaftlichen Arbeiten ist für die Forschung allgemein von besonderer Relevanz.
-Wissenschaftlerinnen, die sich für ein bestimmtes Thema interessieren oder auf einem bestimmten Feld forschen, sind stets daran interessiert, Publikationen zu finden, die anderen Artikeln, die sie bereits gelesen haben, ähnlich sind.
-Das Thema von automatisierter Klassifikation von wissenschaftlichen Arbeiten ist auch sehr aktuell: derzeitig werden diese in wissenschaftlichen Datenbanken vorwiegend per Hand durch Experten klassifiziert, ein langwieriger und kostspieliger Prozess.
+Wissenschaftlerinnen, die sich für ein bestimmtes Thema interessieren oder in einem bestimmten Feld forschen, sind stets daran interessiert Publikationen zu finden, die anderen Artikeln, die sie bereits gelesen haben, ähnlich sind.
+Darüber hinaus ist auch das Thema von automatisierter Klassifikation von wissenschaftlichen Arbeiten sehr aktuell: derzeitig werden diese in wissenschaftlichen Datenbanken vorwiegend per Hand durch Experten klassifiziert, ein langwieriger und kostspieliger Prozess.
 Deshalb wird schon länger versucht ein möglichst präzises Ähnlichkeitsmaß für Publikationen zu definieren.
-Frühere Ansätze beschränken sich jedoch auf 1-2 Publikationsmerkmale, was die Frage aufwirft, inwiefern diese genau genug sind.
 \\
 \\
 Titel, Thema, Autor, Erscheinungsjahr, Journal und Literaturverweise sind nur einige für eine wissenschaftliche Publikation relevante Metadaten.
@@ -20,7 +19,7 @@ Es gibt schon mehrere Repräsentationen von wissenschaftlichen Arbeiten: Zitation
 Zusätzliche Metadaten können jedoch für eine Analyse ebenfalls bedeutende und interessante Einsichten bringen.
 \\
 \\
-Durch den Aufbau eines Publikationsnetzwerks, das alle zu einer Publikation relevanten Informationen enthält und diese zu einander in Relation stellt, soll ein allgemeineres Modell für wissenschaftliche Publikationen entwickelt werden.
+Durch den Aufbau eines Publikationsnetzwerks, das alle zu einer Publikation relevanten Informationen enthält und diese zueinander in Relation stellt, soll ein allgemeineres Modell für wissenschaftliche Publikationen entwickelt werden.
 Durch die Berücksichtigung der in diesem Modell erfassten Relationen wird dann versucht, ein möglichts genaues Ähnlichkeitsmaß für wissenschaftliche Publikationen zu entwerfen. %vlt beispiele (A ist Autor von Paper P, P ist Journal C erschienen, hat X,Y,Z als Keywords usw)
 %Ein gutes Ähnlichkeitsmaß findet mehrere Gebräuche: es kann bei automatischer Klassifizierung von Arbeiten in einer wissenschaftlichen Datenbank oder als Ausgangspunkt für das Vorschlagen verwandter/relevanter Dokumente eingesetzt werden.
 \\
@@ -50,10 +49,10 @@ Indem alle Metadaten zu einer Publikation in eine neue Definition von einem Publ
 
 Ziel dieser Arbeit ist es zunächst ein Publikationsnetzwerk zu modellieren, das alle zu einer mathematischen Publikation relevanten Metadaten berücksichtigt und mathematische Publikationen zueinander in Relation stellt.
 Im zweiten Teil der Arbeit wird dieses Netzwerk als Grundlage für die Formulierung eines Ähnlichkeitsmaßes und Ähnlichkeitsanalysen verwendet.
-Das vorgeschlagene Ähnlichkeitsmaß wird in Anlehnung an den schon existierenden Maßen SimRank \cite{simrank2002}, P-Rank \cite{ZhaoHS09} und C-Rank \cite{DBLP:journals/corr/abs-1109-1059} rekursiv definiert.
+Das vorgeschlagene Ähnlichkeitsmaß wird in Anlehnung an die schon existierenden Maßen SimRank \cite{simrank2002}, P-Rank \cite{ZhaoHS09} und C-Rank \cite{DBLP:journals/corr/abs-1109-1059} rekursiv definiert.
 Hierbei werden nicht nur Zitationen, sondern auch andere Relationen zwischen einer Publikation und ihren einzelnen Metadaten, wie z.B Autor, Quelle, Erscheinungsjahr und Keywords, gezählt.
 %wie sieht es aus?
-Die Qualität des definierten Ähnlichkeitsmaßes wird ermittelt, indem die Ergebnisse, die es liefert, mit der schon im Datensatz durch Fachexperten vergebenen MSC-Klassifizierung\footnote{Die Mathematical Subject Classification (MSC) ist eine Klassifizierungskonvention, die durch die wissenschaftlichen Datenbanken Mathematical Reviews und das Zentralblatt Mathematik genutzt wird. Für den Aufbau siehe http://www.ams.org/mathscinet/msc/msc2010.html} verglichen werden.
+Die Qualität des definierten Ähnlichkeitsmaßes wird ermittelt, indem die Ergebnisse mit der schon im Datensatz durch Fachexperten vergebenen MSC-Klassen\footnote{Die Mathematical Subject Classification (MSC) ist eine Klassifizierungskonvention, die durch die wissenschaftlichen Datenbanken Mathematical Reviews und das Zentralblatt Mathematik genutzt wird. Für den Aufbau siehe http://www.ams.org/mathscinet/msc/msc2010.html} verglichen werden.
 \\
 \\
 Der der Ausarbeitung zugrundeliegende Datensatz beinhaltet die Metadaten und MSC-Klassifikationen von ca. $2,900,000$ Publikationen vom Zentralblatt Mathematik\footnote{http://www.zentralblatt-math.org/zbmath/}, FIZ Karlsruhe.
@@ -61,11 +60,12 @@ Der der Ausarbeitung zugrundeliegende Datensatz beinhaltet die Metadaten und MSC
 
 \subsection{Aufbau der Arbeit}
 
+% Übergang komisch?
 Im Weiteren wird diese Arbeit folgendermaßen aufgebaut:
 \\
 Kapitel 2 stellt die theoretischen Grundlagen der Bibliometrie vor, beschreibt Informationsnetzwerke als eine Möglichkeit der Wissensrepräsentation und stellt Zusammenhänge zu schon vorhandenen Studien her.
 In Kapitel 3 werden die Eigenschaften und Besonderheiten vom zmath-Datensatz, das modellierte Publikationsnetzwerk, sowie die Abbildung der Metadaten auf das entworfene Schema betrachtet und ein Ähnlichkeitsmaß für mathematische Publikationen definiert.
-Kapitel 4 untersucht den zugrundeliegenden Datensatz auf Ähnlichkeiten mit Hilfe des bereits erarbeiteten Ähnlichkeitsmaßes und stellt eine detaillierte Auswertung der erzielten Ergebnisse dar.
+Kapitel 4 untersucht den zugrundeliegenden Datensatz auf Ähnlichkeiten mit Hilfe des bereits erarbeiteten Ähnlichkeitsmaßes und stellt eine Auswertung der erzielten Ergebnisse dar.
 Kapitel 5 gibt einen Ausblick und schlägt Ansätze für weiterführende Untersuchungen vor und fasst nochmal abschließend die Arbeit zusammen.
 
 %-present the subject, it could be with an example

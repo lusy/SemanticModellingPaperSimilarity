@@ -12,18 +12,18 @@ Rafael Ball und Dirk Tunger schlagen folgende Definition vor: ``Anwendung mathem
 \\
 \\
 Der Begriff $Bibliometrie$ existiert seit 1969 und ist auf A. Pritchard zurückzuführen, auch wenn die ersten bibliometrischen Analysen schon bereits am Anfang des 20. Jahrhunderts durchgeführt wurden.
-Diese versuchen die Wahrnehmung von Facharbeiten, den Einfluss einzelner Autoren (oder Publikationen), ihre Integration in der entsprechenden Forschungsgemeinschaft und ihre internationale Präsenz aufzuzeigen.
+Bibliometrische Untersuchungen versuchen die Wahrnehmung von Facharbeiten, den Einfluss einzelner Autoren (oder Publikationen), ihre Integration in der entsprechenden Forschungsgemeinschaft und ihre internationale Präsenz aufzuzeigen.
 Es werden unter Anderem folgende Gegenstände quantitativ untersucht: die Trendentwicklung der Forschungsschwerpunkte einer bestimmten wissenschaftlichen Disziplin, die Produktivität, die Resonanz oder den Einfluss eines Autors, einer Forschergruppe oder eines Forschungsinstituts, die Internationalität und die Kooperationsbereitschaft auf einem bestimmten Forschungsfeld.
-Die mit bibliometrischen Methoden gewonnenen Erkenntnisse sind oft Ausschlag gebend bei neuen Literaturbeschaffungen in Bibliotheken, oder werden als Ausgangspunkt für eine leistungsorientierte Mittelvergabe in Wissenschaft und Forschung eingesetzt \cite{bibliogrundw2005}.
+Die mit bibliometrischen Methoden gewonnenen Erkenntnisse sind oft ausschlaggebend bei neuen Literaturbeschaffungen in Bibliotheken, oder werden als Ausgangspunkt für eine leistungsorientierte Mittelvergabe in Wissenschaft und Forschung eingesetzt \cite{bibliogrundw2005}.
 \\
 \\
 Die gegenwärtige Tendenz, nur diese statistischen Verfahren für das Treffen dieser Entscheidungen zu benutzen, wird allerdings von diversen Experten stark kritisiert.
 Sie vertreten die Meinung, dass Forschung viel zu wichtig ist, um nur mit Hilfe von einem einzigen, zudem so vagen, Werkzeug, bewertet zu werden.
 Statistische Daten erscheinen objektiver und unabhängiger als manche anderen Praxen, wie z.B. Peer-Reviews \cite{citationstats2008}.
 Die Experten geben zu, dass es verlockend ist, eine einfache und einfach meßbare Vergleichsbasis für verschiedene Publikationen, Journalen, Wissenschaftlerinnen, etc. zu haben.
-Sie warnen aber vor, dass Zahlen nicht immer einer nüchternen Beurteilung überlegener sind, leicht falsch interpretiert werden können und mit Vorsicht zu genießen sind \cite{citationstats2008}.
-Dennoch werten diese Mathematiker und Statistiker die Bibliometrie nicht als komplett falsch oder nutzlos, sondern raten dazu, für etliche Auswertungen, die bibliometrischen Methoden mit anderen Verfahren zu kombinieren.
-An der Stelle werden zwei von den Unterthemen der Bibliometrie kurz umrissen, die auch in die Definition von Ähnlichkeitsmaß, die diese Arbeit anbietet, in gewisser Hinsicht einfließen werden.
+Sie warnen aber davor, dass Zahlen nicht immer einer nüchternen Beurteilung überlegen sind, leicht falsch interpretiert werden können und mit Vorsicht zu genießen sind \cite{citationstats2008}.
+Dennoch sehen diese Mathematiker und Statistiker die Bibliometrie nicht als komplett falsch oder nutzlos, sondern raten dazu, für Auswertungen die bibliometrischen Methoden mit anderen Verfahren zu kombinieren.
+Im Folgenden werden zwei von den Unterthemen der Bibliometrie kurz umrissen, die auch in die Definition von Ähnlichkeitsmaß, die diese Arbeit anbietet, in gewisser Hinsicht einfließen werden.
 %warum
 \\
 
@@ -36,7 +36,7 @@ Sie untersucht die Beziehungen zwischen wissenschaftlichen Arbeiten aufgrund der
 Eine spezielle Relation, die auf Zitationen basiert, ist die bibliographische Kopplung.
 Zwei Publikationen werden als bibliographisch gekoppelt bezeichnet, wenn sie ein gemeinsames früheres Werk zitieren (Abbildung \ref{fig:bibcoupling}).
 
-Die bibliographische Kopplung ist ein nützlicher Indikator, um Beziehungen zwischen frisch publizierten Arbeiten herzustellen, bzw. zwischen Artikeln, die in einem geringen zeitlichen Abstand publiziert worden sind.
+Die bibliographische Kopplung ist ein nützlicher Indikator um Beziehungen zwischen frisch publizierten Arbeiten herzustellen, bzw. zwischen Artikeln, die in einem geringen zeitlichen Abstand publiziert worden sind.
 Mehrere Studien kennzeichnen zwei Publikationen desto verwandter, je stärker bibliographisch gekoppelt diese sind (d.h. je mehrere gemeinsamen Quellen diese zitieren) \cite{Kessler:1963} \cite{DBLP:journals/corr/abs-1109-1059}.
 \begin{figure}
     \begin{subfigure}[h]{0.5\textwidth}
@@ -60,7 +60,7 @@ Mehrere Studien kennzeichnen zwei Publikationen desto verwandter, je stärker bib
 Eine andere Zitationsrelation ist die Kozitation.
 Eine Kozitation von zwei oder mehreren Arbeiten liegt vor, wenn alle diese von einer dritten gemeinsam zitiert werden (Abbildung \ref{fig:cocitation}).
 Laut Kim und Barnett \cite{DBLP:conf/amcis/KimB08} werden Cluster von häufig kozitierten Dokumenten als stark zusammenhängend betrachtet.
-Auch Henry Small bezeichnet zwei Publikationen desto ähnlicher je öfter diese zusammen kozitiert werden \cite{Small_1973}.
+Auch Henry Small bezeichnet zwei Publikationen als umso ähnlicher je öfter diese zusammen kozitiert werden \cite{Small_1973}.
 % "Clusters of highly co-cited documents are considered to have high mutual dependance"\cite{DBLP:conf/amcis/KimB08}
 \\
 \\
@@ -77,12 +77,12 @@ Die gerichteten Kanten eines solchen Graphen stehen auch für eine zeitliche Rich
 Viele Experten schlagen Ähnlichkeitsmaße vor, die auf Zitationsnetzwerken beruhen (siehe \cite{Small_1973}, \cite{Lu01nodesimilarity}, \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059}).
 \\
 \\
-Auch wenn diese bibliometrische Herangehensweise als ein sinnvoller erster Ansatz erscheint, um die Ähnlichkeit zwischen zwei wissenschaftlichen Arbeiten zu ermitteln, werden bei näherer Betrachtung mehrere Probleme/Kritikpunkte aufgedeckt, weswegen auf jeden Fall auch andere Ähnlichkeitsindikatoren gesucht werden müssten:\\
+Auch wenn diese bibliometrische Herangehensweise als ein sinnvoller erster Ansatz erscheint, um die Ähnlichkeit zwischen zwei wissenschaftlichen Arbeiten zu ermitteln, werden bei näherer Betrachtung mehrere Probleme bzw. Kritikpunkte deutlich, weswegen auch andere Ähnlichkeitsindikatoren gesucht werden müssten:\\
 \begin{itemize}
 \item Selbstzitate: Wissenschaftler und Wissenschaftlerinnen tendieren dazu, sich selbst oder andere, die sie kennen und mit denen sie zusammen gearbeitet haben, öfters zu zitieren \cite{DBLP:conf/amcis/KimB08} \cite{frank2009einfuehrung}.
 Dadurch versuchen sie einerseits ihre eigenen Parameter, wie z.B. Rankings aufgrund von Zitationszahlen, andererseits auch diese von Kollegen, Bekannten, etc. zu verbessern (die so genannten ``Dankbarkeits-'' oder ``Gefälligkeitszitate'') \cite{DBLP:conf/isiwi/Schlogl00}.
-Dazu kommt auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, die in einem bestimmten Journal publiziert werden, möglichst häufig andere Veröffentlichungen von diesem Journal zitieren (wieder aufgrund von Verbesserungen von bestimmten bibliometrischen Parametern) \cite{frank2009einfuehrung}.
-\item Zitate von Standardwerken (sogenannten ``Authorities'') oder Übersichtsartikeln kommen vergleichsweise öfter vor und müssen mit Vorsicht genossen werden \cite{DBLP:conf/isiwi/Schlogl00} \cite{evalpubsim2005}.
+Dazu kommt laut \cite{frank2009einfuehrung} auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, die in einem bestimmten Journal publiziert werden, möglichst häufig andere Veröffentlichungen von diesem Journal zitieren (wieder aufgrund von Verbesserungen von bestimmten bibliometrischen Parametern).
+\item Zitate von Standardwerken (sogenannten ``Authorities'') oder Übersichtsartikeln kommen vergleichsweise oft vor und müssen mit Vorsicht genossen werden \cite{DBLP:conf/isiwi/Schlogl00} \cite{evalpubsim2005}.
 \item Es dauert, bis sich eine Arbeit etabliert hat, deshalb werden frühere Werke öfters zitiert \cite{DBLP:conf/isiwi/Schlogl00}.
 \item Papers, die auf anderen Sprachen als Englisch veröffentlicht werden, werden tendenziell seltener gelesen und weniger zitiert \cite{Bornmann08}.
 \item Manchmal werden Zitate einfach weggelassen \cite{DBLP:conf/isiwi/Schlogl00}. Das kann sowohl ein Zeichen für unsorgfältiges wissenschaftliches Arbeiten, als auch Folge des so genannten ``Self-Plagiarism'' sein \cite{collberg05plagiarism}.
@@ -96,11 +96,11 @@ Dazu kommt auch noch der Druck von Herausgebern von Journalen, dass Arbeiten, di
 \subsubsection{Koautorenschaft}
 
 Der zweite Schwerpunkt, der hier noch kurz umrissen wird, ist die Koautorenschaft.
-Als Koautoren werden zwei oder mehrere Wissenschaftler oder Wissenschaftlerinnen bezeichnet, die gemeinsam eine Arbeit veröffentlicht haben.
+Als Koautoren werden zwei oder mehrere Wissenschaftlerinnen oder Wissenschaftler bezeichnet, die gemeinsam eine Arbeit veröffentlicht haben.
 Koautorenschaft wird auch oftmals als ein Ähnlichkeitskennzeichen gewertet \cite{Yang:2009:TRSN}. %Quelle!!
 Allerdings hat die Definition eines Ähnlichkeitsmaßes, das auf Koautorenschaft alleine beruht, auch diverse Nachteile:\\
 \begin{itemize}
-\item Bei langen Autorenlisten sind manche Autorinnen nur teilweise im Thema involviert.
+\item Bei langen Autorenlisten sind manche Autoren nur teilweise in die Ausarbeitung des Papers involviert gewesen.
 \item Der selbe Autor taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James) \cite{DBLP:conf/isiwi/Schlogl00} \cite{Bornmann08}.
 Deswegen ist es oft schwierig eindeutig einzuordnen, welche Person an der konkreten Publikation mitgearbeitet hat \cite{Yang:2009:TRSN}.
 Dieses Problem ist noch stärker ausgeprägt, wenn die Namen der Autoren ursprünglich im Kyrillischen oder einem anderen Alphabet geschrieben werden und ins lateinische Alphabet überführt werden müssen.
@@ -120,8 +120,7 @@ Es ist kompliziert für Publikationen, die ihren Hauptschwerpunkt in verschiedene
 
 \subsection{Graphen als eine Form der Wissensrepräsentation}
 \label{sec:knowledgeRep}
-In der heutigen globalisierten Welt wachsen die Mengen der verfügbaren Informationen ständig exponentiell.
-Deshalb ist eine geeignete Wissensrepräsentation in jedem konkreten Fall der Informationsdarstellung und -verarbeitung besonders wichtig.
+Gerade bei großen Datenmengen ist eine geeignete Wissensrepräsentation als Grundlage der Informationsdarstellung und -verarbeitung besonders wichtig.
 Diese sollte laut \cite{Bench-Capon:1990:KR} die folgenden Eigenschaften haben:\\
 \begin{itemize}
 \item eindeutig sein;
@@ -130,7 +129,10 @@ Diese sollte laut \cite{Bench-Capon:1990:KR} die folgenden Eigenschaften haben:\
 \end{itemize}
 Aus diesen Gründen modelliert die aktuelle Arbeit den Datensatz aus Publikationen und dazugehörigen Metadaten als ein Informationsnetzwerk, dessen zugrunde liegende Struktur ein Graph ist.
 Im allgemeinen wird ein Graph folgendermaßen charakterisiert:\\
+\\
 \textbf{Platzhalter: geeignete Graphendefinition}
+\\
+\\
 %Ein semantisches Netz wird folgendermaßen charakterisiert \cite{Bench-Capon:1990:KR}:\\
 %\begin{itemize}
 %\item es besteht aus Entitäten, die als Knoten modelliert werden
@@ -144,7 +146,7 @@ Jede Publikation und jedes dazugehörige Metadatum wird als ein Knoten modelliert
 Die zwischen einem Paper und seinen Metadaten bestehenden Relationen werden dann als die Kanten des Graphen repräsentiert.
 Sowohl die Knoten als auch die Kanten von diesem Graphen haben Attribute.
 Aufgrund von dem so entstandenen Netzwerk mit Hilfe von graphentheoretischen Methoden sollen Publikationen auf Ähnlichkeit verglichen werden.
-Mehr zu der konkreten Modellierung wird in Kapitel 3.2 gesagt.
+Die konkrete Modellierung wird in Kapitel 3.2 erläutert.
 
 % Was sind semantische Netzwerke
 % Warum sind sie in unserem Fall wichtig?/Warum haben wir uns für so eine Wissensrepräsentation entschieden?
@@ -291,7 +293,7 @@ Er schlägt ferner auch eine Normalisierung für sein Maß mittels des Jaccard-Koef
 Die Anzahl der gemeinsamen Links.
 (Sowohl ein- als auch ausgehende Links werden gezählt.
 Eine Unterscheidung zwischen beiden Arten von Links unternimmt Amsler nicht.)
-Das Ergebnis wird normalisiert, indem es durch die Anzahl aller Links beiden Publikationen geteilt wird.
+Das Ergebnis wird normalisiert, indem es durch die Anzahl aller Links beider Publikationen geteilt wird.
 \label{theo:amsler}
 \end{mydef}
 
@@ -334,7 +336,7 @@ sim(a,b)  =
 Zhao, Han und Sun haben mit \textit{P-Rank} ein ähnliches Konzept \cite{ZhaoHS09}.
 \textit{P-Rank} ist ebenso ein strukturelles Ähnlichkeitsmaß für Informationsnetzwerke, unterscheidet sich jedoch von \textit{SimRank} durch die Tatsache, dass es nicht nur ein- sonder auch ausgehende Kanten in die Ähnlichkeitsberechnung miteinbezieht.
 Es verallgemeinert das zugrundeliegende Prinzip von \textit{SimRank} folgendermaßen: ``zwei Objekte sind ähnlich, wenn sie (1) durch ähnliche Objekte referenziert werden; und (2) ähnliche Objekte referenzieren'' \cite{ZhaoHS09}.
-Ein spezifischer Anwendungsfall für \textit{P-Rank} sind auch Zitationsnetzwerke.
+Ein spezifischer Anwendungsfall für \textit{P-Rank} sind Zitationsnetzwerke.
 Die Autoren argumentieren, dass in dem Fall bibliografische Kopplung, Kozitationen und \textit{SimRank} lediglich Spezialfälle von \textit{P-Rank} sind.
 %auch Amsler wenn sich das Originalpaper findet.
 % die Tabelle, die alle zusammenfasst!!
@@ -378,17 +380,17 @@ sim(a,b) & = &
 Angelehnt an \textit{SimRank} und \textit{P-Rank} schlagen Yoon, Kim und Park das linkbasierte Ähnlichkeitsmaß für wissenschaftliche Literatur \textit{C-Rank} vor \cite{DBLP:journals/corr/abs-1109-1059}.
 Sie geben selber nochmal einen Überblick über schon vorhandene Ähnlichkeitsmaße für wissenschaftliche Arbeiten und zählen gleichzeitig auch ihre Schwächen auf:\\
 \begin{itemize}
-\item Textbasierte Metriken für Ähnlichkeitsbestimmung wissenschaftlicher Publikationen würden zwei Papers auch dann als ähnlich bezeichnen, wenn sie demselben Forschungsfeld angehören, auch wenn sie sich mit unterschiedlichen Problemen beschäftigen.
+\item Textbasierte Metriken für die Ähnlichkeitsbestimmung wissenschaftlicher Publikationen würden zwei Papers auch dann als ähnlich bezeichnen, wenn sie demselben Forschungsfeld angehören, auch wenn sie sich mit unterschiedlichen Problemen beschäftigen.
 \item Die bibliographische Kopplung ist ungeeignet, um Ähnlichkeit zwischen alten aber ähnlichen Arbeit zu berechnen.
 \item Durch Kozitationzählung kann die Ähnlichkeit zwischen neuen ähnlichen Arbeiten nicht gemessen werden.
-\item Beide sind nicht in der Lage Ähnlichkeit zwischen einem alten und einem neuen Paper, die ähnlich sind, zu bestimmen. Die alte Arbeit zitiert keine Neueren, die Neue kann nicht durch Ältere zitiert werden.
+\item Beide sind nicht in der Lage Ähnlichkeit zwischen einem alten und einem neuen Paper zu bestimmen. Die alte Arbeit zitiert keine Neueren, die Neue kann nicht durch Ältere zitiert werden.
 \item \textit{SimRank}, das in gewissem Sinn eine Generalisierung der Kozitation ist, kann keine Ähnlichkeit berechnen, wenn ein Paper durch keine Anderen zitiert wird.
 \item Es wird noch \textit{rvs-SimRank} (reverse SimRank) genannt, das im Gegensatz zu \textit{SimRank} nur ausgehende Links für seine Berechnung betrachtet.
 Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen kann, wenn ein Paper keine Anderen zitiert.
-\item \textit{P-Rank} betrachtet sowohl ein- als auch ausgehende Kanten, ist aber auch für Bestimmen der Ähnlichkeit zwischen einer alten und einer neuen Arbeit ungeeignet.
+\item \textit{P-Rank} betrachtet sowohl ein- als auch ausgehende Kanten, ist aber, genau so wie die \textit{bibliographische Kopplung}, die \textit{Kozitation}, \textit{SimRank} und \textit{rvs-SimRank}, für Bestimmen der Ähnlichkeit zwischen einer alten und einer neuen Arbeit ungeeignet.
 \end{itemize}
-Ähnlich wie \textit{P-Rank} stützt sich \textit{C-Rank} gleichzeitig auf ein- und ausgehenden Kanten.
-Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine geeignete Gewichtung beider Arten von Kanten vornimmt und \textit{C-Rank} überhaupt nicht dazwischen unterscheidet.
+Ähnlich wie \textit{P-Rank} arbeitet \textit{C-Rank} gleichzeitig auf ein- und ausgehenden Kanten.
+Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine geeignete Gewichtung beider Arten von Kanten vornimmt und \textit{C-Rank} nicht dazwischen unterscheidet.
 \textit{C-Rank} geht von einem ungerichteten Zitationsgraphen aus.
 Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaße gelungen war.
 
@@ -421,9 +423,9 @@ sim(a,b)  =
 \newline
 \end{mydef}
 
-Tabelle \ref{tab:compareMeasures}\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Dabei ist noch zu bemerken, dass Zhao, Han und Sun das \textit{Amsler}-Maß fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} fasst nochmal diese ``Familie'' zitationsbasierter Ähnlichkeitsmaße zusammen.
+Tabelle\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Man beachte, dass Zhao, Han und Sun das \textit{Amsler}-Maß fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} \ref{tab:compareMeasures} gibt einen Überblick über diese ``Familie'' zitationsbasierter Ähnlichkeitsmaße.
 In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaften von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
-In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Papers das gesamte Publikationsnetzwerk rekursiv betrachten.
+In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Artikeln das gesamte Publikationsnetzwerk rekursiv betrachten.
 Dabei ist $k$ die Anzahl der Iterationen, die jedes Maß verwendet,
 $c$ ist der benutzte Dämpfungsfaktor bei der rekursiven Berechnung,
 $\lambda$ ist der Parameter, der die Gewichtung der eingehenden Zitationen bestimmt.
@@ -437,9 +439,9 @@ In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide A
     \hline
     \textbf{} & \textbf{In-Link} & \textbf{Out-Link} & \textbf{Beide, gewichtet} & \textbf{Beide, keine \newline Gewichtung}\\
     \hline
-    Lokal \newline $k=1, c=1$ & Kozitation \newline $\lambda=1$ & Kopplung \newline $\lambda=0$ & & Amsler \newline kein $\lambda$\\
+    \textbf{Lokal} \newline $k=1, c=1$ & Kozitation \newline $\lambda=1$ & Kopplung \newline $\lambda=0$ & & Amsler \newline kein $\lambda$\\
     \hline
-    Global \newline $k=\infty$, \newline $c=variiert$ & SimRank \newline $\lambda=1$ & rvs-SimRank \newline $\lambda=0$ & P-Rank \newline $\lambda=variiert$ & C-Rank \newline kein $\lambda$ \\
+    \textbf{Global} \newline $k=\infty$, \newline $c=variiert$ & SimRank \newline $\lambda=1$ & rvs-SimRank \newline $\lambda=0$ & P-Rank \newline $\lambda=variiert$ & C-Rank \newline kein $\lambda$ \\
     \hline
 \end{tabular}
 \caption{Existierende zitationsbasierte Ähnlichkeitsmaße in Vergleich}
@@ -447,11 +449,11 @@ In der Spalte \textit{``Beide, keine Gewichtung''} stehen Maße, die auch beide A
 \end{table}
 
 \smallskip
-Eine etwas unterschiedliche Herangehensweise wählen Lu et al. in ihrer Definition von Knotenähnlichkeit in Informationsnetzwerken \cite{Lu01nodesimilarity}.
+Eine unterschiedliche Herangehensweise wählen Lu et al. in ihrer Definition von Knotenähnlichkeit in Informationsnetzwerken \cite{Lu01nodesimilarity}.
 Diese lässt sich, genau wie alle anderen bereits erwähnten strukturellen Ähnlichkeitsmaße, auf Zitationsgraphen von wissenschaftlichen Publikationen anwenden.
-Genauer gesagt, arbeiten Lu und seine Kollegen zwei verschiedene Maße aus.
+Lu et al. arbeiten zwei verschiedene Maße aus.
 Beide beziehen (im Gegensatz zu \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank}) nur die lokale Nachbarschaft von Knoten in die Ähnlichkeitsberechnung ein.
-Das erste Maß, das die Forscher vorschlagen, basiert auf dem Vergleich der separaten lokalen Nachbarschaften von zwei Knoten.
+Das erste Maß basiert auf dem Vergleich der separaten lokalen Nachbarschaften von zwei Knoten.
 Jedem Knoten wird ein Authority-Gewicht zugewiesen.
 Zwei Knoten sind dann umso ähnlicher, je größer die Schnittmenge ihrer lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in dieser Menge liegen.
 Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
@@ -485,16 +487,16 @@ Der \textit{Maximum Flow Minimum Cut} Algorithmus \cite{chinneck2010} wird benut
 % an edge which is far away from the source/sink paper gets a low capacity weight, therefore you cannot push more flow through a longer path and as a result a longer path will contribute less to the overall flow from source to sink
 % the similarity metric should give the same value for two adjacent nodes as for two non-adjacent nodes, who have d common neighbours
 
-Yang et al. präsentieren mit ihrer Arbeit \cite{Yang:2009:TRSN} ein Ähnlichkeitsmaß für Autoren wissenschaftlicher Literatur.
+Yang et al. präsentieren in ihrer Arbeit \cite{Yang:2009:TRSN} ein Ähnlichkeitsmaß für Autoren wissenschaftlicher Literatur.
 Im Gegensatz zu allen zitationsbasierten Maßen für Publikationen bezieht dieser Entwurf verschiedene Metadaten in die Ähnlichkeitsberechnung mit ein.
 Die Wissenschaftler bestimmen die Ähnlichkeit zwischen Autoren anhand mehrerer Daten:\\
 \begin{itemize}
-\item Keywords, die die Forschungsschwerpunkte der Autoren beschreiben,
-\item der persönlichen Interessen der Autoren (diese werden von den Autoren selbst formuliert oder aus deren Webseiten extrahiert),
-\item Themen der Konferenzen, die die Autoren besuchen,
-\item Koautorenschaften.
+\item der Keywords, die die Forschungsschwerpunkte der Autoren beschreiben
+\item der persönlichen Interessen der Autoren (diese werden von den Autoren selbst formuliert oder aus deren Webseiten extrahiert)
+\item der Themen der Konferenzen, die die Autoren besuchen
+\item der Koautorenschaften
 \end{itemize}
-Diese Ansätze werden sowohl einzeln als auch gewichtet zusammen angewandt.
+Diese Ansätze werden sowohl einzeln als auch zusammen, gewichtet angewandt.
 Die Arbeit kommt zu der Schlussfolgerung, dass eine gewichtete Summe die Ähnlichkeit am präzisesten bestimmt und zudem dass Ergebnisse, die nur aufgrund von Keywords erzielt worden sind, genauer sind als solche, die auf Koautorenschaften basieren.
 
 % Ähnlichkeit zwischen Autoren: \cite{Yang:2009:TRSN}) --- das interessante ist, dass sie Metadaten in die Auswertung miteinbeziehen
