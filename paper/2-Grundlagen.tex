@@ -257,7 +257,7 @@ Kozitationenzählung als Methode für die Identifikation von Artikeln, die das sel
 Definitionen \ref{theo:kopplung} bzw. \ref{theo:co-citation} stellen die Gleichungen der bibliographischen Kopplung und der Kozitation dar.
 Spätere Arbeiten erwähnen, dass beide mit Hilfe vom Jaccard-Koeffizient normalisiert werden können \cite{DBLP:journals/corr/abs-1109-1059}.
 
-\begin{mydef}[Bibliographische Kopplung]
+\begin{mydef}[Bibliographische Kopplung:]
 \[
 sim(a,b) = O(a) \cap O(b)
 \]
@@ -268,7 +268,7 @@ Die Anzahl der gemeinsamen ausgehenden Links
 \end{mydef}
 
 
-\begin{mydef}[Kozitation]
+\begin{mydef}[Kozitation:]
 \[
  sim(a,b) = I(a) \cap I(b)
 \]
@@ -285,7 +285,7 @@ Er unterscheidet allerdings nicht zwischen bibliographischer Kopplung und Kozita
 Amsler definiert die \textit{``linkage similarity''} zweier Publikationen als die ``Gesamtanzahl von Vorgängern und Nachfahren, die diese teilen''.
 Er schlägt ferner auch eine Normalisierung für sein Maß mittels des Jaccard-Koeffizients vor.
 
-\begin{mydef}[Amsler]
+\begin{mydef}[Amsler:]
 \[
  sim(a,b) = \cfrac{L(a) \cap L(b)}{L(a) \cup L(b)}
 \]
@@ -319,7 +319,7 @@ Die Autoren schlagen einen Algorithmus vor, der basierend auf dem Gesamtgraphen 
 Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' \cite{simrank2002} aus.
 Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Literaturverweisen rekursiv bestimmt werden kann.
 
-\begin{mydef}[SimRank]
+\begin{mydef}[SimRank:]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -344,7 +344,7 @@ Das Gemeinsame zwischen \textit{SimRank} und \textit{P-Rank} ist die Propagierun
 Eine Verbesserung von \textit{P-Rank} gegenüber \textit{SimRank} ist die Möglichkeit, Ähnlichkeitswerte für neuere und potentiell interessante, aber immer noch nicht populäre Arbeiten zu ermitteln.
 \textit{SimRank}, das nur eingehende Kanten berücksichtigt, kann das nicht leisten.
 
-\begin{mydef}[P-Rank]
+\begin{mydef}[P-Rank:]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -394,7 +394,7 @@ Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine ge
 \textit{C-Rank} geht von einem ungerichteten Zitationsgraphen aus.
 Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaße gelungen war.
 
-\begin{mydef}[rvs-SimRank]
+\begin{mydef}[rvs-SimRank:]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -409,7 +409,7 @@ sim(a,b)  =
 \end{mydef}
 
 
-\begin{mydef}[C-Rank]
+\begin{mydef}[C-Rank:]
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -454,7 +454,7 @@ Diese lässt sich, genau wie alle anderen bereits erwähnten strukturellen Ähnlich
 Lu et al. arbeiten zwei verschiedene Maße aus.
 Beide beziehen (im Gegensatz zu \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank}) nur die lokale Nachbarschaft von Knoten in die Ähnlichkeitsberechnung ein.
 Das erste Maß basiert auf dem Vergleich der separaten lokalen Nachbarschaften von zwei Knoten.
-Jedem Knoten wird ein Authority-Gewicht zugewiesen.
+Jedem Knoten wird ein Authority-Gewicht\footnote{das Authoriry-Gewicht bestimmt wie ``angesehen'' eine Publikation ist, d.h. wie oft sie durch andere Artikel zitiert wird.} zugewiesen.
 Zwei Knoten sind dann umso ähnlicher, je größer die Schnittmenge ihrer lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in dieser Menge liegen.
 Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
 Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
