@@ -1,11 +1,11 @@
-\documentclass{lni}
+\documentclass[bibliography=totoc]{lni}
 
 
 %\IfFileExists{latin1.sty}{\usepackage{latin1}}{\usepackage{isolatin1}}
 \usepackage[latin1]{inputenc}
- %Verwenden von T1 Fonts
+%Verwenden von T1 Fonts
 \usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
+%\usepackage[ngerman]{babel}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -44,7 +44,8 @@
 
 \newtheorem{mdef}{Definition}
 \begin{document}
-\maketitle
+\input{titlepage}
+%\maketitle
 
 %\begin{abstract}
 %Die Frage ``Wann sind sich zwei wissenschaftliche Publikationen ähnlich?'' wird oft gestellt und ist für Anwendungen wie automatisierte Klassifikation von wissenschaftlichen Arbeiten oder Recommendersysteme, die einer Leserin weitere interessante Papers, die mit ihrer Forschung zu tun haben, empfehlen, von hoher Relevanz.
