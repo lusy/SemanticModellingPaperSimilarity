@@ -134,6 +134,52 @@ def main(args):
     print('----------------------------------------------------')
     print('\n')
 
+    # Select 3 Publications of the class 01A75 
+    print('Computing MSC Class: 01A75')
+    pub13 = msc_classes['01A75'][2]
+    print('pub13 is', pub13)
+    pub14 = msc_classes['01A75'][29]
+    print('pub14 is', pub14)
+    pub15 = msc_classes['01A75'][12]
+    print('pub15 is', pub15)
+    
+    print('---------Computing CRank-----------------------------')
+    compute_average(pub13, pub14, pub15, '01A75', cr, msc_classes)
+    print('-----------------------------------------------------')
+    print('--------Computing Parametrization1------------------')
+    compute_average(pub13, pub14, pub15, '01A75', p1, msc_classes)
+    print('----------------------------------------------------')
+    print('--------Computing Parametrization2------------------')
+    compute_average(pub13, pub14, pub15, '01A75', p2, msc_classes)
+    print('----------------------------------------------------')
+    print('--------Computing Parametrization3------------------')
+    compute_average(pub13, pub14, pub15, '01A75', p3, msc_classes)
+    print('----------------------------------------------------')
+    print('\n')
+
+    # Select 3 Publications of the class 11N05
+    print('Computing MSC Class: 11N05')
+    pub16 = msc_classes['11N05'][2]
+    print('pub16 is', pub16)
+    pub17 = msc_classes['11N05'][29]
+    print('pub17 is', pub17)
+    pub18 = msc_classes['11N05'][12]
+    print('pub18 is', pub18)
+    
+    print('---------Computing CRank-----------------------------')
+    compute_average(pub16, pub17, pub18, '11N05', cr, msc_classes)
+    print('-----------------------------------------------------')
+    print('--------Computing Parametrization1------------------')
+    compute_average(pub16, pub17, pub18, '11N05', p1, msc_classes)
+    print('----------------------------------------------------')
+    print('--------Computing Parametrization2------------------')
+    compute_average(pub16, pub17, pub18, '11N05', p2, msc_classes)
+    print('----------------------------------------------------')
+    print('--------Computing Parametrization3------------------')
+    compute_average(pub16, pub17, pub18, '11N05', p3, msc_classes)
+    print('----------------------------------------------------')
+    print('\n')
+
 
 def compute_average(pub1, pub2, pub3, mscClass, used_method, msc_classes):
     #print('Dict of %s is' % pub1, used_method[pub1])
@@ -236,17 +282,17 @@ def compute_average(pub1, pub2, pub3, mscClass, used_method, msc_classes):
     print('%s _sum_papes_in_a' % pub3, p3_sum_papes_in_a)
     print('%s _sum_papes_not_in_a' % pub3, p3_sum_papes_not_in_a)
 
-    aver_p1_papes_in_a = p1_sum_papes_in_a/pubs_in_a
+    aver_p1_papes_in_a = p1_sum_papes_in_a/(pubs_in_a - 1)
     aver_p1_papes_not_in_a = p1_sum_papes_not_in_a / pubs_not_in_a
-    aver_p1_all_pubs = (p1_sum_papes_in_a + p1_sum_papes_not_in_a)/total_pubs
+    aver_p1_all_pubs = (p1_sum_papes_in_a + p1_sum_papes_not_in_a)/(total_pubs - 1)
 
-    aver_p2_papes_in_a = p2_sum_papes_in_a/pubs_in_a
+    aver_p2_papes_in_a = p2_sum_papes_in_a/(pubs_in_a - 1)
     aver_p2_papes_not_in_a = p2_sum_papes_not_in_a / pubs_not_in_a
-    aver_p2_all_pubs = (p2_sum_papes_in_a + p2_sum_papes_not_in_a)/total_pubs
+    aver_p2_all_pubs = (p2_sum_papes_in_a + p2_sum_papes_not_in_a)/(total_pubs - 1)
 
-    aver_p3_papes_in_a = p3_sum_papes_in_a/pubs_in_a
+    aver_p3_papes_in_a = p3_sum_papes_in_a/(pubs_in_a - 1)
     aver_p3_papes_not_in_a = p3_sum_papes_not_in_a / pubs_not_in_a
-    aver_p3_all_pubs = (p3_sum_papes_in_a + p3_sum_papes_not_in_a)/total_pubs
+    aver_p3_all_pubs = (p3_sum_papes_in_a + p3_sum_papes_not_in_a)/(total_pubs - 1)
 
     print('%s aver_papes_in_a' % pub1, aver_p1_papes_in_a)
     print('%s aver_papes_not_in_a' % pub1, aver_p1_papes_not_in_a)
@@ -262,50 +308,27 @@ def compute_average(pub1, pub2, pub3, mscClass, used_method, msc_classes):
 
 
     try:
-        p1_in_a_to_p1_not_in_a = aver_p1_papes_in_a / aver_p1_papes_not_in_a
+        p1_in_a_to_p1_not_in_a = (aver_p1_papes_in_a - aver_p1_papes_not_in_a)/aver_p1_all_pubs
     except:
-        print('Zero division at aver_p1_papes_in_a/aver_p1_papes_not_in_a for %s' % pub1)
+        print('Zero division at aver_p1_all_pubs for %s' % pub1)
         p1_in_a_to_p1_not_in_a = 0
 
     try:
-        p1_in_a_to_all = aver_p1_papes_in_a / aver_p1_all_pubs
+        p2_in_a_to_p2_not_in_a = (aver_p2_papes_in_a - aver_p2_papes_not_in_a)/aver_p2_all_pubs
     except:
-        print('Zero division at aver_p1_papes_in_a/aver_p1_all_pubs for %s' % pub1)
-        p1_in_a_to_all = 0
-
-    try:
-        p2_in_a_to_p2_not_in_a = aver_p2_papes_in_a / aver_p2_papes_not_in_a
-    except:
-        print('Zero division at aver_p2_papes_in_a/aver_p2_papes_not_in_a for %s' % pub2)
+        print('Zero division at aver_p2_all_pubs for %s' % pub2)
         p2_in_a_to_p2_not_in_a = 0
 
     try:
-        p2_in_a_to_all = aver_p2_papes_in_a / aver_p2_all_pubs
+        p3_in_a_to_p3_not_in_a = (aver_p3_papes_in_a - aver_p3_papes_not_in_a)/aver_p3_all_pubs
     except:
-        print('Zero division at aver_p2_papes_in_a/aver_p2_all_pubs for %s' % pub2)
-        p2_in_a_to_all = 0
-
-    try:
-        p3_in_a_to_p3_not_in_a = aver_p3_papes_in_a / aver_p3_papes_not_in_a
-    except:
-        print('Zero division at aver_p3_papes_in_a/aver_p3_papes_not_in_a for %s' % pub3)
+        print('Zero division at aver_p3_all_pubs for %s' % pub3)
         p3_in_a_to_p3_not_in_a = 0
-
-    try:
-        p3_in_a_to_all = aver_p3_papes_in_a / aver_p3_all_pubs
-    except:
-        print('Zero division at aver_p3_papes_in_a/aver_p3_all_pubs for %s' % pub3)
-        p3_in_a_to_all = 0
 
 
     print('%s p1_in_a_to_p1_not_in_a' % pub1 , p1_in_a_to_p1_not_in_a)
-    print('%s p1_in_a_to_all' % pub1, p1_in_a_to_all)
-
     print('%s p2_in_a_to_p1_not_in_a' % pub2, p2_in_a_to_p2_not_in_a)
-    print('%s p2_in_a_to_all' % pub2, p2_in_a_to_all)
-
     print('%s p3_in_a_to_p1_not_in_a' % pub3, p3_in_a_to_p3_not_in_a)
-    print('%s p3_in_a_to_all' % pub3, p3_in_a_to_all)
 
 
 if __name__ == "__main__":
