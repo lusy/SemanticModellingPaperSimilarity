@@ -24,7 +24,7 @@ Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation mö
 		:au: & Authors & die Autoren einer Publikation \\
 		:ai: & Authors identified & eindeutige Stringrepräsentation von jedem Autor \\
 		:ti: & Title & Überschrift der Publikation \\
-		\textit{:so:} & \textit{Source} & \textit{Quelle, wo die Publikation erschienen ist} \\
+		\textit{:so:} & \textit{Source} & \textit{Quelle, bei der die Publikation erschienen ist} \\
 		\textit{:py:} & \textit{Publication Year} & \textit{das Jahr, in dem die Publikation erschienen ist} \\
 		:cc: & Classification classes & MSC Klassen, die der Publikation zugeordnet worden sind \\
         :ab/en: & Abstract English & Die Kurzzusammenfassung der Publikation auf Englisch\\
@@ -45,7 +45,7 @@ Der Datensatz hat ferner die folgenden Merkmale:\\
 Jede Publikation hat im Schnitt $1.68$ Autoren.
 Die größte Anzahl an Wissenschaftler und Wissenschaftlerinnen, die zusammen eine Arbeit publiziert haben, ist 38.
 Die Autoren mit den meisten Publikationen sind Paul Erdös mit $1208$ Veröffentlichungen, Edoardo Ballico ($1100$ Publikationen), Lucien Godeaux ($794$ Publikationen) und Leonard Carlitz ($735$ Publikationen).
-Eine Verteilung der Autorenzahlen im $zmath$-Datensatz ist auf Abbildung \ref{fig:authorFreq} zu sehen\footnote{Publikationen, wo die Anzahl der Autoren, Zitationen, Keywords oder MSC-Klassen null ist, werden in den Diagrammen nicht berücksichtigt}.
+Eine Verteilung der Autorenzahlen im $zmath$-Datensatz ist auf Abbildung \ref{fig:authorFreq} zu sehen\footnote{Publikationen, bei denen die Anzahl der Autoren, Zitationen, Keywords oder MSC-Klassen null ist, werden in den Diagrammen nicht berücksichtigt}.
 \\
 \\
 Das Paper mit dem größten Literaturverzeichnis zitiert 38 andere Arbeiten.
@@ -110,7 +110,7 @@ Abbildung \ref{fig:mscClassFreq} stellt die Verteilung der MSC-Klassen im Datens
 \\
 Die Arbeiten, die der Datensatz enthält, sind in 89 verschiedenen Jahren veröffentlicht worden.
 Der früheste Eintrag (eine Arbeit vom schweizer Mathematiker Leonard Euler) stammt vom Jahr 1796.
-Es gibt auch jeweils eine Publikation von den Jahren 1879, 1914, 1924 und 1930.
+Es gibt auch jeweils eine Publikation aus den Jahren 1879, 1914, 1924 und 1930.
 1931 ist mit 4041 Veröffentlichungen das erste Jahr, das mehr oder weniger vollständig im Datensatz vermerkt ist.
 Das Jahr mit den meisten Publikationen bis jetzt war $2008$ mit $102,319$ Veröffentlichungen.
 
@@ -204,8 +204,8 @@ Eine andere Besonderheit ist die Tatsache, dass sowohl Knoten mit dem Attribut \
 Diese Entscheidung beruht auf der Idee, dass ein Knoten der Klasse \textit{Publication} seinen exakten Titel im Attribut \textit{TitleString} speichern kann.
 Aus diesem Stringdatenwert können dann später die Schlüsselbegriffe extrahiert werden und als ein \textit{Bag of words}\footnote{Bag of words bezeichnet in den Feldern der Information Retrieval und Natural Language Processing eine ungeordnete Menge von Wörtern} auf ein Knoten der Klasse \textit{Title} abgebildet werden.
 Somit können Titel verschiedener Publikationen, die die gleichen bedeutsamen Begriffe enthalten, auf den selben Knoten der Klasse \textit{Title} abgebildet werden.
-Dieser Ansatz wäre für eine Ähnlichkeitsanalyse viel sinnvoller als ein einfaches Stringmatching auf zwei exakten Titel zu machen oder die String-Edit-Distance zwischen diesen zu bestimmen.
-Das ist jedoch eine Möglichkeit, die die aktuelle Arbeit nicht mehr realisiert und die zukünftig näher untersucht werden kann.
+Dieser Ansatz wäre für eine Ähnlichkeitsanalyse viel sinnvoller, als ein einfaches Stringmatching auf zwei exakten Titeln durchzuführen oder die String-Edit-Distance zwischen diesen zu bestimmen.
+Das ist jedoch eine Möglichkeit, die die aktuelle Arbeit nicht mehr realisiert und zukünftig näher untersucht werden kann.
 % zukünftige Möglichkeiten der Auswertung (Abstract, Title können auch nach weiterer Verabeitung ausgewertet werden) - mehr dazu in Evaluation oder Ausblick
 \\
 \\
@@ -247,7 +247,7 @@ Wenn jedoch weitere Metadaten in einer sinnvollen Form vorhanden sind\footnote{B
 kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung miteinfließen.
 \\
 \\
-Es wird rekursiv die Ähnlichkeit zwischen je zwei Knoten derselben Klasse aufgrund der Relationen im modellierten Publikationsnetz ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahren.
+Es wird rekursiv die Ähnlichkeit zwischen je zwei Knoten derselben Klasse aufgrund der Relationen im modellierten Publikationsnetz ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahre.
 Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
 Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Klasse werden nur die Beziehungen zwischen Elementen der entsprechenden Klasse und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen Netz modelliert sind.
 (Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords wird die Relation (Keyword \textit{isKeywordOf} Publikation) berücksichtigt.)
