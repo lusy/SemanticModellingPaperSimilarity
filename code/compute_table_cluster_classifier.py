@@ -27,15 +27,16 @@ def main(args):
     
     # map msc classes to some indices
     dict_msc_classes_to_indices, dict_indices_to_msc_classes = map_msc_classes_to_indices(msc_classes_aggregated)
+    #print("Debug msc classes aggregated: ", msc_classes_aggregated['54'])
 
     # Compute evaluations
-    entropieVectorCrank, overallEntropieCrank, purityVectorCrank, overallPurityCrank = evaluateMeasure(clusteringVectorCrank, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+    entropieVectorCrank, overallEntropieCrank, purityVectorCrank, overallPurityCrank, confusMatrixCrank, numberPapesInClusterCrank = evaluateMeasure(clusteringVectorCrank, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
     
-    entropieVectorP1, overallEntropieP1, purityVectorP1, overallPurityP1 = evaluateMeasure(clusteringVectorP1, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+    entropieVectorP1, overallEntropieP1, purityVectorP1, overallPurityP1, confusMatrixP1, numberPapesInClusterP1 = evaluateMeasure(clusteringVectorP1, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
 
-    entropieVectorP2, overallEntropieP2, purityVectorP2, overallPurityP2 = evaluateMeasure(clusteringVectorP2, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+    entropieVectorP2, overallEntropieP2, purityVectorP2, overallPurityP2, confusMatrixP2, numberPapesInClusterP2 = evaluateMeasure(clusteringVectorP2, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
     
-    entropieVectorP3, overallEntropieP3, purityVectorP3, overallPurityP3 = evaluateMeasure(clusteringVectorP3, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+    entropieVectorP3, overallEntropieP3, purityVectorP3, overallPurityP3, confusMatrixP3, numberPapesInClusterP3 = evaluateMeasure(clusteringVectorP3, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
 
     ########## Output evaluations ##################
     ##Crank
@@ -44,28 +45,34 @@ def main(args):
     print("overallEntropie: ", overallEntropieCrank)
     print("purityVector: ", purityVectorCrank)
     print("overallPurity: ", overallPurityCrank)
-    print("-------------------------------------")
+    #print("confusionMatrix: ")
+    #for line in confusMatrixCrank:
+    #    for field in line:
+    #        print field, 
+    #    print("\n")    
+    print("numberPapesInCluster: ", numberPapesInClusterCrank)
+    #print("-------------------------------------")
     ##P1
-    print("P1 parameter are")
-    print("entropieVector: ", entropieVectorP1)
-    print("overallEntropie: ", overallEntropieP1)
-    print("purityVector: ", purityVectorP1)
-    print("overallPurity: ", overallPurityP1)
-    print("-------------------------------------")
+    #print("P1 parameter are")
+    #print("entropieVector: ", entropieVectorP1)
+    #print("overallEntropie: ", overallEntropieP1)
+    #print("purityVector: ", purityVectorP1)
+    #print("overallPurity: ", overallPurityP1)
+    #print("-------------------------------------")
     ##P2
-    print("P2 parameter are")
-    print("entropieVector: ", entropieVectorP2)
-    print("overallEntropie: ", overallEntropieP2)
-    print("purityVector: ", purityVectorP2)
-    print("overallPurity: ", overallPurityP2)
-    print("-------------------------------------")
+    #print("P2 parameter are")
+    #print("entropieVector: ", entropieVectorP2)
+    #print("overallEntropie: ", overallEntropieP2)
+    #print("purityVector: ", purityVectorP2)
+    #print("overallPurity: ", overallPurityP2)
+    #print("-------------------------------------")
     ##P3
-    print("P3 parameter are")
-    print("entropieVector: ", entropieVectorP3)
-    print("overallEntropie: ", overallEntropieP3)
-    print("purityVector: ", purityVectorP3)
-    print("overallPurity: ", overallPurityP3)
-    print("-------------------------------------")
+    #print("P3 parameter are")
+    #print("entropieVector: ", entropieVectorP3)
+    #print("overallEntropie: ", overallEntropieP3)
+    #print("purityVector: ", purityVectorP3)
+    #print("overallPurity: ", overallPurityP3)
+    #print("-------------------------------------")
 
 
 def evaluateMeasure(clusteringVector, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes):      
@@ -145,7 +152,7 @@ def evaluateMeasure(clusteringVector, dict_indices_pubs, dict_msc_classes_to_ind
 
     #print overallPurity    
 
-    return entropieVector, overallEntropie, purityVector, overallPurity
+    return entropieVector, overallEntropie, purityVector, overallPurity, evalTable, numberPapesInAllCluster
     
 
 def compute_msc_classes_pubs(G, dict_pubs_indices):
