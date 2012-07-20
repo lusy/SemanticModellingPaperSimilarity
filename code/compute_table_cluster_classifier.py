@@ -11,10 +11,13 @@ def main(args):
     # data import
     G = nx.read_graphml('../data/pubs_till_1975_no_count')
 
-    # import crank clustering vector as a test
-    f = open("../data/crank_clustering_vector_65_cluster_eval_input")
-    clusteringVector = f.read().splitlines()
-    #clusteringVector #TODO import it
+    # import all clustering vectors
+    f_crank = open("../data/crank_clustering_vector_65_cluster_eval_input")
+    clusteringVectorCrank = f_crank.read().splitlines()
+    f_p1 = open("../data/p1_clustering_vector_65_cluster_eval_input")
+    clusteringVectorP1 = f_p1.read().splitlines()
+    #f_p2
+    #f_p3
 
     # computing classifications
     dict_pubs_indices, dict_indices_pubs = map_pubs_to_matrix_indices(G)
@@ -22,7 +25,30 @@ def main(args):
     
     # map msc classes to some indices
     dict_msc_classes_to_indices, dict_indices_to_msc_classes = map_msc_classes_to_indices(msc_classes_aggregated)
-       
+
+    # Compute evaluations
+    entropieVectorCrank, overallEntropieCrank, purityVectorCrank, overallPurityCrank = evaluateMeasure(clusteringVectorCrank, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+    
+    entropieVectorP1, overallEntropieP1, purityVectorP1, overallPurityP1 = evaluateMeasure(clusteringVectorP1, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+
+    ########## Output evaluations ##################
+    ##Crank
+    print("Crank parameter are")
+    print("entropieVector: ", entropieVectorCrank)
+    print("overallEntropie: ", overallEntropieCrank)
+    print("purityVector: ", purityVectorCrank)
+    print("overallPurity: ", overallPurityCrank)
+    print("-------------------------------------")
+    ##P1
+    print("P1 parameter are")
+    print("entropieVector: ", entropieVectorP1)
+    print("overallEntropie: ", overallEntropieP1)
+    print("purityVector: ", purityVectorP1)
+    print("overallPurity: ", overallPurityP1)
+    print("-------------------------------------")
+
+
+def evaluateMeasure(clusteringVector, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes):      
     # build table cluster/class
     evalTable = zeros((65,65))
 
@@ -72,7 +98,7 @@ def main(args):
                 entropieOfCurrentCluster += prob*math.log(prob,2)
             #else: do nothing, we should add prob=0 to entropie..    
 
-        entropieVector.append(entropieOfCurrentCluster)    
+        entropieVector.append(-entropieOfCurrentCluster)    
 
     #print entropieVector    
 
@@ -91,13 +117,15 @@ def main(args):
 
         purityVector.append(purityOfCurrentCluster)    
 
-    print purityVector   
+    #print purityVector   
 
     # overall purity
     for indOfPur, pur in enumerate(purityVector):
         overallPurity += (numberPapesInAllCluster[indOfPur]/total_papes) * purityVector[indOfPur]
 
-    print overallPurity    
+    #print overallPurity    
+
+    return entropieVector, overallEntropie, purityVector, overallPurity
     
 
 def compute_msc_classes_pubs(G, dict_pubs_indices):
