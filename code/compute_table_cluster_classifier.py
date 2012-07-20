@@ -16,8 +16,10 @@ def main(args):
     clusteringVectorCrank = f_crank.read().splitlines()
     f_p1 = open("../data/p1_clustering_vector_65_cluster_eval_input")
     clusteringVectorP1 = f_p1.read().splitlines()
-    #f_p2
-    #f_p3
+    f_p2 = open("../data/p2_clustering_vector_65_cluster_eval_input")
+    clusteringVectorP2 = f_p2.read().splitlines()
+    f_p3 = open("../data/p3_clustering_vector_65_cluster_eval_input")
+    clusteringVectorP3 = f_p3.read().splitlines()
 
     # computing classifications
     dict_pubs_indices, dict_indices_pubs = map_pubs_to_matrix_indices(G)
@@ -30,6 +32,10 @@ def main(args):
     entropieVectorCrank, overallEntropieCrank, purityVectorCrank, overallPurityCrank = evaluateMeasure(clusteringVectorCrank, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
     
     entropieVectorP1, overallEntropieP1, purityVectorP1, overallPurityP1 = evaluateMeasure(clusteringVectorP1, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+
+    entropieVectorP2, overallEntropieP2, purityVectorP2, overallPurityP2 = evaluateMeasure(clusteringVectorP2, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
+    
+    entropieVectorP3, overallEntropieP3, purityVectorP3, overallPurityP3 = evaluateMeasure(clusteringVectorP3, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
 
     ########## Output evaluations ##################
     ##Crank
@@ -45,6 +51,20 @@ def main(args):
     print("overallEntropie: ", overallEntropieP1)
     print("purityVector: ", purityVectorP1)
     print("overallPurity: ", overallPurityP1)
+    print("-------------------------------------")
+    ##P2
+    print("P2 parameter are")
+    print("entropieVector: ", entropieVectorP2)
+    print("overallEntropie: ", overallEntropieP2)
+    print("purityVector: ", purityVectorP2)
+    print("overallPurity: ", overallPurityP2)
+    print("-------------------------------------")
+    ##P3
+    print("P3 parameter are")
+    print("entropieVector: ", entropieVectorP3)
+    print("overallEntropie: ", overallEntropieP3)
+    print("purityVector: ", purityVectorP3)
+    print("overallPurity: ", overallPurityP3)
     print("-------------------------------------")
 
 
