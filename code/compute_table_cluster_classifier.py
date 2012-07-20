@@ -45,6 +45,7 @@ def main(args):
     
     #print evalTable[0]
     
+    total_papes = 6484
     # compute entropie, purity
     entropieVector = []
     purityVector = []
@@ -62,10 +63,10 @@ def main(args):
     #print numberPapesInAllCluster    
  
     # entropie
-    for cluster in evalTable:
+    for indOfCluster, cluster in enumerate(evalTable):
         entropieOfCurrentCluster = 0
-        for indOfMscClass, mscClass in enumerate(cluster):
-            prob = mscClass / numberPapesInAllCluster[indOfMscClass]
+        for mscClass in cluster:
+            prob = mscClass / numberPapesInAllCluster[indOfCluster]
             #print ("prob is:", prob)
             if prob != 0:
                 entropieOfCurrentCluster += prob*math.log(prob,2)
@@ -73,9 +74,30 @@ def main(args):
 
         entropieVector.append(entropieOfCurrentCluster)    
 
-    print entropieVector    
+    #print entropieVector    
+
+    # overall entropie
+    for indOfEn, en in enumerate(entropieVector):
+        overallEntropie += (numberPapesInAllCluster[indOfEn]/total_papes)*entropieVector[indOfEn]
+
+    #print overallEntropie    
     
-    #TODO compute entropy/purity            
+    #purity
+    for indOfCluster, cluster in enumerate(evalTable):
+        purityOfCurrentCluster = 0
+        for mscClass in cluster:
+            prob = mscClass / numberPapesInAllCluster[indOfCluster]
+            purityOfCurrentCluster = max(purityOfCurrentCluster, prob)
+
+        purityVector.append(purityOfCurrentCluster)    
+
+    print purityVector   
+
+    # overall purity
+    for indOfPur, pur in enumerate(purityVector):
+        overallPurity += (numberPapesInAllCluster[indOfPur]/total_papes) * purityVector[indOfPur]
+
+    print overallPurity    
     
 
 def compute_msc_classes_pubs(G, dict_pubs_indices):
