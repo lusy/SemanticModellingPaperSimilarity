@@ -38,19 +38,24 @@ def main(args):
     
     entropieVectorP3, overallEntropieP3, purityVectorP3, overallPurityP3, confusMatrixP3, numberPapesInClusterP3 = evaluateMeasure(clusteringVectorP3, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes)
 
+    evaluateConfusionMatrix(confusMatrixCrank, dict_indices_to_msc_classes, msc_classes_aggregated, numberPapesInClusterCrank, entropieVectorCrank, purityVectorCrank)
+    #evaluateConfusionMatrix(confusMatrixP1, dict_indices_to_msc_classes, msc_classes_aggregated, numberPapesInClusterP1, entropieVectorP1, purityVectorP1)
+    #evaluateConfusionMatrix(confusMatrixP2, dict_indices_to_msc_classes, msc_classes_aggregated, numberPapesInClusterP2, entropieVectorP2, purityVectorP2)
+    #evaluateConfusionMatrix(confusMatrixP3, dict_indices_to_msc_classes, msc_classes_aggregated, numberPapesInClusterP3, entropieVectorP3, purityVectorP3)
+
     ########## Output evaluations ##################
     ##Crank
-    print("Crank parameter are")
-    print("entropieVector: ", entropieVectorCrank)
-    print("overallEntropie: ", overallEntropieCrank)
-    print("purityVector: ", purityVectorCrank)
-    print("overallPurity: ", overallPurityCrank)
+    #print("Crank parameter are")
+    #print("entropieVector: ", entropieVectorCrank)
+    #print("overallEntropie: ", overallEntropieCrank)
+    #print("purityVector: ", purityVectorCrank)
+    #print("overallPurity: ", overallPurityCrank)
     #print("confusionMatrix: ")
     #for line in confusMatrixCrank:
     #    for field in line:
     #        print field, 
     #    print("\n")    
-    print("numberPapesInCluster: ", numberPapesInClusterCrank)
+    #print("numberPapesInCluster: ", numberPapesInClusterCrank)
     #print("-------------------------------------")
     ##P1
     #print("P1 parameter are")
@@ -74,6 +79,49 @@ def main(args):
     #print("overallPurity: ", overallPurityP3)
     #print("-------------------------------------")
 
+def evaluateConfusionMatrix(confusMatrix, dict_indices_to_msc_classes, msc_classes_aggregated, numberPapesInCluster, entropieVector, purityVector):
+    ## Overview MSC Classes
+    overviewMSC = dict()
+    for i in range(1,66):
+        overviewMSC[i]=[]
+        
+        # MSC Classes Names (not indices)
+        nameMSC = dict_indices_to_msc_classes[i]
+        overviewMSC[i].append(nameMSC)
+        
+        # Number Pubs in Class
+        numPubs = len(msc_classes_aggregated[nameMSC])
+        overviewMSC[i].append(numPubs)
+
+    # Top 3 cluster with the most publications of all classes
+    confusMatrixCopy = confusMatrix.copy()
+    for i in range(1,4):
+        print("Blaaaaaaaaaaaaaaa")
+        # List of Maximums for all Columns of confusMatrix
+        max1 = confusMatrixCopy.max(axis=0)
+        # List of Indices of the Maximums
+        indMax1 = confusMatrixCopy.argmax(axis=0)
+        print("indMax: ", indMax1)
+        # TODO: Overwrite maximums with 0s
+        confusMatrixCopy[indMax1, range(0,65)] = 0
+
+        # append (clusterID, #publications) to overview object
+        listClusIdPubs = zip(add(indMax1, 1), max1)
+        print(i, "listClusIdPubs: ", listClusIdPubs)
+        for j in range(1, 66):
+            overviewMSC[j].append(listClusIdPubs[j-1])
+
+    # Output overview msc classes
+    for cl in overviewMSC.keys():
+        print cl,
+        print ("Classname: ", overviewMSC[cl][0]),
+        print ("#Pubs: ", overviewMSC[cl][1]),
+        print ("3 biggest cluster: "),
+        print ("id: ", overviewMSC[cl][2][0], "#Pubs: ", overviewMSC[cl][2][1]),
+        print ("id: ", overviewMSC[cl][3][0], "#Pubs: ", overviewMSC[cl][3][1]),
+        print ("id: ", overviewMSC[cl][4][0], "#Pubs: ", overviewMSC[cl][4][1])
+ 
+    ## Overview Cluster
 
 def evaluateMeasure(clusteringVector, dict_indices_pubs, dict_msc_classes_to_indices, dict_pubs_msc_classes):      
     # build table cluster/class
