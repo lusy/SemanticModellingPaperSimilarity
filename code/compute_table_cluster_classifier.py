@@ -14,7 +14,7 @@ def main(args):
     # import crank clustering vector as a test
     f = open("../data/crank_clustering_vector_65_cluster_eval_input")
     clusteringVector = f.read().splitlines()
-    clusteringVector #TODO import it
+    #clusteringVector #TODO import it
 
     # computing classifications
     dict_pubs_indices, dict_indices_pubs = map_pubs_to_matrix_indices(G)
@@ -40,7 +40,40 @@ def main(args):
             indOfCl = dict_msc_classes_to_indices[cl]
             evalTable[int(clusterAssignedToPub)-1][indOfCl-1] += 1
 
-    print evalTable[0]
+    #for l in evalTable:
+    #    print l
+    
+    #print evalTable[0]
+    
+    # compute entropie, purity
+    entropieVector = []
+    purityVector = []
+    overallEntropie = 0
+    overallPurity = 0
+
+    numberPapesInAllCluster = []
+    for cluster in evalTable:
+        numberPapesInCluster = 0
+        for mscClass in cluster:
+            numberPapesInCluster = numberPapesInCluster + mscClass
+        
+        numberPapesInAllCluster.append(numberPapesInCluster)
+        
+    #print numberPapesInAllCluster    
+ 
+    # entropie
+    for cluster in evalTable:
+        entropieOfCurrentCluster = 0
+        for indOfMscClass, mscClass in enumerate(cluster):
+            prob = mscClass / numberPapesInAllCluster[indOfMscClass]
+            #print ("prob is:", prob)
+            if prob != 0:
+                entropieOfCurrentCluster += prob*math.log(prob,2)
+            #else: do nothing, we should add prob=0 to entropie..    
+
+        entropieVector.append(entropieOfCurrentCluster)    
+
+    print entropieVector    
     
     #TODO compute entropy/purity            
     
