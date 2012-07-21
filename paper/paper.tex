@@ -21,6 +21,7 @@
 \usepackage{algorithm}
 \usepackage{float}
 \usepackage{array}
+\usepackage{url}
 
 \floatstyle{ruled}
 \newfloat{program}{H}{lop}
@@ -94,12 +95,11 @@
 %--------------------------------------------------------
 
 \nocite{*}
-%\nocite{HasChe11}
-%\nocite{DBLP:journals/jmlr/HahslerCHB11}
-%\nocite{HahGruHorBuc11}
 \newpage
 
-\bibliographystyle{lni}
+\thispagestyle{empty}
+\addcontentsline{toc}{section}{Literatur}
+\bibliographystyle{alpha}
 \bibliography{vorl-literatur}
-
+\thispagestyle{empty}
 \end{document}
