@@ -131,12 +131,12 @@ Aus diesen Gründen modelliert die aktuelle Arbeit den Datensatz aus Publikatione
 \\
 \\
 Im allgemeinen wird ein Graph als ein Tupel von einer Knoten- und einer Kantenmenge charakterisiert: $G=(V,E)$ \cite{graphTheory2010}.
-Die Elementen der Kantenmenge $E$ sind Paare von Knoten: $E\subseteq V\times V$.
+Die Elemente der Kantenmenge $E$ sind Paare von Knoten: $E\subseteq V\times V$.
 Die Essenz dieser Wissensrepräsentation ist die Information, welche zwei Knoten mit einer Kante verbunden sind und welche nicht.
-Die Arbeit von Zhou, Cheng und Yu \cite{simClust2009} erweitert diese klassiche Graphendefinition folgendermaßen.
+Die Arbeit von Zhou, Cheng und Yu \cite{simClust2009} erweitert diese klassiche Graphendefinition.
 Sie definieren einen Attributengraphen als ein Dreiertupel von Knoten, Kanten und Attributen: $G=(V,E,\Lambda)$.
-Dabei bezeichnen $V$ und $E$ entsprechend die Knoten bzw. Kanten des Graphen und $\Lambda=\{a_1, ..., a_m\}$ ist eine Menge von $m$ Attributen, die die Eigentschaften der Graphenknoten beschreiben.
-Jedem Knoten $v_i\in V$ wird ein Attributenvektor $[a_1(v_i), ..., a_m(v_i)]$ zugeordnet, wobei $a_j(v_i)$ der Wert vom Attribut $a_j$ für Knoten $v_i$ ist.
+Dabei bezeichnen $V$ die Knoten, $E$ die Kanten und $\Lambda=\{a_1, ..., a_m\}$ die Menge der $m$ Attribute, die die Eigentschaften der Knoten beschreiben.
+Jedem Knoten $v_i\in V$ wird ein Attributenvektor $[a_1(v_i), ..., a_m(v_i)]$ zugeordnet, wobei $a_j(v_i)$ der Wert des Attributs $a_j$ für Knoten $v_i$ ist.
 Diese Definition kann leicht erweitert werden, so dass auch Kantenattribute beschrieben werden können.
 Dafür wird lediglich eine zweite Attributenmenge $\Gamma=\{b_1, ... b_k\}$ gebraucht.
 Dann kann auch jede Kante $e_i\in E$ mit einem Attributenvektor $[b_1(e_i), ..., b_k(e_i)]$ assoziiert werden.
@@ -153,8 +153,8 @@ Dann kann auch jede Kante $e_i\in E$ mit einem Attributenvektor $[b_1(e_i), ...,
 Bei der vorliegenden Ausarbeitung hat der modellierte Graph die folgenden Kerneigenschaften: 
 Jede Publikation und jedes dazugehörige Metadatum wird als ein Knoten modelliert.
 Die zwischen einem Paper und seinen Metadaten bestehenden Relationen werden dann als die Kanten des Graphen repräsentiert.
-Sowohl die Knoten als auch die Kanten von diesem Graphen haben Attribute.
-Aufgrund von dem so entstandenen Netzwerk mit Hilfe von graphentheoretischen Methoden sollen Publikationen auf Ähnlichkeit verglichen werden.
+Sowohl die Knoten als auch die Kanten dieses Graphen haben Attribute.
+Aufgrund des so entstandenen Netzwerks mit Hilfe graphentheoretischer Methoden sollen Publikationen auf Ähnlichkeit verglichen werden.
 Die konkrete Modellierung wird in Kapitel \ref{subsec:modell} erläutert.
 
 % Was sind semantische Netzwerke
