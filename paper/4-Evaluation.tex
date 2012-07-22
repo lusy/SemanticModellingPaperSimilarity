@@ -13,21 +13,33 @@
 \end{array}
 \]
 \begin{Verbatim}[commandchars=\\\{\}, fontsize=\small, numbers=left, numbersep=3pt,codes={\catcode`$=3\catcode`_=8}]
-\textbf{foreach} \begin{math}a\in G\end{math} \textbf{do} \hspace{5cm}\textbf{/* Initialization */}\\
-    \textbf{foreach} \begin{math}b\in G\end{math} \textbf{do}\\
+\textbf{foreach} \begin{math}a{\in}G\end{math} \textbf{do} \hspace{5cm}\textbf{/* Initialization */}\\
+    \textbf{foreach} \begin{math}b{\in}G\end{math} \textbf{do}\\
         \textbf{if} \begin{math}a==b\end{math} \textbf{then} \begin{math}R(a,b)=1\end{math}\\
         \textbf{else} \begin{math}R(a,b)=0\end{math}\\
 \textbf{while} \begin{math}(k>0)\end{math} \textbf{do} \hspace{6.2cm}\textbf{/* Iteration */}\\
-    \begin{math} k\longleftarrow k-1 \end{math}\\
-    \textbf{foreach} \begin{math}a\in G\end{math} \textbf{do}\\
-        \textbf{foreach} \begin{math}b\in G\end{math} \textbf{do}\\
-            \begin{math} in\longleftarrow 0 \end{math}\\
-            \textbf{foreach} \begin{math} i_a \in I(a)\end{math} \textbf{do}\\
-                \textbf{foreach} \begin{math}i_b \in I(b)\end{math} \textbf{do}\\
-
+    \begin{math} k{\longleftarrow}k-1 \end{math}\\
+    \textbf{foreach} \begin{math}a{\in}G\end{math} \textbf{do}\\
+        \textbf{foreach} \begin{math}b{\in}G\end{math} \textbf{do}\\
+            \begin{math}in{\longleftarrow}0 \end{math}\\
+            \textbf{foreach} \begin{math}i_a{\in}I(a)\end{math} \textbf{do}\\
+                \textbf{foreach} \begin{math}i_b{\in}I(b)\end{math} \textbf{do}\\
+                    \begin{math}in{\longleftarrow}in{+}R(i_a,i_b)\end{math}\\
+            \begin{math}R_{new}(a,b){\longleftarrow}\lambda*\cfrac{c*in}{|I(a)||I(b)|} \end{math}\\
+            \begin{math}out{\longleftarrow}0 \end{math}\\
+            \textbf{foreach} \begin{math}o_a{\in}O(a)\end{math} \textbf{do}\\
+                \textbf{foreach} \begin{math}o_b{\in}O(b)\end{math} \textbf{do}\\
+                    \begin{math}out{\longleftarrow}out{+}R(o_a,o_b)\end{math}\\
+            \begin{math}R_{new}(a,b){+=}(1-\lambda)*\cfrac{c*out}{|O(a)||O(b)|} \end{math}\\
+    \textbf{foreach} \begin{math}a{\in}G\end{math} \textbf{do} \hspace{6.2cm}\textbf{/* Update */}\\
+        \textbf{foreach} \begin{math}b{\in}G\end{math} \textbf{do}\\
+            \begin{math}R(a,b){=}R_{new}(a,b)\end{math}\\
+\textbf{return} \begin{math}R(*,*)\end{math}
 \end{Verbatim}
 \caption{Der iterative Algorithmus}
 \end{program2}
+%        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
+%        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} R_k(K_i(a),K_j(b))
 
 \begin{comment}
 \begin{algorithm}
