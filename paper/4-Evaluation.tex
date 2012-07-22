@@ -2,7 +2,7 @@
 
 \subsection{\textbf{Komplexitätsanalyse des Algorithmus}}
 Wie in Kapitel \ref{subsec:simMeasure} erläutert, kann der rekursive Ähnlichkeitsalgorithmus als ein iterativer, zum Fixpunkt konvergierender Algorithmus dargestellt werden.
-\textit{Algorithmus} \ref{alg:derAlg} veranschaulicht das iterative Verfahren für die Berechnung der semantischen Ähnlichkeit in einem Publikationsnetzwerk $G$.
+Algorithmus \ref{alg:derAlg} veranschaulicht das iterative Verfahren für die Berechnung der semantischen Ähnlichkeit in einem Publikationsnetzwerk $G$.
 
 \begin{program2}
 %\begin{algorithmic}
@@ -66,8 +66,8 @@ Wie in Kapitel \ref{subsec:simMeasure} erläutert, kann der rekursive Ähnlichkeit
                         \begin{math}link{\longleftarrow}link{+}R(l_a,l_b)\end{math}\\
                 \begin{math}R_{new}(a,b){+=}\cfrac{c*link}{|L(a)||L(b)|} \end{math}\\
 
-            \textbf{else}\\
-                \begin{math}R_{new}(a,b){=}0\end{math} /* a and b are from different classes */\\
+            \textbf{else} pass\\
+                /* a and b are from different classes */\\
     \textbf{foreach} \begin{math}a{\in}G\end{math} \textbf{do} \hspace{6.2cm}\textbf{/* Update */}\\
         \textbf{foreach} \begin{math}b{\in}G\end{math} \textbf{do}\\
             \begin{math}R(a,b){=}R_{new}(a,b)\end{math}\\
@@ -76,20 +76,38 @@ Wie in Kapitel \ref{subsec:simMeasure} erläutert, kann der rekursive Ähnlichkeit
 %\caption{Der iterative Algorithmus}
 %\end{program2}
 
-\begin{comment}
-\begin{algorithm}
-\caption{your caption for this algorithm}
-\label{your label for references later in your document}
-\begin{algorithmic}
-\forall{$a \in G $}
-\end{algorithmic}
-\end{algorithm}
-\end{comment}
+%\begin{algorithm}
+%\caption{your caption for this algorithm}
+%\label{your label for references later in your document}
+%\begin{algorithmic}
+%\forall{$a \in G $}
+%\end{algorithmic}
+%\end{algorithm}
 
-% Pseudo code
-% speicher- und laufzeitkomplexität klären
-% Laufzeit $\mathcal{O}(n^4)$ - 4 for-Schleifen
-% Speicher $\mathcal{O}(n^2)$ - symmetrische Matrix, die die Ähnlichkeitswerte für jedes Paar (Publikationen/Knoten) speichert
+% Beschreiben bisschen
+% Theoretische Grenzen: Speicher, Zeit
+% wie siehts praktisch aus? symmetrische Sparsematrix (Python dictionary) mit nur den Nichtnull-Einträgen wird gespeichert
+% Laufzeit: die Ähnlichkeit für verschiedenartige Knoten wird nicht weiter verfolgt, da wird auch was geprunnt.
+%%----------- Eigentlich sind die Sachen unten für den Ausblick!
+% wenn G zu groß, kann mans extern, außerhalb des Hauptspeichers auslagern (z.b. Graphdatenbank) (die Ähnlichkeitsmatrix, egal welche Struktur für ihre Repräsentation gewählt wird, wird erstmal einfachshalber im Arbeitsspeicher behalten
+% das eigentliche (größere) Problem ist die Laufzeit -- es können Verfahren gesucht werden, um die zu optimieren / Teile des Algorithmus zu parallelisieren
+
+Algorithmus \ref{alg:derAlg} wird entsprechend Definition \ref{def:semSim} initialisiert (Zeilen 1--4).
+Für jedes Paar Knoten, die der selben Kategorie angehören (jede zwei Publikationen, jede zwei Keywords, jede zwei Autoren, jede zwei Quellen und jede zwei Erscheinungsjahre),
+wird dann in der (k+1)-te Iteration die Ähnlichkeit, $R_{new}(a,b)$, berechnet, indem die Ähnlichkeit für diese Knoten in der k-ten Iteration, $R(a,b)$, aktualisiert wird (Zeilen 7--45).
+Bei der Berechnung der Ähnlichkeit zwischen zwei Publikationen fließen alle ihre Metadaten (Keywords, Autoren, Quelle, Zitationen und Erscheinungsjahr) ein (Zeilen 9--38).
+Bei der Berechnung der Ähnlichkeit zwischen zwei Knoten jeder anderen Kategorie fließen nur Publikationen ein, da Keywords, Autoren, Quellen und Erscheinungsjahre in dem modellierten Netzwerk nur Publikationen als Nachbarn haben (Zeilen 40--45).
+Die Ähnlichkeit von zwei Knoten aus verschiedenen Kategorien ist stets 0 und wird von dem Algorithmus nicht aktualisiert (Zeilen 47--48).
+Für weitere Iterationen wird dann $R$ durch $R_{new}$ ersetzt (Zeilen 49--51).
+\\
+\\
+Für ein Publikationsnetzwerk G mit n Knoten, ist die Speicherkomplexität des Algorithmus \ref{alg:derAlg} $\mathcal{O}(n^2)$.
+Obwohl die dieser Arbeit zugrundeliegende Implementierung nicht die explizite $n{\times}n$ Matrix, sondern nur die Hälfte davon (die Matrix ist symmetrisch, $s(a,b){=}s(b,a)$) und davon nur die nichtnull-Einträge speichert, wird mit steigender Anzahl von Publikationen/Knoten insgesamt in G der Speicherbedarf quadratisch steigen.
+\\
+\\
+Algorithmus \ref{alg:derAlg} braucht im schlimmsten Fall $\mathcal{O}(n^4)$ Zeit, denn für die Ähnlichkeitsberechnung jeder zwei Knoten werden rekursiv auch alle Knotenpaare, die zu ihren Nachbarn gehören, betrachtet.
+Selbst wenn ein Pruning basierend auf den Knotenarten durchgeführt wird (Ähnlichkeit für Knoten a und b, die nicht der selben Kategorie angehören, wird nicht berechnet), ändert sich die generelle Laufzeitkomplexität nicht.%oder??
+
 
 \subsection{Testläufe}
 % Vergleich: Laufzeit und Speicherverbrauch der alten strukturellen Maße (SimRank, P-Rank, C-Rank)
