@@ -1,7 +1,11 @@
 \section{Evaluation}
 
 \subsection{\textbf{Komplexitätsanalyse des Algorithmus}}
+Wie in Kapitel \ref{subsec:simMeasure} erläutert, kann der rekursive Ähnlichkeitsalgorithmus als ein iterativer, zum Fixpunkt konvergierender Algorithmus dargestellt werden.
+\textit{Algorithmus} \ref{alg:derAlg} veranschaulicht das iterative Verfahren für die Berechnung der semantischen Ähnlichkeit in einem Publikationsnetzwerk $G$.
+
 \begin{program2}
+%\begin{algorithmic}
 \[
 \begin{array}{ll}
 \textbf{Input:} & \text{Publikationsnetzwerk \textit{G};}\\
@@ -9,37 +13,68 @@
 & \text{Zitation- und Erscheinungsjahrrelationen eines Papers,} \sum_{i=1}^{5} \lambda_i = 1;\\
 & \text{der Dämpfungsfaktor \textit{c};}\\
 & \text{und die Anzahl der Iterationen \textit{k}}\\
-\textbf{Output:} & \text{Der Ähnlichkeitswert } s(a,b), \forall a,b \in G \text{; \textit{a}, \textit{b} Knoten der selben Art}
+\textbf{Output:} & \text{Der Ähnlichkeitswert } s(a,b), \forall a,b \in G \text{ und \textit{a}, \textit{b} Knoten der selben Art}
 \end{array}
 \]
+\caption{Der iterative Algorithmus}
+\label{alg:derAlg}
+\end{program2}
 \begin{Verbatim}[commandchars=\\\{\}, fontsize=\small, numbers=left, numbersep=3pt,codes={\catcode`$=3\catcode`_=8}]
 \textbf{foreach} \begin{math}a{\in}G\end{math} \textbf{do} \hspace{5cm}\textbf{/* Initialization */}\\
     \textbf{foreach} \begin{math}b{\in}G\end{math} \textbf{do}\\
         \textbf{if} \begin{math}a==b\end{math} \textbf{then} \begin{math}R(a,b)=1\end{math}\\
         \textbf{else} \begin{math}R(a,b)=0\end{math}\\
 \textbf{while} \begin{math}(k>0)\end{math} \textbf{do} \hspace{6.2cm}\textbf{/* Iteration */}\\
-    \begin{math} k{\longleftarrow}k-1 \end{math}\\
+    \begin{math}k{\longleftarrow}k-1 \end{math}\\
     \textbf{foreach} \begin{math}a{\in}G\end{math} \textbf{do}\\
         \textbf{foreach} \begin{math}b{\in}G\end{math} \textbf{do}\\
-            \begin{math}in{\longleftarrow}0 \end{math}\\
-            \textbf{foreach} \begin{math}i_a{\in}I(a)\end{math} \textbf{do}\\
-                \textbf{foreach} \begin{math}i_b{\in}I(b)\end{math} \textbf{do}\\
-                    \begin{math}in{\longleftarrow}in{+}R(i_a,i_b)\end{math}\\
-            \begin{math}R_{new}(a,b){\longleftarrow}\lambda*\cfrac{c*in}{|I(a)||I(b)|} \end{math}\\
-            \begin{math}out{\longleftarrow}0 \end{math}\\
-            \textbf{foreach} \begin{math}o_a{\in}O(a)\end{math} \textbf{do}\\
-                \textbf{foreach} \begin{math}o_b{\in}O(b)\end{math} \textbf{do}\\
-                    \begin{math}out{\longleftarrow}out{+}R(o_a,o_b)\end{math}\\
-            \begin{math}R_{new}(a,b){+=}(1-\lambda)*\cfrac{c*out}{|O(a)||O(b)|} \end{math}\\
+            \textbf{if} \begin{math}a[Class]{==}b[Class]\end{math} \textbf{and} \begin{math}a[Class]{==}"Publication"\end{math} \textbf{then}\\
+                \begin{math}key{\longleftarrow}0 \end{math}\\
+                \textbf{foreach} \begin{math}k_a{\in}K(a)\end{math} \textbf{do}\\
+                    \textbf{foreach} \begin{math}k_b{\in}K(b)\end{math} \textbf{do}\\
+                        \begin{math}key{\longleftarrow}key{+}R(k_a,k_b)\end{math}\\
+                \begin{math}R_{new}(a,b){\longleftarrow}\lambda_1*\cfrac{c*key}{|K(a)||K(b)|} \end{math}\\
+
+                \begin{math}auth{\longleftarrow}0 \end{math}\\
+                \textbf{foreach} \begin{math}a_a{\in}A(a)\end{math} \textbf{do}\\
+                    \textbf{foreach} \begin{math}a_b{\in}A(b)\end{math} \textbf{do}\\
+                        \begin{math}auth{\longleftarrow}auth{+}R(a_a,a_b)\end{math}\\
+                \begin{math}R_{new}(a,b){+=}\lambda_2*\cfrac{c*auth}{|A(a)||A(b)|} \end{math}\\
+
+                \begin{math}sour{\longleftarrow}0 \end{math}\\
+                \textbf{foreach} \begin{math}s_a{\in}S(a)\end{math} \textbf{do}\\
+                    \textbf{foreach} \begin{math}s_b{\in}S(b)\end{math} \textbf{do}\\
+                        \begin{math}sour{\longleftarrow}sour{+}R(s_a,s_b)\end{math}\\
+                \begin{math}R_{new}(a,b){+=}\lambda_3*\cfrac{c*sour}{|S(a)||S(b)|} \end{math}\\
+
+                \begin{math}cit{\longleftarrow}0 \end{math}\\
+                \textbf{foreach} \begin{math}c_a{\in}C(a)\end{math} \textbf{do}\\
+                    \textbf{foreach} \begin{math}c_b{\in}C(b)\end{math} \textbf{do}\\
+                        \begin{math}cit{\longleftarrow}cit{+}R(c_a,c_b)\end{math}\\
+                \begin{math}R_{new}(a,b){+=}\lambda_4*\cfrac{c*cit}{|C(a)||C(b)|} \end{math}\\
+
+                \begin{math}year{\longleftarrow}0 \end{math}\\
+                \textbf{foreach} \begin{math}y_a{\in}Y(a)\end{math} \textbf{do}\\
+                    \textbf{foreach} \begin{math}y_b{\in}Y(b)\end{math} \textbf{do}\\
+                        \begin{math}year{\longleftarrow}year{+}R(y_a,y_b)\end{math}\\
+                \begin{math}R_{new}(a,b){+=}\lambda_5*\cfrac{c*year}{|Y(a)||Y(b)|} \end{math}\\
+
+            \textbf{else if} \begin{math}a[Class]{==}b[Class]\end{math} \textbf{and} \begin{math}a[Class]{!=}"Publication"\end{math} \textbf{then}\\
+                \begin{math}link{\longleftarrow}0 \end{math}\\
+                \textbf{foreach} \begin{math}l_a{\in}L(a)\end{math} \textbf{do}\\
+                    \textbf{foreach} \begin{math}l_b{\in}L(b)\end{math} \textbf{do}\\
+                        \begin{math}link{\longleftarrow}link{+}R(l_a,l_b)\end{math}\\
+                \begin{math}R_{new}(a,b){+=}\cfrac{c*link}{|L(a)||L(b)|} \end{math}\\
+
+            \textbf{else}\\
+                \begin{math}R_{new}(a,b){=}0\end{math} /* a and b are from different classes */\\
     \textbf{foreach} \begin{math}a{\in}G\end{math} \textbf{do} \hspace{6.2cm}\textbf{/* Update */}\\
         \textbf{foreach} \begin{math}b{\in}G\end{math} \textbf{do}\\
             \begin{math}R(a,b){=}R_{new}(a,b)\end{math}\\
 \textbf{return} \begin{math}R(*,*)\end{math}
 \end{Verbatim}
-\caption{Der iterative Algorithmus}
-\end{program2}
-%        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
-%        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} R_k(K_i(a),K_j(b))
+%\caption{Der iterative Algorithmus}
+%\end{program2}
 
 \begin{comment}
 \begin{algorithm}
