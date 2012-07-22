@@ -1,6 +1,37 @@
 \section{Evaluation}
 
-\subsection{Komplexitätsanalyse des Algorithmus}
+\subsection{\textbf{Komplexitätsanalyse des Algorithmus}}
+\begin{program2}
+\[
+\begin{array}{ll}
+\textbf{Input:} & \text{Publikationsnetzwerk \textit{G};}\\
+& \lambda_1, \lambda_2, \lambda_3, \lambda_4, \lambda_5 \text{- Gewichtungen der jeweils Keywords-, Autoren-, Quellen-,}\\
+& \text{Zitation- und Erscheinungsjahrrelationen eines Papers,} \sum_{i=1}^{5} \lambda_i = 1;\\
+& \text{der Dämpfungsfaktor \textit{c};}\\
+& \text{und die Anzahl der Iterationen \textit{k}}\\
+\textbf{Output:} & \text{Der Ähnlichkeitswert } s(a,b), \forall a,b \in G \text{; \textit{a}, \textit{b} Knoten der selben Art}
+\end{array}
+\]
+\begin{Verbatim}[commandchars=\\\{\}, fontsize=\small, numbers=left, numbersep=3pt]
+\textbf{foreach} \begin{math}a\in G\end{math} \textbf{do} \hspace{5cm}\textbf{/* Initialization */}\\
+    \textbf{foreach} \begin{math}b\in G\end{math} \textbf{do}\\
+        \textbf{if} \begin{math}a==b\end{math} \textbf{then} \begin{math}R(a,b)=1\end{math}\\
+        \textbf{ele} \begin{math}R(a,b)=0\end{math}\\
+lala
+\end{Verbatim}
+\caption{Der iterative Algorithmus}
+\end{program2}
+
+\begin{comment}
+\begin{algorithm}
+\caption{your caption for this algorithm}
+\label{your label for references later in your document}
+\begin{algorithmic}
+\forall{$a \in G $}
+\end{algorithmic}
+\end{algorithm}
+\end{comment}
+
 % Pseudo code
 % speicher- und laufzeitkomplexität klären
 % Laufzeit $\mathcal{O}(n^4)$ - 4 for-Schleifen
