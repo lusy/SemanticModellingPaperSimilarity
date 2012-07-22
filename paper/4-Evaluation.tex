@@ -1,14 +1,26 @@
 \section{Evaluation}
 
+\subsection{Komplexitätsanalyse des Algorithmus}
+% Pseudo code
+% speicher- und laufzeitkomplexität klären
+
 \subsection{Testläufe}
+% Vergleich: Laufzeit und Speicherverbrauch der alten strukturellen Maße (SimRank, P-Rank, C-Rank)
+% auf wie vielen Daten wurden diese ausgewertet und wie lange hats gedauert? was für parameter hatte das testsystem?
+
+% Was genau wurde ausgerechnet?
+
 %Um das vorgeschlagene Ähnlichkeitsmaß für wissenschaftliche Publikationen auswerten zu können, wird der Testdatensatz vom Zentralblatt Mathematik auf das im Kapitel \ref{subsec:modell} vorgestellte Graphenschema abgebildet.
 %Mit Hilfe von einem in \textit{Python} geschriebenen Parser werden die Daten vom \textit{zmath}-Datensatz in \textit{GraphML}-Format überführt.
 %Die \textit{GraphML}-Repräsentation der vollständigen Daten ist ca. $4.8$ Gb groß.
 
+% 1. Trimming des Datensatzes: auf $1$ Gb - nur die Publikationen mit vollständigen Metadaten, $1,154,950$ Publikationen
+% -- nicht wirklich berechenbar in vernünftiger Zeit (siehe Komplexitätsanalyse)
+% 2. Trimming des Datensatzes: 3095 Publikationen mit vollständigen Metadaten (alle Publikationen im Datensatz, die vor dem Jahr 1975 veröffentlicht wurden);
+% So werden nicht Zitationsrelationen zu späteren Arbeiten verloren (eine frühere Arbeit kann eine spätere nicht zitieren)
+% andererseit aber werden Relationen verloren, da der Algorithmus auf dem Gesamtpublikationsnetzwerk rechnet (also Werte, die über rausgeschnittenen Knoten propagiert wurden, gehen verloren)
+% -- also eine Auswertung "wie gut ist das Ähnlichkeitsmaß" wird vermutlich nicht sehr sinnvolle Ergebnisse liefern
 
-
-% Anwendung des Ähnlichkeitsmaßes
-% Was hats gebracht/wie siehts aus?
 
 % Parameters of the test system:
 %Hardware Overview:
@@ -29,6 +41,7 @@
 %    Boot Volume: Macintosh HD
 %    Boot Mode: Normal
 
+\subsection{Bestimmung der Parameter}
 % wie werden die lambdas gewählt? warum?
 % wie wird c gewählt? warum (simRank optimierungspaper)
 
@@ -50,21 +63,19 @@
 % When C is low, the recursive power of C-Rank is weakened such that only the papers in local or near-local neighborhood are used in similarity computation.
 % When C is high, more papers in a more global neighborhood can be used in computing the similarity recursively. When C is high, therefore, the convergence takes more time.
 
+
 \subsection{Auswertung der Ergebnisse}
 % Macht das, was rauskommt, Sinn?
 
 % Vergleich gegen die MSC-Klassen
 % Vergleich mit einem rein bibliometrischen Verfahren (bibliographische Kopplung / SimRank/ ..)
 % Entwickle 3 Varianten und vergleich sie: mit unterschiedlichen Gewichtung von den verschiedenen Relationen
-% Idee dahinter: wenn alle Relationen gleich gewichtet sind, dann können wir genau so gut auch keinen Unterschied zwischen denen machen
-% Aber wir können die gleichgewichtete Variante als eine von den 3 nehmen
 
-% evaluiere Performance (Zeit, Platz, ..)
+% Clustering über die entstandene Ähnlichkeitsmatrix für alle Verfahren (C-Rank + alle 3 Parametrisierungen)
+% Idee: Vergleich entstandene Cluster mit den ursprünglich vergebenen MSC-Klassen: wenn die MSC-Klassifizierung gut abgebildet, gutes Clustering
+% MSC Klassen werden bis zur Top-Level Klassen aggregiert
+% Wahl des Clusteringverfahrens
 
-% vgl mit den anderen Maßen (SimRank, P-Rank, C-Rank): auf wie vielen Daten wurden diese angewandt? Wie viele Ressourcen hat die Berechnung in Anspruch genommen?
-
-% Datensatz trimmen: weil so lange
-% Klar machen nach welchem Prinzip getrimmt wird und was die Nachteile davon sind (Relationen gehen verloren)
-% Andererseits wenn nur frühere Publikationen betrachtet werden, werden zumindest keine Zitationsrelatioonen zu späteren Papers verloren
-% Trimmen ist trotzdem scheiße, weil sich Zitationsverhalten so wie die Tendenzen zu größeren Koautorenschaften  mit der Zeit verändert
-% klar machen dass der Algorithmus in Zeit O(n^4) läuft und warum (Pseudocode)
+% Ergebnisse: Durchschnittswerte von Entropy, Purity, Silhouette-Koeffizient, Verteilung
+% SemSim schneidet schon besser als C-Rank ab (C-Rank packt alles in den selben Cluster)
+% -- Schlussfolgerungen: Entweder war das Clusteringverfahren doof oder aber ist das Trimming vom Datensatz dumm und es können keine adäquate Ergebnisse geliefert werden
