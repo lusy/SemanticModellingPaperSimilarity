@@ -20,6 +20,13 @@
 
 
 % weiterführend kann man die Performance/die konkrete Implementierung, die die Performance ausmacht verbessern - dafür muss man die Performance evaluieren!
+% Theoretische Grenzen: Speicher, Zeit
+% wie siehts praktisch aus? symmetrische Sparsematrix (Python dictionary) mit nur den Nichtnull-Einträgen wird gespeichert
+% Laufzeit: die Ähnlichkeit für verschiedenartige Knoten wird nicht weiter verfolgt, da wird auch was geprunnt.
+%%----------- Eigentlich sind die Sachen unten für den Ausblick!
+% wenn G zu groß, kann mans extern, außerhalb des Hauptspeichers auslagern (z.b. Graphdatenbank) (die Ähnlichkeitsmatrix, egal welche Struktur für ihre Repräsentation gewählt wird, wird erstmal einfachshalber im Arbeitsspeicher behalten
+% das eigentliche (größere) Problem ist die Laufzeit -- es können Verfahren gesucht werden, um die zu optimieren / Teile des Algorithmus zu parallelisieren
+
 
 % man kann doch als weiterführende Forschung eben solche Anwendungen bauen, die auf so einem Ähnlichkeitsmaß beruhen
 % man kann das Maß auch dafür nutzen, zeitliche Analyse der Entwicklung der Wissenschaft in bestimmten Forschungsfelder/zu bestimmten Forschungsthemen zu entwerfen
