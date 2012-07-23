@@ -3,13 +3,15 @@
 \subsection{\textbf{Komplexitätsanalyse des Algorithmus}}
 Wie in Kapitel \ref{subsec:simMeasure} erläutert, kann der rekursive Ähnlichkeitsalgorithmus als ein iterativer, zum Fixpunkt konvergierender Algorithmus dargestellt werden.
 Algorithmus \ref{alg:derAlg} veranschaulicht das iterative Verfahren für die Berechnung der semantischen Ähnlichkeit in einem Publikationsnetzwerk $G$.
+Die Bestimmung der Parameter für den Algorithmus erfolgt in Kapitel \ref{subsec:params}.
+
 
 \begin{program2}
 %\begin{algorithmic}
 \[
 \begin{array}{ll}
 \textbf{Input:} & \text{Publikationsnetzwerk \textit{G};}\\
-& \lambda_1, \lambda_2, \lambda_3, \lambda_4, \lambda_5 \text{- Gewichtungen der jeweils Keywords-, Autoren-, Quellen-,}\\
+& \lambda_1, \lambda_2, \lambda_3, \lambda_4, \lambda_5 \text{- Gewichtungen der Keywords-, Autoren-, Quellen-,}\\
 & \text{Zitation- und Erscheinungsjahrrelationen eines Papers,} \sum_{i=1}^{5} \lambda_i = 1;\\
 & \text{der Dämpfungsfaktor \textit{c};}\\
 & \text{und die Anzahl der Iterationen \textit{k}}\\
@@ -93,24 +95,24 @@ Algorithmus \ref{alg:derAlg} veranschaulicht das iterative Verfahren für die Ber
 % das eigentliche (größere) Problem ist die Laufzeit -- es können Verfahren gesucht werden, um die zu optimieren / Teile des Algorithmus zu parallelisieren
 
 Algorithmus \ref{alg:derAlg} wird entsprechend Definition \ref{def:semSim} initialisiert (Zeilen 1--4).
-Für jedes Paar Knoten, die der selben Kategorie angehören (jede zwei Publikationen, jede zwei Keywords, jede zwei Autoren, jede zwei Quellen und jede zwei Erscheinungsjahre),
+Für jedes Paar Knoten, die derselben Klasse angehören (jede zwei Publikationen, jede zwei Keywords, jede zwei Autoren, jede zwei Quellen und jede zwei Erscheinungsjahre),
 wird dann in der (k+1)-te Iteration die Ähnlichkeit, $R_{new}(a,b)$, berechnet, indem die Ähnlichkeit für diese Knoten in der k-ten Iteration, $R(a,b)$, aktualisiert wird (Zeilen 7--45).
 Bei der Berechnung der Ähnlichkeit zwischen zwei Publikationen fließen alle ihre Metadaten (Keywords, Autoren, Quelle, Zitationen und Erscheinungsjahr) ein (Zeilen 9--38).
-Bei der Berechnung der Ähnlichkeit zwischen zwei Knoten jeder anderen Kategorie fließen nur Publikationen ein, da Keywords, Autoren, Quellen und Erscheinungsjahre in dem modellierten Netzwerk nur Publikationen als Nachbarn haben (Zeilen 40--45).
-Die Ähnlichkeit von zwei Knoten aus verschiedenen Kategorien ist stets 0 und wird von dem Algorithmus nicht aktualisiert (Zeilen 47--48).
-Für weitere Iterationen wird dann $R$ durch $R_{new}$ ersetzt (Zeilen 49--51).
+Bei der Berechnung der Ähnlichkeit zwischen zwei Knoten jeder anderen Klasse fließen nur Publikationen ein, da Keywords, Autoren, Quellen und Erscheinungsjahre in dem modellierten Netzwerk nur Publikationen als Nachbarn haben (Zeilen 40--45).
+Die Ähnlichkeit von zwei Knoten aus verschiedenen Klassen ist stets 0 und wird von dem Algorithmus nicht aktualisiert (Zeilen 47--48).
+Für weitere Iterationen wird dann der Ähnlichkeitswert $R$ durch $R_{new}$ ersetzt (Zeilen 49--51).
 \\
 \\
 Für ein Publikationsnetzwerk G mit n Knoten, ist die Speicherkomplexität des Algorithmus \ref{alg:derAlg} $\mathcal{O}(n^2)$.
 Obwohl die dieser Arbeit zugrundeliegende Implementierung nicht die explizite $n{\times}n$ Matrix, sondern nur die Hälfte davon (die Matrix ist symmetrisch, $s(a,b){=}s(b,a)$) und davon nur die nichtnull-Einträge speichert, wird mit steigender Anzahl von Publikationen/Knoten insgesamt in G der Speicherbedarf quadratisch steigen.
 \\
 \\
-Algorithmus \ref{alg:derAlg} braucht im schlimmsten Fall $\mathcal{O}(n^4)$ Zeit, denn für die Ähnlichkeitsberechnung jeder zwei Knoten werden rekursiv auch alle Knotenpaare aus ihren Nachbarn betrachtet.
+Algorithmus \ref{alg:derAlg} hat im schlimmsten Fall eine Laufzeit von $\mathcal{O}(n^4)$, denn für die Ähnlichkeitsberechnung jeder zwei Knoten werden rekursiv auch alle Knotenpaare aus ihren Nachbarn betrachtet.
 Selbst wenn ein Pruning basierend auf den Knotenarten durchgeführt wird (Ähnlichkeit für Knoten a und b, die nicht der selben Kategorie angehören, wird nicht berechnet), ändert sich die generelle Laufzeitkomplexität nicht.%oder??
 
 \subsection{Bestimmung der Parameter}
 \label{subsec:params}
-Im Folgenden wird diskutiert, welche Auswirkung die Werte der Parameter $c$, $k$ und $\lambda_i$ haben und wie sie am geeignetsten gewählt werden können.
+Im Folgenden wird diskutiert, welche Auswirkung die Werte der Parameter $c$, $k$ und der Gewichtungen $\lambda_i$ haben und wie sie am geeignetsten gewählt werden können.
 \\
 \\
 Der Dämpfungsfaktor $c$ bestimmt wie stark sich das globale Publikationsnetzwerk auf die Ähnlichkeit zwischen zwei konkreten Knoten $a$ und $b$ auswirkt.
@@ -120,7 +122,7 @@ Mit größerem $c$ fließt mehr von dem globalen Netzwerk bei der rekursiven Berech
 Demzufolge braucht der iterative Algorithmus bei größerem $c$ mehr Zeit zum Konvergieren.
 \\
 \\
-\cite{Lizorkin2010} beweisen für \textit{SimRank}, dass der Unterschied zwischen den theoretischen und iterativen Ähnlichkeitswerten für zwei Knoten $a$ und $b$ in der Anzahl der durchgeführten Iterationen exponentiell sinkt.
+Die Autoren von \cite{Lizorkin2010} beweisen für \textit{SimRank}, dass der Unterschied zwischen den theoretischen und iterativen Ähnlichkeitswerten für zwei Knoten $a$ und $b$ in der Anzahl der durchgeführten Iterationen exponentiell sinkt.
 Sie stellen die folgende Ungleichung auf: $s(a,b)-R_k(a,b) \leq c^{k+1}$ .
 Also bestimmt der Wert $c^{k+1}$ die Genauigkeit, die der iterative \textit{SimRank}-Algorithmus nach $k$ Iterationen erreicht.
 Aufgrund dieser Schlussfolgerung wählt die vorliegende Arbeit die Werte $c=0.6$ und $k=7$ für die Berechnung der semantischen Ähnlichkeit.
@@ -130,7 +132,11 @@ Diese ergeben für den iterativen Algorithmus eine Genauigkeit von $0.6^{7+1}=0.0
 \\
 Kapitel \ref{subsec:simMeasure} definiert bereits, dass die Summe der Gewichtungen aller verschiedenen Metadaten $1$ ergibt, $\sum_{i=1}^{5} \lambda_i = 1$.
 Diese Normalisierung stellt sicher, dass kein Ähnlichkeitswert größer $1$ werden kann.
-Diese Arbeit berechnet die semantsiche Ähnlichkeit mit drei verschiedenen Gewichtungen und wertet im folgenden Kapitel aus, welche die Optimalste ist.
+Diese Arbeit berechnet die semantsiche Ähnlichkeit mit drei verschiedenen Gewichtungen, die in Absprache mit Experten aus dem Konrad-Zuse-Zentrum zustande gekommen sind.
+Im folgenden Kapitel wird ausgewertet, welche Gewichtung die besten Ergebnisse erzielt.
+Die Experten argumentieren, dass die Bedeutung der einzelnen Metadaten für die Publikation davon abhänge, worauf Bibliotheken o.ä. Institutionen im Speziellen Wert legen und wie ihr eigener Use Case aussieht.
+Für jede dieser Institutionen müssten die Gewichtungen für eine hinreichend große Datenmenge experimentell ermittelt werden.
+Die Experten erwarten aber im durchschnittlichen Fall die besten Ergebnisse bei einer inhaltlichen Ausrichtung wie in Gewichtung 3.
 Die $\lambda$-s sind in diesen Gewichtungen folgendermaßen verteilt:
 \begin{table}[H]
 \centering
@@ -167,17 +173,18 @@ Die $\lambda$-s sind in diesen Gewichtungen folgendermaßen verteilt:
 
 
 \subsection{Testläufe}
-Die früheren strukturellen Ähnlichkeitsmaße \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank} haben die selbe Laufzeit- und Speicherkomplexität wie die hier vorgeschlagene semantische Ähnlichkeit: $\mathcal{O}(n^4)$ bzw. $\mathcal{O}(n^2)$ im schlimmsten Fall \cite{simrank2002} \cite{ZhaoHS09} \cite{DBLP:journals/corr/abs-1109-1059}.
+Die strukturellen Ähnlichkeitsmaße \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank} haben im schlimmsten Fall dieselbe Laufzeit- $\mathcal{O}(n^4)$ und Speicherkomplexität $\mathcal{O}(n^2)$ wie die hier vorgeschlagene semantische Ähnlichkeit \cite{simrank2002} \cite{ZhaoHS09} \cite{DBLP:journals/corr/abs-1109-1059}.
 Sie wurden auf den folgenden Datensätzen angewandt.
-Jeh und Widom werten \textit{SimRank} auf zwei Datensätzen mit jeweils $278,628$ und $1003$ Elementen aus.
-Sie machen Angaben weder zu den Parametern des benutzten Systems noch zu der Zeit, die sie für die Durchführung der Berechnungen gebraucht haben \cite{simrank2002}.
-Lizorkin et al., die diversve Ansätze für die Optimierung von \textit{SimRank} vorschlagen, werten ebenfalls den nicht optimierten \textit{SimRank}-Algorithmus aus.
-Auf ihrem Testsystem mit $1$Gb RAM und $2.1$GHz CPU braucht dieser bei $10,000$ Elementen 46 Stunden \cite{Lizorkin2010}.
-Die Autoren von \textit{P-Rank} wenden ihren Algorithmus auf drei Testdatensätzen mit jeweils $218,930$, $21,740$ und $100,000$ Elementen an \cite{ZhaoHS09}.
-Ihr Testsystem hatte $2$Gb RAM und $2.4$GHz CPU, was andeutet, dass sie die ausgewerteten Informationsnetzwerke extern gelagert und nicht in den Speicher geladen haben.
+Jeh und Widom werten \textit{SimRank} \cite{simrank2002} auf zwei Datensätzen mit jeweils $278,628$ und $1003$ Elementen aus.
+Sie machen weder Angaben zu den Parametern des benutzten Systems noch zu der Zeit, die sie für die Durchführung der Berechnungen gebraucht haben.
+Lizorkin et al., die diverse Ansätze für die Optimierung von \textit{SimRank} vorschlagen \cite{Lizorkin2010}, werten ebenfalls den nicht optimierten \textit{SimRank}-Algorithmus aus.
+Auf ihrem Testsystem mit $1$Gb RAM und $2.1$GHz CPU braucht dieser bei $10,000$ Elementen 46 Stunden.
+Die Autoren von \textit{P-Rank} wenden ihren Algorithmus auf drei Testdatensätze mit jeweils $218,930$, $21,740$ und $100,000$ Elementen an \cite{ZhaoHS09}.
+Ihr Testsystem hatte $2$Gb RAM und $2.4$GHz CPU.
+Man kann davon ausgehen, dass sie bei dieser Größe die Informationsnetzwerke extern halten mussten.
 Sie machen ebenfalls keine Angaben zu der gebrauchten Zeit.
-Yoon, Kim und Park werten \textit{C-Rank} auf einem Datensatz mit $23,795$ Publikationen aus.
-Ihr System hatte $2.67$GHz CPU, Speicherangaben machen sie keine, auch keine Angaben zu der gebrauchten Zeit \cite{DBLP:journals/corr/abs-1109-1059}.
+Yoon, Kim und Park werten \textit{C-Rank} \cite{DBLP:journals/corr/abs-1109-1059} auf einem Datensatz mit $23,795$ Publikationen aus.
+Ihr System hatte $2.67$GHz CPU, Speicherangaben machen sie keine, auch keine Angaben zu der gebrauchten Zeit.
 
 % Vergleich: Laufzeit und Speicherverbrauch der alten strukturellen Maße (SimRank, P-Rank, C-Rank)
 % auf wie vielen Daten wurden diese ausgewertet und wie lange hats gedauert? was für parameter hatte das testsystem?
@@ -202,23 +209,23 @@ Ihr System hatte $2.67$GHz CPU, Speicherangaben machen sie keine, auch keine Ang
 
 Das System, auf dem der von dieser Arbeit vorgeschlagene Algorithmus für Berechnung der semantischen Ähnlichkeit zwischen Publikationen ausgeführt wird, verfügt über $2.93$GHz CPU und $14$Gb Arbeitsspeicher.
 Die einzige Arbeit, die konkrete Hinweise für die Laufzeit der Algorithmen für strukturelle Ähnlichkeit in Informationsnetzwerken in der Praxis gibt, ist \cite{Lizorkin2010}.
-Da diese Algorithmen die selbe Laufzeitkomplexität wie die hier vorgeschlagene semantische Ähnlichkeit haben, ist es nicht schwer zu folgern, dass die Berechnung der Ähnlichkeiten für den gesamten \textit{zmath}-Datensatz, mit $2,907,086$ Publikationen, auf diesem Testsystem unpraktikabel ist.
+Da diese Algorithmen die selbe Laufzeitkomplexität wie das hier vorgeschlagene Verfahren haben, kann man davon ausgehen, dass die Berechnung der Ähnlichkeiten für den gesamten \textit{zmath}-Datensatz mit $2,907,086$ Publikationen auf diesem Testsystem nicht praktikabel ist.
 \\
 \\
-Aus diesem Grund wird der \textit{zmath}-Datensatz zunächst folgendermaßen gekürzt.
+Aus diesem Grund wird der \textit{zmath}-Datensatz gekürzt.
 Es werden nur die Publikationen betrachtet, für die die vollständigen Metadaten, die in die Berechnung der semantischen Ähnlichkeit einfließen, verfügbar sind.
-Das ergibt $1,154,950$ Publikationen und $5,518,500$ Knoten insgesamt für das modellierte Publikationsnetzwerk.
-Die Ähnlichkeiten für diesen verkürzten Datensatz wurden ebenfalls als nicht in realistischer Zeit berechenbar gewertet.
-Um eine Auswertung der Ergebnisse des vorgeschlagenen Algorithmus durchführen zu können, werden nur noch die Publikationen aus dem \textit{zmath}-Datensatz betrachtet, die bis einschließlich 1975 veröffentlicht worden sind.
+Das ergibt $1,154,950$ Publikationen und insgesamt $5,518,500$ Knoten für das modellierte Publikationsnetzwerk.
+Dieser Datensatz war für das gewählte Verfahren auf dem Testsystem erneut zu groß.
+Um eine Auswertung der Ergebnisse des vorgeschlagenen Algorithmus durchführen zu können, werden nur noch die Publikationen bis einschließlich 1975 betrachtet.
 Das ergibt ein Publikationsnetzwerk mit $3095$ Publikationen und $15,994$ Knoten insgesamt.
-Für die Berechnung der Ähnlichkeiten in diesem Publikationsnetzwerk mit dem semantischen Ähnlichkeitsmaß wurden bei den oben beschriebenen Parametern ($k=7$ Iterationen und $c=0.6$ Dämpfungsfaktor) und Systemeigenschaften im Durchschnitt 4 Stunden und 8 Minuten gebraucht
+Für die Berechnung der Ähnlichkeiten wurden bei den oben beschriebenen Parametern ($k=7$ Iterationen und $c=0.6$ Dämpfungsfaktor) und Systemeigenschaften im Durchschnitt 4 Stunden gebraucht
 (Die semantische Ähnlichkeit wurde für die drei verschiedenen Verteilungen der Gewichtungen $\lambda_i$, die in Kapitel \ref{subsec:params} beschrieben wurden, berechnet).
 
-Diese letzte Verkürzung des \textit{zmath}-Datensatzes wurde so gewählt, damit keine Zitationsrelationen zu Arbeiten, die außer Betracht bleiben, verloren gehen.
+In dem verkürzten Datensatz gehen keine Zitationsrelationen zu Publikationen verloren, die außerhalb des Datensatzes liegen.
 Die Publikationen, die bis zum Jahr 1975 veröffentlicht wurden, können keine Arbeiten zitieren, die nach diesem Datum erschienen.
 Es muss allerdings beachtet werden, dass durch jede Verkürzung des ursprünglichen Datesatzes Relationen verloren gehen, die auch für die Ähnlichkeit der Publikationen, die im verkürzten Datensatz bleiben, von Bedeutung sind.
 Das liegt an dem Wesen des vorgeschlagenen Algorithmus, der die Ähnlichkeit zwischen zwei Publikationen rekursiv aufgrund des gesamten Publikationsnetzwerksbestimmt.
-Aus diesem Grund werden die berechneten Ähnlichkeitswerte für die Publikationen bis zum 1975 nicht ganz den reellen Ähnlichkeitswerten für diese Publikationen entsprechen, die sich ergeben würden, wenn der Algorithmus auf dem gesamten \textit{zmath}-Datensatz angewandt wäre.
+Aus diesem Grund ist zu erwarten, dass die berechneten Ähnlichkeitswerte für die Publikationen bis zum Jahr 1975 nicht mit den Ähnlichkeitswerten eines kompletten Datensatzes von knapp 3 Mio Publikationen zusammenfallen.
 % wie lange hat das gedauert??
 % P1: 14911.1054752 Sec
 % P2: 14732.8429248 Sec
@@ -257,6 +264,12 @@ Aus diesem Grund werden die berechneten Ähnlichkeitswerte für die Publikationen 
 
 \subsection{Auswertung der Ergebnisse}
 % Macht das, was rauskommt, Sinn?
+\begin{figure}[hp]
+    \centering
+    \includegraphics[scale=0.6]{../evaluation/p3_plot_pam_sil_diss.png}
+    \caption{lala}
+    \label{fig:silP3}
+\end{figure}
 
 % Vergleich gegen die MSC-Klassen
 % Vergleich mit einem rein bibliometrischen Verfahren (bibliographische Kopplung / SimRank/ ..)
