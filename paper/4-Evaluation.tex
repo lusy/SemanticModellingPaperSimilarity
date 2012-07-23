@@ -105,11 +105,23 @@ Für ein Publikationsnetzwerk G mit n Knoten, ist die Speicherkomplexität des Alg
 Obwohl die dieser Arbeit zugrundeliegende Implementierung nicht die explizite $n{\times}n$ Matrix, sondern nur die Hälfte davon (die Matrix ist symmetrisch, $s(a,b){=}s(b,a)$) und davon nur die nichtnull-Einträge speichert, wird mit steigender Anzahl von Publikationen/Knoten insgesamt in G der Speicherbedarf quadratisch steigen.
 \\
 \\
-Algorithmus \ref{alg:derAlg} braucht im schlimmsten Fall $\mathcal{O}(n^4)$ Zeit, denn für die Ähnlichkeitsberechnung jeder zwei Knoten werden rekursiv auch alle Knotenpaare, die zu ihren Nachbarn gehören, betrachtet.
+Algorithmus \ref{alg:derAlg} braucht im schlimmsten Fall $\mathcal{O}(n^4)$ Zeit, denn für die Ähnlichkeitsberechnung jeder zwei Knoten werden rekursiv auch alle Knotenpaare aus ihren Nachbarn betrachtet.
 Selbst wenn ein Pruning basierend auf den Knotenarten durchgeführt wird (Ähnlichkeit für Knoten a und b, die nicht der selben Kategorie angehören, wird nicht berechnet), ändert sich die generelle Laufzeitkomplexität nicht.%oder??
 
 
 \subsection{Testläufe}
+Die früheren strukturellen Ähnlichkeitsmaße \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank} haben die selbe Laufzeit- und Speicherkomplexität wie die hier vorgeschlagene semantische Ähnlichkeit: $\mathcal{O}(n^4)$ bzw. $\mathcal{O}(n^2)$ im schlimmsten Fall \cite{simrank2002} \cite{ZhaoHS09} \cite{DBLP:journals/corr/abs-1109-1059}.
+Sie wurden auf den folgenden Datensätzen angewandt.
+Jeh und Widom werten \textit{SimRank} auf zwei Datensätzen mit jeweils $278,628$ und $1003$ Elementen aus.
+Sie machen Angaben weder zu den Parametern des benutzten Systems noch zu der Zeit, die sie für die Durchführung der Berechnungen gebraucht haben \cite{simrank2002}.
+Lizorkin et al., die diversve Ansätze für die Optimierung von \textit{SimRank} vorschlagen, werten ebenfalls den nicht optimierten \textit{SimRank}-Algorithmus aus.
+Auf ihrem Testsystem mit $1$Gb RAM und $2.1$GHz CPU braucht dieser bei $10,000$ Elementen 46 Stunden \cite{Lizorkin2010}.
+Die Autoren von \textit{P-Rank} wenden ihren Algorithmus auf drei Testdatensätzen mit jeweils $218,930$, $21,740$ und $100,000$ Elementen an \cite{ZhaoHS09}.
+Ihr Testsystem hatte $2$Gb RAM und $2.4$GHz CPU, was andeutet, dass sie die ausgewerteten Informationsnetzwerke extern gelagert und nicht in den Speicher geladen haben.
+Sie machen ebenfalls keine Angaben zu der gebrauchten Zeit.
+Yoon, Kim und Park werten \textit{C-Rank} auf einem Datensatz mit $23,795$ Publikationen aus.
+Ihr System hatte $2.67$GHz CPU, Speicherangaben machen sie keine, auch keine Angaben zu der gebrauchten Zeit \cite{DBLP:journals/corr/abs-1109-1059}.
+
 % Vergleich: Laufzeit und Speicherverbrauch der alten strukturellen Maße (SimRank, P-Rank, C-Rank)
 % auf wie vielen Daten wurden diese ausgewertet und wie lange hats gedauert? was für parameter hatte das testsystem?
 % -----------------
