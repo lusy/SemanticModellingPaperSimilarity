@@ -1,0 +1,136 @@
+################Param1!########################
+###########Overview Class####################
+1 ('Classname: ', '37') ('#Pubs: ', 16) 3 biggest cluster:  ('id: ', 48, '#Pubs: ', 4.0) ('id: ', 5, '#Pubs: ', 1.0) ('id: ', 15, '#Pubs: ', 1.0)
+2 ('Classname: ', '60') ('#Pubs: ', 104) 3 biggest cluster:  ('id: ', 15, '#Pubs: ', 62.0) ('id: ', 9, '#Pubs: ', 5.0) ('id: ', 4, '#Pubs: ', 4.0)
+3 ('Classname: ', '82') ('#Pubs: ', 11) 3 biggest cluster:  ('id: ', 2, '#Pubs: ', 2.0) ('id: ', 11, '#Pubs: ', 2.0) ('id: ', 1, '#Pubs: ', 1.0)
+4 ('Classname: ', '62') ('#Pubs: ', 46) 3 biggest cluster:  ('id: ', 5, '#Pubs: ', 21.0) ('id: ', 12, '#Pubs: ', 6.0) ('id: ', 9, '#Pubs: ', 4.0)
+5 ('Classname: ', '26') ('#Pubs: ', 46) 3 biggest cluster:  ('id: ', 56, '#Pubs: ', 11.0) ('id: ', 35, '#Pubs: ', 6.0) ('id: ', 14, '#Pubs: ', 4.0)
+6 ('Classname: ', '53') ('#Pubs: ', 85) 3 biggest cluster:  ('id: ', 46, '#Pubs: ', 22.0) ('id: ', 61, '#Pubs: ', 16.0) ('id: ', 53, '#Pubs: ', 11.0)
+7 ('Classname: ', '08') ('#Pubs: ', 16) 3 biggest cluster:  ('id: ', 12, '#Pubs: ', 3.0) ('id: ', 10, '#Pubs: ', 2.0) ('id: ', 45, '#Pubs: ', 2.0)
+8 ('Classname: ', '68') ('#Pubs: ', 46) 3 biggest cluster:  ('id: ', 6, '#Pubs: ', 9.0) ('id: ', 2, '#Pubs: ', 5.0) ('id: ', 34, '#Pubs: ', 4.0)
+9 ('Classname: ', '83') ('#Pubs: ', 17) 3 biggest cluster:  ('id: ', 54, '#Pubs: ', 2.0) ('id: ', 1, '#Pubs: ', 1.0) ('id: ', 7, '#Pubs: ', 1.0)
+10 ('Classname: ', '80') ('#Pubs: ', 3) 3 biggest cluster:  ('id: ', 2, '#Pubs: ', 1.0) ('id: ', 1, '#Pubs: ', 0.0) ('id: ', 1, '#Pubs: ', 0.0)
+11 ('Classname: ', '81') ('#Pubs: ', 31) 3 biggest cluster:  ('id: ', 28, '#Pubs: ', 17.0) ('id: ', 8, '#Pubs: ', 2.0) ('id: ', 9, '#Pubs: ', 2.0)
+12 ('Classname: ', '86') ('#Pubs: ', 6) 3 biggest cluster:  ('id: ', 1, '#Pubs: ', 0.0) ('id: ', 1, '#Pubs: ', 0.0) ('id: ', 1, '#Pubs: ', 0.0)
+13 ('Classname: ', '85') ('#Pubs: ', 9) 3 biggest cluster:  ('id: ', 7, '#Pubs: ', 2.0) ('id: ', 27, '#Pubs: ', 2.0) ('id: ', 23, '#Pubs: ', 1.0)
+14 ('Classname: ', '24') ('#Pubs: ', 1) 3 biggest cluster:  ('id: ', 48, '#Pubs: ', 1.0) ('id: ', 1, '#Pubs: ', 0.0) ('id: ', 1, '#Pubs: ', 0.0)
+15 ('Classname: ', '03') ('#Pubs: ', 104) 3 biggest cluster:  ('id: ', 21, '#Pubs: ', 21.0) ('id: ', 24, '#Pubs: ', 11.0) ('id: ', 37, '#Pubs: ', 9.0)
+16 ('Classname: ', '00') ('#Pubs: ', 100) 3 biggest cluster:  ('id: ', 8, '#Pubs: ', 27.0) ('id: ', 1, '#Pubs: ', 4.0) ('id: ', 12, '#Pubs: ', 3.0)
+17 ('Classname: ', '01') ('#Pubs: ', 78) 3 biggest cluster:  ('id: ', 44, '#Pubs: ', 16.0) ('id: ', 36, '#Pubs: ', 8.0) ('id: ', 19, '#Pubs: ', 7.0)
+18 ('Classname: ', '20') ('#Pubs: ', 145) 3 biggest cluster:  ('id: ', 39, '#Pubs: ', 49.0) ('id: ', 11, '#Pubs: ', 20.0) ('id: ', 9, '#Pubs: ', 7.0)
+19 ('Classname: ', '22') ('#Pubs: ', 41) 3 biggest cluster:  ('id: ', 10, '#Pubs: ', 4.0) ('id: ', 39, '#Pubs: ', 4.0) ('id: ', 5, '#Pubs: ', 3.0)
+20 ('Classname: ', '49') ('#Pubs: ', 22) 3 biggest cluster:  ('id: ', 1, '#Pubs: ', 2.0) ('id: ', 9, '#Pubs: ', 2.0) ('id: ', 17, '#Pubs: ', 2.0)
+21 ('Classname: ', '46') ('#Pubs: ', 92) 3 biggest cluster:  ('id: ', 32, '#Pubs: ', 45.0) ('id: ', 14, '#Pubs: ', 9.0) ('id: ', 1, '#Pubs: ', 5.0)
+22 ('Classname: ', '47') ('#Pubs: ', 92) 3 biggest cluster:  ('id: ', 32, '#Pubs: ', 44.0) ('id: ', 9, '#Pubs: ', 4.0) ('id: ', 1, '#Pubs: ', 3.0)
+23 ('Classname: ', '44') ('#Pubs: ', 15) 3 biggest cluster:  ('id: ', 63, '#Pubs: ', 5.0) ('id: ', 2, '#Pubs: ', 1.0) ('id: ', 6, '#Pubs: ', 1.0)
+24 ('Classname: ', '45') ('#Pubs: ', 32) 3 biggest cluster:  ('id: ', 63, '#Pubs: ', 9.0) ('id: ', 7, '#Pubs: ', 1.0) ('id: ', 14, '#Pubs: ', 1.0)
+25 ('Classname: ', '42') ('#Pubs: ', 62) 3 biggest cluster:  ('id: ', 25, '#Pubs: ', 27.0) ('id: ', 56, '#Pubs: ', 3.0) ('id: ', 1, '#Pubs: ', 2.0)
+26 ('Classname: ', '43') ('#Pubs: ', 2) 3 biggest cluster:  ('id: ', 1, '#Pubs: ', 0.0) ('id: ', 1, '#Pubs: ', 0.0) ('id: ', 1, '#Pubs: ', 0.0)
+27 ('Classname: ', '40') ('#Pubs: ', 23) 3 biggest cluster:  ('id: ', 33, '#Pubs: ', 8.0) ('id: ', 7, '#Pubs: ', 1.0) ('id: ', 9, '#Pubs: ', 1.0)
+28 ('Classname: ', '41') ('#Pubs: ', 29) 3 biggest cluster:  ('id: ', 25, '#Pubs: ', 6.0) ('id: ', 14, '#Pubs: ', 1.0) ('id: ', 23, '#Pubs: ', 1.0)
+29 ('Classname: ', '52') ('#Pubs: ', 22) 3 biggest cluster:  ('id: ', 17, '#Pubs: ', 2.0) ('id: ', 1, '#Pubs: ', 1.0) ('id: ', 9, '#Pubs: ', 1.0)
+30 ('Classname: ', '05') ('#Pubs: ', 80) 3 biggest cluster:  ('id: ', 26, '#Pubs: ', 22.0) ('id: ', 34, '#Pubs: ', 10.0) ('id: ', 24, '#Pubs: ', 8.0)
+31 ('Classname: ', '28') ('#Pubs: ', 47) 3 biggest cluster:  ('id: ', 35, '#Pubs: ', 14.0) ('id: ', 32, '#Pubs: ', 3.0) ('id: ', 1, '#Pubs: ', 1.0)
+32 ('Classname: ', '78') ('#Pubs: ', 3) 3 biggest cluster:  ('id: ', 3, '#Pubs: ', 1.0) ('id: ', 7, '#Pubs: ', 1.0) ('id: ', 8, '#Pubs: ', 1.0)
+33 ('Classname: ', '19') ('#Pubs: ', 5) 3 biggest cluster:  ('id: ', 15, '#Pubs: ', 1.0) ('id: ', 16, '#Pubs: ', 1.0) ('id: ', 36, '#Pubs: ', 1.0)
+34 ('Classname: ', '13') ('#Pubs: ', 26) 3 biggest cluster:  ('id: ', 30, '#Pubs: ', 3.0) ('id: ', 9, '#Pubs: ', 2.0) ('id: ', 10, '#Pubs: ', 2.0)
+35 ('Classname: ', '76') ('#Pubs: ', 28) 3 biggest cluster:  ('id: ', 52, '#Pubs: ', 9.0) ('id: ', 9, '#Pubs: ', 5.0) ('id: ', 1, '#Pubs: ', 1.0)
+36 ('Classname: ', '75') ('#Pubs: ', 1) 3 biggest cluster:  ('id: ', 16, '#Pubs: ', 1.0) ('id: ', 1, '#Pubs: ', 0.0) ('id: ', 1, '#Pubs: ', 0.0)
+37 ('Classname: ', '74') ('#Pubs: ', 60) 3 biggest cluster:  ('id: ', 9, '#Pubs: ', 34.0) ('id: ', 62, '#Pubs: ', 9.0) ('id: ', 52, '#Pubs: ', 3.0)
+38 ('Classname: ', '70') ('#Pubs: ', 38) 3 biggest cluster:  ('id: ', 9, '#Pubs: ', 11.0) ('id: ', 14, '#Pubs: ', 2.0) ('id: ', 28, '#Pubs: ', 2.0)
+39 ('Classname: ', '91') ('#Pubs: ', 27) 3 biggest cluster:  ('id: ', 23, '#Pubs: ', 8.0) ('id: ', 4, '#Pubs: ', 5.0) ('id: ', 9, '#Pubs: ', 4.0)
+40 ('Classname: ', '06') ('#Pubs: ', 48) 3 biggest cluster:  ('id: ', 22, '#Pubs: ', 4.0) ('id: ', 39, '#Pubs: ', 4.0) ('id: ', 45, '#Pubs: ', 4.0)
+41 ('Classname: ', '93') ('#Pubs: ', 19) 3 biggest cluster:  ('id: ', 4, '#Pubs: ', 3.0) ('id: ', 9, '#Pubs: ', 3.0) ('id: ', 2, '#Pubs: ', 2.0)
+42 ('Classname: ', '92') ('#Pubs: ', 5) 3 biggest cluster:  ('id: ', 28, '#Pubs: ', 2.0) ('id: ', 6, '#Pubs: ', 1.0) ('id: ', 63, '#Pubs: ', 1.0)
+43 ('Classname: ', '94') ('#Pubs: ', 30) 3 biggest cluster:  ('id: ', 6, '#Pubs: ', 7.0) ('id: ', 2, '#Pubs: ', 4.0) ('id: ', 15, '#Pubs: ', 3.0)
+44 ('Classname: ', '32') ('#Pubs: ', 27) 3 biggest cluster:  ('id: ', 50, '#Pubs: ', 14.0) ('id: ', 1, '#Pubs: ', 2.0) ('id: ', 28, '#Pubs: ', 2.0)
+45 ('Classname: ', '58') ('#Pubs: ', 16) 3 biggest cluster:  ('id: ', 9, '#Pubs: ', 3.0) ('id: ', 7, '#Pubs: ', 2.0) ('id: ', 12, '#Pubs: ', 1.0)
+46 ('Classname: ', '11') ('#Pubs: ', 1002) 3 biggest cluster:  ('id: ', 18, '#Pubs: ', 109.0) ('id: ', 29, '#Pubs: ', 100.0) ('id: ', 42, '#Pubs: ', 70.0)
+47 ('Classname: ', '39') ('#Pubs: ', 33) 3 biggest cluster:  ('id: ', 32, '#Pubs: ', 18.0) ('id: ', 2, '#Pubs: ', 3.0) ('id: ', 6, '#Pubs: ', 2.0)
+48 ('Classname: ', '12') ('#Pubs: ', 59) 3 biggest cluster:  ('id: ', 10, '#Pubs: ', 5.0) ('id: ', 5, '#Pubs: ', 4.0) ('id: ', 38, '#Pubs: ', 4.0)
+49 ('Classname: ', '15') ('#Pubs: ', 36) 3 biggest cluster:  ('id: ', 14, '#Pubs: ', 2.0) ('id: ', 37, '#Pubs: ', 2.0) ('id: ', 39, '#Pubs: ', 2.0)
+50 ('Classname: ', '14') ('#Pubs: ', 59) 3 biggest cluster:  ('id: ', 57, '#Pubs: ', 11.0) ('id: ', 1, '#Pubs: ', 8.0) ('id: ', 14, '#Pubs: ', 6.0)
+51 ('Classname: ', '17') ('#Pubs: ', 63) 3 biggest cluster:  ('id: ', 38, '#Pubs: ', 19.0) ('id: ', 10, '#Pubs: ', 5.0) ('id: ', 9, '#Pubs: ', 4.0)
+52 ('Classname: ', '16') ('#Pubs: ', 74) 3 biggest cluster:  ('id: ', 13, '#Pubs: ', 12.0) ('id: ', 10, '#Pubs: ', 8.0) ('id: ', 22, '#Pubs: ', 5.0)
+53 ('Classname: ', '55') ('#Pubs: ', 32) 3 biggest cluster:  ('id: ', 16, '#Pubs: ', 17.0) ('id: ', 9, '#Pubs: ', 3.0) ('id: ', 55, '#Pubs: ', 2.0)
+54 ('Classname: ', '54') ('#Pubs: ', 207) 3 biggest cluster:  ('id: ', 16, '#Pubs: ', 106.0) ('id: ', 55, '#Pubs: ', 59.0) ('id: ', 26, '#Pubs: ', 19.0)
+55 ('Classname: ', '57') ('#Pubs: ', 28) 3 biggest cluster:  ('id: ', 16, '#Pubs: ', 10.0) ('id: ', 55, '#Pubs: ', 3.0) ('id: ', 7, '#Pubs: ', 2.0)
+56 ('Classname: ', '30') ('#Pubs: ', 104) 3 biggest cluster:  ('id: ', 50, '#Pubs: ', 37.0) ('id: ', 31, '#Pubs: ', 11.0) ('id: ', 37, '#Pubs: ', 4.0)
+57 ('Classname: ', '51') ('#Pubs: ', 28) 3 biggest cluster:  ('id: ', 6, '#Pubs: ', 4.0) ('id: ', 2, '#Pubs: ', 3.0) ('id: ', 14, '#Pubs: ', 2.0)
+58 ('Classname: ', '35') ('#Pubs: ', 96) 3 biggest cluster:  ('id: ', 41, '#Pubs: ', 30.0) ('id: ', 37, '#Pubs: ', 5.0) ('id: ', 1, '#Pubs: ', 4.0)
+59 ('Classname: ', '34') ('#Pubs: ', 72) 3 biggest cluster:  ('id: ', 48, '#Pubs: ', 28.0) ('id: ', 14, '#Pubs: ', 2.0) ('id: ', 4, '#Pubs: ', 1.0)
+60 ('Classname: ', '33') ('#Pubs: ', 28) 3 biggest cluster:  ('id: ', 14, '#Pubs: ', 5.0) ('id: ', 3, '#Pubs: ', 2.0) ('id: ', 9, '#Pubs: ', 2.0)
+61 ('Classname: ', '18') ('#Pubs: ', 23) 3 biggest cluster:  ('id: ', 43, '#Pubs: ', 6.0) ('id: ', 9, '#Pubs: ', 3.0) ('id: ', 12, '#Pubs: ', 2.0)
+62 ('Classname: ', '31') ('#Pubs: ', 12) 3 biggest cluster:  ('id: ', 15, '#Pubs: ', 2.0) ('id: ', 41, '#Pubs: ', 2.0) ('id: ', 1, '#Pubs: ', 1.0)
+63 ('Classname: ', '90') ('#Pubs: ', 41) 3 biggest cluster:  ('id: ', 23, '#Pubs: ', 14.0) ('id: ', 9, '#Pubs: ', 8.0) ('id: ', 4, '#Pubs: ', 3.0)
+64 ('Classname: ', '65') ('#Pubs: ', 75) 3 biggest cluster:  ('id: ', 3, '#Pubs: ', 18.0) ('id: ', 9, '#Pubs: ', 7.0) ('id: ', 36, '#Pubs: ', 3.0)
+################Overview Cluster#############################
+1 #Pub: 93.0 Ent: 3.86357242492 Pur: 0.354838709677 3BCL: i: 46 clID: 11 #Pub: 33.0 i: 50 clID: 14 #Pub: 8.0 i: 21 clID: 46 #Pub: 5.0
+2 #Pub: 76.0 Ent: 3.83219711006 Pur: 0.342105263158 3BCL: i: 46 clID: 11 #Pub: 26.0 i: 18 clID: 20 #Pub: 6.0 i: 8 clID: 68 #Pub: 5.0
+3 #Pub: 27.0 Ent: 1.90086342713 Pur: 0.666666666667 3BCL: i: 64 clID: 65 #Pub: 18.0 i: 60 clID: 33 #Pub: 2.0 i: 5 clID: 26 #Pub: 1.0
+4 #Pub: 46.0 Ent: 3.31219729491 Pur: 0.326086956522 3BCL: i: 46 clID: 11 #Pub: 15.0 i: 39 clID: 91 #Pub: 5.0 i: 2 clID: 60 #Pub: 4.0
+5 #Pub: 43.0 Ent: 2.557472165 Pur: 0.488372093023 3BCL: i: 4 clID: 62 #Pub: 21.0 i: 46 clID: 11 #Pub: 5.0 i: 48 clID: 12 #Pub: 4.0
+6 #Pub: 67.0 Ent: 3.39482356379 Pur: 0.358208955224 3BCL: i: 46 clID: 11 #Pub: 24.0 i: 8 clID: 68 #Pub: 9.0 i: 43 clID: 94 #Pub: 7.0
+7 #Pub: 36.0 Ent: 3.53462596246 Pur: 0.277777777778 3BCL: i: 46 clID: 11 #Pub: 10.0 i: 54 clID: 54 #Pub: 7.0 i: 13 clID: 85 #Pub: 2.0
+8 #Pub: 48.0 Ent: 2.54347077087 Pur: 0.5625 3BCL: i: 16 clID: 00 #Pub: 27.0 i: 17 clID: 01 #Pub: 5.0 i: 5 clID: 26 #Pub: 2.0
+9 #Pub: 160.0 Ent: 4.6664715524 Pur: 0.2125 3BCL: i: 37 clID: 74 #Pub: 34.0 i: 38 clID: 70 #Pub: 11.0 i: 46 clID: 11 #Pub: 9.0
+10 #Pub: 41.0 Ent: 3.53245636015 Pur: 0.19512195122 3BCL: i: 52 clID: 16 #Pub: 8.0 i: 46 clID: 11 #Pub: 5.0 i: 48 clID: 12 #Pub: 5.0
+11 #Pub: 31.0 Ent: 1.97230721691 Pur: 0.645161290323 3BCL: i: 18 clID: 20 #Pub: 20.0 i: 3 clID: 82 #Pub: 2.0 i: 40 clID: 06 #Pub: 2.0
+12 #Pub: 55.0 Ent: 3.980027026 Pur: 0.2 3BCL: i: 46 clID: 11 #Pub: 11.0 i: 15 clID: 03 #Pub: 8.0 i: 4 clID: 62 #Pub: 6.0
+13 #Pub: 16.0 Ent: 1.18627812446 Pur: 0.75 3BCL: i: 52 clID: 16 #Pub: 12.0 i: 46 clID: 11 #Pub: 2.0 i: 15 clID: 03 #Pub: 1.0
+14 #Pub: 87.0 Ent: 4.65818035335 Pur: 0.114942528736 3BCL: i: 46 clID: 11 #Pub: 10.0 i: 21 clID: 46 #Pub: 9.0 i: 18 clID: 20 #Pub: 7.0
+15 #Pub: 76.0 Ent: 1.30167674047 Pur: 0.815789473684 3BCL: i: 2 clID: 60 #Pub: 62.0 i: 43 clID: 94 #Pub: 3.0 i: 62 clID: 31 #Pub: 2.0
+16 #Pub: 181.0 Ent: 2.64529145205 Pur: 0.585635359116 3BCL: i: 54 clID: 54 #Pub: 106.0 i: 53 clID: 55 #Pub: 17.0 i: 46 clID: 11 #Pub: 11.0
+17 #Pub: 9.0 Ent: 1.83659166811 Pur: 0.444444444444 3BCL: i: 46 clID: 11 #Pub: 4.0 i: 20 clID: 49 #Pub: 2.0 i: 29 clID: 52 #Pub: 2.0
+18 #Pub: 123.0 Ent: 0.91217229883 Pur: 0.886178861789 3BCL: i: 46 clID: 11 #Pub: 109.0 i: 30 clID: 05 #Pub: 2.0 i: 56 clID: 30 #Pub: 2.0
+19 #Pub: 35.0 Ent: 1.93242157887 Pur: 0.6 3BCL: i: 46 clID: 11 #Pub: 21.0 i: 17 clID: 01 #Pub: 7.0 i: 3 clID: 82 #Pub: 1.0
+20 #Pub: 31.0 Ent: 0.748326550438 Pur: 0.870967741935 3BCL: i: 46 clID: 11 #Pub: 27.0 i: 15 clID: 03 #Pub: 2.0 i: 24 clID: 45 #Pub: 1.0
+21 #Pub: 65.0 Ent: 2.66336672653 Pur: 0.384615384615 3BCL: i: 46 clID: 11 #Pub: 25.0 i: 15 clID: 03 #Pub: 21.0 i: 8 clID: 68 #Pub: 2.0
+22 #Pub: 29.0 Ent: 2.96732853225 Pur: 0.344827586207 3BCL: i: 46 clID: 11 #Pub: 10.0 i: 52 clID: 16 #Pub: 5.0 i: 40 clID: 06 #Pub: 4.0
+23 #Pub: 37.0 Ent: 2.80640986878 Pur: 0.378378378378 3BCL: i: 63 clID: 90 #Pub: 14.0 i: 39 clID: 91 #Pub: 8.0 i: 46 clID: 11 #Pub: 5.0
+24 #Pub: 22.0 Ent: 1.63880671841 Pur: 0.5 3BCL: i: 15 clID: 03 #Pub: 11.0 i: 30 clID: 05 #Pub: 8.0 i: 21 clID: 46 #Pub: 1.0
+25 #Pub: 43.0 Ent: 1.87634324156 Pur: 0.627906976744 3BCL: i: 25 clID: 42 #Pub: 27.0 i: 28 clID: 41 #Pub: 6.0 i: 56 clID: 30 #Pub: 3.0
+26 #Pub: 47.0 Ent: 1.66484165241 Pur: 0.468085106383 3BCL: i: 30 clID: 05 #Pub: 22.0 i: 54 clID: 54 #Pub: 19.0 i: 15 clID: 03 #Pub: 2.0
+27 #Pub: 23.0 Ent: 1.56704021693 Pur: 0.695652173913 3BCL: i: 46 clID: 11 #Pub: 16.0 i: 13 clID: 85 #Pub: 2.0 i: 40 clID: 06 #Pub: 2.0
+28 #Pub: 68.0 Ent: 3.14131342143 Pur: 0.367647058824 3BCL: i: 46 clID: 11 #Pub: 25.0 i: 11 clID: 81 #Pub: 17.0 i: 56 clID: 30 #Pub: 3.0
+29 #Pub: 106.0 Ent: 0.441263671757 Pur: 0.943396226415 3BCL: i: 46 clID: 11 #Pub: 100.0 i: 48 clID: 12 #Pub: 2.0 i: 30 clID: 05 #Pub: 1.0
+30 #Pub: 40.0 Ent: 2.59708926037 Pur: 0.525 3BCL: i: 46 clID: 11 #Pub: 21.0 i: 15 clID: 03 #Pub: 4.0 i: 34 clID: 13 #Pub: 3.0
+31 #Pub: 19.0 Ent: 1.99484144464 Pur: 0.578947368421 3BCL: i: 56 clID: 30 #Pub: 11.0 i: 46 clID: 11 #Pub: 3.0 i: 6 clID: 53 #Pub: 1.0
+32 #Pub: 116.0 Ent: 1.93417135648 Pur: 0.387931034483 3BCL: i: 21 clID: 46 #Pub: 45.0 i: 22 clID: 47 #Pub: 44.0 i: 47 clID: 39 #Pub: 18.0
+33 #Pub: 18.0 Ent: 2.19161164175 Pur: 0.444444444444 3BCL: i: 27 clID: 40 #Pub: 8.0 i: 46 clID: 11 #Pub: 5.0 i: 22 clID: 47 #Pub: 1.0
+34 #Pub: 43.0 Ent: 2.93279310473 Pur: 0.372093023256 3BCL: i: 46 clID: 11 #Pub: 16.0 i: 30 clID: 05 #Pub: 10.0 i: 8 clID: 68 #Pub: 4.0
+35 #Pub: 44.0 Ent: 2.06117328526 Pur: 0.431818181818 3BCL: i: 46 clID: 11 #Pub: 19.0 i: 31 clID: 28 #Pub: 14.0 i: 5 clID: 26 #Pub: 6.0
+36 #Pub: 47.0 Ent: 3.56276988699 Pur: 0.276595744681 3BCL: i: 46 clID: 11 #Pub: 13.0 i: 17 clID: 01 #Pub: 8.0 i: 58 clID: 35 #Pub: 3.0
+37 #Pub: 66.0 Ent: 3.21492588746 Pur: 0.424242424242 3BCL: i: 46 clID: 11 #Pub: 28.0 i: 15 clID: 03 #Pub: 9.0 i: 58 clID: 35 #Pub: 5.0
+38 #Pub: 29.0 Ent: 1.39866157341 Pur: 0.655172413793 3BCL: i: 51 clID: 17 #Pub: 19.0 i: 52 clID: 16 #Pub: 5.0 i: 48 clID: 12 #Pub: 4.0
+39 #Pub: 92.0 Ent: 2.62007519126 Pur: 0.532608695652 3BCL: i: 18 clID: 20 #Pub: 49.0 i: 46 clID: 11 #Pub: 16.0 i: 19 clID: 22 #Pub: 4.0
+40 #Pub: 20.0 Ent: 1.29176014818 Pur: 0.75 3BCL: i: 46 clID: 11 #Pub: 15.0 i: 56 clID: 30 #Pub: 2.0 i: 5 clID: 26 #Pub: 1.0
+41 #Pub: 36.0 Ent: 0.893213741153 Pur: 0.833333333333 3BCL: i: 58 clID: 35 #Pub: 30.0 i: 22 clID: 47 #Pub: 3.0 i: 62 clID: 31 #Pub: 2.0
+42 #Pub: 81.0 Ent: 0.934853722782 Pur: 0.864197530864 3BCL: i: 46 clID: 11 #Pub: 70.0 i: 16 clID: 00 #Pub: 3.0 i: 30 clID: 05 #Pub: 2.0
+43 #Pub: 11.0 Ent: 1.68581570915 Pur: 0.545454545455 3BCL: i: 61 clID: 18 #Pub: 6.0 i: 21 clID: 46 #Pub: 2.0 i: 52 clID: 16 #Pub: 2.0
+44 #Pub: 37.0 Ent: 1.6017001683 Pur: 0.459459459459 3BCL: i: 46 clID: 11 #Pub: 17.0 i: 17 clID: 01 #Pub: 16.0 i: 38 clID: 70 #Pub: 1.0
+45 #Pub: 23.0 Ent: 2.94067621881 Pur: 0.304347826087 3BCL: i: 46 clID: 11 #Pub: 7.0 i: 40 clID: 06 #Pub: 4.0 i: 52 clID: 16 #Pub: 3.0
+46 #Pub: 49.0 Ent: 2.22476095411 Pur: 0.448979591837 3BCL: i: 6 clID: 53 #Pub: 22.0 i: 46 clID: 11 #Pub: 16.0 i: 48 clID: 12 #Pub: 2.0
+47 #Pub: 35.0 Ent: 2.20584692466 Pur: 0.542857142857 3BCL: i: 46 clID: 11 #Pub: 19.0 i: 18 clID: 20 #Pub: 5.0 i: 48 clID: 12 #Pub: 4.0
+48 #Pub: 61.0 Ent: 2.85163539057 Pur: 0.459016393443 3BCL: i: 59 clID: 34 #Pub: 28.0 i: 46 clID: 11 #Pub: 10.0 i: 1 clID: 37 #Pub: 4.0
+49 #Pub: 28.0 Ent: 1.64883485428 Pur: 0.714285714286 3BCL: i: 46 clID: 11 #Pub: 20.0 i: 15 clID: 03 #Pub: 2.0 i: 13 clID: 85 #Pub: 1.0
+50 #Pub: 57.0 Ent: 1.51617521702 Pur: 0.649122807018 3BCL: i: 56 clID: 30 #Pub: 37.0 i: 44 clID: 32 #Pub: 14.0 i: 24 clID: 45 #Pub: 1.0
+51 #Pub: 20.0 Ent: 1.67838982472 Pur: 0.5 3BCL: i: 46 clID: 11 #Pub: 10.0 i: 15 clID: 03 #Pub: 7.0 i: 2 clID: 60 #Pub: 1.0
+52 #Pub: 49.0 Ent: 4.2053496395 Pur: 0.183673469388 3BCL: i: 35 clID: 76 #Pub: 9.0 i: 46 clID: 11 #Pub: 6.0 i: 2 clID: 60 #Pub: 3.0
+53 #Pub: 45.0 Ent: 2.59646612559 Pur: 0.466666666667 3BCL: i: 46 clID: 11 #Pub: 21.0 i: 6 clID: 53 #Pub: 11.0 i: 19 clID: 22 #Pub: 1.0
+54 #Pub: 16.0 Ent: 0.86839272901 Pur: 0.8125 3BCL: i: 46 clID: 11 #Pub: 13.0 i: 9 clID: 83 #Pub: 2.0 i: 25 clID: 42 #Pub: 1.0
+55 #Pub: 76.0 Ent: 1.51331136325 Pur: 0.776315789474 3BCL: i: 54 clID: 54 #Pub: 59.0 i: 55 clID: 57 #Pub: 3.0 i: 15 clID: 03 #Pub: 2.0
+56 #Pub: 54.0 Ent: 3.41003244966 Pur: 0.333333333333 3BCL: i: 46 clID: 11 #Pub: 18.0 i: 5 clID: 26 #Pub: 11.0 i: 25 clID: 42 #Pub: 3.0
+57 #Pub: 26.0 Ent: 2.31375711026 Pur: 0.423076923077 3BCL: i: 50 clID: 14 #Pub: 11.0 i: 46 clID: 11 #Pub: 8.0 i: 18 clID: 20 #Pub: 1.0
+58 #Pub: 23.0 Ent: 1.91235080775 Pur: 0.608695652174 3BCL: i: 46 clID: 11 #Pub: 14.0 i: 56 clID: 30 #Pub: 3.0 i: 49 clID: 15 #Pub: 2.0
+59 #Pub: 15.0 Ent: 0.699842839886 Pur: 0.866666666667 3BCL: i: 46 clID: 11 #Pub: 13.0 i: 5 clID: 26 #Pub: 1.0 i: 18 clID: 20 #Pub: 1.0
+60 #Pub: 16.0 Ent: 0.6685644432 Pur: 0.875 3BCL: i: 46 clID: 11 #Pub: 14.0 i: 24 clID: 45 #Pub: 1.0 i: 58 clID: 35 #Pub: 1.0
+61 #Pub: 33.0 Ent: 2.31712139209 Pur: 0.484848484848 3BCL: i: 6 clID: 53 #Pub: 16.0 i: 46 clID: 11 #Pub: 8.0 i: 51 clID: 17 #Pub: 2.0
+62 #Pub: 13.0 Ent: 1.5058762556 Pur: 0.692307692308 3BCL: i: 37 clID: 74 #Pub: 9.0 i: 1 clID: 37 #Pub: 1.0 i: 25 clID: 42 #Pub: 1.0
+63 #Pub: 20.0 Ent: 2.21497982052 Pur: 0.45 3BCL: i: 24 clID: 45 #Pub: 9.0 i: 23 clID: 44 #Pub: 5.0 i: 25 clID: 42 #Pub: 2.0
+64 #Pub: 16.0 Ent: 0.99339272901 Pur: 0.8125 3BCL: i: 46 clID: 11 #Pub: 13.0 i: 6 clID: 53 #Pub: 1.0 i: 18 clID: 20 #Pub: 1.0
+################Param2!########################
+################Param3!########################
+('overallEntropie: ', 2.4863012279590633)
+('overallPurity: ', 0.50953150242326339
+
