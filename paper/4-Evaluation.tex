@@ -109,6 +109,7 @@ Algorithmus \ref{alg:derAlg} braucht im schlimmsten Fall $\mathcal{O}(n^4)$ Zeit
 Selbst wenn ein Pruning basierend auf den Knotenarten durchgeführt wird (Ähnlichkeit für Knoten a und b, die nicht der selben Kategorie angehören, wird nicht berechnet), ändert sich die generelle Laufzeitkomplexität nicht.%oder??
 
 \subsection{Bestimmung der Parameter}
+\label{subsec:params}
 Im Folgenden wird diskutiert, welche Auswirkung die Werte der Parameter $c$, $k$ und $\lambda_i$ haben und wie sie am geeignetsten gewählt werden können.
 \\
 \\
@@ -210,6 +211,8 @@ Das ergibt $1,154,950$ Publikationen und $5,518,500$ Knoten insgesamt für das mo
 Die Ähnlichkeiten für diesen verkürzten Datensatz wurden ebenfalls als nicht in realistischer Zeit berechenbar gewertet.
 Um eine Auswertung der Ergebnisse des vorgeschlagenen Algorithmus durchführen zu können, werden nur noch die Publikationen aus dem \textit{zmath}-Datensatz betrachtet, die bis einschließlich 1975 veröffentlicht worden sind.
 Das ergibt ein Publikationsnetzwerk mit $3095$ Publikationen und $15,994$ Knoten insgesamt.
+Für die Berechnung der Ähnlichkeiten in diesem Publikationsnetzwerk mit dem semantischen Ähnlichkeitsmaß wurden bei den oben beschriebenen Parametern ($k=7$ Iterationen und $c=0.6$ Dämpfungsfaktor) und Systemeigenschaften im Durchschnitt 4 Stunden und 8 Minuten gebraucht
+(Die semantische Ähnlichkeit wurde für die drei verschiedenen Verteilungen der Gewichtungen $\lambda$, die in Kapitel \ref{subsec:params} beschrieben wurden, berechnet).
 % wie lange hat das gedauert??
 % P1: 14911.1054752 Sec
 % P2: 14732.8429248 Sec
