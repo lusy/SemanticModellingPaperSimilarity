@@ -190,8 +190,29 @@ Also bestimmt der Wert $c^{k+1}$ die Genauigkeit, die der iterative \textit{SimR
 Aufgrund dieser Schlussfolgerung wählt die vorliegende Arbeit die Werte $c=0.6$ und $k=7$ für die Berechnung der semantischen Ähnlichkeit.
 Diese ergeben für den iterativen Algorithmus eine Genauigkeit von $0.6^{7+1}=0.0168$.
 % Überzeugend erklären: Lässt sich auch hier anwenden, alternativ, Beweis im Appendix
-
-
+\\
+\\
+Kapitel \ref{subsec:simMeasure} definiert bereits, dass die Summe der Gewichtungen aller verschiedenen Metadaten $1$ ergibt, $\sum_{i=1}^{5} \lambda_i = 1$.
+Diese Normalisierung stellt sicher, dass kein Ähnlichkeitswert größer $1$ werden kann.
+Diese Arbeit berechnet die semantsiche Ähnlichkeit mit drei verschiedenen Gewichtungen und wertet im folgenden Kapitel aus, welche die Optimalste ist.
+Die $\lambda$-s sind in diesen Gewichtungen folgendermaßen verteilt:
+\begin{table}[H]
+\centering
+\begin{tabular}{l c c c}
+		%\hline
+		\textbf{Parameter} &\textbf{Gewichtung 1} &\textbf{Gewichtung 2} &\textbf{Gewichtung 3} \\
+		%\hline
+		$\lambda_1$, Keywords & $0.5$ & $0.2$ & $0.4$\\
+		$\lambda_2$, Autoren & $0.1$ & $0.2$ & $0.3$\\
+		$\lambda_3$, Quellen & $0.1$ & $0.2$ & $0.1$\\
+		$\lambda_4$, Zitationen & $0.2$ & $0.2$ & $0.1$\\
+		$\lambda_5$, Erscheinungsjahre & $0.1$ & $0.2$ & $0.1$\\
+	    %\hline
+\end{tabular}
+%\caption{Metadatengewichtungen}
+\label{tab:parametrization}
+\end{table}
+% brauche ich mehr dazu, warum ich die so gewählt hab?
 
 
 % wie werden die lambdas gewählt? warum?
