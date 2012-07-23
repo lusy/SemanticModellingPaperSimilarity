@@ -212,7 +212,13 @@ Die Ähnlichkeiten für diesen verkürzten Datensatz wurden ebenfalls als nicht in 
 Um eine Auswertung der Ergebnisse des vorgeschlagenen Algorithmus durchführen zu können, werden nur noch die Publikationen aus dem \textit{zmath}-Datensatz betrachtet, die bis einschließlich 1975 veröffentlicht worden sind.
 Das ergibt ein Publikationsnetzwerk mit $3095$ Publikationen und $15,994$ Knoten insgesamt.
 Für die Berechnung der Ähnlichkeiten in diesem Publikationsnetzwerk mit dem semantischen Ähnlichkeitsmaß wurden bei den oben beschriebenen Parametern ($k=7$ Iterationen und $c=0.6$ Dämpfungsfaktor) und Systemeigenschaften im Durchschnitt 4 Stunden und 8 Minuten gebraucht
-(Die semantische Ähnlichkeit wurde für die drei verschiedenen Verteilungen der Gewichtungen $\lambda$, die in Kapitel \ref{subsec:params} beschrieben wurden, berechnet).
+(Die semantische Ähnlichkeit wurde für die drei verschiedenen Verteilungen der Gewichtungen $\lambda_i$, die in Kapitel \ref{subsec:params} beschrieben wurden, berechnet).
+
+Diese letzte Verkürzung des \textit{zmath}-Datensatzes wurde so gewählt, damit keine Zitationsrelationen zu Arbeiten, die außer Betracht bleiben, verloren gehen.
+Die Publikationen, die bis zum Jahr 1975 veröffentlicht wurden, können keine Arbeiten zitieren, die nach diesem Datum erschienen.
+Es muss allerdings beachtet werden, dass durch jede Verkürzung des ursprünglichen Datesatzes Relationen verloren gehen, die auch für die Ähnlichkeit der Publikationen, die im verkürzten Datensatz bleiben, von Bedeutung sind.
+Das liegt an dem Wesen des vorgeschlagenen Algorithmus, der die Ähnlichkeit zwischen zwei Publikationen rekursiv aufgrund des gesamten Publikationsnetzwerksbestimmt.
+Aus diesem Grund werden die berechneten Ähnlichkeitswerte für die Publikationen bis zum 1975 nicht ganz den reellen Ähnlichkeitswerten für diese Publikationen entsprechen, die sich ergeben würden, wenn der Algorithmus auf dem gesamten \textit{zmath}-Datensatz angewandt wäre.
 % wie lange hat das gedauert??
 % P1: 14911.1054752 Sec
 % P2: 14732.8429248 Sec
