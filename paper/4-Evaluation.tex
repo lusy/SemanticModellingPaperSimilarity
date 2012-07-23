@@ -174,9 +174,21 @@ Selbst wenn ein Pruning basierend auf den Knotenarten durchgeführt wird (Ähnlich
 %    Boot Mode: Normal
 
 \subsection{Bestimmung der Parameter}
-\cite{Lizorkin2010} beweisen für \textit{SimRank}, dass der Unterschied zwischen den theoretischen und iterativen Ähnlichkeitswerten für zwei Knoten a und b in der Anzahl der durchgeführten Iterationen exponentiell sinkt.
+Im Folgenden wird diskutiert welche Auswirkung die Werte der Parameter $c$, $k$ und $\lambda_i$ haben und wie sie am geeignetsten gewählt werden können.
+\\
+\\
+Der Dämpfungsfaktor $c$ bestimmt wie stark sich das globale Publikationsnetzwerk auf die Ähnlichkeit zwischen zwei konkreten Knoten $a$ und $b$ auswirkt.
+Wenn $c$ relativ klein ist, tragen weiter entfernte von $a$ und $b$ Knoten viel weniger zu deren Ähnlichkeit bei.
+Es wird nur die lokale Nachbarschaft von $a$ und $b$ in deren Ähnlichkeitsberechnung miteinbezogen.
+Mit größerem $c$ fließt mehr von dem globalen Netzwerk bei der rekursiven Berechnung in den Ähnlichkeitswert zweier Knoten ein.
+Demzufolge braucht der iterative Algorithmus bei größerem $c$ mehr Zeit zum Konvergieren.
+\\
+\\
+\cite{Lizorkin2010} beweisen für \textit{SimRank}, dass der Unterschied zwischen den theoretischen und iterativen Ähnlichkeitswerten für zwei Knoten $a$ und $b$ in der Anzahl der durchgeführten Iterationen exponentiell sinkt.
 Sie stellen die folgende Ungleichung auf: $s(a,b)-R_k(a,b) \leq c^{k+1}$ .
-Also bestimmt der Wert $c^{k+1}$ die Genauigkeit, die der iterative \textit{SimRank}-Algorithmus erreicht.
+Also bestimmt der Wert $c^{k+1}$ die Genauigkeit, die der iterative \textit{SimRank}-Algorithmus nach $k$ Iterationen erreicht.
+Aufgrund dieser Schlussfolgerung wählt die vorliegende Arbeit die Werte $c=0.6$ und $k=7$ für die Berechnung der semantischen Ähnlichkeit.
+Diese ergeben für den iterativen Algorithmus eine Genauigkeit von $0.6^{7+1}=0.0168$.
 % Überzeugend erklären: Lässt sich auch hier anwenden, alternativ, Beweis im Appendix
 
 
