@@ -108,85 +108,8 @@ Obwohl die dieser Arbeit zugrundeliegende Implementierung nicht die explizite $n
 Algorithmus \ref{alg:derAlg} braucht im schlimmsten Fall $\mathcal{O}(n^4)$ Zeit, denn für die Ähnlichkeitsberechnung jeder zwei Knoten werden rekursiv auch alle Knotenpaare aus ihren Nachbarn betrachtet.
 Selbst wenn ein Pruning basierend auf den Knotenarten durchgeführt wird (Ähnlichkeit für Knoten a und b, die nicht der selben Kategorie angehören, wird nicht berechnet), ändert sich die generelle Laufzeitkomplexität nicht.%oder??
 
-
-\subsection{Testläufe}
-Die früheren strukturellen Ähnlichkeitsmaße \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank} haben die selbe Laufzeit- und Speicherkomplexität wie die hier vorgeschlagene semantische Ähnlichkeit: $\mathcal{O}(n^4)$ bzw. $\mathcal{O}(n^2)$ im schlimmsten Fall \cite{simrank2002} \cite{ZhaoHS09} \cite{DBLP:journals/corr/abs-1109-1059}.
-Sie wurden auf den folgenden Datensätzen angewandt.
-Jeh und Widom werten \textit{SimRank} auf zwei Datensätzen mit jeweils $278,628$ und $1003$ Elementen aus.
-Sie machen Angaben weder zu den Parametern des benutzten Systems noch zu der Zeit, die sie für die Durchführung der Berechnungen gebraucht haben \cite{simrank2002}.
-Lizorkin et al., die diversve Ansätze für die Optimierung von \textit{SimRank} vorschlagen, werten ebenfalls den nicht optimierten \textit{SimRank}-Algorithmus aus.
-Auf ihrem Testsystem mit $1$Gb RAM und $2.1$GHz CPU braucht dieser bei $10,000$ Elementen 46 Stunden \cite{Lizorkin2010}.
-Die Autoren von \textit{P-Rank} wenden ihren Algorithmus auf drei Testdatensätzen mit jeweils $218,930$, $21,740$ und $100,000$ Elementen an \cite{ZhaoHS09}.
-Ihr Testsystem hatte $2$Gb RAM und $2.4$GHz CPU, was andeutet, dass sie die ausgewerteten Informationsnetzwerke extern gelagert und nicht in den Speicher geladen haben.
-Sie machen ebenfalls keine Angaben zu der gebrauchten Zeit.
-Yoon, Kim und Park werten \textit{C-Rank} auf einem Datensatz mit $23,795$ Publikationen aus.
-Ihr System hatte $2.67$GHz CPU, Speicherangaben machen sie keine, auch keine Angaben zu der gebrauchten Zeit \cite{DBLP:journals/corr/abs-1109-1059}.
-
-% Vergleich: Laufzeit und Speicherverbrauch der alten strukturellen Maße (SimRank, P-Rank, C-Rank)
-% auf wie vielen Daten wurden diese ausgewertet und wie lange hats gedauert? was für parameter hatte das testsystem?
-% -----------------
-% Accuracy estimate of SimRank \cite{Lizorkin2010}: 10000 Nodes - 46 Stunden (1GB RAM, 2.1GHz CPU)
-
-% P-Rank
-%------
-%Heterogenous IN: 218930 Nodes;
-%Mit den beschriebenen Parametern ihres Systems (2.4 GHz CPU und 2 GB RAM) können sie auf keinen Fall alles im Memory laden...
-%Bzw steht nirgendswo wie lange sie für gebraucht haben
-%--------
-%Homogenous IN: 21740 Nodes
-% All our experiments are performed on an Intel PC with a 2.4GHz CPU, 2GB memory, running Redhat Fedora Core 4.
-% One more experiment with syntetic data: 100 000 Nodes
-
-
-%C-Rank: 23795 Publications
-% All our experiments were performed on an Intel PC with Quad Core 2.67GHz CPU, running Windows 2008;
-% RAM unknown
-% time: unknown
-
-
-
-% Was genau habe ich ausgerechnet?
-
-%Um das vorgeschlagene Ähnlichkeitsmaß für wissenschaftliche Publikationen auswerten zu können, wird der Testdatensatz vom Zentralblatt Mathematik auf das im Kapitel \ref{subsec:modell} vorgestellte Graphenschema abgebildet.
-%Mit Hilfe von einem in \textit{Python} geschriebenen Parser werden die Daten vom \textit{zmath}-Datensatz in \textit{GraphML}-Format überführt.
-%Die \textit{GraphML}-Repräsentation der vollständigen Daten ist ca. $4.8$ Gb groß.
-
-% 1. Trimming des Datensatzes: auf $1$ Gb - nur die Publikationen mit vollständigen Metadaten, $1,154,950$ Publikationen
-% -- nicht wirklich berechenbar in vernünftiger Zeit (siehe Komplexitätsanalyse)
-% 2. Trimming des Datensatzes: 3095 Publikationen mit vollständigen Metadaten (alle Publikationen im Datensatz, die vor dem Jahr 1975 veröffentlicht wurden);
-% wie lange hat das gedauert??
-% P1: 14911.1054752 Sec
-% P2: 14732.8429248 Sec
-% P3: 14984.688808 Sec
-% Crank: 13935.943378 Sec
-
-% So werden nicht Zitationsrelationen zu späteren Arbeiten verloren (eine frühere Arbeit kann eine spätere nicht zitieren)
-% andererseit aber werden Relationen verloren, da der Algorithmus auf dem Gesamtpublikationsnetzwerk rechnet (also Werte, die über rausgeschnittenen Knoten propagiert wurden, gehen verloren)
-% -- also eine Auswertung "wie gut ist das Ähnlichkeitsmaß" wird vermutlich nicht sehr sinnvolle Ergebnisse liefern
-
-
-
-% Parameters of the test system:
-%Hardware Overview:
-%    Model Name: Mac Pro
-%    Model Identifier: MacPro4,1
-%    Processor Name: Quad-Core Intel Xeon
-%    Processor Speed: 2,93 GHz
-%    Number Of Processors: 2
-%    Total Number Of Cores: 8
-%    L2 Cache (per core): 256 KB
-%    L3 Cache (per processor): 8 MB
-%    Memory: 14 GB
-%    Processor Interconnect Speed: 6.4 GT/s
-
-%System Software Overview:
-%    System Version: Mac OS X 10.6.8 (10K549)
-%    Kernel Version: Darwin 10.8.0
-%    Boot Volume: Macintosh HD
-%    Boot Mode: Normal
-
 \subsection{Bestimmung der Parameter}
-Im Folgenden wird diskutiert welche Auswirkung die Werte der Parameter $c$, $k$ und $\lambda_i$ haben und wie sie am geeignetsten gewählt werden können.
+Im Folgenden wird diskutiert, welche Auswirkung die Werte der Parameter $c$, $k$ und $\lambda_i$ haben und wie sie am geeignetsten gewählt werden können.
 \\
 \\
 Der Dämpfungsfaktor $c$ bestimmt wie stark sich das globale Publikationsnetzwerk auf die Ähnlichkeit zwischen zwei konkreten Knoten $a$ und $b$ auswirkt.
@@ -241,6 +164,87 @@ Die $\lambda$-s sind in diesen Gewichtungen folgendermaßen verteilt:
 % gewählte Parameter: c=0.6, k=7: mehr vom globalen Netz fließt in die Berechnung mit ein; erzielte Genauigkeit: 0.01679616
 % (zum Vergleich SimRank nutzt originell c=0.8 und k= 5, was eine Genauigkeit von 0.26 ergibt, relativ ungenau!
 
+
+\subsection{Testläufe}
+Die früheren strukturellen Ähnlichkeitsmaße \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank} haben die selbe Laufzeit- und Speicherkomplexität wie die hier vorgeschlagene semantische Ähnlichkeit: $\mathcal{O}(n^4)$ bzw. $\mathcal{O}(n^2)$ im schlimmsten Fall \cite{simrank2002} \cite{ZhaoHS09} \cite{DBLP:journals/corr/abs-1109-1059}.
+Sie wurden auf den folgenden Datensätzen angewandt.
+Jeh und Widom werten \textit{SimRank} auf zwei Datensätzen mit jeweils $278,628$ und $1003$ Elementen aus.
+Sie machen Angaben weder zu den Parametern des benutzten Systems noch zu der Zeit, die sie für die Durchführung der Berechnungen gebraucht haben \cite{simrank2002}.
+Lizorkin et al., die diversve Ansätze für die Optimierung von \textit{SimRank} vorschlagen, werten ebenfalls den nicht optimierten \textit{SimRank}-Algorithmus aus.
+Auf ihrem Testsystem mit $1$Gb RAM und $2.1$GHz CPU braucht dieser bei $10,000$ Elementen 46 Stunden \cite{Lizorkin2010}.
+Die Autoren von \textit{P-Rank} wenden ihren Algorithmus auf drei Testdatensätzen mit jeweils $218,930$, $21,740$ und $100,000$ Elementen an \cite{ZhaoHS09}.
+Ihr Testsystem hatte $2$Gb RAM und $2.4$GHz CPU, was andeutet, dass sie die ausgewerteten Informationsnetzwerke extern gelagert und nicht in den Speicher geladen haben.
+Sie machen ebenfalls keine Angaben zu der gebrauchten Zeit.
+Yoon, Kim und Park werten \textit{C-Rank} auf einem Datensatz mit $23,795$ Publikationen aus.
+Ihr System hatte $2.67$GHz CPU, Speicherangaben machen sie keine, auch keine Angaben zu der gebrauchten Zeit \cite{DBLP:journals/corr/abs-1109-1059}.
+
+% Vergleich: Laufzeit und Speicherverbrauch der alten strukturellen Maße (SimRank, P-Rank, C-Rank)
+% auf wie vielen Daten wurden diese ausgewertet und wie lange hats gedauert? was für parameter hatte das testsystem?
+% -----------------
+% Accuracy estimate of SimRank \cite{Lizorkin2010}: 10000 Nodes - 46 Stunden (1GB RAM, 2.1GHz CPU)
+
+% P-Rank
+%------
+%Heterogenous IN: 218930 Nodes;
+%Mit den beschriebenen Parametern ihres Systems (2.4 GHz CPU und 2 GB RAM) können sie auf keinen Fall alles im Memory laden...
+%Bzw steht nirgendswo wie lange sie für gebraucht haben
+%--------
+%Homogenous IN: 21740 Nodes
+% All our experiments are performed on an Intel PC with a 2.4GHz CPU, 2GB memory, running Redhat Fedora Core 4.
+% One more experiment with syntetic data: 100 000 Nodes
+
+
+%C-Rank: 23795 Publications
+% All our experiments were performed on an Intel PC with Quad Core 2.67GHz CPU, running Windows 2008;
+% RAM unknown
+% time: unknown
+
+Das System, auf dem der von dieser Arbeit vorgeschlagene Algorithmus für Berechnung der semantischen Ähnlichkeit zwischen Publikationen ausgeführt wird, verfügt über $2.93$GHz CPU und $14$Gb Arbeitsspeicher.
+Die einzige Arbeit, die konkrete Hinweise für die Laufzeit der Algorithmen für strukturelle Ähnlichkeit in Informationsnetzwerken in der Praxis gibt, ist \cite{Lizorkin2010}.
+Da diese Algorithmen die selbe Laufzeitkomplexität wie die hier vorgeschlagene semantische Ähnlichkeit haben, ist es nicht schwer zu folgern, dass die Berechnung der Ähnlichkeiten für den gesamten \textit{zmath}-Datensatz, mit $2,907,086$ Publikationen, auf diesem Testsystem unpraktikabel ist.
+\\
+\\
+Aus diesem Grund wird der \textit{zmath}-Datensatz zunächst folgendermaßen gekürzt.
+Es werden nur die Publikationen betrachtet, für die die vollständigen Metadaten, die in die Berechnung der semantischen Ähnlichkeit einfließen, verfügbar sind.
+Das ergibt $1,154,950$ Publikationen und $5,518,500$ Knoten insgesamt für das modellierte Publikationsnetzwerk.
+Die Ähnlichkeiten für diesen verkürzten Datensatz wurden ebenfalls als nicht in realistischer Zeit berechenbar gewertet.
+Um eine Auswertung der Ergebnisse des vorgeschlagenen Algorithmus durchführen zu können, werden nur noch die Publikationen aus dem \textit{zmath}-Datensatz betrachtet, die bis einschließlich 1975 veröffentlicht worden sind.
+Das ergibt ein Publikationsnetzwerk mit $3095$ Publikationen und $15,994$ Knoten insgesamt.
+% wie lange hat das gedauert??
+% P1: 14911.1054752 Sec
+% P2: 14732.8429248 Sec
+% P3: 14984.688808 Sec
+% Crank: 13935.943378 Sec
+
+% So werden nicht Zitationsrelationen zu späteren Arbeiten verloren (eine frühere Arbeit kann eine spätere nicht zitieren)
+% andererseit aber werden Relationen verloren, da der Algorithmus auf dem Gesamtpublikationsnetzwerk rechnet (also Werte, die über rausgeschnittenen Knoten propagiert wurden, gehen verloren)
+% -- also eine Auswertung "wie gut ist das Ähnlichkeitsmaß" wird vermutlich nicht sehr sinnvolle Ergebnisse liefern
+
+
+% Was genau habe ich ausgerechnet?
+
+%Um das vorgeschlagene Ähnlichkeitsmaß für wissenschaftliche Publikationen auswerten zu können, wird der Testdatensatz vom Zentralblatt Mathematik auf das im Kapitel \ref{subsec:modell} vorgestellte Graphenschema abgebildet.
+%Mit Hilfe von einem in \textit{Python} geschriebenen Parser werden die Daten vom \textit{zmath}-Datensatz in \textit{GraphML}-Format überführt.
+%Die \textit{GraphML}-Repräsentation der vollständigen Daten ist ca. $4.8$ Gb groß.
+
+% Parameters of the test system:
+%Hardware Overview:
+%    Model Name: Mac Pro
+%    Model Identifier: MacPro4,1
+%    Processor Name: Quad-Core Intel Xeon
+%    Processor Speed: 2,93 GHz
+%    Number Of Processors: 2
+%    Total Number Of Cores: 8
+%    L2 Cache (per core): 256 KB
+%    L3 Cache (per processor): 8 MB
+%    Memory: 14 GB
+%    Processor Interconnect Speed: 6.4 GT/s
+
+%System Software Overview:
+%    System Version: Mac OS X 10.6.8 (10K549)
+%    Kernel Version: Darwin 10.8.0
+%    Boot Volume: Macintosh HD
+%    Boot Mode: Normal
 
 \subsection{Auswertung der Ergebnisse}
 % Macht das, was rauskommt, Sinn?
