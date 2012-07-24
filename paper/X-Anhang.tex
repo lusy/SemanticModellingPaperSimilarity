@@ -1,6 +1,10 @@
 \section*{Appendix}
 
-% Um ein GefÃ¼hl dafÃ¼r zu bekommen, wie der Algorithmus funktioniert, werden hier die ersten Schritte, die fÃ¼r die Ã„hnlichkeitsberechnung folgender zwei Publikationen aus dem \textit{zmath}-Datensatz notwendig sind, ausgefÃ¼hrt.
+\subsection*{Berechnung des Ähnlichkeitsmaßes}
+In diesem Appendix wird die erste Iteration, die für die Berechnung der semantischen Ähnlichkeit erfoderlich ist, für zwei Publikationen aus dem \textit{zmath}-Datensatz beispielhaft durchgeführt.
+
+
+% Um ein Gefühl dafür zu bekommen, wie der Algorithmus funktioniert, werden hier die ersten Schritte, die für die Ähnlichkeitsberechnung folgender zwei Publikationen aus dem \textit{zmath}-Datensatz notwendig sind, ausgeführt.
 % Publikationen: 
 %:id:    3006698
 %:an:    0005.25102
@@ -32,48 +36,75 @@
 
 \begin{math}
 \begin{array}{lcl}
-R_1(a,b) & = & 
-        \lambda_1\times\cfrac{c}{1*21}\times(R_0(K_1(a),K_1(b)) + R_0(K_1(a),K_2(b))+... + R_0(K_1(a),K_{21}(b)))
+R_1(P1,P2) & = & 
+        \lambda_1\times\cfrac{c}{|K(P1)||K(P2)|}
+        \sum_{i=1}^{|K(P1)|} \sum_{j=1}^{|K(P2)|} R_0(K_i(P1),K_j(P2))
         \\ & + &
-        \lambda_2\times\cfrac{c}{1*2}\times(R_0(A_1(a),A_1()) + R_0(A_1(a),A_2(b)))
+        \lambda_2\times\cfrac{c}{|A(P1)||A(P2)|}
+        \sum_{i=1}^{|A(P1)|} \sum_{j=1}^{|A(P2)|} R_0(A_i(P1),A_j(P2))
         \\ & + &
-        \lambda_3\times\cfrac{c}{1*1}\times R_0(S_1(a),S_1(b))
+        \lambda_3\times\cfrac{c}{|S(P1)||S(P2)|}
+        \sum_{i=1}^{|S(P1)|} \sum_{j=1}^{|S(P2)|} R_0(S_i(P1),S_j(P2))
+        \\ & + &
+        \lambda_4\times\cfrac{c}{|C(P1)||C(P2)|}
+        \sum_{i=1}^{|C(P1)|} \sum_{j=1}^{|C(P2)|} R_0(C_i(P1),C_j(P2))
+        \\ & + &
+        \lambda_5\times\cfrac{c}{|Y(P1)||Y(P2)|}
+        \sum_{i=1}^{|Y(P1)|} \sum_{j=1}^{|Y(P2)|} R_0(Y_i(P1),Y_j(P2))
+        \\ & &
+        \\ & = &
+        \lambda_1 * \cfrac{c}{1*21} * (R_0(K_1(P1),K_1(P2)) + R_0(K_1(P1),K_2(P2))+
+        \\ & &
+        \\ & & ... + R_0(K_1(P1),K_{21}(P2)))
+        \\ & + &
+        \lambda_2 * \cfrac{c}{1*2} * (R_0(A_1(P1),A_1(P2)) + R_0(A_1(P1),A_2(P2)))
+        \\ & + &
+        \lambda_3 * \cfrac{c}{1*1} * R_0(S_1(P1),S_1(P2))
         \\ & + &
         0
         \\ & + &
-        \lambda_5\times\cfrac{c}{1*1}\times R_0(Y_1(a),Y_1(b))
+        \lambda_5 * \cfrac{c}{1*1} * R_0(Y_1(P1),Y_1(P2))
         \\ & = &
+        \lambda_1 * \cfrac{c}{1*21}*(0 + 0 +... +0 + 1 + 0 + ..+ 0)
+        \\ & + &
+        \lambda_2 * \cfrac{c}{1*2} * (0 + 0)
+        \\ & + &
+        \lambda_3 * \cfrac{c}{1*1} * 0
+        \\ & + &
+        0
+        \\ & + &
+        \lambda_5 * \cfrac{c}{1*1} * 0
+        \\ & = &
+        \lambda_1 * \cfrac{c}{21} * 1
+
+
+\end{array}
+\end{math}
+
+\bigskip
+Dieser erste Iterationsschritt wird auch für jede zwei Keywords, Autoren, Quellen und Erscheinungsjahre ausgeführt.
+Für jede zwei Elemente der selben Klasse (z.B. zwei Keywords) wird die Ähnlichkeit nach der folgenden Formel bestimmt.
+Dabei sind L(a) die Publikationen, die das Keyword $a$ verwenden.
+Es kann hier leider keiner wahrheitsgetreuer Iterationsschritt für Keywords beispielhaft vorgeführt werden, da wir dafür alle Publikationen im Datensatz, die diesen Keywords verwenden, aussuchen sollten.
+Ein Anfang der Ähnlichkeitsberechnung für die Keywords \textit{complex functions} und \textit{Fourier series} wird folgendermaßen aussehen.
+\medskip
+
+\begin{math}
+\begin{array}{lcl}
+R_1(a,b) &  = &
+        \cfrac{c}{|L(a)||L(b)|} *
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_0(L_i(a),L_j(b))
+        \\ & = &
+        \cfrac{c}{|L(a)||L(b)|} * (R_0(L_1(a), L_1(b)) + R_0(L_1(a),L_2(b)) + ... + R_0(L_n(a),L_m(b)))
+        \\ & = &
+        \cfrac{c}{|L(a)||L(b)|} * (... + R_0(P2,P2) + ..)
+        \\ & = &
+        \cfrac{c}{|L(a)||L(b)|} * (... + 1 + ..)
 
 \end{array}
 \end{math}
 
 
-
-\[
-\begin{array}{lcl}
- R_{k+1}(a,b) & = & 
-        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
-        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} R_k(K_i(a),K_j(b))
-        \\ & + &
-        \lambda_2\times\cfrac{c}{|A(a)||A(b)|}
-        \sum_{i=1}^{|A(a)|} \sum_{j=1}^{|A(b)|} R_k(A_i(a),A_j(b))
-        \\ & + &
-        \lambda_3\times\cfrac{c}{|S(a)||S(b)|}
-        \sum_{i=1}^{|S(a)|} \sum_{j=1}^{|S(b)|} R_k(S_i(a),S_j(b))
-        \\ & + &
-        \lambda_4\times\cfrac{c}{|C(a)||C(b)|}
-        \sum_{i=1}^{|C(a)|} \sum_{j=1}^{|C(b)|} R_k(C_i(a),C_j(b))
-        \\ & + &
-        \lambda_5\times\cfrac{c}{|Y(a)||Y(b)|}
-        \sum_{i=1}^{|Y(a)|} \sum_{j=1}^{|Y(b)|} R_k(Y_i(a),Y_j(b))
-\end{array}
-\]
-\newline
-\text{wenn a und b aus sonstiger Klasse:}
-\[
-R_{k+1}(a,b)  = 
-        \cfrac{c}{|L(a)||L(b)|}
-        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_k(L_i(a),L_j(b))
-\]
-
-
+\bigskip
+Bei dem zweiten Iterationsschritt werden dann die Werte aus dem Ersten eingesetzt.
+$R_2$ wird aufgrund von $R_1$ berechnet.
