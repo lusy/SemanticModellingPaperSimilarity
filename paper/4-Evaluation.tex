@@ -154,22 +154,6 @@ Die $\lambda$-s sind in diesen Gewichtungen folgendermaﬂen verteilt:
 %\caption{Metadatengewichtungen}
 \label{tab:parametrization}
 \end{table}
-% brauche ich mehr dazu, warum ich die so gew‰hlt hab?
-
-
-% wie werden die lambdas gew‰hlt? warum?
-% wie wird c gew‰hlt? warum (simRank optimierungspaper)
-
-% Notes on accuracy, decay factor and convergence:
-% ------------------------------------------------
-
-% It is obvious that the similarity score of C-Rank increases with the increase of C
-% When C is low, the recursive power of C-Rank is weakened such that only the papers in local or near-local neighborhood are used in similarity computation.
-% When C is high, more papers in a more global neighborhood can be used in computing the similarity recursively. When C is high, therefore, the convergence takes more time.
-% \cite{Lizorkin2010} : folgende Gleichung gilt: s(a,b) - R_k(a,b) <= C^(k+1) gibt uns die Accuracy in Abh‰ngigkeit von C und k
-% wichtig wie das gew‰hlt wird, ƒhnlichkeitswerte sind zwischen 0 und 1, relativ hohe Genauigkeit ist wichtig!
-% gew‰hlte Parameter: c=0.6, k=7: mehr vom globalen Netz flieﬂt in die Berechnung mit ein; erzielte Genauigkeit: 0.01679616
-% (zum Vergleich SimRank nutzt originell c=0.8 und k= 5, was eine Genauigkeit von 0.26 ergibt, relativ ungenau!
 
 
 \subsection{Testl‰ufe}
@@ -224,7 +208,7 @@ F¸r die Berechnung der ƒhnlichkeiten wurden bei den oben beschriebenen Parameter
 In dem verk¸rzten Datensatz gehen keine Zitationsrelationen zu Publikationen verloren, die auﬂerhalb des Datensatzes liegen.
 Die Publikationen, die bis zum Jahr 1975 verˆffentlicht wurden, kˆnnen keine Arbeiten zitieren, die nach diesem Datum erschienen.
 Es muss allerdings beachtet werden, dass durch jede Verk¸rzung des urspr¸nglichen Datesatzes Relationen verloren gehen, die auch f¸r die ƒhnlichkeit der Publikationen, die im verk¸rzten Datensatz bleiben, von Bedeutung sind.
-Das liegt an dem Wesen des vorgeschlagenen Algorithmus, der die ƒhnlichkeit zwischen zwei Publikationen rekursiv aufgrund des gesamten Publikationsnetzwerksbestimmt.
+Das liegt an dem Wesen des vorgeschlagenen Algorithmus, der die ƒhnlichkeit zwischen zwei Publikationen rekursiv aufgrund des gesamten Publikationsnetzwerks bestimmt.
 Aus diesem Grund ist zu erwarten, dass die berechneten ƒhnlichkeitswerte f¸r die Publikationen bis zum Jahr 1975 nicht mit den ƒhnlichkeitswerten eines kompletten Datensatzes von knapp 3 Mio Publikationen zusammenfallen.
 % wie lange hat das gedauert??
 % P1: 14911.1054752 Sec
@@ -263,10 +247,64 @@ Aus diesem Grund ist zu erwarten, dass die berechneten ƒhnlichkeitswerte f¸r die
 %    Boot Mode: Normal
 
 \subsection{Auswertung der Ergebnisse}
+Es wurde die semantische ƒhnlichkeit der \textit{zmath}-Publikationen bis 1975, f¸r die alle Metadaten vorliegen, mit $c=0.6$, $k=7$ und den drei verschiedenen Gewichtungsverteilungen, wie in Kapitel \ref{subsec:params} beschrieben, berechnet.
+Ferner wurden f¸r denselben Datensatz die \textit{C-Rank}-ƒhnlichkeitswerte berechnet.
+Aufgrund der entstandenen ƒhnlichkeitsmatrizen wurden die Ergebnisse aller vier Testdurchl‰ufe nach dem Verfahren \textit{partitioning around medoids (pam)} \cite{pam2008}, eine Variante des \textit{k-Means} Clusterings, in 64 Cluster eingeclustert.
+%vlt bisschen beschreiben was er macht.
+Um die Qualit‰t der Maﬂe zu bestimmen wurden die bei jedem Maﬂ/Parameterverteilung entstandenen Cluster mit den 64 Toplevel-MSC-Klassen\footnote{Alle MSC-Klassen wurden bis auf die ersten zwei Ziffern aggregiert. Z.B. werden Klassen 11A25, 11Axx und 11-XX als 11-XX betrachtet.},
+die sich im Datensatz befanden, verglichen.
+\\
+\\
+F¸r die Clusterings der drei Parametrisierungen des semantischen ƒhnlichkeitsmaﬂes, sowie des \textit{C-Rank} wurden die Entropy, Purity und den Silhouette-Koeffizient ermittelt.
+Die Entropy und Purity sind Metriken der Supervised Cluster Validation.
+Wenn eine externe Klassifizierung der Objekte, auf die ein Cluteringverfahren angewandt werden sollte, vorliegt, bestimmen die Entropy und Purity inwiefern die dabei entstandenen Cluster nur aus Elementen bestehen, die derselben externen Klasse angehˆren.
+Der Purity-Wert liegt im Intervall \begin{math}\left[0,1\right]\end{math}.
+Je grˆﬂer dieser f¸r einen bestimmten Cluster ist, desto besser ist der Cluster.
+Analog kann Purity auch f¸r das Gesamtclustering bestimmt werden.
+% Gleichungen?
+\\
+\\
+Die Entropy ist ein Wert $\geq 0$, der den Grad der Unordnung eines Clusters beschreibt.
+Je kleiner die Entropy eines Clusters ist, desto besser ist der Cluster.
+\\
+\\
+Der Silhouette-Koeffizient ist eine Metrik der Unsupervised Cluster Validation.
+Sie misst inwiefern das Clustering an sich gut ist (d.h. ohne das Clustering mit einer externen Klassifizierung zu vergleichen).
+Der Silhouette-Koeffizient wird f¸r jedes Element des Datensatzes bestimmt, dann werden die Durchschnittswerte f¸r jeden Cluster gebildet und zum Schluss wird er auch f¸r das gesamte Clustering berechnet.
+Der Silhouette-Koeffizient $\in (-1,1)$ bestimmt inwiefern ein Element ‰hnlich allen anderen Elementen aus dem selben Cluster und gleichzeitig verschieden als alle Elemente aus anderen Clustern ist.
+Ein negativer Wert dieses Koeffizienten bedeutet, dass das Element im Durchschnitt n‰her an Elementen ist, die auﬂerhalb seinem Cluster sind, als an Elementen, die sich im selben Cluster befinden.
+\\
+\\
+Tabelle \ref{tab:results} fasst die Werte dieser Metriken f¸r die drei Parametrisierungen des semantischen ƒhnlichkeitsmaﬂes und f¸r \textit{C-Rank} zusammen.
+Im Vergleich schneidet die semantische ƒhnlichkeit bei allen Parametern besser als \textit{C-Rank} ab.
+\textit{C-Rank} hat die grˆﬂte Entropy und die kleinsten Purity und Silhouette.
+Ferner l‰sst sich feststellen, dass unter den drei verschiedenen Metadatengewichtungen der semantischen ƒhnlichkeit die Zweite, wobei alle Metadaten gleich gewichtet waren, am schlechtesten ist.
+Gewichtung 1 und Gewichtung 3 liefern ‰hnliche Resultate.
+Gewichtung 3 hat bessere Entropy und Purity, Gewichtung 1 hat einen besseren Silhouette-Koeffizienten.
+Allerdings sind die Unterschiede nicht wesentlich. %oder??
+\\
+\\
+\begin{table}[H]
+\centering
+\begin{tabular}{|l l l l l|}
+		\hline
+		 &\textbf{Gewichtung 1} &\textbf{Gewichtung 2} &\textbf{Gewichtung 3} & \textbf{C-Rank} \\
+		\hline
+		Entropy & $2.4863$ & $3.28742$ & $2.48117$ & $4.13098$\\
+		Purity & $0.50953$ & $0.39774$ & $0.51599$ & $0.35767$\\
+		Silhouette & $0.084$ & $0.056$ & $0.069$ & $0.0$ \\
+	    \hline
+\end{tabular}
+\caption{Ergebnisse der Clustering Validation}
+\label{tab:results}
+\end{table}
+
+
+
 % Macht das, was rauskommt, Sinn?
 \begin{figure}[hp]
     \centering
-    \includegraphics[scale=0.6]{../evaluation/p3_plot_pam_sil_diss.png}
+    \includegraphics[scale=0.6]{../evaluation/diss_true/p3_plot_pam_sil_diss.png}
     \caption{lala}
     \label{fig:silP3}
 \end{figure}
