@@ -2,7 +2,12 @@
 
 
 Diese Arbeit hat ein semantisches Ähnlichkeitsmaß für wissenschaftliche Publikationen basierend auf deren Metadaten entworfen und dieses auf einen Testdatensatz aus $3095$ Publikationen des \textit{Zentralblatt Mathematik} angewandt.
-Die experimentellen Ergebnisse haben gezeigt, dass sich das semantische Ähnlichkeitsmaß besser für die Ähnlichkeitsberechnung zweier Publikationen als das strukturelle Maß \textit{C-Rank} eignet, das nur auf Zitationen basiert.
+Dafür wurde ein Publikationsnetzwerk aufgestellt, das die im Datensatz beinhalteten Publikationen und deren Metadaten als Knoten modelliert.
+Der Algorithmus für semantische Ähnlichkeit hat rekursiv anhand des gesamten Netzwerks die Ähnlichkeit zwischen jeden zwei Publikationen berechnet.
+Dabei wurde aus der Intuition ausgegangen, dass zwei Publikationen ähnlich sind, wenn sie ähnliche Metadaten haben.
+\\
+\\
+Die experimentellen Ergebnisse haben gezeigt, dass sich das semantische Ähnlichkeitsmaß besser für die Ähnlichkeitsberechnung zweier Publikationen als das strukturelle Maß \textit{C-Rank}, das nur auf Zitationen basiert, eignet.
 \textit{C-Rank} ist nicht in der Lage brauchbare Ähnlichkeitswerte zu liefern, wenn keine vollständige Referenzlisten der untersuchten Publikationen vorliegen.
 Andere Metadaten bringen wichtige Informationen über die wissenschaftlichen Arbeiten und sollen bei einer Ähnlichkeitsanalyse der Publikationen nicht vernachlässigt werden.
 
