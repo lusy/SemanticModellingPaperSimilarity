@@ -34,7 +34,7 @@
 \usepackage{lastpage}
 \thispagestyle{plain}
 \pagenumbering{arabic}
-\pagestyle{headings}
+\pagestyle{plain}
 
 \author{
 	Lusy \\
@@ -101,9 +101,10 @@
 \nocite{*}
 \newpage
 
-\thispagestyle{empty}
 \addcontentsline{toc}{section}{Literatur}
 \bibliographystyle{alpha}
 \bibliography{vorl-literatur}
-\thispagestyle{empty}
+\newpage
+\addcontentsline{toc}{section}{Appendix}
+\input{X-Anhang}
 \end{document}
