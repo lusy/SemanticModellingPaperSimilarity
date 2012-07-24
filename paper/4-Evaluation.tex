@@ -247,40 +247,44 @@ Aus diesem Grund ist zu erwarten, dass die berechneten Ähnlichkeitswerte für die
 %    Boot Mode: Normal
 
 \subsection{Auswertung der Ergebnisse}
-Es wurde die semantische Ähnlichkeit der \textit{zmath}-Publikationen bis 1975, für die alle Metadaten vorliegen, mit $c=0.6$, $k=7$ und den drei verschiedenen Gewichtungsverteilungen, wie in Kapitel \ref{subsec:params} beschrieben, berechnet.
-Ferner wurden für denselben Datensatz die \textit{C-Rank}-Ähnlichkeitswerte berechnet.
+Es wurde die semantische Ähnlichkeit der \textit{zmath}-Publikationen bis 1975, für die alle Metadaten vorliegen, mit dem Dämpfungsfaktor $c=0.6$, $k=7$ Anzahl an Iterationen und drei verschiedenen Gewichtungsverteilungen (siehe Kapitel \ref{subsec:params}) berechnet.
+Zur Evaluation des entwickelten Maßes wurde das \textit{C-Rank}-Verfahren auf demselben Datensatz (mit denselben Parametern $c=0.6$ und $k=7$) ausgeführt, um die Ergebnisse zu vergleichen.
 Aufgrund der entstandenen Ähnlichkeitsmatrizen wurden die Ergebnisse aller vier Testdurchläufe nach dem Verfahren \textit{partitioning around medoids (pam)} \cite{pam2008}, eine Variante des \textit{k-Means} Clusterings, in 64 Cluster eingeclustert.
 %vlt bisschen beschreiben was er macht.
 Um die Qualität der Maße zu bestimmen wurden die bei jedem Maß/Parameterverteilung entstandenen Cluster mit den 64 Toplevel-MSC-Klassen\footnote{Alle MSC-Klassen wurden bis auf die ersten zwei Ziffern aggregiert. Z.B. werden Klassen 11A25, 11Axx und 11-XX als 11-XX betrachtet.},
 die sich im Datensatz befanden, verglichen.
 \\
 \\
-Für die Clusterings der drei Parametrisierungen des semantischen Ähnlichkeitsmaßes, sowie des \textit{C-Rank} wurden die \textit{Entropy}, \textit{Purity} und den \textit{Silhouette-Koeffizient} ermittelt.
-Die \textit{Entropy} und \textit{Purity} sind Metriken der Supervised Cluster Validation \cite{dataMining2005}.
-Wenn eine externe Klassifizierung der Objekte, auf die ein Cluteringverfahren angewandt werden sollte, vorliegt (in dem Fall die MSC-Klassifizierung), bestimmen die \textit{Entropy} und \textit{Purity} inwiefern die dabei entstandenen Cluster nur aus Elementen bestehen, die derselben externen Klasse angehören.
+In der Evaluation gilt es herauszufinden, inwiefern ähnliche Publikationen (d.h. ein vergleichsweise hoher Ähnlichkeitswert im Intervall \begin{math}\left[0,1\right]\end{math} zwischen je zwei Publikationen) auf die entsprechenden MSC-Klassen, die im Algorithmus nicht betrachtet wurden, abgebildet werden können.
+Die MSC-Klassen ordnen die Publikationen thematisch ein und es ist zu erwarten, dass thematisch ähnliche Publikationen auch innerhalb der Klassifikation in ähnliche Klassen eingeordnet werden können.
+\\
+\\
+Für die Clusterings der drei Parametrisierungen des semantischen Ähnlichkeitsmaßes, sowie des \textit{C-Rank} wurden die Werte \textit{Entropy}, \textit{Purity} und der \textit{Silhouette-Koeffizient} ermittelt.
+\textit{Entropy} und \textit{Purity} sind Metriken der Supervised Cluster Validation \cite{dataMining2005}.
+Wenn eine externe Klassifizierung der Objekte, auf die ein Cluteringverfahren angewandt werden sollte, vorliegt (in dem Fall die MSC-Klassifizierung), bestimmen \textit{Entropy} und \textit{Purity} inwiefern die dabei entstandenen Cluster nur aus Elementen bestehen, die derselben externen Klasse angehören.
 Der \textit{Purity}-Wert liegt im Intervall \begin{math}\left[0,1\right]\end{math}.
 Je größer dieser für einen bestimmten Cluster ist, desto besser ist der Cluster.
 Analog kann \textit{Purity} auch für das Gesamtclustering bestimmt werden.
 % Gleichungen?
 \\
 \\
-Die \textit{Entropy} ist ein Wert $\geq 0$, der den Grad der Unordnung eines Clusters beschreibt.
-Je kleiner die \textit{Entropy} eines Clusters ist, desto besser ist der Cluster \cite{purityEntropy2011}.
+\textit{Entropy} ist ein Wert $\geq 0$, der den Grad der Unordnung eines Clusters beschreibt.
+Je kleiner die \textit{Entropy} eines Clusters ist, desto homogener ist der Cluster \cite{purityEntropy2011}.
 \\
 \\
 Der \textit{Silhouette-Koeffizient} ist eine Metrik der Unsupervised Cluster Validation \cite{dataMining2005}.
 Unsupervised Cluster Validation beurteilt inwiefern das Clustering an sich gut ist (d.h. ohne das Clustering mit einer externen Klassifizierung zu vergleichen), indem die Zusammengehörigkeit der Elemente innerhalb jedes Clusters und auch wie gut die einzelnen Cluster von einander abgegrenzt sind bemessen wird.
 Der \textit{Silhouette-Koeffizient} wird für jedes Element des Datensatzes bestimmt, dann werden die Durchschnittswerte für jeden Cluster gebildet und zum Schluss wird er auch für das gesamte Clustering berechnet.
-Der \textit{Silhouette-Koeffizient} $\in (-1,1)$ bestimmt inwiefern ein Element ähnlich allen anderen Elementen aus dem selben Cluster und gleichzeitig verschieden als alle Elemente aus anderen Clustern ist.
-Ein negativer Wert dieses Koeffizienten bedeutet, dass das Element im Durchschnitt näher an Elementen ist, die außerhalb seinem Cluster sind, als an Elementen, die sich im selben Cluster befinden.
+Der \textit{Silhouette-Koeffizient} $\in (-1,1)$ bestimmt inwiefern ein Element ähnlich allen anderen Elementen aus dem selben Cluster und gleichzeitig verschieden zu den Elementen aus anderen Clustern ist.
+Ein negativer Wert dieses Koeffizienten bedeutet, dass das Element im Durchschnitt näher an Elementen ist, die außerhalb des Cluster liegen, als an Elementen, die sich im selben Cluster befinden.
 \\
 \\
 Diese Metriken wurden in Anlehnung an \cite{dataMining2005} berechnet und in Tabelle \ref{tab:results} für die drei Parametrisierungen des semantischen Ähnlichkeitsmaßes und für \textit{C-Rank} zusammengefasst.
-Im Vergleich schneidet die semantische Ähnlichkeit bei allen Parametern besser als \textit{C-Rank} ab.
-\textit{C-Rank} hat die größte \textit{Entropy} und die kleinsten \textit{Purity} und \textit{Silhouette}.
-Ferner lässt sich feststellen, dass unter den drei verschiedenen Metadatengewichtungen der semantischen Ähnlichkeit die Zweite, bei der alle Metadaten gleich gewichtet waren, am schlechtesten ist.
+Im Vergleich schneiden die drei semantischen Ähnlichkeitsmaße besser als \textit{C-Rank} ab.
+\textit{C-Rank} hat den größten \textit{Entropy}-Wert und die kleinsten Werte für \textit{Purity} und \textit{Silhouette}.
+Ferner lässt sich feststellen, dass unter den drei verschiedenen Metadatengewichtungen die Gewichtung 2, bei der alle Metadaten gleich gewichtet waren, am schlechtesten abgeschnitten hat.
 Gewichtung 1 und Gewichtung 3 liefern ähnliche Resultate.
-Gewichtung 3 hat bessere \textit{Entropy} und \textit{Purity}, also bildet das Clustering aufgrund der Distanzmatrix für Gewichtung 3 besser die MSC-Klassen ab.
+Gewichtung 3 hat im Vergleich zu den anderen 3 Methoden die besten Werte für \textit{Entropy} und \textit{Purity},d.h. das Clustering bildet die Ähnlichkeitswerte am besten auf die MSC-Klassen ab.
 Gewichtung 1 hat einen besseren \textit{Silhouette-Koeffizienten}, das heißt, die Cluster für Gewichtung 1 sind stärker zusammenhängend und deutlicher abgegrenzt.
 Allerdings sind die Unterschiede nicht wesentlich. %oder??
 \\
@@ -308,10 +312,11 @@ Auf dem ersten Blick scheinen die Werte für \textit{C-Rank} gut zu sein: mehrere
 Allerdings werden die Werte für das Gesamtclustering nochmal gewichtet zusammengefasst: die Werte für größere Cluster fließen zu einem höheren Anteil in die \textit{Durchschnittsentropy} und -\textit{purity}.
 Da der erste Cluster bei \textit{C-Rank} mit $Entropy{=}4.82283$ und $Purity{=}0.26131$ $2587$ der insgesamt $3095$ Publikationen beinhaltet, werden diese Werte ausschlaggebend für die \textit{Gesamtentropy} und \textit{-purity} des Clusterings.
 Eine genauere Untersuchung der Distanzmatrix zeigt, dass dieses Phänomen auf die Tatsache zurückzuführen ist, dass \textit{C-Rank}, das nur auf Zitationen basiert, für die Mehrheit der Publikationen einen Ähnlichkeitswert von $0.0$ berechnet hat.
+Das semantische Ähnlichkeitsmaß betrachtet viel mehr Realtionen einer Publikationen und kommt deshalb auch bei teilweise dünn besetzten Datensätzen zu Ergebnissen.
 \\
 \\
-Bei den drei Metadatengewichtungen des semantischen Ähnlichkeitsmaßes sind die Clustergrößen viel homogener.
-Deshalb würden im allgemeinen mehrere Cluster mit guten \textit{Entropy} und \textit{Purity} auch mehr zu den Gesamtwerten beitragen.
+Bei den drei Metadatengewichtungen des semantischen Ähnlichkeitsmaßes sind die Clustergrößen viel homogener als bei \textit{C-Rank}.
+Deshalb würden im Allgemeinen mehrere Cluster mit guten Werten für \textit{Entropy} und \textit{Purity} auch mehr zu den Gesamtwerten beitragen.
 
 \smallskip
 
