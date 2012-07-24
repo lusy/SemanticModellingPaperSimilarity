@@ -284,7 +284,7 @@ Im Vergleich schneiden die drei semantischen Ähnlichkeitsmaße besser als \textit
 \textit{C-Rank} hat den größten \textit{Entropy}-Wert und die kleinsten Werte für \textit{Purity} und \textit{Silhouette}.
 Ferner lässt sich feststellen, dass unter den drei verschiedenen Metadatengewichtungen die Gewichtung 2, bei der alle Metadaten gleich gewichtet waren, am schlechtesten abgeschnitten hat.
 Gewichtung 1 und Gewichtung 3 liefern ähnliche Resultate.
-Gewichtung 3 hat im Vergleich zu den anderen 3 Methoden die besten Werte für \textit{Entropy} und \textit{Purity},d.h. das Clustering bildet die Ähnlichkeitswerte am besten auf die MSC-Klassen ab.
+Gewichtung 3 hat im Vergleich zu den anderen 3 Methoden die besten Werte für \textit{Entropy} und \textit{Purity}, d.h. das Clustering bildet die Ähnlichkeitswerte am besten auf die MSC-Klassen ab.
 Gewichtung 1 hat einen besseren \textit{Silhouette-Koeffizienten}, das heißt, die Cluster für Gewichtung 1 sind stärker zusammenhängend und deutlicher abgegrenzt.
 Allerdings sind die Unterschiede nicht wesentlich. %oder??
 \\
@@ -305,14 +305,14 @@ Allerdings sind die Unterschiede nicht wesentlich. %oder??
 \end{table}
 
 
-Abbildung \ref{fig:entPur} stellt die Verteilungen der \textit{Entropy}- und \textit{Purity}-Werte für alle Metadatengewichtungen des semantischen Ähnlichkeitsmaßes und \textit{C-Rank} dar.
+Abbildung\footnote{Eine größere Version der Abbildungen befindet sich im Appendix} \ref{fig:entPur} stellt die Verteilungen der \textit{Entropy}- und \textit{Purity}-Werte für alle Metadatengewichtungen des semantischen Ähnlichkeitsmaßes und \textit{C-Rank} dar.
 \\
 \\
 Auf dem ersten Blick scheinen die Werte für \textit{C-Rank} gut zu sein: mehrere Cluster haben eine hohe \textit{Purity} und niedrige \textit{Entropy}.
 Allerdings werden die Werte für das Gesamtclustering nochmal gewichtet zusammengefasst: die Werte für größere Cluster fließen zu einem höheren Anteil in die \textit{Durchschnittsentropy} und -\textit{purity}.
 Da der erste Cluster bei \textit{C-Rank} mit $Entropy{=}4.82283$ und $Purity{=}0.26131$ $2587$ der insgesamt $3095$ Publikationen beinhaltet, werden diese Werte ausschlaggebend für die \textit{Gesamtentropy} und \textit{-purity} des Clusterings.
 Eine genauere Untersuchung der Distanzmatrix zeigt, dass dieses Phänomen auf die Tatsache zurückzuführen ist, dass \textit{C-Rank}, das nur auf Zitationen basiert, für die Mehrheit der Publikationen einen Ähnlichkeitswert von $0.0$ berechnet hat.
-Das semantische Ähnlichkeitsmaß betrachtet viel mehr Realtionen einer Publikationen und kommt deshalb auch bei teilweise dünn besetzten Datensätzen zu Ergebnissen.
+Das semantische Ähnlichkeitsmaß betrachtet viel mehr Relationen einer Publikationen und kommt deshalb auch bei teilweise dünn besetzten Datensätzen zu Ergebnissen.
 \\
 \\
 Bei den drei Metadatengewichtungen des semantischen Ähnlichkeitsmaßes sind die Clustergrößen viel homogener als bei \textit{C-Rank}.
