@@ -1,8 +1,43 @@
 \section{Zusammenfassung}
 
+
+Diese Arbeit hat ein semantisches Ähnlichkeitsmaß für wissenschaftliche Publikationen basierend auf deren Metadaten entworfen und dieses auf einen Testdatensatz aus $3095$ Publikationen des \textit{Zentralblatt Mathematik} angewandt.
+Die experimentellen Ergebnisse haben gezeigt, dass sich das semantische Ähnlichkeitsmaß besser für die Ähnlichkeitsberechnung zweier Publikationen als das strukturelle Maß \textit{C-Rank} eignet, das nur auf Zitationen basiert.
+\textit{C-Rank} ist nicht in der Lage brauchbare Ähnlichkeitswerte zu liefern, wenn keine vollständige Referenzlisten der untersuchten Publikationen vorliegen.
+Andere Metadaten bringen wichtige Informationen über die wissenschaftlichen Arbeiten und sollen bei einer Ähnlichkeitsanalyse der Publikationen nicht vernachlässigt werden.
+
 \subsection{Ausblick}
+Das in dieser Arbeit vorgeschlagene semantische Ähnlichkeitsmaß kann in verschiedenen Richtungen optimiert und weiterentwickelt werden.
+\\
+\\
+Wie auch durch die Evaluation bekräftigt, ist es von entscheidender Bedeutung, dass die semantische Ähnlichkeit für einen gesamten, nicht verkleinerten Datenatz ausgerechnet wird.
+Eine der Schwachstellen des entworfenen Algorithmus, die seine Anwendung auf große Datenmengen maßgeblich erschwert, ist seine Laufzeitkomplexität $\mathcal{O}(n^4)$.
+Eine wertvolle Optimierung wäre die Parallelisierung der Berechnungen.
+Die Frage, ob der Algorithmus parallelisierbar ist, ist offen und muss näher untersucht werden.
+\cite{Li2010} schlagen ein nicht iteratives Verfahren für die Berechnung von \textit{SimRank} vor, das die Berechnung der Ähnlichkeiten wesentlich beschleunigt.
+Es scheint leider in seiner ursprüglichen Form nicht anwendbar für die Berechnung der semantischen Ähnlichkeit in einem heterogenen Publikationsnetzwerk, das verschiedene Arten von Knoten beinhaltet.
+Die Möglichkeit, ein nicht iteratives Verfahren für die Berechnung der semantischen Ähnlichkeit, das auf \cite{Li2010} basiert, zu entwickeln, kann untersucht werden.
+\\
+\\
+Eine andere denkbare Erweiterung des vorgeschlagenen Algorithmus für semantische Ähnlichkeit wäre die Berücksichtigung weiterer verfügbarer Metadaten wie z.B. Titel oder Abstract.
+Der Algorithmus kann dann mit textbasierten Ähnlichkeitsmetriken, die die Ähnlichkeit von Titel und Abstract zweier Publikationen ermitteln können, kombiniert werden.
+Darüber hinaus können bei mathematischen Publikationen auch zusätzliche Komponenten wie Formeln, Theoreme oder Diagramme in das Ähnlichkeitsmaß miteinbezogen werden.
 
 
+%nochmal betonen, dass durch trimming informationen verloren gehen
+% bessere rechner, mehr zeit wird gebraucht
+% optimieren des algorithmus? parallelisieren
+%% publikationsnetzwerk auslagern, nur ähnlichkeitsmatrix im arbeitsspeicher
+%% wenn G zu groß, kann mans extern, außerhalb des Hauptspeichers auslagern (z.b. Graphdatenbank) (die Ähnlichkeitsmatrix, egal welche Struktur für ihre Repräsentation gewählt wird, wird erstmal einfachshalber im Arbeitsspeicher behalten
+% das eigentliche (größere) Problem ist die Laufzeit -- es können Verfahren gesucht werden, um die zu optimieren / Teile des Algorithmus zu parallelisieren
+% anderer ansatz, der das gesamte netzwerk betrachet (und alle metadaten)
+
+% vlt andere daten miteinbeziehen: den ansatz mit einem textbasierten für title/abstract kombinieren
+% vlt auch formeln, theoreme, diagramme auswerten
+
+
+
+%----------------------------------------------
 %* was haben wir gemacht
 %* was gewinnen wir durch semantische Analyse von Metadaten
 %* hinweis auf weiterführende recherche
@@ -19,19 +54,8 @@
 % kann vlt für das vergleichen von Abstracts/Titel genutzt werden
 
 
-% weiterführend kann man die Performance/die konkrete Implementierung, die die Performance ausmacht verbessern - dafür muss man die Performance evaluieren!
-% Theoretische Grenzen: Speicher, Zeit
-% wie siehts praktisch aus? symmetrische Sparsematrix (Python dictionary) mit nur den Nichtnull-Einträgen wird gespeichert
-% Laufzeit: die Ähnlichkeit für verschiedenartige Knoten wird nicht weiter verfolgt, da wird auch was geprunnt.
-%%----------- Eigentlich sind die Sachen unten für den Ausblick!
-% wenn G zu groß, kann mans extern, außerhalb des Hauptspeichers auslagern (z.b. Graphdatenbank) (die Ähnlichkeitsmatrix, egal welche Struktur für ihre Repräsentation gewählt wird, wird erstmal einfachshalber im Arbeitsspeicher behalten
-% das eigentliche (größere) Problem ist die Laufzeit -- es können Verfahren gesucht werden, um die zu optimieren / Teile des Algorithmus zu parallelisieren
-
-
 % man kann doch als weiterführende Forschung eben solche Anwendungen bauen, die auf so einem Ähnlichkeitsmaß beruhen
 % man kann das Maß auch dafür nutzen, zeitliche Analyse der Entwicklung der Wissenschaft in bestimmten Forschungsfelder/zu bestimmten Forschungsthemen zu entwerfen
-
-
 
 
 %In a general way,
