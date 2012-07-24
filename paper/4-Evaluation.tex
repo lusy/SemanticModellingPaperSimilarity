@@ -265,7 +265,7 @@ Analog kann Purity auch für das Gesamtclustering bestimmt werden.
 \\
 \\
 Die Entropy ist ein Wert $\geq 0$, der den Grad der Unordnung eines Clusters beschreibt.
-Je kleiner die Entropy eines Clusters ist, desto besser ist der Cluster.
+Je kleiner die Entropy eines Clusters ist, desto besser ist der Cluster \cite{purityEntropy2011}.
 \\
 \\
 Der Silhouette-Koeffizient ist eine Metrik der Unsupervised Cluster Validation.
@@ -275,10 +275,10 @@ Der Silhouette-Koeffizient $\in (-1,1)$ bestimmt inwiefern ein Element ähnlich a
 Ein negativer Wert dieses Koeffizienten bedeutet, dass das Element im Durchschnitt näher an Elementen ist, die außerhalb seinem Cluster sind, als an Elementen, die sich im selben Cluster befinden.
 \\
 \\
-Tabelle \ref{tab:results} fasst die Werte dieser Metriken für die drei Parametrisierungen des semantischen Ähnlichkeitsmaßes und für \textit{C-Rank} zusammen.
+Diese Metriken wurden in Anlehnung an \cite{dataMining2005} berechnet und in Tabelle \ref{tab:results} für die drei Parametrisierungen des semantischen Ähnlichkeitsmaßes und für \textit{C-Rank} zusammengefasst.
 Im Vergleich schneidet die semantische Ähnlichkeit bei allen Parametern besser als \textit{C-Rank} ab.
 \textit{C-Rank} hat die größte Entropy und die kleinsten Purity und Silhouette.
-Ferner lässt sich feststellen, dass unter den drei verschiedenen Metadatengewichtungen der semantischen Ähnlichkeit die Zweite, wobei alle Metadaten gleich gewichtet waren, am schlechtesten ist.
+Ferner lässt sich feststellen, dass unter den drei verschiedenen Metadatengewichtungen der semantischen Ähnlichkeit die Zweite, bei der alle Metadaten gleich gewichtet waren, am schlechtesten ist.
 Gewichtung 1 und Gewichtung 3 liefern ähnliche Resultate.
 Gewichtung 3 hat bessere Entropy und Purity, Gewichtung 1 hat einen besseren Silhouette-Koeffizienten.
 Allerdings sind die Unterschiede nicht wesentlich. %oder??
@@ -298,6 +298,53 @@ Allerdings sind die Unterschiede nicht wesentlich. %oder??
 \caption{Ergebnisse der Clustering Validation}
 \label{tab:results}
 \end{table}
+
+
+Abbildung \ref{fig:entPur} stellt die Verteilungen der Entropy- und Purity-Werte für alle Metadatengewichtungen des semantischen Ähnlichkeitsmaßes und \textit{C-Rank} dar.
+\\
+\\
+Auf dem ersten Blick scheinen die Werte für \textit{C-Rank} gut zu sein: mehrere Cluster haben eine hohe Purity und niedrige Entropy.
+Allerdings werden die Werte für das Gesamtclustering nochmal gewichtet zusammengefasst: die Werte für größere Cluster fließen zu einem höheren Anteil in die Durchschnittsentropy und -purity.
+Da der erste Cluster bei \textit{C-Rank} mit $Entropy{=}4.82283$ und $Purity{=}0.26131$ $2587$ der insgesamt $3095$ Publikationen beinhaltet, werden diese Werte ausschlaggebend für die Gesamtentropy und -purity des Clusterings.
+Eine genauere Untersuchung der Distanzmatrix zeigt, dass dieses Phänomen auf die Tatsache zurückzuführen ist, dass \textit{C-Rank}, das nur auf Zitationen basiert, für die Mehrheit der Publikationen einen Ähnlichkeitswert von $0.0$ berechnet hat.
+\\
+\\
+Bei den drei Metadatengewichtungen des semantischen Ähnlichkeitsmaßes sind die Clustergrößen viel homogener.
+Deshalb würden im allgemeinen mehrere Cluster mit guten Entropy und Purity auch mehr zu den Gesamtwerten beitragen.
+
+\smallskip
+
+\begin{figure}[H]
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../evaluation/diss_true/crankPurityEntropy.png}
+        \caption{C-Rank}
+        \label{fig:crankEntPur}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../evaluation/diss_true/p1PurityEntropy.png}
+        \caption{Gewichtung 1}
+        \label{fig:p1EntPur}
+    \end{subfigure}
+    \newline
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../evaluation/diss_true/p2PurityEntropy.png}
+        \caption{Gewichtung 2}
+        \label{fig:p2EntPur}
+    \end{subfigure}
+    \qquad
+    \begin{subfigure}[h]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{../evaluation/diss_true/p3PurityEntropy.png}
+        \caption{Gewichtung 3}
+        \label{fig:p3EntPur}
+    \end{subfigure}
+    \caption{Verteilungen der Entropy und Purity für 64 Cluster aller Maße}
+    \label{fig:entPur}
+\end{figure}
 
 
 
