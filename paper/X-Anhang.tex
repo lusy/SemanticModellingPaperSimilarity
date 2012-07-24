@@ -3,21 +3,43 @@
 \subsection*{Berechnung des Ähnlichkeitsmaßes}
 In diesem Appendix wird die erste Iteration, die für die Berechnung der semantischen Ähnlichkeit erfoderlich ist, für zwei Publikationen aus dem \textit{zmath}-Datensatz beispielhaft durchgeführt.
 
+\begin{table}[H]
+\begin{tabular}{l l}
+		%\hline
+		\multicolumn{2}{l}{\textbf{Publikation 1}} \\
+		%\hline
+	    :id: & 3006698 \\
+        :an: & 0005.25102\\
+        :py: & 1931\\
+        :au: & Myrberg, P.J.\\
+        :ai: & myrberg.pekka-j\\
+        :ti: & Über beschränkte Funktionen in mehrfach zusammenhängenden Bereichen.\\
+        :so: & Ann. Acad. Sci. Fenn., Ser. A 33, No.8, 1-15 (1931).\\
+        :ut: & complex functions\\
+        :la: & DE \\
+	    %\hline
+\end{tabular}
+\end{table}
 
-% Um ein Gefühl dafür zu bekommen, wie der Algorithmus funktioniert, werden hier die ersten Schritte, die für die Ähnlichkeitsberechnung folgender zwei Publikationen aus dem \textit{zmath}-Datensatz notwendig sind, ausgeführt.
-% Publikationen: 
-%:id:    3006698
-%:an:    0005.25102
-%:py:    1931
-%:au:    Myrberg, P.J.
-%:ai:    myrberg.pekka-j
-%:ti:    \"Uber beschr\"ankte Funktionen in mehrfach zusammenh\"angenden Bereichen.
-%:so:    Ann. Acad. Sci. Fenn., Ser. A 33, No.8, 1-15 (1931).
-%:cc:    
-%:ut:    complex functions
-%:la:    DE
-%:ci:    
-%:li:    
+\begin{table}[H]
+\begin{tabular}{l p{10cm}}
+		%\hline
+	    \multicolumn{2}{l}{\textbf{Publikation 2}} \\
+		%\hline
+	    :id: & 5166522\\
+        :an: & 1153.00002\\
+        :py: & 2005\\
+        :au: & Leonov, Sergey A.; Leonov, Alexander I.\\
+        :ai: & leonov.sergey-a; leonov.alexander-i\\
+        :ti: & Mathematical handbook for electrical engineers.\\
+        :so: & Artech House Technology Management and Professional Development Library. London: Artech House (ISBN 978-1-58053-779-7/hbk). xviii, 495~p. (2005).\\
+        :ut: & algebra; functions; equations; combinations; planar and solid geometry; trigonometry; analytic geometry; integral and differential calculus; differential equations; complex functions; Fourier series; vector algebra; probability; applied statistics; computer-aided computation; electrical circuits; antennas; waves; scattering; signal processing; stochastic radio engineering\\
+        :la: & EN \\
+	    %\hline
+\end{tabular}
+\end{table}
+
+
 %::::
 %:::
 %:id:    5166522
@@ -82,10 +104,10 @@ R_1(P1,P2) & = &
 \end{math}
 
 \bigskip
-Dieser erste Iterationsschritt wird auch für jede zwei Keywords, Autoren, Quellen und Erscheinungsjahre ausgeführt.
-Für jede zwei Elemente der selben Klasse (z.B. zwei Keywords) wird die Ähnlichkeit nach der folgenden Formel bestimmt.
+Dieser erste Iterationsschritt wird auch für alle Kombinationen aus jeweils zwei Keywords, zwei Autoren, zwei Quellen und zwei Erscheinungsjahre ausgeführt.
+Für jedes Paare derselben Klasse (z.B. zwei Keywords) wird die Ähnlichkeit nach der folgenden Formel bestimmt.
 Dabei sind L(a) die Publikationen, die das Keyword $a$ verwenden.
-Es kann hier leider keiner wahrheitsgetreuer Iterationsschritt für Keywords beispielhaft vorgeführt werden, da wir dafür alle Publikationen im Datensatz, die diesen Keywords verwenden, aussuchen sollten.
+Es kann hier leider kein wahrheitsgetreuer Iterationsschritt für Keywords beispielhaft vorgeführt werden, da wir dafür alle Publikationen im Datensatz, die diese Keywords verwenden, raussuchen sollten.
 Ein Anfang der Ähnlichkeitsberechnung für die Keywords \textit{complex functions} und \textit{Fourier series} wird folgendermaßen aussehen.
 \medskip
 
