@@ -15,22 +15,34 @@ Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation mö
 
 \begin{table}[H]
 \centering % used for centering table
-\begin{tabular}{| c | l | l |}
+\begin{tabular}{| c | l | m{7cm} |}
 		\hline
 		\textbf{Bezeichner} &\textbf{Bedeutung} &\textbf{Inhalt}\\
 		\hline
 		\textit{:id:} & \textit{Identifier} & \textit{eindeutiger Identifier} \\
-		:an: & Accession number & durch das ZMath vergebene eindeutige Identifikationsnummer\\
-		:au: & Authors & die Autoren einer Publikation \\
-		:ai: & Authors identified & eindeutige Stringrepräsentation von jedem Autor \\
-		:ti: & Title & Überschrift der Publikation \\
-		\textit{:so:} & \textit{Source} & \textit{Quelle, bei der die Publikation erschienen ist} \\
-		\textit{:py:} & \textit{Publication Year} & \textit{das Jahr, in dem die Publikation erschienen ist} \\
-		:cc: & Classification classes & MSC Klassen, die der Publikation zugeordnet worden sind \\
+		\hline
+        :an: & Accession number & durch das ZMath vergebene eindeutige Identifikationsnummer\\
+		\hline
+        :au: & Authors & die Autoren einer Publikation \\
+		\hline
+        :ai: & Authors identified & eindeutige Stringrepräsentation von jedem Autor \\
+		\hline
+        :ti: & Title & Überschrift der Publikation \\
+		\hline
+        \textit{:so:} & \textit{Source} & \textit{Quelle, bei der die Publikation erschienen ist} \\
+		\hline
+        \textit{:py:} & \textit{Publication Year} & \textit{das Jahr, in dem die Publikation erschienen ist} \\
+		\hline
+        :cc: & Classification classes & MSC Klassen, die der Publikation zugeordnet worden sind \\
+		\hline
         :ab/en: & Abstract English & Die Kurzzusammenfassung der Publikation auf Englisch\\
+		\hline
         :la: & Language & auf welcher Sprache ist die Publikation verfügbar\\
+		\hline
         :ut: & & englische Keywords\\
+		\hline
         :ci: & Citations & Arbeiten, die die Publikation zitiert\\
+		\hline
         :rv/en: & Reviewer & die Reviewer einer Publikation\\
 		\hline
 \end{tabular}
@@ -366,6 +378,9 @@ R_{k+1}(a,b)  =
         \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_k(L_i(a),L_j(b))
 \]
 \end{mydef}
+
+% Um ein Gefühl dafür zu bekommen, wie der Algorithmus funktioniert, werden hier die ersten Schritte, die für die Ähnlichkeitsberechnung folgender zwei Publikationen aus dem \textit{zmath}-Datensatz notwendig sind, ausgeführt . -- siehe Anhang
+
 Das vorgeschlagene Maß grenzt sich folgendermaßen von früheren Arbeiten ab:
 \\
 \\
