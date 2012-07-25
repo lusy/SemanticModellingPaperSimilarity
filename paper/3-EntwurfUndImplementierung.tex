@@ -7,7 +7,7 @@
 % Beschreibung der Eigenschaften (bisschen statistische Analysen?)
 % vlt eine Auflistung davon, welche Daten arbiträr sind (nicht immer ausgefüllt im Datensatz)
 
-Als Ausgangspunkt für den Entwurf und Evaluierung des semantischen Ähnlichkeitsmaßes wird ein handgepflegter Datensatz vom Zentralblatt Mathematik\footnote{Das Zentralblatt Mathematik (ZMath) ist die größte wissenschaftliche Datenbank, die Metadaten, Abstracts und Reviews auf den Gebieten der reinen und angewandten Mathematik enthält.},
+Als Ausgangspunkt für den Entwurf und die Evaluierung des semantischen Ähnlichkeitsmaßes wird ein handgepflegter Datensatz vom Zentralblatt Mathematik\footnote{Das Zentralblatt Mathematik (ZMath) ist die größte wissenschaftliche Datenbank, die Metadaten, Abstracts und Reviews auf den Gebieten der reinen und angewandten Mathematik enthält.},
  der die Metadaten zu $2,907,086$ Publikationen enthält, eingesetzt.
 
 Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation möglichen Einträgen.
@@ -60,7 +60,7 @@ Eine Verteilung der Autorenzahlen im $zmath$-Datensatz ist auf Abbildung\footnot
 \\
 \\
 Das Paper mit dem größten Literaturverzeichnis zitiert 38 andere Arbeiten.
-Jede Publikation hat im Schnitt 0.27 Zitationen (wobei es davon auszugehen ist, dass die Zitationen nicht bei allen Publikationen erfasst wurden).
+Jede Publikation hat im Schnitt 0.27 Zitationen (wobei davon auszugehen ist, dass die Zitationen nicht bei allen Publikationen erfasst wurden).
 Tabelle \ref{tab:citations} stellt die am meisten zitierten Publikationen und die Anzahl ihrer Referenzen dar,
 die Häufigkeitsverteilung der Zitationen im Datensatz ist in Abbildung \ref{fig:citationFreq} dargestellt.
 
@@ -88,7 +88,7 @@ die Häufigkeitsverteilung der Zitationen im Datensatz ist in Abbildung \ref{fig:
 Im Durchschnitt wurden pro Publikation 3 Keywords vergeben.
 Die maximale Anzahl von Keywords für eine Arbeit ist 219. %, die nächst große - 162.
 Tabelle \ref{tab:keywords} beinhaltet die am häufigsten vergebenen Keywords.
-Häufigkeitsverteilung der Keywords kann Abbildung \ref{fig:keywordFreq} entnommen weden.
+Die Häufigkeitsverteilung der Keywords kann Abbildung \ref{fig:keywordFreq} entnommen werden.
 
 \begin{table}[h]
 \centering
@@ -108,8 +108,8 @@ Häufigkeitsverteilung der Keywords kann Abbildung \ref{fig:keywordFreq} entnomme
 \end{table}
 
 
-Es gibt Papers auf 69 verschiedenen Sprachen.
-$2,897,259$ der Publikationen wurden auf einer Sprache veröffentlicht, $9,588$ auf 2, 33 auf 4 und eine Publikation ist auf 7 Sprachen verfügbar.
+Es gibt Papers in 69 verschiedenen Sprachen.
+$2,897,259$ der Publikationen wurden in einer Sprache veröffentlicht, $9,588$ in 2, $33$ in 4 und eine Publikation ist in 7 Sprachen verfügbar.
 Die am häufigsten vorkommenden Sprachen sind: Englisch (mit $2,370,288$ Publikationen), Russisch (mit $180,335$), Französisch ($100,575$), Deutsch ($91,510$) und Chinesisch ($77,924$).
 \\
 \\
@@ -120,7 +120,7 @@ Abbildung \ref{fig:mscClassFreq} stellt die Verteilung der MSC-Klassen im Datens
 \\
 \\
 Die Arbeiten, die der Datensatz enthält, sind in 89 verschiedenen Jahren veröffentlicht worden.
-Der früheste Eintrag (eine Arbeit vom schweizer Mathematiker Leonard Euler) stammt vom Jahr 1796.
+Der früheste Eintrag (eine Arbeit vom Schweizer Mathematiker Leonard Euler) stammt aus dem Jahr 1796.
 Es gibt auch jeweils eine Publikation aus den Jahren 1879, 1914, 1924 und 1930.
 1931 ist mit 4041 Veröffentlichungen das erste Jahr, das mehr oder weniger vollständig im Datensatz vermerkt ist.
 Das Jahr mit den meisten Publikationen bis jetzt war $2008$ mit $102,319$ Veröffentlichungen.
@@ -206,7 +206,7 @@ je nachdem welchen Klassen die Endknoten dieser Kante angehören.
 \end{figure}
 \smallskip
 Eine besondere Designentscheidung ist, dass die drei Relationen \textit{hasKeywordLanguage}, \textit{hasPublicationLanguage} und \textit{hasTitleLanguage} einzeln modelliert sind.
-Der Hintergrundgedanke dabei ist, dass eine Publikation oder die entsprechenden Metadaten: Keyword und Titel, auf mehreren Sprachen vorliegen können.
+Der Hintergrundgedanke dabei ist, dass eine Publikation oder die entsprechenden Metadaten Keyword und Titel auf mehreren Sprachen vorliegen können.
 Diese Definition erlaubt dann, dass z.B. der englische Begriff \textit{graph theory} und das deutsche Wort \textit{Graphentheorie} auf das selbe Keyword abgebildet werden können.
 Das kann ein zukünftiges sprachunabhängiges Verfahren zur Ähnlichkeitsberechnung unterstützen.
 \\
@@ -224,7 +224,7 @@ Das vorgeschlagene Netzwerkschema ist möglichst allgemein gehalten, damit versch
 Bei Bedarf kann das Schema in Zukunft erweitert werden.
 \\
 \\
-Die Modellierung des Publikationnetzwerks wurde mit \textit{GraphML} realisiert.
+Die Modellierung des Publikationsnetzwerks wurde mit \textit{GraphML} realisiert.
 \textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
 Sie unterstützt ungerichtete, gerichtete, gemischte, Hyper- und Multigraphen.
 Ferner können sowohl Knoten als auch Kanten beliebige Attribute zugeordnet werden.
@@ -256,12 +256,12 @@ kann der Algorithmus so abstrahiert werden, sodass diese auch in die Berechnung 
 \\
 \\
 Es wird rekursiv die Ähnlichkeit zwischen je zwei Knoten derselben Klasse aufgrund der Relationen im modellierten Publikationsnetz ermittelt: je 2 Publikationen, je 2 Keywords, je 2 Autoren, je 2 Quellen und je 2 Erscheinungsjahre.
-Dabei fließen bei der Ähnlichkeitsberechnung für 2 Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
-Bei der Ähnlichkeitsberechnung für 2 Elemente jeder anderen Klasse werden nur die Beziehungen zwischen Elementen der entsprechenden Klasse und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen Netz modelliert sind.
-(Z.B. für die Bestimmung der Ähnlichkeit von 2 Keywords wird die Relation (Keyword \textit{isKeywordOf} Publikation) berücksichtigt.)
+Dabei fließen bei der Ähnlichkeitsberechnung für zwei Publikationen die folgenden Relationen ein: (Publikation $hasKeyword$ Keyword), (Publikation $hasAuthor$ Autor), (Publikation $isPublishedIn$ Source), (Publikation $cites$ Publikation) und (Publikation $isCitedBy$ Publikation), (Publikation $wasPublishedInYear$ Erscheinungsjahr).
+Bei der Ähnlichkeitsberechnung für zwei Elemente jeder anderen Klasse werden nur die Beziehungen zwischen Elementen der entsprechenden Klasse und Publikationen berücksichtigt, da nur solche Beziehungen im vorgeschlagenen Netz modelliert sind.
+(Z.B. für die Bestimmung der Ähnlichkeit von zwei Keywords wird die Relation (Keyword \textit{isKeywordOf} Publikation) berücksichtigt.)
 \\
 \\
-Mit $sim(a,b)$ wird der Ähnlichkeitswert für 2 Elemente $a$ und $b$ bezeichnet.
+Mit $sim(a,b)$ wird der Ähnlichkeitswert für zwei Elemente $a$ und $b$ bezeichnet.
 Dabei gilt stets $0 \leq sim(a,b) \leq 1$.
 Die grundlegende Idee bei der Definition ist, dass ein Element am meisten ähnlich zu sich selbst ist.
 \\
@@ -269,7 +269,7 @@ Die grundlegende Idee bei der Definition ist, dass ein Element am meisten ähnlic
 Die folgende Definition veranschaulicht das Maß.
 
 %Maßdefinition rekursiv
-\begin{mydef}[Semantische Ähnlichkeit - rekursiv:]
+\begin{mydef}\textbf{Semantische Ähnlichkeit - rekursiv:}
 
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
@@ -312,7 +312,7 @@ Dabei wird mit $K(a)$ die Menge aller Keywords von Paper $a$ bezeichnet.
 $|K(a)|$ ist die Anzahl der Elemente, die dieser Menge angehören.
 $K_i(a)$ ist dann das i-te Keyword von $a$.
 (Analog sind $A(a)$ alle Autoren von Paper $a$, $|A(a)|$ ist deren Anzahl, $A_i(a)$ ist der i. Autor von Paper $a$ u.s.w.)
-$L(a)$ und $L(b)$ beschreiben für 2 Elemente $a$ und $b$, die der selben Klasse angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen (also alle Nachbarn von $a$ bzw. $b$).
+$L(a)$ und $L(b)$ beschreiben für zwei Elemente $a$ und $b$, die der selben Klasse angehören, die Mengen aller Elemente, die mit $a$, bzw $b$, in Relation stehen (also alle Nachbarn von $a$ bzw. $b$).
 \\
 \\
 $\sum_{i=1}^{5} \lambda_i = 1$ sind die Gewichtungen der verschiedenen Relationen, die die Bedeutung der einzelnen Metadaten für eine Publikation priorisieren; es sollten 2 verschiedene Priorisierungsreihenfolgen bestimmt und ausgewertet werden.
@@ -334,7 +334,7 @@ Die rekursive Definition kann folgendermaßen iterativ umgeschrieben werden.
 \cite{simrank2002}, \cite{ZhaoHS09} und \cite{DBLP:journals/corr/abs-1109-1059} haben gezeigt, dass die so definierten iterativen Gleichungen zu einem Fixpunkt konvergieren.
 
 %Maßdefinition
-\begin{mydef}[Semantische Ähnlichkeit - iterativ:]
+\begin{mydef}\textbf{Semantische Ähnlichkeit - iterativ:}
 \label{def:semSim}
 
 \[
@@ -374,7 +374,7 @@ R_{k+1}(a,b)  =
 \]
 \end{mydef}
 
-Um ein Gefühl dafür zu bekommen, wie der Algorithmus funktioniert, werden die ersten Schritte, die für die Ähnlichkeitsberechnung zweier Publikationen aus dem \textit{zmath}-Datensatz notwendig sind, im Appendix ausgeführt.
+Um ein Gefühl dafür zu bekommen, wie der Algorithmus funktioniert, werden die ersten Schritte, die für die Ähnlichkeitsberechnung zweier Publikationen aus dem \textit{zmath}-Datensatz notwendig sind, im Appendix als Beispiel ausgeführt.
 \\
 \\
 Das vorgeschlagene Maß grenzt sich folgendermaßen von früheren Arbeiten ab:
