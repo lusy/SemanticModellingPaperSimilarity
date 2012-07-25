@@ -24,6 +24,7 @@
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{alltt}
+\usepackage{longtable}
 
 \floatstyle{ruled}
 \newfloat{program}{H}{lop}
@@ -33,7 +34,6 @@
 \include{syntax}
 \usepackage{lastpage}
 \thispagestyle{plain}
-\pagenumbering{arabic}
 \pagestyle{plain}
 
 \author{
@@ -62,15 +62,14 @@
 %Der Analyse zugrundeliegende Datensatz sind die Metadaten aller Publikationen vom Zentralblatt Mathematik mit dem Stand März 2012.
 %\end{abstract}
 
-%TODO: include "Ich habs selber geschrieben Blatt"
-
-
+\pagenumbering{gobble}
 \thispagestyle{empty}
 \clearpage\mbox{}\clearpage
 \thispagestyle{empty}
 \input{declaration}
 \thispagestyle{empty}
 \clearpage\mbox{}\clearpage
+\thispagestyle{empty}
 \thispagestyle{empty}
 \tableofcontents
 \clearpage
@@ -84,6 +83,7 @@
 %-------------------------------------------------------
 \newtheorem{mydef}{Definition}
 
+\pagenumbering{arabic}
 \input{1-Einleitung}
 \newpage
 \input{2-Grundlagen}
