@@ -8,7 +8,7 @@
 
 \subsection{Motivation}
 Der Begriff \textit{Ähnlichkeit} in Zusammenhang mit wissenschaftlichen Arbeiten ist für die Forschung allgemein von besonderer Relevanz.
-Wissenschaftlerinnen, die sich für ein bestimmtes Thema interessieren oder in einem bestimmten Feld forschen, sind stets daran interessiert, Publikationen zu finden, die anderen Artikeln, die sie bereits gelesen haben, ähnlich sind.
+Wissenschaftlerinnen, die sich für ein bestimmtes Thema interessieren oder in einem be\-stimm\-ten Feld forschen, sind stets daran interessiert, Publikationen zu finden, die anderen Artikeln, die sie bereits gelesen haben, ähnlich sind.
 Darüber hinaus ist auch das Thema von automatisierter Klassifikation von wissenschaftlichen Arbeiten sehr aktuell: derzeitig werden diese in wissenschaftlichen Datenbanken vorwiegend per Hand durch Experten klassifiziert, ein langwieriger und kostspieliger Prozess \cite{textMining2005}.
 Deshalb wird schon länger versucht ein möglichst präzises Ähnlichkeitsmaß für Publikationen zu definieren.
 \\
@@ -49,7 +49,7 @@ Indem alle Metadaten zu einer Publikation in eine neue Definition von einem Publ
 
 Ziel dieser Arbeit ist es, zunächst ein Publikationsnetzwerk zu modellieren, das alle zu einer mathematischen Publikation relevanten Metadaten berücksichtigt und mathematische Publikationen zueinander in Relation stellt.
 Im zweiten Teil der Arbeit wird dieses Netzwerk als Grundlage für die Formulierung eines Ähnlichkeitsmaßes und Ähnlichkeitsanalysen verwendet.
-Das vorgeschlagene Ähnlichkeitsmaß wird in Anlehnung an die schon existierenden Maße SimRank \cite{simrank2002}, P-Rank \cite{ZhaoHS09} und C-Rank \cite{DBLP:journals/corr/abs-1109-1059} rekursiv definiert.
+Das vorgeschlagene Ähnlichkeitsmaß wird in Anlehnung an die schon existierenden Maße \textit{SimRank} \cite{simrank2002}, \textit{P-Rank} \cite{ZhaoHS09} und \textit{C-Rank} \cite{DBLP:journals/corr/abs-1109-1059} rekursiv definiert.
 Hierbei werden nicht nur Zitationen, sondern auch andere Relationen zwischen einer Publikation und ihren einzelnen Metadaten, wie z.B Autor, Quelle, Erscheinungsjahr und Keywords, gezählt.
 %wie sieht es aus?
 Die Qualität des definierten Ähnlichkeitsmaßes wird ermittelt, indem die Ergebnisse mit der schon im Datensatz durch Fachexperten vergebenen MSC-Klassen\footnote{Die Mathematical Subject Classification (MSC) ist eine Klassifizierungskonvention, die durch die wissenschaftlichen Datenbanken Mathematical Reviews und das Zentralblatt Mathematik genutzt wird. Für den Aufbau siehe http://www.ams.org/mathscinet/msc/msc2010.html} verglichen werden.
