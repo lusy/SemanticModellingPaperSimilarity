@@ -7,8 +7,7 @@
 % Beschreibung der Eigenschaften (bisschen statistische Analysen?)
 % vlt eine Auflistung davon, welche Daten arbiträr sind (nicht immer ausgefüllt im Datensatz)
 
-Als Ausgangspunkt für den Entwurf und Evaluierung des semantischen Ähnlichkeitsmaßes wird ein handgepflegter Datensatz vom Zentralblatt Mathematik,
-\footnote{Das Zentralblatt Mathematik (ZMath) ist die größte wissenschaftliche Datenbank, die Metadaten, Abstracts und Reviews auf den Gebieten der reinen und angewandten Mathematik enthält.}
+Als Ausgangspunkt für den Entwurf und Evaluierung des semantischen Ähnlichkeitsmaßes wird ein handgepflegter Datensatz vom Zentralblatt Mathematik\footnote{Das Zentralblatt Mathematik (ZMath) ist die größte wissenschaftliche Datenbank, die Metadaten, Abstracts und Reviews auf den Gebieten der reinen und angewandten Mathematik enthält.},
  der die Metadaten zu $2,907,086$ Publikationen enthält, eingesetzt.
 
 Tabelle \ref{tab:metadata} gibt einen Überblick über die zu einer Publikation möglichen Einträgen.
@@ -57,7 +56,7 @@ Der Datensatz hat ferner die folgenden Merkmale:\\
 Jede Publikation hat im Schnitt $1.68$ Autoren.
 Die größte Anzahl an Wissenschaftler und Wissenschaftlerinnen, die zusammen eine Arbeit publiziert haben, ist 38.
 Die Autoren mit den meisten Publikationen sind Paul Erdös mit $1208$ Veröffentlichungen, Edoardo Ballico ($1100$ Publikationen), Lucien Godeaux ($794$ Publikationen) und Leonard Carlitz ($735$ Publikationen).
-Eine Verteilung der Autorenzahlen im $zmath$-Datensatz ist auf Abbildung\footnote{Alle Häufigkeitsverteilungen können auch in einer größeren Version im Appendix angsehen werden.} \ref{fig:authorFreq} zu sehen\footnote{Publikationen, bei denen die Anzahl der Autoren, Zitationen, Keywords oder MSC-Klassen null ist, werden in den Diagrammen nicht berücksichtigt}.
+Eine Verteilung der Autorenzahlen im $zmath$-Datensatz ist auf Abbildung\footnote{Alle Häufigkeitsverteilungen können auch in einer größeren Version im Appendix angsehen werden.} \ref{fig:authorFreq} zu sehen\footnote{Publikationen, bei denen die Anzahl der Autoren, Zitationen, Keywords oder MSC-Klassen null ist, werden in den Diagrammen nicht berücksichtigt.}.
 \\
 \\
 Das Paper mit dem größten Literaturverzeichnis zitiert 38 andere Arbeiten.
@@ -181,7 +180,7 @@ Das Jahr mit den meisten Publikationen bis jetzt war $2008$ mit $102,319$ Veröff
 Als Grundlage für die Ermittlung der Ähnlichkeit zwischen zwei wissenschaftlichen Publikationen sollte eine Modellierung dieser und der dazu gehörigen Metadaten in der Form eines Netzwerks realisiert werden.
 \\
 \\
-Die bereits existierende \textit{Ontology of Science} \cite{ontosci} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf den ersten Blick ein gutes Modell für Publikationen zu sein, hat jedoch einen ganz anderen Fokus.
+Die bereits existierende \textit{Ontology of Science} (vgl. Kapitel \ref{sec:semanticRepr}) scheint auf den ersten Blick ein gutes Modell für Publikationen zu sein, hat jedoch einen ganz anderen Fokus.
 Sie modelliert eine ganze Domäne von wissenschaftlichen Akteuren, Ereignissen, Einrichtungen, Arbeiten und die dazwischen bestehenden Beziehungen.
 Sie bietet ferner eine recht detaillierte Aufteilung von wissenschaftlichen Publikationen in Unterkategorien (z.B. \textit{Technical report}, \textit{Book}, \textit{Thesis}, \textit{Journal article}, etc.).
 Dennoch eignet sich das Modell eher schlecht für Ähnlichkeitsanalysen zwischen Publikationen aufgrund von Metadaten.
@@ -201,8 +200,8 @@ je nachdem welchen Klassen die Endknoten dieser Kante angehören.
 
 \begin{figure}[hp]
     \centering
-    \includegraphics[angle=90,scale=0.6]{../deps/publications_ontology_relations.png}
-    \caption{Informationsnetzwerk für wissenschaftliche Publikationen: allgemeines Schema}
+    \includegraphics[angle=90,scale=0.58]{../deps/publications_ontology_relations.png}
+    \caption{Informationsnetzwerk für wissenschaftliche Publikationen}
     \label{fig:schemePubs}
 \end{figure}
 \smallskip
@@ -225,18 +224,14 @@ Das vorgeschlagene Netzwerkschema ist möglichst allgemein gehalten, damit versch
 Bei Bedarf kann das Schema in Zukunft erweitert werden.
 \\
 \\
-Die Modellierung des Publikationnetzwerks wurde mit \textit{GraphML}\footnote{\textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
+Die Modellierung des Publikationnetzwerks wurde mit \textit{GraphML} realisiert.
+\textit{GraphML} ist eine auf \textit{XML} basierende Beschreibungssprache für Graphen.
 Sie unterstützt ungerichtete, gerichtete, gemischte, Hyper- und Multigraphen.
 Ferner können sowohl Knoten als auch Kanten beliebige Attribute zugeordnet werden.
 Eine vollständige Dokumentation von \textit{GraphML} ist unter http://graphml.graphdrawing.org/primer/graphml-primer.htm zu finden.
-} realisiert.
-Der folgende Codeausschnitt soll die \textit{GraphML}-Repräsentation der Beispielspublikation \textit{Publication\_123456} mit ihren Autor \textit{John Smith} und zwei Keywords \textit{graph theory} und \textit{shortest path} veranschaulichen.
-
-\begin{program}
-\input{diagrams/pub_graphml_example}
-\caption{Die \textit{GraphML}-Repräsentation}
-\end{program}
-
+\\
+\\
+Ein Codeausschnitt, der die \textit{GraphML}-Repräsentation einer Beispielspublikation veranschaulicht, kann dem Appendix entnommen werden.
 
 \subsection{Ein Ähnlichkeitsmaß für mathematische Publikationen}
 \label{subsec:simMeasure}
