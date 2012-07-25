@@ -151,10 +151,17 @@ Die $\lambda$-s sind in diesen Gewichtungen folgendermaßen verteilt:
 		$\lambda_5$, Erscheinungsjahre & $0.1$ & $0.2$ & $0.1$\\
 	    %\hline
 \end{tabular}
-%\caption{Metadatengewichtungen}
-\label{tab:parametrization}
+\caption{Metadatengewichtungen}
+\label{tab:lambdas}
 \end{table}
 
+Bei Gewichtung 1 wurden die Keywords am höchsten gewichtet und damit als am relevantesten zur Charakterisierung einer Publikation gewertet.
+An Stelle zwei folgen die Zitationen, wodurch Publikationen durch direkte Verknüpfungen zu anderen Publikationen ebenfalls in ein Themenumfeld eingeordnet werden können.
+Autoren, Quellen und Erscheinungsjahre werden als gleich relevant für die Publikation gewertet.
+In Gewichtung 2 sind alle verfügbaren Metadaten einer Publikation gleich wichtig, unabhängig ob sie einen inhaltlichen oder einen eher beschreibenden Anteil besitzen.
+In Gewichtung 3 schließlich werden Keywords und Autoren als am relevantesten gewertet, was eine stark inhaltliche Ausrichtung des Algorithmus bedeutet.
+Derselbe Autor schreibt meist in einem festen Forschungsumfeld und ein Wechsel des Schwerpunkts ist eher unwahrscheinlich.
+Quellen, Zitationen und Erscheinungsjahr nehmen hier nur eine untergeordnete Stellung ein.
 
 \subsection{Testläufe}
 Die strukturellen Ähnlichkeitsmaße \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank} haben im schlimmsten Fall dieselbe Laufzeit- $\mathcal{O}(n^4)$ und Speicherkomplexität $\mathcal{O}(n^2)$ wie die hier vorgeschlagene semantische Ähnlichkeit \cite{simrank2002} \cite{ZhaoHS09} \cite{DBLP:journals/corr/abs-1109-1059}.
