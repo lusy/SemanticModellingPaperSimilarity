@@ -180,7 +180,7 @@ Die konkrete Modellierung wird in Kapitel \ref{subsec:modell} erläutert.
 \subsubsection{Repräsentation von Publikationen und Metadaten}
 \label{sec:semanticRepr}
 % Was gibt es schon zum Thema semantische Modellierung von Publikationen (Science Ontology, Diplomarbeit vom einen Typen\cite{abbildungXML2002} )
-Matthias Erbarth schlägt eine semantische Modellierung mit Hilfe von XML-Technologien vor \cite{abbildungXML2002}.
+Eine semantische Modellierung von Publikationen mit Hilfe von XML-Technologien wird von Matthias Erbarth vorgeschlagen \cite{abbildungXML2002}.
 Diese bildet jedoch eine einzelne Publikation mit ihren Einzelteilen ab.
 Das semantische Modell einer Publikation soll dann mit einer Fachontologie in Verbindung gebracht werden, um eine ``erweiterte Stichwortindexierung'' zu ermöglichen.
 Dabei liegt sein Schwerpunkt auf der Idee, dass das Information Retrieval effizienter gelöst werden kann, indem das in einer wissenschaftlichen Arbeit enthaltene Wissen in maschinenlesbarer Form dargestellt wird.
@@ -194,7 +194,7 @@ Die Ontology of Science\footnote{http://protege.stanford.edu/ontologies/ontology
 %Abbildung \ref{fig:ontosci} gibt einen Überblick über die Klassen dieser Ontologie.
 Obwohl sie mögliche Typen von wissenschaftlichen Publikationen ausführlich in Form von Unterklassen abbildet, modelliert sie nicht alle zu einem wissenschaftlichen Dokument dazugehörigen Metadaten und die dazwischen bestehenden Relationen detailliert genug, um eine adäquate Basis für den Entwurf eines semantischen Ähnlichkeitsmaßes für Publikationen aufgrund von Metadaten zu bieten.
 Mehrere relevante Metadaten, wie Keywords, Klassifizierung, Zitationen, etc., werden von der Ontologie nicht modelliert.
-Alle Unterklassen der Klasse \textit{Scientific Document} sind auf Abbildung \ref{fig:scientificdoc} dargestellt\footnote{Ein größeres Diagramm, das alle Unterklassen des \textit{Scientific Document} darstellt, befindet sich im Appendix}.
+Alle Unterklassen der Klasse \textit{Scientific Document} sind auf Abbildung \ref{fig:scientificdoc} dargestellt\footnote{Ein größeres Diagramm, das alle Unterklassen des \textit{Scientific Document} darstellt, befindet sich im Appendix.}.
 Auf Abbildung \ref{fig:scientificdoc_relations} sind die Relationen zwischen der Klasse \textit{Scientific Document} und anderen Klassen der Ontologie zu sehen.
 Daraus ist abzulesen, dass mehrere von den Metadaten, aufgrund deren diese Arbeit Ähnlichkeit zwischen Publikationen berechnet, nicht abgebildet werden.
 Deshalb wird in Kapitel \ref{subsec:modell} ein anderes Modell für wissenschaftliche Publikationen erarbeitet.
@@ -258,7 +258,7 @@ Außerdem ist die semantische Bedeutung der Terme unbekannt, was die Ergebnisse v
 \smallskip
 Die zweite große Kategorie existierender Ähnlichkeitsmaße für wissenschaftliche Publikationen beruht auf Zitationen.
 Die Idee, dass Artikel, die gemeinsame Referenzen teilen, in irgendeiner Weise verwandt sind, ist auf M.M.Kessler \cite{Kessler:1963} zurückzuführen.
-In seiner Arbeit ``Bibliographic coupling between scientific papers'' schlägt er eine Methode für ``Gruppierung von technischen und wissenschaftlichen Papers aufgrund von bibliographischer Kopplung'' vor \cite{Kessler:1963}.
+In seiner Arbeit \textit{``Bibliographic coupling between scientific papers''} schlägt er eine Methode für ``Gruppierung von technischen und wissenschaftlichen Papers aufgrund von bibliographischer Kopplung'' vor \cite{Kessler:1963}.
 Der Erste, der explizit den Begriff \textit{Ähnlichkeit} verwendet, ist Henry Small \cite{Small_1973}.
 Im Gegensatz zu Kessler legt Small jedoch seinen Schwerpunkt nicht auf bibliographischer Kopplung, sondern auf Zählung von Kozitationen.
 Er bezeichnet hohe Kozitationszahlen als einen Indikator für ``subject similarity'' und ``co-occurance of ideas''.
@@ -266,7 +266,7 @@ Kozitationenzählung als Methode für die Identifikation von Artikeln, die das sel
 Definitionen \ref{theo:kopplung} bzw. \ref{theo:co-citation} stellen die Gleichungen der bibliographischen Kopplung und der Kozitation dar.
 Spätere Arbeiten erwähnen, dass beide mit Hilfe vom Jaccard-Koeffizient normalisiert werden können \cite{DBLP:journals/corr/abs-1109-1059}.
 
-\begin{mydef}[Bibliographische Kopplung:]
+\begin{mydef}{\textbf{Bibliographische Kopplung:}}
 \[
 sim(a,b) = O(a) \cap O(b)
 \]
@@ -277,7 +277,7 @@ Die Anzahl der gemeinsamen ausgehenden Links
 \end{mydef}
 
 
-\begin{mydef}[Kozitation:]
+\begin{mydef}\textbf{Kozitation:}
 \[
  sim(a,b) = I(a) \cap I(b)
 \]
@@ -294,7 +294,7 @@ Er unterscheidet allerdings nicht zwischen bibliographischer Kopplung und Kozita
 Amsler definiert die \textit{``linkage similarity''} zweier Publikationen als die ``Gesamtanzahl von Vorgängern und Nachfahren, die diese teilen''.
 Er schlägt ferner auch eine Normalisierung für sein Maß mittels des Jaccard-Koeffizients vor.
 
-\begin{mydef}[Amsler:]
+\begin{mydef}\textbf{Amsler:}
 \[
  sim(a,b) = \cfrac{L(a) \cap L(b)}{L(a) \cup L(b)}
 \]
@@ -328,7 +328,7 @@ Die Autoren schlagen einen Algorithmus vor, der basierend auf dem Gesamtgraphen 
 Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' \cite{simrank2002} aus.
 Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Literaturverweisen rekursiv bestimmt werden kann.
 
-\begin{mydef}[SimRank:]
+\begin{mydef}\textbf{SimRank:}
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -353,7 +353,7 @@ Das Gemeinsame zwischen \textit{SimRank} und \textit{P-Rank} ist die Propagierun
 Eine Verbesserung von \textit{P-Rank} gegenüber \textit{SimRank} ist die Möglichkeit, Ähnlichkeitswerte für neuere und potentiell interessante, aber immer noch nicht populäre Arbeiten zu ermitteln.
 \textit{SimRank}, das nur eingehende Kanten berücksichtigt, kann das nicht leisten.
 
-\begin{mydef}[P-Rank:]
+\begin{mydef}\textbf{P-Rank:}
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -399,7 +399,7 @@ Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen
 \item \textit{P-Rank} betrachtet sowohl ein- als auch ausgehende Kanten, ist aber, ebenso wie die \textit{bibliographische Kopplung}, die \textit{Kozitation}, \textit{SimRank} und \textit{rvs-SimRank}, für die Bestimmung der Ähnlichkeit zwischen einer alten und einer neuen Arbeit ungeeignet.
 \end{itemize}
 
-\begin{mydef}[rvs-SimRank:]
+\begin{mydef}\textbf{rvs-SimRank:}
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -419,7 +419,7 @@ Dabei ist der Unterschied zwischen beiden Ansätzen, dass \textit{P-Rank} eine ge
 Die Autoren haben in ihrer Evaluation festgestellt, dass sie dadurch in der Lage sind, Ähnlichkeit zwischen alten und neuen Arbeiten zu bestimmen, was keinem anderen der zitationsbasierten Ähnlichkeitsmaße gelungen war.
 
 
-\begin{mydef}[C-Rank:]
+\begin{mydef}\textbf{C-Rank:}
 \[
 sim(a,b) = 1 \quad \text{wenn } a=b
 \]
@@ -433,7 +433,7 @@ sim(a,b)  =
 \newline
 \end{mydef}
 
-Tabelle\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Man beachte, dass Zhao, Han und Sun das \textit{Amsler}-Maß fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} \ref{tab:compareMeasures} gibt einen Überblick über diese ``Familie'' zitationsbasierter Ähnlichkeitsmaße.
+Tabelle \ref{tab:compareMeasures} gibt einen Überblick\footnote{Tabelle \ref{tab:compareMeasures} ist mit einigen Modifikationen aus \cite{ZhaoHS09} übernommen worden. Man beachte, dass Zhao, Han und Sun das \textit{Amsler}-Maß fälschlicherweise in die Spalte \textit{``Beide, gewichtet''} kategorisiert haben. Amsler selber betrachtet zwar sowohl ein- als auch ausgehende Links, macht aber keine Unterscheidung dazwischen und demzufolge auch keine Gewichtung \cite{amsler1972applications}.} über diese ``Familie'' zitationsbasierter Ähnlichkeitsmaße.
 In der Zeile \textit{``Lokal''} stehen diejenigen Maße, die nur die lokale Nachbarschaften von 2 Publikationen für das Bestimmen ihrer Ähnlichkeit einbeziehen.
 In der Zeile \textit{``Global''} dagegen befinden sich die Maße, die bei der Berechnung der Ähnlichkeit von zwei Artikeln das gesamte Publikationsnetzwerk rekursiv betrachten.
 Dabei ist $k$ die Anzahl der Iterationen, die jedes Maß verwendet,
@@ -464,7 +464,7 @@ Diese lässt sich, genau wie alle anderen bereits erwähnten strukturellen Ähnlich
 Lu et al. arbeiten zwei verschiedene Maße aus.
 Beide beziehen (im Gegensatz zu \textit{SimRank}, \textit{P-Rank} und \textit{C-Rank}) nur die lokale Nachbarschaft von Knoten in die Ähnlichkeitsberechnung ein.
 Das erste Maß basiert auf dem Vergleich der separaten lokalen Nachbarschaften von zwei Knoten.
-Jedem Knoten wird ein Authority-Gewicht\footnote{das Authoriry-Gewicht bestimmt wie ``angesehen'' eine Publikation ist, d.h. wie oft sie durch andere Artikel zitiert wird.} zugewiesen.
+Jedem Knoten wird ein Authority-Gewicht\footnote{Das Authoriry-Gewicht bestimmt wie ``angesehen'' eine Publikation ist, d.h. wie oft sie durch andere Artikel zitiert wird.} zugewiesen.
 Zwei Knoten sind dann umso ähnlicher, je größer die Schnittmenge ihrer lokalen Nachbarschaftsgraphen ist und je mehr Authority-Papers in dieser Menge liegen.
 Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
 Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
