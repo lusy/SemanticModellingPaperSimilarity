@@ -1,22 +1,29 @@
 \section{Zusammenfassung}
 
 
-Diese Arbeit hat ein semantisches Ähnlichkeitsmaß für wissenschaftliche Publikationen basierend auf deren Metadaten entworfen und dieses auf einen Testdatensatz aus $3095$ Publikationen des \textit{Zentralblatt Mathematik} angewandt.
-Dafür wurde ein Publikationsnetzwerk aufgestellt, das die im Datensatz beinhalteten Publikationen und deren Metadaten als Knoten modelliert.
-Der Algorithmus für semantische Ähnlichkeit hat rekursiv anhand des gesamten Netzwerks die Ähnlichkeit zwischen jeden zwei Publikationen berechnet.
-Dabei wurde aus der Intuition ausgegangen, dass zwei Publikationen ähnlich sind, wenn sie ähnliche Metadaten haben.
+Diese Arbeit hat ein rekursives semantisches Ähnlichkeitsmaß für ein Informationsnetzwerk von wissenschaftlichen Publikationen und ihren Metadaten entworfen und implementiert.
+Innerhalb des Netzwerkes wurden Publikationen sowie die vorhanden Metadaten als Knoten modelliert.
+Zur Evaluation des entwickelten Maßes wurde ein Clusterverfahren auf die berechneten Ähnlichkeitswerte angewandt und mit im Datensatz vergebenen MSC-Klassen mit dem Ziel verglichen, dass ähnliche Publikationen auch in ähnliche MSC-Klassen gehören.
+Das Ähnlichkeitsmaß und anschließend das Clusterverfahren wurde auf einen Testdatensatz aus $3095$ ausgewählten Publikationen des \textit{Zentralblatt Mathematik} angewandt.
+Das entwickelte Maß ist unter der Annahme entstanden, dass zwei Publikationen ähnlich sind, wenn sie innerhalb des Netzwerks über ähnliche Metadaten verbunden sind.
 \\
 \\
-Die experimentellen Ergebnisse haben gezeigt, dass sich das semantische Ähnlichkeitsmaß besser für die Ähnlichkeitsberechnung zweier Publikationen als das strukturelle Maß \textit{C-Rank}, das nur auf Zitationen basiert, eignet.
-\textit{C-Rank} ist nicht in der Lage brauchbare Ähnlichkeitswerte zu liefern, wenn keine vollständige Referenzlisten der untersuchten Publikationen vorliegen.
-Andere Metadaten bringen wichtige Informationen über die wissenschaftlichen Arbeiten und sollen bei einer Ähnlichkeitsanalyse der Publikationen nicht vernachlässigt werden.
+Die experimentellen Ergebnisse des Clusterverfahrens haben gezeigt, dass sich das semantische Ähnlichkeitsmaß besser für die Ähnlichkeitsberechnung zweier Publikationen eignet als das strukturelle Maß \textit{C-Rank}, das nur auf Zitationen basiert, eignet.
+\textit{C-Rank} ist nicht in der Lage, brauchbare Ähnlichkeitswerte zu liefern, wenn keine vollständige Referenzlisten der untersuchten Publikationen vorliegen.
+Das entwickelte Verfahren hingegen verwendet auch andere Metadaten, die weitere wichtige Informationen über die wissenschaftlichen Arbeiten liefern.
+Diese sollten bei einer Ähnlichkeitsanalyse der Publikationen nicht vernachlässigt werden.
+\\
+\\
+Das Verfahren hat, wie andere verwandte Ansätze auch, eine sehr komplexe Laufzeit.
+Dadurch war es im Rahmen dieser Arbeit leider nicht möglich, das Verfahren auf dem kompletten \textit{zmath}-Datensatz zu testen.
+
 
 \subsection{Ausblick}
 Das in dieser Arbeit vorgeschlagene semantische Ähnlichkeitsmaß kann in verschiedenen Richtungen optimiert und weiterentwickelt werden.
 \\
 \\
-Wie auch durch die Evaluation bekräftigt, ist es von entscheidender Bedeutung, dass die semantische Ähnlichkeit für einen gesamten, nicht verkleinerten Datenatz ausgerechnet wird.
-Eine der Schwachstellen des entworfenen Algorithmus, die seine Anwendung auf große Datenmengen maßgeblich erschwert, ist seine Laufzeitkomplexität $\mathcal{O}(n^4)$.
+Wie auch durch die Evaluation bekräftigt, ist es von entscheidender Bedeutung, dass die semantische Ähnlichkeit für einen gesamten, nicht verkleinerten Datenatz begerechnet wird.
+Ein Nachteil des entworfenen Algorithmus, der seine Anwendung auf große Datenmengen maßgeblich erschwert, ist seine Laufzeitkomplexität $\mathcal{O}(n^4)$.
 Eine wertvolle Optimierung wäre die Parallelisierung der Berechnungen.
 Die Frage, ob der Algorithmus parallelisierbar ist, ist offen und muss näher untersucht werden.
 \cite{Li2010} schlagen ein nicht iteratives Verfahren für die Berechnung von \textit{SimRank} vor, das die Berechnung der Ähnlichkeiten wesentlich beschleunigt.
@@ -24,10 +31,10 @@ Es scheint leider in seiner ursprüglichen Form nicht anwendbar für die Berechnun
 Die Möglichkeit, ein nicht iteratives Verfahren für die Berechnung der semantischen Ähnlichkeit, das auf \cite{Li2010} basiert, zu entwickeln, kann untersucht werden.
 \\
 \\
-Eine andere denkbare Erweiterung des vorgeschlagenen Algorithmus für semantische Ähnlichkeit wäre die Berücksichtigung weiterer verfügbarer Metadaten wie z.B. Titel oder Abstract.
+Eine andere Erweiterung des vorgeschlagenen Algorithmus für semantische Ähnlichkeit wäre die Berücksichtigung weiterer verfügbarer Metadaten wie z.B. Titel oder Abstract.
 Der Algorithmus kann dann mit textbasierten Ähnlichkeitsmetriken, die die Ähnlichkeit von Titel und Abstract zweier Publikationen ermitteln können, kombiniert werden.
 Darüber hinaus können bei mathematischen Publikationen auch zusätzliche Komponenten wie Formeln, Theoreme oder Diagramme in das Ähnlichkeitsmaß miteinbezogen werden.
-
+Das entwickelte Verfahren besitzt also ausreichend Potential zur Weiterentwicklung.
 
 %nochmal betonen, dass durch trimming informationen verloren gehen
 % bessere rechner, mehr zeit wird gebraucht
