@@ -18,12 +18,12 @@ Die mit bibliometrischen Methoden gewonnenen Erkenntnisse sind oft ausschlaggebe
 \\
 \\
 Die gegenwärtige Tendenz, nur diese statistischen Verfahren für das Treffen dieser Entscheidungen zu benutzen, wird allerdings von diversen Experten stark kritisiert.
-Sie vertreten die Meinung, dass Forschung viel zu wichtig ist, um nur mit Hilfe von einem einzigen, zudem so vagen, Werkzeug, bewertet zu werden.
+Sie vertreten die Meinung, dass Forschung viel zu wichtig ist, um nur mit Hilfe von einem einzigen, zudem so vagen, Werkzeug bewertet zu werden.
 Statistische Daten erscheinen objektiver und unabhängiger als manche anderen Praxen, wie z.B. Peer-Reviews \cite{citationstats2008}.
 Die Experten geben zu, dass es verlockend ist, eine einfache und einfach meßbare Vergleichsbasis für verschiedene Publikationen, Journale, Wissenschaftlerinnen, etc. zu haben.
 Sie warnen aber davor, dass Zahlen nicht immer einer ``nüchternen Beurteilung überlegen sind, leicht falsch interpretiert werden können und mit Vorsicht zu genießen sind'' \cite{citationstats2008}.
 Dennoch sehen diese Mathematiker und Statistiker die Bibliometrie nicht als komplett falsch oder nutzlos, sondern raten dazu, für Auswertungen die bibliometrischen Methoden mit anderen Verfahren zu kombinieren.
-Im Folgenden werden zwei von den Unterthemen der Bibliometrie kurz umrissen, die auch in die Definition von Ähnlichkeitsmaß, die diese Arbeit anbietet, in gewisser Hinsicht einfließen werden.
+Im Folgenden werden zwei von den Unterthemen der Bibliometrie kurz umrissen, die auch in die Definition des Ähnlichkeitsmaßes, die diese Arbeit anbietet, in gewisser Hinsicht einfließen werden.
 %warum
 \\
 
@@ -101,7 +101,7 @@ Koautorenschaft wird auch oftmals als ein Ähnlichkeitskennzeichen gewertet \cite
 Allerdings hat die Definition eines Ähnlichkeitsmaßes, das auf Koautorenschaft alleine beruht, auch diverse Nachteile:\\
 \begin{itemize}
 \item Bei langen Autorenlisten sind manche Autoren nur teilweise in die Ausarbeitung des Papers involviert gewesen.
-\item Der selbe Autor taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James) \cite{DBLP:conf/isiwi/Schlogl00} \cite{Bornmann08}.
+\item Derselbe Autor taucht oft unter verschiedenen Namen auf (Martin, J.; Martin, J.M.; Martin, James) \cite{DBLP:conf/isiwi/Schlogl00} \cite{Bornmann08}.
 Deswegen ist es oft schwierig eindeutig einzuordnen, welche Person an der konkreten Publikation mitgearbeitet hat \cite{Yang:2009:TRSN}.
 Dieses Problem ist noch stärker ausgeprägt, wenn die Namen der Autoren ursprünglich im Kyrillischen oder einem anderen Alphabet geschrieben werden und ins lateinische Alphabet überführt werden müssen.
 \item Es existiert auch das umgekehrte Problem:
@@ -133,7 +133,7 @@ Aus diesen Gründen modelliert die aktuelle Arbeit den Datensatz aus Publikatione
 Im allgemeinen wird ein Graph als ein Tupel von einer Knoten- und einer Kantenmenge charakterisiert: $G=(V,E)$ \cite{graphTheory2010}.
 Die Elemente der Kantenmenge $E$ sind Paare von Knoten: $E\subseteq V\times V$.
 Die Essenz dieser Wissensrepräsentation ist die Information, welche zwei Knoten mit einer Kante verbunden sind und welche nicht.
-Die Arbeit von Zhou, Cheng und Yu \cite{simClust2009} erweitert diese klassiche Graphendefinition.
+Die Arbeit von Zhou, Cheng und Yu \cite{simClust2009} erweitert diese klassische Graphendefinition.
 Sie definieren einen Attributengraphen als ein Dreiertupel von Knoten, Kanten und Attributen: $G=(V,E,\Lambda)$.
 Dabei bezeichnen $V$ die Knoten, $E$ die Kanten und $\Lambda=\{a_1, ..., a_m\}$ die Menge der $m$ Attribute, die die Eigentschaften der Knoten beschreiben.
 Jedem Knoten $v_i\in V$ wird ein Attributenvektor $[a_1(v_i), ..., a_m(v_i)]$ zugeordnet, wobei $a_j(v_i)$ der Wert des Attributs $a_j$ für Knoten $v_i$ ist.
@@ -326,7 +326,7 @@ Das Ähnlichkeitsmaß \textit{SimRank} wurde 2002 von Jeh und Widom entworfen \cit
 \textit{SimRank} misst allgemein die strukturelle Ähnlichkeit von zwei Objekten in einem Netzwerk aufgrund von Links.
 Die Autoren schlagen einen Algorithmus vor, der basierend auf dem Gesamtgraphen die Ähnlichkeit zwischen zwei Knoten rekursiv berechnet.
 Dabei gehen sie von der Leitidee ``zwei Objekte sind ähnlich, wenn sie mit ähnlichen Objekten verbunden sind'' \cite{simrank2002} aus.
-Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, wo die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Literaturverweisen rekursiv bestimmt werden kann.
+Ferner erwähnen sie, dass ein möglicher Anwendungsbereich für ihr Maß Zitationsgraphen sind, in denen die strukturelle Ähnlichkeit zwischen wissenschaftlichen Publikationen anhand von Literaturverweisen rekursiv bestimmt werden kann.
 
 \begin{mydef}\textbf{SimRank:}
 \[
@@ -395,7 +395,7 @@ Sie geben selber nochmal einen Überblick über schon vorhandene Ähnlichkeitsmaße 
 \item Beide sind nicht in der Lage Ähnlichkeit zwischen einem alten und einem neuen Paper zu bestimmen. Die alte Arbeit zitiert keine Neueren, die Neue kann nicht durch Ältere zitiert werden.
 \item \textit{SimRank}, das in gewisser Weise eine Generalisierung der Kozitation ist, kann keine Ähnlichkeit berechnen, wenn ein Paper durch keine Anderen zitiert wird.
 \item Yoon et al. erwähnen noch \textit{rvs-SimRank} (reverse SimRank), das im Gegensatz zu \textit{SimRank} nur ausgehende Links für seine Berechnung betrachtet.
-Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen kann, wenn ein Paper keine Anderen zitiert.
+Demzufolge hat dieses Maß auch den Nachteil, dass es keine Ähnlichkeit bestimmen kann, wenn ein Paper keine anderen Paper zitiert.
 \item \textit{P-Rank} betrachtet sowohl ein- als auch ausgehende Kanten, ist aber, ebenso wie die \textit{bibliographische Kopplung}, die \textit{Kozitation}, \textit{SimRank} und \textit{rvs-SimRank}, für die Bestimmung der Ähnlichkeit zwischen einer alten und einer neuen Arbeit ungeeignet.
 \end{itemize}
 
@@ -469,7 +469,7 @@ Zwei Knoten sind dann umso ähnlicher, je größer die Schnittmenge ihrer lokalen N
 Der zweite Ansatz beruht auf der Berechnung des Netzwerkflusses. %Network flow??
 Er ermittelt wie stark zwei Publikationen in einem Zitatiosgraphen miteinander verbunden sind.
 Dafür wird der gemeinsame lokale Nachbarschaftsgraph zweier Publikationen aufgebaut.
-Der \textit{Maximum Flow Minimum Cut} Algorithmus \cite{chinneck2010} wird benutzt um den Fluss auszurechnen, der vom einen zum anderen Knoten gereicht werden kann.
+Der \textit{Maximum Flow Minimum Cut} Algorithmus \cite{chinneck2010} wird benutzt um den Fluss auszurechnen, der von einem zum anderen Knoten gereicht werden kann.
 %Es werden die verschiedenen Pfade zwischen beiden Knoten gezählt.
 %Dabei tragen längere Pfade weniger zu der Ähnlichkeit zwischen den Knoten bei.
 %Der Minimum Cut bestimmt die Anzahl der Kanten, die entfernt werden sollten, um beide Knoten komplett von einander zu trennen.
