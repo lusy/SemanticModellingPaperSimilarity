@@ -132,7 +132,7 @@ Diese ergeben für den iterativen Algorithmus eine Genauigkeit von $0.6^{7+1}=0.0
 \\
 Kapitel \ref{subsec:simMeasure} definiert bereits, dass die Summe der Gewichtungen aller verschiedenen Metadaten $1$ ergibt, $\sum_{i=1}^{5} \lambda_i = 1$.
 Diese Normalisierung stellt sicher, dass kein Ähnlichkeitswert größer $1$ werden kann.
-Diese Arbeit berechnet die semantsiche Ähnlichkeit mit drei verschiedenen Gewichtungen, die in Absprache mit Experten aus dem Konrad-Zuse-Zentrum zustande gekommen sind.
+Diese Arbeit berechnet die semantische Ähnlichkeit mit drei verschiedenen Gewichtungen, die in Absprache mit Experten aus dem Konrad-Zuse-Zentrum zustande gekommen sind.
 Im folgenden Kapitel wird ausgewertet, welche Gewichtung die besten Ergebnisse erzielt.
 Die Experten argumentieren, dass die Bedeutung der einzelnen Metadaten für die Publikation davon abhänge, worauf Bibliotheken o.ä. Institutionen im Speziellen Wert legen und wie ihr eigener Use Case aussieht.
 Für jede dieser Institutionen müssten die Gewichtungen für eine hinreichend große Datenmenge experimentell ermittelt werden.
@@ -198,7 +198,7 @@ Ihr System hatte $2.67$GHz CPU, Speicherangaben machen sie keine, auch keine Ang
 % RAM unknown
 % time: unknown
 
-Das System, auf dem der von dieser Arbeit vorgeschlagene Algorithmus für Berechnung der semantischen Ähnlichkeit zwischen Publikationen ausgeführt wird, verfügt über $2.93$GHz CPU und $14$Gb Arbeitsspeicher.
+Das System, auf dem der von dieser Arbeit vorgeschlagene Algorithmus für die Berechnung der semantischen Ähnlichkeit zwischen Publikationen ausgeführt wird, verfügt über $2.93$GHz CPU und $14$Gb Arbeitsspeicher.
 Die einzige Arbeit, die konkrete Hinweise für die Laufzeit der Algorithmen für strukturelle Ähnlichkeit in Informationsnetzwerken in der Praxis gibt, ist \cite{Lizorkin2010}.
 Da diese Algorithmen die selbe Laufzeitkomplexität wie das hier vorgeschlagene Verfahren haben, kann man davon ausgehen, dass die Berechnung der Ähnlichkeiten für den gesamten \textit{zmath}-Datensatz mit $2,907,086$ Publikationen auf diesem Testsystem nicht praktikabel ist.
 \\
@@ -280,7 +280,7 @@ Je kleiner die \textit{Entropy} eines Clusters ist, desto homogener ist der Clus
 \\
 \\
 Der \textit{Silhouette-Koeffizient} ist eine Metrik der Unsupervised Cluster Validation \cite{dataMining2005}.
-Unsupervised Cluster Validation beurteilt inwiefern das Clustering an sich gut ist (d.h. ohne das Clustering mit einer externen Klassifizierung zu vergleichen), indem die Zusammengehörigkeit der Elemente innerhalb jedes Clusters und auch wie gut die einzelnen Cluster von einander abgegrenzt sind bemessen wird.
+Unsupervised Cluster Validation beurteilt inwiefern das Clustering an sich gut ist (d.h. ohne das Clustering mit einer externen Klassifizierung zu vergleichen), indem die Zusammengehörigkeit der Elemente innerhalb jedes Clusters gemessen wird und auch wie gut die einzelnen Cluster von einander abgegrenzt sind.
 Der \textit{Silhouette-Koeffizient} wird für jedes Element des Datensatzes bestimmt, dann werden die Durchschnittswerte für jeden Cluster gebildet und zum Schluss wird er auch für das gesamte Clustering berechnet.
 Der \textit{Silhouette-Koeffizient} $\in (-1,1)$ bestimmt inwiefern ein Element ähnlich allen anderen Elementen aus dem selben Cluster und gleichzeitig verschieden zu den Elementen aus anderen Clustern ist.
 Ein negativer Wert dieses Koeffizienten bedeutet, dass das Element im Durchschnitt näher an Elementen ist, die außerhalb des Cluster liegen, als an Elementen, die sich im selben Cluster befinden.
@@ -315,7 +315,7 @@ Allerdings sind die Unterschiede nicht wesentlich. %oder??
 Abbildung\footnote{Eine größere Version der Abbildungen befindet sich im Appendix} \ref{fig:entPur} stellt die Verteilungen der \textit{Entropy}- und \textit{Purity}-Werte für alle Metadatengewichtungen des semantischen Ähnlichkeitsmaßes und \textit{C-Rank} dar.
 \\
 \\
-Auf dem ersten Blick scheinen die Werte für \textit{C-Rank} gut zu sein: mehrere Cluster haben eine hohe \textit{Purity} und niedrige \textit{Entropy}.
+Auf den ersten Blick scheinen die Werte für \textit{C-Rank} gut zu sein: mehrere Cluster haben eine hohe \textit{Purity} und niedrige \textit{Entropy}.
 Allerdings werden die Werte für das Gesamtclustering nochmal gewichtet zusammengefasst: die Werte für größere Cluster fließen zu einem höheren Anteil in die \textit{Durchschnittsentropy} und -\textit{purity}.
 Da der erste Cluster bei \textit{C-Rank} mit $Entropy{=}4.82283$ und $Purity{=}0.26131$ $2587$ der insgesamt $3095$ Publikationen beinhaltet, werden diese Werte ausschlaggebend für die \textit{Gesamtentropy} und \textit{-purity} des Clusterings.
 Eine genauere Untersuchung der Distanzmatrix zeigt, dass dieses Phänomen auf die Tatsache zurückzuführen ist, dass \textit{C-Rank}, das nur auf Zitationen basiert, für die Mehrheit der Publikationen einen Ähnlichkeitswert von $0.0$ berechnet hat.

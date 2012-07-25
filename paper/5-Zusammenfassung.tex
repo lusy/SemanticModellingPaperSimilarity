@@ -2,13 +2,13 @@
 
 
 Diese Arbeit hat ein rekursives semantisches Ähnlichkeitsmaß für ein Informationsnetzwerk von wissenschaftlichen Publikationen und ihren Metadaten entworfen und implementiert.
-Innerhalb des Netzwerkes wurden Publikationen sowie die vorhanden Metadaten als Knoten modelliert.
+Innerhalb des Netzwerkes wurden Publikationen sowie die vorhandenen Metadaten als Knoten modelliert.
 Zur Evaluation des entwickelten Maßes wurde ein Clusterverfahren auf die berechneten Ähnlichkeitswerte angewandt und mit im Datensatz vergebenen MSC-Klassen mit dem Ziel verglichen, dass ähnliche Publikationen auch in ähnliche MSC-Klassen gehören.
 Das Ähnlichkeitsmaß und anschließend das Clusterverfahren wurde auf einen Testdatensatz aus $3095$ ausgewählten Publikationen des \textit{Zentralblatt Mathematik} angewandt.
 Das entwickelte Maß ist unter der Annahme entstanden, dass zwei Publikationen ähnlich sind, wenn sie innerhalb des Netzwerks über ähnliche Metadaten verbunden sind.
 \\
 \\
-Die experimentellen Ergebnisse des Clusterverfahrens haben gezeigt, dass sich das semantische Ähnlichkeitsmaß besser für die Ähnlichkeitsberechnung zweier Publikationen eignet als das strukturelle Maß \textit{C-Rank}, das nur auf Zitationen basiert, eignet.
+Die experimentellen Ergebnisse des Clusterverfahrens haben gezeigt, dass sich das semantische Ähnlichkeitsmaß besser für die Ähnlichkeitsberechnung zweier Publikationen eignet als das strukturelle Maß \textit{C-Rank}, das nur auf Zitationen basiert.
 \textit{C-Rank} ist nicht in der Lage, brauchbare Ähnlichkeitswerte zu liefern, wenn keine vollständige Referenzlisten der untersuchten Publikationen vorliegen.
 Das entwickelte Verfahren hingegen verwendet auch andere Metadaten, die weitere wichtige Informationen über die wissenschaftlichen Arbeiten liefern.
 Diese sollten bei einer Ähnlichkeitsanalyse der Publikationen nicht vernachlässigt werden.
@@ -22,7 +22,7 @@ Dadurch war es im Rahmen dieser Arbeit leider nicht möglich, das Verfahren auf d
 Das in dieser Arbeit vorgeschlagene semantische Ähnlichkeitsmaß kann in verschiedenen Richtungen optimiert und weiterentwickelt werden.
 \\
 \\
-Wie auch durch die Evaluation bekräftigt, ist es von entscheidender Bedeutung, dass die semantische Ähnlichkeit für einen gesamten, nicht verkleinerten Datenatz begerechnet wird.
+Wie auch durch die Evaluation bekräftigt, ist es von entscheidender Bedeutung, dass die semantische Ähnlichkeit für einen gesamten, nicht verkleinerten Datenatz berechnet wird.
 Ein Nachteil des entworfenen Algorithmus, der seine Anwendung auf große Datenmengen maßgeblich erschwert, ist seine Laufzeitkomplexität $\mathcal{O}(n^4)$.
 Eine wertvolle Optimierung wäre die Parallelisierung der Berechnungen.
 Die Frage, ob der Algorithmus parallelisierbar ist, ist offen und muss näher untersucht werden.
