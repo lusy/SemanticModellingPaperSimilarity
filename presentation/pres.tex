@@ -28,14 +28,116 @@
 	\titlepage
 \end{frame}
 
+%Motivation! (ohne Folie)
 \begin{frame}
-	\frametitle{Eigenschaften des Datensatzes}
-	\begin{itemize}
-		\item  enthält ca. $706\,000$ Einträge
-		\item  mit 19 verschiedenen Themengebieten
-		\item  nur der Themenbereich Physik wird in Themengruppen unterteilt
-		\item  11 Einträge ohne Informationen
-		\item  Publikationen haben im Durchschnitt 1.3 und maximal 9 Themen
-	\end{itemize}
+    \begin{block}{Motivation}
+%    \begin{itemize}
+%
+%    \end{itemize}
+    \end{block}
+    \begin{block}{Ziel}
+    \begin{itemize}
+    \item Präzisere Ähnlichkeitsberechnung für Publikationen aufgrund möglichst vieler Metadaten
+    \end{itemize}
+    \end{block}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Gliederung}
+    \begin{enumerate}
+        \item Existierende Repräsentationen
+        \item Algorithmen zur Bestimmung der Ähnlichkeit von wissenschaftlichen Arbeiten
+        \item Publikationsnetzwerk
+        \item Semantische Ähnlichkeit
+        \item Laufzeitanalyse
+        \item Ergebnisse und Auswertung
+    \end{enumerate}
+\end{frame}
+
+%Vlt weglassen
+%\begin{frame}
+%    \frametitle{Existierende Repräsentationen von Publikationen}
+%\end{frame}
+
+\begin{frame}
+    \frametitle{Existierende Ähnlichkeitsmaße - textbasiert}
+    Zum Beispiel das auf TF-IDF basierte Kosinusmaß
+    \begin{block}{Nachteile}
+    \begin{itemize}
+        \item sprachabhängig
+        \item nicht praktikabel für große Dokumente/Dokumentenmengen
+        \item Semantik der Terme wird nicht erfasst
+    \end{itemize}
+    \end{block}
+    %Vor- und Nachteile
+\end{frame}
+
+%Gleichungen?/Tabelle mit Überblick?
+\begin{frame}
+    \frametitle{Existierende Ähnlichkeitsmaße - zitationsbaseirt I}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Existierende Ähnlichkeitsmaße - zitationsbasiert II}
+    \begin{block}{Weitere Beispiele}
+    \begin{itemize}
+        \item CC-IDF
+        \item Lu et al.: Ähnlichkeit aufgrund lokaler Nachbarschaft
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Existierende Ähnlichkeitsmaße - zitationsbasiert III}
+    %Vor- und Nachteile
+    \begin{block}{Nachteile}
+    \begin{itemize}
+        \item Gründe für das Zitieren unbekannt
+        %spezifische Nachteile der einzelnen Ansätze
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Publikationsnetzwerk}
+    Bild!
+\end{frame}
+
+\begin{frame}
+    \frametitle{Semantische Ähnlichkeit}
+    Formel!
+\end{frame}
+
+\begin{frame}
+    \frametitle{Evaluation}
+    \begin{itemize}
+        \item Laufzeit: $\mathcal{O}(n^4)$
+        \item Speicherkomplexität: $\mathcal{O}(n^2)$
+        \item Der Testdatensatz enthält ursprünglich $2,907,086$ Publikationen
+        \item Der Testdatensatz wird auf $3095$ Publikationen, $15,994$ Knoten insgesamt gekürzt
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Fazit}
+    \begin{itemize}
+    \item Ansatz nicht praktikabel für große Datenmengen
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\centerline{Vielen Dank!}
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{Eigenschaften des Datensatzes}
+%	\begin{itemize}
+%		\item  enthält ca. $706\,000$ Einträge
+%		\item  mit 19 verschiedenen Themengebieten
+%		\item  nur der Themenbereich Physik wird in Themengruppen unterteilt
+%		\item  11 Einträge ohne Informationen
+%		\item  Publikationen haben im Durchschnitt 1.3 und maximal 9 Themen
+%	\end{itemize}
+%\end{frame}
+
 \end{document}
