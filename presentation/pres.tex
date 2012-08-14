@@ -1,0 +1,41 @@
+\documentclass[12pt, xcolor=table]{beamer}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\usepackage[percent]{overpic}
+\usepackage[footnotesize, bf]{caption}
+\input{theme.tex}
+\input{syntax}
+\renewcommand{\footnotesize}{\tiny}
+
+
+\begin{document}
+\title{Semantische Modellierung von mathematischen Publikationen und Definition eines Ähnlichkeitsmaßes}
+\author[Lyudmila Vaseva]{Lyudmila Vaseva\\{vaseva@mi.fu-berlin.de}}
+%\email{vaseva@mi.fu-berlin.de}
+\institute{Freie Universität Berlin \\
+    Institut für Informatik}
+\date{\today}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Eigenschaften des Datensatzes}
+	\begin{itemize}
+		\item  enthält ca. $706\,000$ Einträge
+		\item  mit 19 verschiedenen Themengebieten
+		\item  nur der Themenbereich Physik wird in Themengruppen unterteilt
+		\item  11 Einträge ohne Informationen
+		\item  Publikationen haben im Durchschnitt 1.3 und maximal 9 Themen
+	\end{itemize}
+\end{frame}
+\end{document}
