@@ -100,8 +100,12 @@
 
 \begin{frame}
     \frametitle{Publikationsnetzwerk}
-    Bild!
+    %Bild!
+    \begin{center}
+        \includegraphics[scale=0.38]{../deps/publications_ontology_relations.png}
+    \end{center}
 \end{frame}
+
 
 \begin{frame}
     \frametitle{Semantische Ähnlichkeit}
@@ -119,9 +123,23 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Ergebnisse des semantischen Ähnlichkeitsmaßes}
+    \begin{itemize}
+        \item Vergleich mit \textit{C-Rank}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
     \frametitle{Fazit}
     \begin{itemize}
-    \item Ansatz nicht praktikabel für große Datenmengen
+    \item Die semantische Ähnlichkeit liefert bessere Ergebnisse als Ansätze, die nur auf einer Art Metadaten basieren
+    \item Semantische Ähnlichkeit sollte für das vollständige Publikationsnetzwerk berechnet werden
+    \item Der Ansatz ist leider nicht praktikabel für große Datenmengen
+        \begin{itemize}
+            \item Laufzeitoptimierung durch Parallelisierung?
+            \item Laufzeitoptimierung durch nicht-iterative Berechnung?
+            \item Speicheroptimierung durch Auslagern der Daten in eine Datenbank
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
