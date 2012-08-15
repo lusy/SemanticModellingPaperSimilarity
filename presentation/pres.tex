@@ -205,53 +205,23 @@
     \end{center}
 \end{frame}
 
-
 \begin{frame}
     \frametitle{Semantische Ähnlichkeit}
     %Formel!
+    \begin{itemize}
+        \item rekursiver Algorithmus
+        \item iterative Formulierung
+        \item Ähnlichkeit global auf dem Netzwerk berechnet
+        \item Intuition: Ähnliche Publikationen haben ähnliche Metadaten
+        \item Metadaten sind gewichtet
+        \item Dämpfung
+    \end{itemize}
     %Global auf das Netzwerk
     %Rekursive Natur
     %kann/wird iterativ berechnet, konvergiert zum Fixpunkt
     %Summe der einzelnen Elemente: Für jedes Elementenpaar: schaue alle Elementenpaare, die sich aus den Nachbarn bilden an -- Laufzeit
     %Verschiedenartige Metadaten werden durch Parameter gewichtet
     %Dämpfungskonstante, die bestimmt wie stark weiter entfernte Knoten die aktuellen Knoten beeinflussen
-\scriptsize{
-\[
- R_0(a,b) =
-    \begin{cases}
-     1 & \text{wenn } $a$ = $b$ \\
-     0 & \text{sonst}\\
-    \end{cases}
-\]
-\newline
-\text{wenn a und b Publikationen:}
-\[
-\begin{array}{lcl}
- R_{k+1}(a,b) & = & 
-        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
-        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} R_k(K_i(a),K_j(b))
-        \\ & + &
-        \lambda_2\times\cfrac{c}{|A(a)||A(b)|}
-        \sum_{i=1}^{|A(a)|} \sum_{j=1}^{|A(b)|} R_k(A_i(a),A_j(b))
-        \\ & + &
-        \lambda_3\times\cfrac{c}{|S(a)||S(b)|}
-        \sum_{i=1}^{|S(a)|} \sum_{j=1}^{|S(b)|} R_k(S_i(a),S_j(b))
-        \\ & + &
-        \lambda_4\times\cfrac{c}{|C(a)||C(b)|}
-        \sum_{i=1}^{|C(a)|} \sum_{j=1}^{|C(b)|} R_k(C_i(a),C_j(b))
-        \\ & + &
-        \lambda_5\times\cfrac{c}{|Y(a)||Y(b)|}
-        \sum_{i=1}^{|Y(a)|} \sum_{j=1}^{|Y(b)|} R_k(Y_i(a),Y_j(b))
-\end{array}
-\]
-\newline
-\text{wenn a und b aus sonstiger Klasse:}
-\[
-R_{k+1}(a,b)  = 
-        \cfrac{c}{|L(a)||L(b)|}
-        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_k(L_i(a),L_j(b))
-\]
-}
 \end{frame}
 
 \begin{frame}
