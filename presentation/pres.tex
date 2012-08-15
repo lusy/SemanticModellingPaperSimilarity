@@ -212,7 +212,7 @@
     %Global auf das Netzwerk
     %Rekursive Natur
     %kann/wird iterativ berechnet, konvergiert zum Fixpunkt
-    %Für jedes Elementenpaar: schaue alle Elementenpaare, die sich aus den Nachbarn bilden an -- Laufzeit
+    %Summe der einzelnen Elemente: Für jedes Elementenpaar: schaue alle Elementenpaare, die sich aus den Nachbarn bilden an -- Laufzeit
     %Verschiedenartige Metadaten werden durch Parameter gewichtet
     %Dämpfungskonstante, die bestimmt wie stark weiter entfernte Knoten die aktuellen Knoten beeinflussen
 \scriptsize{
@@ -259,8 +259,8 @@ R_{k+1}(a,b)  =
     \begin{itemize}
         \item Laufzeit: $\mathcal{O}(n^4)$
         \item Speicherkomplexität: $\mathcal{O}(n^2)$
-        \item Der Testdatensatz enthält ursprünglich $2,907,086$ Publikationen
-        \item Der Testdatensatz wird auf $3095$ Publikationen, $15,994$ Knoten insgesamt gekürzt - alle Publikationen bis 1975
+        \item ursprünglicher Testdatensatz: $2,907,086$ Publikationen
+        \item gekürzter Testdatensatz: $3095$ Publikationen, $15,994$ Knoten insgesamt - alle Publikationen bis 1975
     \end{itemize}
 \end{frame}
 
@@ -289,7 +289,7 @@ R_{k+1}(a,b)  =
 	    	%\hline
 		     &\textbf{Gewichtung 1} &\textbf{Gewichtung 2} &\textbf{Gewichtung 3} & \textbf{C-Rank} \\
     		%\hline
-	    	Entropy & $2.4863$ & $3.28742$ & $2.48117$ & $4.13098$\\
+	    	%Entropy & $2.4863$ & $3.28742$ & $2.48117$ & $4.13098$\\
 		    Purity & $0.50953$ & $0.39774$ & $0.51599$ & $0.35767$\\
     		Silhouette & $0.084$ & $0.056$ & $0.069$ & $0.0$ \\
 	        %\hline
