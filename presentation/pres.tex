@@ -209,6 +209,12 @@
 \begin{frame}
     \frametitle{Semantische Ähnlichkeit}
     %Formel!
+    %Global auf das Netzwerk
+    %Rekursive Natur
+    %kann/wird iterativ berechnet, konvergiert zum Fixpunkt
+    %Für jedes Elementenpaar: schaue alle Elementenpaare, die sich aus den Nachbarn bilden an -- Laufzeit
+    %Verschiedenartige Metadaten werden durch Parameter gewichtet
+    %Dämpfungskonstante, die bestimmt wie stark weiter entfernte Knoten die aktuellen Knoten beeinflussen
 \scriptsize{
 \[
  R_0(a,b) =
@@ -254,7 +260,7 @@ R_{k+1}(a,b)  =
         \item Laufzeit: $\mathcal{O}(n^4)$
         \item Speicherkomplexität: $\mathcal{O}(n^2)$
         \item Der Testdatensatz enthält ursprünglich $2,907,086$ Publikationen
-        \item Der Testdatensatz wird auf $3095$ Publikationen, $15,994$ Knoten insgesamt gekürzt
+        \item Der Testdatensatz wird auf $3095$ Publikationen, $15,994$ Knoten insgesamt gekürzt - alle Publikationen bis 1975
     \end{itemize}
 \end{frame}
 
@@ -298,9 +304,9 @@ R_{k+1}(a,b)  =
 \begin{frame}
     \frametitle{Fazit}
     \begin{itemize}
-    \item Die semantische Ähnlichkeit liefert bessere Ergebnisse als Ansätze, die nur auf einer Art Metadaten basieren
-    \item Semantische Ähnlichkeit sollte für das vollständige Publikationsnetzwerk berechnet werden
-    \item Der Ansatz ist leider nicht praktikabel für große Datenmengen
+    \item bessere Ergebnisse als Maße, die nur auf einer Art Metadaten basieren
+    \item Datensatzverkürzung beeinträchtigt die Ergebnisse
+    \item nicht praktikabel für große Datenmengen
         \begin{itemize}
             \item Laufzeitoptimierung durch Parallelisierung?
             \item Laufzeitoptimierung durch nicht-iterative Berechnung?
@@ -312,16 +318,5 @@ R_{k+1}(a,b)  =
 \begin{frame}
 \centerline{Vielen Dank!}
 \end{frame}
-
-%\begin{frame}
-%	\frametitle{Eigenschaften des Datensatzes}
-%	\begin{itemize}
-%		\item  enthält ca. $706\,000$ Einträge
-%		\item  mit 19 verschiedenen Themengebieten
-%		\item  nur der Themenbereich Physik wird in Themengruppen unterteilt
-%		\item  11 Einträge ohne Informationen
-%		\item  Publikationen haben im Durchschnitt 1.3 und maximal 9 Themen
-%	\end{itemize}
-%\end{frame}
 
 \end{document}
