@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{fancyvrb}
 \usepackage{color}
+\usepackage{comment}
 
 \usepackage[percent]{overpic}
 \usepackage[footnotesize, bf]{caption}
@@ -28,29 +29,16 @@
 	\titlepage
 \end{frame}
 
-%Motivation! (ohne Folie)
-\begin{frame}
-    \begin{block}{Motivation}
-%    \begin{itemize}
-%
-%    \end{itemize}
-    \end{block}
-    \begin{block}{Ziel}
-    \begin{itemize}
-    \item Präzisere Ähnlichkeitsberechnung für Publikationen aufgrund möglichst vieler Metadaten
-    \end{itemize}
-    \end{block}
-\end{frame}
 
 \begin{frame}
     \frametitle{Gliederung}
     \begin{enumerate}
-        \item Existierende Repräsentationen
-        \item Algorithmen zur Bestimmung der Ähnlichkeit von wissenschaftlichen Arbeiten
+        \item Motivation
+        \item Existierende Algorithmen zur Bestimmung der Ähnlichkeit von wissenschaftlichen Arbeiten
         \item Publikationsnetzwerk
         \item Semantische Ähnlichkeit
-        \item Laufzeitanalyse
-        \item Ergebnisse und Auswertung
+        \item Semantische Ähnlichkeit: Analyse, Ergebnisse und Auswertung
+        \item Fazit
     \end{enumerate}
 \end{frame}
 
@@ -59,9 +47,60 @@
 %    \frametitle{Existierende Repräsentationen von Publikationen}
 %\end{frame}
 
+%Motivation! (ohne Folie)
+\begin{frame}
+    \begin{block}{Motivation}
+    \begin{itemize}
+        \item Recommender Systeme
+        \item Automatisierte Klassifikation
+    \end{itemize}
+    \end{block}
+
+    \begin{block}{Ziel}
+    \begin{itemize}
+    \item Präzisere Ähnlichkeitsberechnung für Publikationen aufgrund möglichst vieler Metadaten
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Existierende Ähnlichkeitsmaße}
+    \begin{columns}[T]
+        \begin{column}{0.45\textwidth}
+        \begin{block}{textbasiert}
+            \begin{itemize}
+                \item sprachabhängig
+                \item unbekannte Semantik der Terme
+                \item nicht praktikabel bei großen Datensätzen
+            \end{itemize}
+        \end{block}
+        \end{column}
+
+        \begin{column}{0.45\textwidth}
+        \begin{block}{zitationsbasiert}
+            \begin{itemize}
+                \item Grund für Zitieren unbekannt
+            \end{itemize}
+        \end{block}
+        \end{column}
+    \end{columns}
+
+%    \begin{table}[h]
+%   \centering
+%    \begin{tabular}{p{6cm} p{6cm}}
+%    textbasiert & zitationsbasiert\\
+%    \hline
+%    sprachabhängig & Grund für Zitieren unbekannt\\
+%    unbekannte Semantik der Terme & \\
+%    nicht praktikabel bei großen Datensätzen\\
+%\end{tabular}
+%\end{table}
+\end{frame}
+
+\begin{comment}
 \begin{frame}
     \frametitle{Existierende Ähnlichkeitsmaße - textbasiert}
-    Zum Beispiel das auf TF-IDF basierte Kosinusmaß
+    Beispiel: Kosinusmaß basierend auf TF-IDF
     \begin{block}{Nachteile}
     \begin{itemize}
         \item sprachabhängig
@@ -72,13 +111,72 @@
     %Vor- und Nachteile
 \end{frame}
 
+
 %Gleichungen?/Tabelle mit Überblick?
 \begin{frame}
     \frametitle{Existierende Ähnlichkeitsmaße - zitationsbaseirt I}
+    \begin{block}{\small{Bibiliographische Kopplung}}
+    \small{
+        $sim(a,b) = O(a) \cap O(b)$
+    }
+    \end{block}
+
+    \begin{block}{\small{Kozitation}}
+    \small{
+         $sim(a,b) = I(a) \cap I(b)$
+    }
+    \end{block}
+
+    \begin{block}{\small{Amsler}}
+    \small{
+        $sim(a,b) = \cfrac{L(a) \cap L(b)}{L(a) \cup L(b)}$
+    }
+    \end{block}
 \end{frame}
 
 \begin{frame}
     \frametitle{Existierende Ähnlichkeitsmaße - zitationsbasiert II}
+    \begin{block}{\small{simRank}}
+    \scriptsize{
+        $sim(a,b) = 1 \quad \text{wenn } a=b$
+        \newline
+        sonst: \quad
+        $sim(a,b)  = 
+        \cfrac{c}{|I(a)||I(b)|}
+        \sum_{i=1}^{|I(a)|} \sum_{j=1}^{|I(b)|} sim(I_i(a),I_j(b))$
+    }
+    \end{block}
+
+    \begin{block}{\small{P-Rank}}
+    \scriptsize{
+        $sim(a,b) = 1 \quad \text{wenn } a=b$
+        \newline
+        sonst: \quad
+        $sim(a,b)  = 
+        \lambda\times\cfrac{c}{|I(a)||I(b)|}
+        \sum_{i=1}^{|I(a)|} \sum_{j=1}^{|I(b)|} sim(I_i(a),I_j(b))
+         +
+        (1-\lambda)\times\cfrac{c}{|O(a)||O(b)|}
+        \sum_{i=1}^{|O(a)|} \sum_{j=1}^{|O(b)|} sim(O_i(a),O_j(b))$
+    }
+    \end{block}
+
+    \begin{block}{\small{C-Rank}}
+    \scriptsize{
+        $sim(a,b) = 1 \quad \text{wenn } a=b$
+        \newline
+        sonst: \quad
+        $sim(a,b)  = 
+        \cfrac{c}{|L(a)||L(b)|}
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} sim(L_i(a),L_j(b))$
+   }
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Existierende Ähnlichkeitsmaße - zitationsbasiert III}
     \begin{block}{Weitere Beispiele}
     \begin{itemize}
         \item CC-IDF
@@ -88,7 +186,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Existierende Ähnlichkeitsmaße - zitationsbasiert III}
+    \frametitle{Existierende Ähnlichkeitsmaße - zitationsbasiert IV}
     %Vor- und Nachteile
     \begin{block}{Nachteile}
     \begin{itemize}
@@ -97,6 +195,7 @@
     \end{itemize}
     \end{block}
 \end{frame}
+\end{comment}
 
 \begin{frame}
     \frametitle{Publikationsnetzwerk}
@@ -109,7 +208,44 @@
 
 \begin{frame}
     \frametitle{Semantische Ähnlichkeit}
-    Formel!
+    %Formel!
+\scriptsize{
+\[
+ R_0(a,b) =
+    \begin{cases}
+     1 & \text{wenn } $a$ = $b$ \\
+     0 & \text{sonst}\\
+    \end{cases}
+\]
+\newline
+\text{wenn a und b Publikationen:}
+\[
+\begin{array}{lcl}
+ R_{k+1}(a,b) & = & 
+        \lambda_1\times\cfrac{c}{|K(a)||K(b)|}
+        \sum_{i=1}^{|K(a)|} \sum_{j=1}^{|K(b)|} R_k(K_i(a),K_j(b))
+        \\ & + &
+        \lambda_2\times\cfrac{c}{|A(a)||A(b)|}
+        \sum_{i=1}^{|A(a)|} \sum_{j=1}^{|A(b)|} R_k(A_i(a),A_j(b))
+        \\ & + &
+        \lambda_3\times\cfrac{c}{|S(a)||S(b)|}
+        \sum_{i=1}^{|S(a)|} \sum_{j=1}^{|S(b)|} R_k(S_i(a),S_j(b))
+        \\ & + &
+        \lambda_4\times\cfrac{c}{|C(a)||C(b)|}
+        \sum_{i=1}^{|C(a)|} \sum_{j=1}^{|C(b)|} R_k(C_i(a),C_j(b))
+        \\ & + &
+        \lambda_5\times\cfrac{c}{|Y(a)||Y(b)|}
+        \sum_{i=1}^{|Y(a)|} \sum_{j=1}^{|Y(b)|} R_k(Y_i(a),Y_j(b))
+\end{array}
+\]
+\newline
+\text{wenn a und b aus sonstiger Klasse:}
+\[
+R_{k+1}(a,b)  = 
+        \cfrac{c}{|L(a)||L(b)|}
+        \sum_{i=1}^{|L(a)|} \sum_{j=1}^{|L(b)|} R_k(L_i(a),L_j(b))
+\]
+}
 \end{frame}
 
 \begin{frame}
@@ -124,9 +260,39 @@
 
 \begin{frame}
     \frametitle{Ergebnisse des semantischen Ähnlichkeitsmaßes}
-    \begin{itemize}
-        \item Vergleich mit \textit{C-Rank}
-    \end{itemize}
+    \scriptsize{
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{l c c c}
+		%\hline
+		\textbf{Parameter} &\textbf{Gewichtung 1} &\textbf{Gewichtung 2} &\textbf{Gewichtung 3} \\
+		%\hline
+		$\lambda_1$, Keywords & $0.5$ & $0.2$ & $0.4$\\
+		$\lambda_2$, Autoren & $0.1$ & $0.2$ & $0.3$\\
+		$\lambda_3$, Quellen & $0.1$ & $0.2$ & $0.1$\\
+		$\lambda_4$, Zitationen & $0.2$ & $0.2$ & $0.1$\\
+		$\lambda_5$, Erscheinungsjahre & $0.1$ & $0.2$ & $0.1$\\
+	    %\hline
+    \end{tabular}
+    \end{table}
+    }
+    \scriptsize{
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{l l l l l}
+	    	%\hline
+		     &\textbf{Gewichtung 1} &\textbf{Gewichtung 2} &\textbf{Gewichtung 3} & \textbf{C-Rank} \\
+    		%\hline
+	    	Entropy & $2.4863$ & $3.28742$ & $2.48117$ & $4.13098$\\
+		    Purity & $0.50953$ & $0.39774$ & $0.51599$ & $0.35767$\\
+    		Silhouette & $0.084$ & $0.056$ & $0.069$ & $0.0$ \\
+	        %\hline
+    \end{tabular}
+\end{table}
+}
+%   \begin{itemize}
+%        \item Vergleich mit \textit{C-Rank}
+%    \end{itemize}
 \end{frame}
 
 \begin{frame}
